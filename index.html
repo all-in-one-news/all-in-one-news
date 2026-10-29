@@ -82,6 +82,7 @@ async function loadNews(){
     }));
 
     render();
+    loadNews();
   } catch (error) {
     document.getElementById("news").innerHTML =
       '<div class="empty">খবর লোড হচ্ছে না। একটু পরে চেষ্টা করুন।</div>';
