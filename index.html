@@ -66,7 +66,25 @@ footer{text-align:center;background:#102b50;color:#dce7f5;padding:22px;font-size
 © <span id="year"></span> All In One News
 </footer>
 <script>
-let stories = [];
+let stories = [];async function loadNews(){
+  try {
+    const response = await fetch("./news.json");
+    const data = await response.json();
+
+    stories = (data.news || []).map(item => ({
+      title: item.title || "শিরোনাম নেই",
+      desc: item.source || "সংবাদ সূত্র",
+      category: "সব খবর",
+      link: item.link || "#",
+      published: item.published || ""
+    }));
+
+    render();
+  } catch (error) {
+    document.getElementById("news").innerHTML =
+      '<div class="empty">খবর লোড হচ্ছে না। একটু পরে চেষ্টা করুন।</div>';
+  }
+}
 let selected="সব খবর";
 function choose(category,button){
 selected=category;
