@@ -87,7 +87,6 @@ async function loadNews(){
       '<div class="empty">খবর লোড হচ্ছে না। একটু পরে চেষ্টা করুন।</div>';
   }
 }
-  loadNews();
 let selected="সব খবর";
 function choose(category,button){
 selected=category;
@@ -106,6 +105,7 @@ document.getElementById("news").innerHTML=list.length?list.map(s=>
 document.getElementById("search").addEventListener("keydown",e=>{if(e.key==="Enter")render()});
 document.getElementById("year").textContent=new Date().getFullYear();
 render();
+loadNews();
 </script>
 </body>
 </html>
