@@ -66,14 +66,7 @@ footer{text-align:center;background:#102b50;color:#dce7f5;padding:22px;font-size
 © <span id="year"></span> All In One News
 </footer>
 <script>
-const stories = [
-{title:"স্বাগতম All In One News-এ",category:"জাতীয়",desc:"এই ওয়েবসাইটে বিভিন্ন বিষয়ের খবর এক জায়গায় দেখানোর ব্যবস্থা তৈরি হচ্ছে।"},
-{title:"দুর্ঘটনার খবরের বিভাগ",category:"দুর্ঘটনা",desc:"নির্ভরযোগ্য সূত্র থেকে যাচাই করা দুর্ঘটনার খবর এখানে দেখানো হবে।"},
-{title:"আগুনের খবরের বিভাগ",category:"আগুন",desc:"অগ্নিকাণ্ডের খবর ও সংশ্লিষ্ট তথ্যের জন্য এই বিভাগ তৈরি করা হয়েছে।"},
-{title:"নিখোঁজ সংক্রান্ত খবর",category:"নিখোঁজ",desc:"নিখোঁজ সংক্রান্ত তথ্য প্রকাশের আগে নির্ভরযোগ্য সূত্রে যাচাই করা জরুরি।"},
-{title:"খেলাধুলার খবর",category:"খেলাধুলা",desc:"খেলাধুলার নতুন খবরের জন্য এই বিভাগ প্রস্তুত করা হয়েছে।"},
-{title:"প্রযুক্তির খবর",category:"প্রযুক্তি",desc:"প্রযুক্তি ও ডিজিটাল দুনিয়ার খবর এখানে দেখানো হবে।"}
-];
+let stories = [];
 let selected="সব খবর";
 function choose(category,button){
 selected=category;
