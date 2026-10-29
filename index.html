@@ -66,7 +66,9 @@ footer{text-align:center;background:#102b50;color:#dce7f5;padding:22px;font-size
 © <span id="year"></span> All In One News
 </footer>
 <script>
-let stories = [];async function loadNews(){
+let stories = [];
+
+async function loadNews(){
   try {
     const response = await fetch("./news.json");
     const data = await response.json();
@@ -85,6 +87,7 @@ let stories = [];async function loadNews(){
       '<div class="empty">খবর লোড হচ্ছে না। একটু পরে চেষ্টা করুন।</div>';
   }
 }
+  loadNews();
 let selected="সব খবর";
 function choose(category,button){
 selected=category;
