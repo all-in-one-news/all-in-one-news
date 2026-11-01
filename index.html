@@ -2,111 +2,310 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="All In One News - বাংলাদেশের খবর এক জায়গায়">
-<title>All In One News | বাংলাদেশের খবর</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#f4f6fa;color:#172033;font-family:Arial,"Noto Sans Bengali",sans-serif}
-header{background:#102b50;color:white;padding:20px 15px}
-.wrap{max-width:950px;margin:auto}
-.brand{font-size:27px;font-weight:bold}
-.brand span{color:#ffca55}
-header p{margin:8px 0 0;color:#dce7f5}
-.search{display:flex;gap:8px;margin-top:18px}
-input{width:100%;padding:13px;border:0;border-radius:8px;font-size:16px}
-button{border:0;border-radius:8px;padding:12px 15px;background:#087f5b;color:white;font-size:15px;cursor:pointer}
-nav{display:flex;gap:9px;overflow:auto;padding:14px 0}
-nav button{white-space:nowrap;background:white;color:#173452;border:1px solid #dce2eb}
-nav button.active{background:#087f5b;color:white}
-main{padding:0 14px 30px;max-width:950px;margin:auto}
-h2{font-size:21px}
-.notice{background:#fff8df;border:1px solid #f3df9a;padding:12px;border-radius:8px;font-size:14px;line-height:1.7}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.card{background:white;border-radius:12px;padding:16px;box-shadow:0 2px 9px #1528440d}
-.tag{color:#087f5b;font-weight:bold;font-size:13px}
-.card h3{font-size:18px;line-height:1.6;margin:10px 0}
-.card p{color:#64748b;line-height:1.7;font-size:14px}
-.card a{color:#087f5b;font-weight:bold;text-decoration:none}
-.empty{background:white;padding:20px;border-radius:10px}
-footer{text-align:center;background:#102b50;color:#dce7f5;padding:22px;font-size:14px;line-height:1.8}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="All In One News - বাংলাদেশের খবর এক জায়গায়">
+  <title>All In One News - বাংলাদেশের খবর</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      background: #f3f6fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #071b3a, #123e75);
+      color: white;
+      padding: 28px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #d5e4ff;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #d5dce8;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      background: white;
+    }
+
+    .search-box input:focus {
+      border-color: #1765bd;
+    }
+
+    .search-box button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      background: #1261b5;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .section-title {
+      font-size: 21px;
+      margin-bottom: 15px;
+      color: #102b50;
+    }
+
+    .news-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #e5eaf2;
+      box-shadow: 0 3px 12px rgba(20, 40, 70, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e7f1ff;
+      color: #1459a1;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 9px;
+    }
+
+    .card h3 a {
+      color: #172b49;
+      text-decoration: none;
+    }
+
+    .card h3 a:hover {
+      color: #1261b5;
+      text-decoration: underline;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #657187;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #8993a5;
+    }
+
+    .message {
+      background: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+      color: #657187;
+      grid-column: 1 / -1;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #071b3a;
+      color: #d5e4ff;
+      text-align: center;
+      padding: 22px 12px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      header h1 {
+        font-size: 25px;
+      }
+
+      .news-list {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        margin-top: 18px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<div class="wrap">
-<div class="brand">ALL IN ONE <span>NEWS</span></div>
-<p>বাংলাদেশের গুরুত্বপূর্ণ খবর এক জায়গায়</p>
-<div class="search">
-<input id="search" placeholder="খবর খুঁজুন..." aria-label="খবর খুঁজুন">
-<button onclick="render()">খুঁজুন</button>
-</div>
-</div>
-</header>
-<main>
-<nav id="categories">
-<button class="active" onclick="choose('সব খবর',this)">সব খবর</button>
-<button onclick="choose('জাতীয়',this)">জাতীয়</button>
-<button onclick="choose('দুর্ঘটনা',this)">দুর্ঘটনা</button>
-<button onclick="choose('আগুন',this)">আগুন</button>
-<button onclick="choose('নিখোঁজ',this)">নিখোঁজ</button>
-<button onclick="choose('খেলাধুলা',this)">খেলাধুলা</button>
-<button onclick="choose('প্রযুক্তি',this)">প্রযুক্তি</button>
-</nav>
-<div class="notice">
-<strong>প্রাথমিক সংস্করণ:</strong> এখানে এখনো লাইভ খবর যুক্ত হয়নি। প্রকৃত খবর দেখানোর জন্য পরবর্তী ধাপে নির্ভরযোগ্য নিউজ সোর্স ও স্বয়ংক্রিয় আপডেট যুক্ত করতে হবে।
-</div>
-<h2>📰 সর্বশেষ খবর</h2>
-<div id="news" class="grid"></div>
-</main>
-<footer>
-<strong>All In One News</strong><br>
-খবর পড়ুন, মূল সূত্র যাচাই করুন।<br>
-© <span id="year"></span> All In One News
-</footer>
-<script>
-let stories = [];
 
-async function loadNews(){
-  try {
-    const response = await fetch("./news.json");
-    const data = await response.json();
+  <header>
+    <h1>All In One News</h1>
+    <p>বাংলাদেশের খবর এক জায়গায়</p>
+  </header>
 
-    stories = (data.news || []).map(item => ({
-      title: item.title || "শিরোনাম নেই",
-      desc: item.source || "সংবাদ সূত্র",
-      category: "সব খবর",
-      link: item.link || "#",
-      published: item.published || ""
-    }));
+  <main class="container">
 
-    render();
+    <div class="search-box">
+      <input
+        type="search"
+        id="search"
+        placeholder="খবর খুঁজুন..."
+        aria-label="খবর খুঁজুন"
+      >
+      <button type="button" id="searchBtn">খুঁজুন</button>
+    </div>
+
+    <h2 class="section-title">সর্বশেষ সংবাদ</h2>
+
+    <div id="news" class="news-list">
+      <div class="message">খবর লোড হচ্ছে...</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>খবর পড়ুন, মূল সূত্র যাচাই করুন।</p>
+    <p>© <span id="year"></span> All In One News</p>
+  </footer>
+
+  <script>
+    let stories = [];
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, function(char) {
+        const chars = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        };
+        return chars[char];
+      });
+    }
+
+    function safeLink(value) {
+      try {
+        const url = new URL(value);
+        if (url.protocol === "https:" || url.protocol === "http:") {
+          return url.href;
+        }
+      } catch (error) {
+        return "";
+      }
+      return "";
+    }
+
+    async function loadNews() {
+      const newsBox = document.getElementById("news");
+
+      try {
+        const response = await fetch("./news.json");
+
+        if (!response.ok) {
+          throw new Error("News file not found");
+        }
+
+        const data = await response.json();
+
+        stories = (data.news || []).map(item => ({
+          title: item.title || "শিরোনাম নেই",
+          source: item.source || "সংবাদ সূত্র",
+          link: safeLink(item.link || ""),
+          published: item.published || ""
+        }));
+
+        renderNews();
+
+      } catch (error) {
+        newsBox.innerHTML =
+          '<div class="message">খবর লোড হচ্ছে না। পরে আবার চেষ্টা করুন।</div>';
+      }
+    }
+
+    function renderNews() {
+      const newsBox = document.getElementById("news");
+      const searchText = document
+        .getElementById("search")
+        .value.trim()
+        .toLowerCase();
+
+      const filtered = stories.filter(item =>
+        (item.title + " " + item.source)
+          .toLowerCase()
+          .includes(searchText)
+      );
+
+      if (filtered.length === 0) {
+        newsBox.innerHTML =
+          '<div class="message">কোনো খবর পাওয়া যায়নি।</div>';
+        return;
+      }
+
+      newsBox.innerHTML = filtered.map(item => {
+        const title = escapeHTML(item.title);
+        const source = escapeHTML(item.source);
+        const published = escapeHTML(item.published);
+
+        const headline = item.link
+          ? `<a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${title}</a>`
+          : title;
+
+        return `
+          <article class="card">
+            <span class="tag">${source}</span>
+            <h3>${headline}</h3>
+            <p>মূল সংবাদ সূত্র: ${source}</p>
+            <div class="date">${published}</div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("searchBtn").addEventListener("click", renderNews);
+
+    document.getElementById("search").addEventListener("input", renderNews);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
     loadNews();
-  } catch (error) {
-    document.getElementById("news").innerHTML =
-      '<div class="empty">খবর লোড হচ্ছে না। একটু পরে চেষ্টা করুন।</div>';
-  }
-}
-let selected="সব খবর";
-function choose(category,button){
-selected=category;
-document.querySelectorAll("#categories button").forEach(b=>b.classList.remove("active"));
-button.classList.add("active");
-render();
-}
-function render(){
-const q=document.getElementById("search").value.trim().toLowerCase();
-const list=stories.filter(s=>(selected==="সব খবর"||s.category===selected)&&
-(s.title+" "+s.desc+" "+s.category).toLowerCase().includes(q));
-document.getElementById("news").innerHTML=list.length?list.map(s=>
-`<article class="card"><div class="tag">${s.category}</div><h3>${s.title}</h3><p>${s.desc}</p><span style="color:#9aa5b5;font-size:12px">ডেমো কনটেন্ট · লাইভ নিউজ নয়</span></article>`
-).join(""):'<div class="empty">কোনো ফলাফল পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।</div>';
-}
-document.getElementById("search").addEventListener("keydown",e=>{if(e.key==="Enter")render()});
-document.getElementById("year").textContent=new Date().getFullYear();
-render();
-loadNews();
-</script>
+  </script>
+
 </body>
 </html>
