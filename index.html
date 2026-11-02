@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="All In One News - বাংলাদেশের খবর এক জায়গায়">
-  <title>All In One News - বাংলাদেশের খবর</title>
+  <title>All In One News</title>
 
   <style>
     * {
@@ -16,21 +16,20 @@
 
     body {
       font-family: Arial, "Noto Sans Bengali", sans-serif;
-      background: #f3f6fb;
+      background: #f2f5fa;
       color: #172033;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #071b3a, #123e75);
+      background: linear-gradient(135deg, #071b3a, #14529a);
       color: white;
-      padding: 28px 16px;
       text-align: center;
+      padding: 30px 15px;
     }
 
     header h1 {
       font-size: 30px;
-      margin-bottom: 5px;
     }
 
     header p {
@@ -39,7 +38,7 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 25px auto;
       padding: 0 15px;
     }
@@ -47,7 +46,7 @@
     .search-box {
       display: flex;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .search-box input {
@@ -57,47 +56,47 @@
       border: 1px solid #d5dce8;
       border-radius: 10px;
       font-size: 16px;
-      outline: none;
-      background: white;
-    }
-
-    .search-box input:focus {
-      border-color: #1765bd;
     }
 
     .search-box button {
       padding: 12px 18px;
-      border: none;
+      border: 0;
       border-radius: 10px;
       background: #1261b5;
       color: white;
-      font-size: 15px;
       cursor: pointer;
     }
 
     .section-title {
-      font-size: 21px;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       color: #102b50;
+      font-size: 22px;
     }
 
     .news-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
     .card {
+      overflow: hidden;
       background: white;
-      padding: 18px;
-      border-radius: 12px;
+      border-radius: 13px;
       border: 1px solid #e5eaf2;
-      box-shadow: 0 3px 12px rgba(20, 40, 70, 0.05);
-      transition: transform 0.2s;
+      box-shadow: 0 3px 12px rgba(20, 40, 70, 0.06);
     }
 
-    .card:hover {
-      transform: translateY(-3px);
+    .news-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #e5eaf2;
+    }
+
+    .card-content {
+      padding: 17px;
     }
 
     .tag {
@@ -164,8 +163,8 @@
         grid-template-columns: 1fr;
       }
 
-      .container {
-        margin-top: 18px;
+      .news-image {
+        height: 200px;
       }
     }
   </style>
@@ -181,12 +180,7 @@
   <main class="container">
 
     <div class="search-box">
-      <input
-        type="search"
-        id="search"
-        placeholder="খবর খুঁজুন..."
-        aria-label="খবর খুঁজুন"
-      >
+      <input type="search" id="search" placeholder="খবর খুঁজুন...">
       <button type="button" id="searchBtn">খুঁজুন</button>
     </div>
 
@@ -206,28 +200,26 @@
   <script>
     let stories = [];
 
+    const fallbackImage =
+      "https://placehold.co/800x450/e5eaf2/52627a?text=All+In+One+News";
+
     function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, function(char) {
-        const chars = {
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;"
-        };
-        return chars[char];
-      });
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
     }
 
-    function safeLink(value) {
+    function safeURL(value) {
       try {
         const url = new URL(value);
         if (url.protocol === "https:" || url.protocol === "http:") {
           return url.href;
         }
-      } catch (error) {
-        return "";
-      }
+      } catch (error) {}
       return "";
     }
 
@@ -237,16 +229,15 @@
       try {
         const response = await fetch("./news.json");
 
-        if (!response.ok) {
-          throw new Error("News file not found");
-        }
+        if (!response.ok) throw new Error("News file not found");
 
         const data = await response.json();
 
         stories = (data.news || []).map(item => ({
           title: item.title || "শিরোনাম নেই",
           source: item.source || "সংবাদ সূত্র",
-          link: safeLink(item.link || ""),
+          link: safeURL(item.link || ""),
+          image: safeURL(item.image || ""),
           published: item.published || ""
         }));
 
@@ -260,15 +251,12 @@
 
     function renderNews() {
       const newsBox = document.getElementById("news");
-      const searchText = document
-        .getElementById("search")
-        .value.trim()
-        .toLowerCase();
+      const searchText = document.getElementById("search")
+        .value.trim().toLowerCase();
 
       const filtered = stories.filter(item =>
         (item.title + " " + item.source)
-          .toLowerCase()
-          .includes(searchText)
+          .toLowerCase().includes(searchText)
       );
 
       if (filtered.length === 0) {
@@ -281,6 +269,7 @@
         const title = escapeHTML(item.title);
         const source = escapeHTML(item.source);
         const published = escapeHTML(item.published);
+        const image = escapeHTML(item.image || fallbackImage);
 
         const headline = item.link
           ? `<a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${title}</a>`
@@ -288,18 +277,30 @@
 
         return `
           <article class="card">
-            <span class="tag">${source}</span>
-            <h3>${headline}</h3>
-            <p>মূল সংবাদ সূত্র: ${source}</p>
-            <div class="date">${published}</div>
+            <img
+              class="news-image"
+              src="${image}"
+              alt="${title}"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='${fallbackImage}'"
+            >
+
+            <div class="card-content">
+              <span class="tag">${source}</span>
+              <h3>${headline}</h3>
+              <p>মূল সংবাদ সূত্র: ${source}</p>
+              <div class="date">${published}</div>
+            </div>
           </article>
         `;
       }).join("");
     }
 
-    document.getElementById("searchBtn").addEventListener("click", renderNews);
+    document.getElementById("searchBtn")
+      .addEventListener("click", renderNews);
 
-    document.getElementById("search").addEventListener("input", renderNews);
+    document.getElementById("search")
+      .addEventListener("input", renderNews);
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
