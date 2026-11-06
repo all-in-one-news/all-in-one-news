@@ -1,0 +1,12 @@
+
+{
+  "name": "All In One News",
+  "short_name": "All News",
+  "description": "বাংলাদেশ ও বিশ্বের সর্বশেষ খবর এক জায়গায়",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#101827",
+  "lang": "bn"
+}
