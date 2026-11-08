@@ -638,7 +638,7 @@ def verify_image_url(item):
             content_type=str(response.headers.get('Content-Type','')).split(';',1)[0].lower()
             sample=response.read(32)
         valid=content_type.startswith('image/') or sample.startswith((
-            b'\\xff\\xd8\\xff',b'\\x89PNG\\r\\n\\x1a\\n',b'GIF87a',b'GIF89a'
+            bytes.fromhex('ffd8ff'),bytes.fromhex('89504e470d0a1a0a'),b'GIF87a',b'GIF89a'
         )) or (sample[:4]==b'RIFF' and sample[8:12]==b'WEBP')
         if valid:
             item['image_verified_at']=now.isoformat()
