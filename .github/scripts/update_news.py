@@ -562,9 +562,46 @@ for item in news:
 news=list(unique_news.values())
 
 # Normalize language on legacy records as well as newly collected records.
+def anonymize_sensitive_story(item):
+    category=str(item.get('category','')).lower()
+    language=item.get('language') or ('bn' if re.search('[ঀ-৿]',str(item.get('title',''))+' '+str(item.get('summary',''))) else 'en')
+    country=str(item.get('country','')).upper()
+    if category=='missing':
+        if language=='bn':
+            item['title']='নিখোঁজ শিশুর সতর্কতা — '+country
+            item['summary']='শিশুর নাম, বয়স ও ব্যক্তিগত পরিচয় এখানে পুনরায় প্রকাশ করা হচ্ছে না। যাচাইকৃত তথ্য ও যোগাযোগের নির্দেশনা দেখতে মূল সংবাদসূত্র খুলুন।'
+        else:
+            item['title']='Missing-child alert — '+country
+            item['summary']='The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.'
+    elif category=='abuse':
+        if language=='bn':
+            item['title']='যৌন সহিংসতার অভিযোগের প্রতিবেদন — '+country
+            item['summary']='ভুক্তভোগীর পরিচয় ও ব্যক্তিগত তথ্য গোপন রাখা হয়েছে। বিস্তারিত জানতে মূল সংবাদসূত্র খুলুন।'
+        else:
+            item['title']='Sexual-violence report — '+country
+            item['summary']='The survivor’s identity and personal details are withheld. Open the original source for verified reporting.'
+    item['language']=language
+    return item
+
 for item in news:
     if not item.get('language'):
         item['language']='bn' if re.search('[ঀ-৿]',str(item.get('title',''))+' '+str(item.get('summary',''))) else 'en'
+    anonymize_sensitive_story(item)
+
+# Sanitize the last-good snapshot too, so the frontend fallback does not
+# re-expose personal details from an older version.
+backup_candidate='news-backup.candidate.json'
+if os.path.isfile(backup_candidate):
+    try:
+        with open(backup_candidate,encoding='utf-8') as backup_file:
+            backup_data=json.load(backup_file)
+        backup_stories=backup_data.get('news',[]) if isinstance(backup_data,dict) else backup_data
+        for backup_item in backup_stories:
+            anonymize_sensitive_story(backup_item)
+        with open(backup_candidate,'w',encoding='utf-8') as backup_file:
+            json.dump(backup_data,backup_file,ensure_ascii=False,separators=(',',':'))
+    except Exception as error:
+        raise RuntimeError('Could not sanitize last-good backup: '+str(error))
 
 # Never replace a healthy feed with an unexpectedly empty or drastically smaller run.
 previous_good_count=sum(1 for x in previous if str(x.get('image','')).startswith(('https://','http://')) and x.get('image') != GENERIC_IMAGE_URL)
