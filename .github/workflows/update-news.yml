@@ -131,18 +131,19 @@ jobs:
 
           patterns={
             'fire':r'fire|blaze|wildfire|আগুন|অগ্নিকাণ্ড',
-            'missing':r'missing child|child missing|abducted child|নিখোঁজ শিশু|শিশু নিখোঁজ',
-            'abuse':r'rape|sexual assault|sexual violence|ধর্ষণ|যৌন নির্যাতন',
+            ''abuse':r'rape|sexual assault|sexual violence|molest|ধর্ষণ|যৌন নির্যাতন|যৌন হয়রানি',
+            'missing':r'missing child|child missing|missing (?:boy|girl|minor)|abducted child|নিখোঁজ শিশু|শিশু নিখোঁজ|নিখোঁজ কিশোরী|নিখোঁজ কিশোর|নিখোঁজ বালক|নিখোঁজ বালিকা',
             'accident':r'accident|crash|collision|derailment|shipwreck|দুর্ঘটনা|সংঘর্ষ|নৌকাডুবি',
             'casualty':r'death toll|fatalities|people killed|casualties|নিহত|প্রাণহানি|হতাহত',
             'reserve':r'foreign exchange reserves|forex reserves|foreign reserves|বৈদেশিক মুদ্রার রিজার্ভ|রিজার্ভ'
           }
           def classify(item):
-              if item.get('category') in patterns: return item['category']
               s=(item.get('title','')+' '+item.get('summary','')).lower()
-              for key, pattern in patterns.items():
-                  if re.search(pattern,s,re.I): return key
-              return ''
+              # Classify from the actual headline/summary first; feed query labels can be wrong.
+              for key in ('abuse','missing','fire','accident','casualty','reserve'):
+                  if re.search(patterns[key],s,re.I): return key
+              # Keep the source feed category only when the text gives no contrary signal.
+              return item.get('category','') if item.get('category') in patterns else ''
 
           try:
               with open('news.json',encoding='utf-8') as file:
