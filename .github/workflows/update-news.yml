@@ -89,6 +89,15 @@ jobs:
                   feeds.append((country, category,
                       'https://news.google.com/rss/search?' + params))
 
+
+          # Dedicated Bangladesh official missing-child alert discovery.
+          mun_q=urllib.parse.urlencode({
+              'q':'site:munalert.org/active-cases OR site:munalert.org "MUN-"',
+              'hl':'bn','gl':'BD','ceid':'BD:bn'
+          })
+          feeds.append(('BD','missing',
+              'https://news.google.com/rss/search?'+mun_q))
+
           def fetch(feed):
               country, category, url = feed
               try:
@@ -117,7 +126,7 @@ jobs:
                       if not image:
                           image_match=re.search(r"<img[^>]+(?:src|data-src)=[\"'](https?://[^\"']+)",summary,re.I)
                           if image_match: image=image_match.group(1)
-                      source=country
+                      source='MUN Alert' if 'munalert.org' in link.lower() else country
                       for sub in node.iter():
                           if local(sub.tag)=='source' and ''.join(sub.itertext()).strip():
                               source=''.join(sub.itertext()).strip(); break
@@ -126,7 +135,7 @@ jobs:
                           'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
                           'link':link,'source':source,'published':published.isoformat(),
                           'image':image,'country':country,'category':category,
-                          'verification_status':'source_reported'
+                          'verification_status':'official_source' if 'munalert.org' in link.lower() else 'source_reported'
                       })
                   print(country,category,len(items))
                   return items[:40]
@@ -148,6 +157,7 @@ jobs:
           }
           def classify(item):
               s=(item.get('title','')+' '+item.get('summary','')).lower()
+              if 'munalert.org' in str(item.get('link','')).lower() or 'mun alert' in str(item.get('source','')).lower(): return 'missing'
               # Classify from the actual headline/summary first; feed query labels can be wrong.
               for key in ('abuse','missing','fire','accident','casualty','reserve'):
                   if re.search(patterns[key],s,re.I): return key
@@ -268,6 +278,7 @@ jobs:
               out.write('</urlset>\\n')
           print('SEO article pages generated:',len(sitemap_urls)-1)
           print('Country/category feeds:',len(feeds))
+          print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
           print('Categorized records since 2026-01-01:',len(news))
           PY
       - name: Save News
