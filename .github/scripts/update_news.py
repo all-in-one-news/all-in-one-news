@@ -249,8 +249,8 @@ def decode_google_news_url(link):
     )
     with opener.open(post,timeout=18) as response:
         raw=response.read(500000).decode('utf-8','ignore')
-    parts=raw.split('\\n\\n',1)
-    payload_text=parts[1] if len(parts)==2 else re.sub(r'^\\)\\]\\}\'\\s*','',raw)
+    parts=raw.split(chr(10)+chr(10),1)
+    payload_text=parts[1] if len(parts)==2 else raw.lstrip(")]}'")
     frames=json.loads(payload_text)
     frame=next((x for x in frames if isinstance(x,list) and len(x)>2 and x[0]=='wrb.fr' and x[1]=='Fbv4je'),None)
     if not frame or not frame[2]:
@@ -292,8 +292,8 @@ def enrich_article_image(item):
             raw=response.read(900000).decode('utf-8','ignore')
         if final_url and final_url.startswith(('https://','http://')):
             item['link']=final_url
-        for tag in re.findall(r'<meta\\b[^>]*>',raw,re.I):
-            attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\\w:-]+)\\s*=\\s*["\\']([^"\\']*)["\\']',tag)}
+        for tag in re.findall(r'<meta[^>]*>',raw,re.I):
+            attrs={k.lower():html.unescape(v) for k,v in re.findall(r"""([\w:-]+)\s*=\s*["']([^"']*)["']""",tag)}
             key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
             candidate=attrs.get('content','').strip()
             if not item.get('image') and key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
@@ -303,7 +303,7 @@ def enrich_article_image(item):
         resolved=str(item.get('link',''))
         item['media_embed']=''
         item['media_type']=''
-        yt=re.search(r'(?:youtube\\.com/watch\\?v=|youtu\\.be/|youtube\\.com/shorts/)([A-Za-z0-9_-]{6,})',resolved,re.I)
+        yt=re.search(r'(?:youtube[.]com/watch[?]v=|youtu[.]be/|youtube[.]com/shorts/)([A-Za-z0-9_-]{6,})',resolved,re.I)
         if yt:
             item['media_embed']='https://www.youtube-nocookie.com/embed/'+yt.group(1)
             item['media_type']='youtube'
@@ -320,7 +320,7 @@ def enrich_article_image(item):
             enrichment_errors.append((item.get('country'),item.get('category'),'publisher_'+type(error).__name__,str(error)[:160]))
     return item
 
-# Share image-recovery capacity fairly    return item
+# Share image-recovery capacity fairly across countries instead of letting
 
 # Share image-recovery capacity fairly across countries instead of letting
 # the newest few countries consume the entire global enrichment limit.
