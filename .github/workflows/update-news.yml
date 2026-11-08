@@ -323,7 +323,14 @@ jobs:
 
           for item in incidents:
               item.pop('_normalized_title',None)
-          news=sorted(incidents,key=lambda x:x['published'],reverse=True)[:12000]
+          # Strict image rule: never publish a text-only news card.
+          # If no real publisher/RSS thumbnail could be recovered, hold the story back.
+          incidents_with_images=[
+              item for item in incidents
+              if str(item.get('image','')).startswith(('https://','http://'))
+          ]
+          print('Stories held back because no image was found:',len(incidents)-len(incidents_with_images))
+          news=sorted(incidents_with_images,key=lambda x:x['published'],reverse=True)[:12000]
           with open('news.json','w',encoding='utf-8') as file:
               json.dump({'updated_at':now.isoformat(),'news':news},file,ensure_ascii=False,indent=2)
           # Build crawlable article pages automatically for recent stories.
