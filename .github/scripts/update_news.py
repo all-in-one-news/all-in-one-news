@@ -354,11 +354,13 @@ for item in incidents:
 incidents_with_images=[
     item for item in incidents
     if str(item.get('image','')).startswith(('https://','http://'))
+    and item.get('image') != GENERIC_IMAGE_URL
 ]
 print('Stories held back because no image was found:',len(incidents)-len(incidents_with_images))
 news=sorted(incidents_with_images,key=lambda x:x['published'],reverse=True)[:12000]
 # Never replace a healthy feed with an unexpectedly empty or drastically smaller run.
-minimum_safe_count=max(10, int(len(previous)*0.20))
+previous_good_count=sum(1 for x in previous if str(x.get('image','')).startswith(('https://','http://')) and x.get('image') != GENERIC_IMAGE_URL)
+minimum_safe_count=max(10, int(previous_good_count*0.20))
 if len(news)<minimum_safe_count:
     raise SystemExit(
         f"Safety stop: collected {len(news)} image-backed stories; "
