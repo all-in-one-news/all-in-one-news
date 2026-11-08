@@ -191,6 +191,7 @@ fresh=[x for batch in batches for x in batch]
 import html
 from urllib.parse import urljoin
 GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
+enrichment_errors=[]
 def enrich_article_image(item):
     # Resolve Google News redirects even when an RSS image already exists;
     # this also lets us detect genuine YouTube/Facebook video URLs.
@@ -237,8 +238,9 @@ def enrich_article_image(item):
             elif '/posts/' in resolved.lower() or '/permalink/' in resolved.lower():
                 item['media_embed']='https://www.facebook.com/plugins/post.php?href='+encoded+'&show_text=true&width=560'
                 item['media_type']='facebook'
-    except Exception:
-        pass
+    except Exception as error:
+        if len(enrichment_errors)<40:
+            enrichment_errors.append((item.get('country'),item.get('category'),type(error).__name__,str(error)[:160]))
     return item
 
 # Share image-recovery capacity fairly across countries instead of letting
@@ -269,6 +271,8 @@ image_candidates=fair_image_candidates(
 print('Fresh image candidates selected fairly by country:',len(image_candidates))
 with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,image_candidates))
+print('Fresh candidate images recovered:',sum(1 for x in image_candidates if x.get('image') and x.get('image') != GENERIC_IMAGE_URL))
+print('Fresh Google News links resolved:',sum(1 for x in image_candidates if 'news.google.com/' not in str(x.get('link',''))))
 
 patterns={
   'fire':r'\bfire\b|\bblaze\b|wildfire|আগুন|অগ্নিকাণ্ড',
@@ -305,6 +309,11 @@ previous_image_candidates=fair_image_candidates(
 print('Previous image candidates selected fairly by country:',len(previous_image_candidates))
 with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,previous_image_candidates))
+print('Previous candidate images recovered:',sum(1 for x in previous_image_candidates if x.get('image') and x.get('image') != GENERIC_IMAGE_URL))
+print('Previous Google News links resolved:',sum(1 for x in previous_image_candidates if 'news.google.com/' not in str(x.get('link',''))))
+print('Image/link enrichment errors sampled:',len(enrichment_errors))
+for error in enrichment_errors[:20]:
+    print('Enrichment error sample:',error)
 
 # Never allow the known generic Google thumbnail through merely because it
 # still has an HTTPS URL after a candidate was not enriched.
