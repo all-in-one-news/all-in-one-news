@@ -322,9 +322,9 @@ def enrich_article_image(item):
             'Accept':'text/html,application/xhtml+xml',
             'Accept-Language':'en-US,en;q=0.9'
         })
-        with urllib.request.urlopen(req,timeout=10) as response:
+        with urllib.request.urlopen(req,timeout=8) as response:
             final_url=response.geturl()
-            raw=response.read(900000).decode('utf-8','ignore')
+            raw=response.read(200000).decode('utf-8','ignore')
         if final_url and final_url.startswith(('https://','http://')):
             item['link']=final_url
         for tag in re.findall(r'<meta[^>]*>',raw,re.I):
