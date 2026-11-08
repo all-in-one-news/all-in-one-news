@@ -267,6 +267,7 @@ def enrich_article_image(item):
     # Decode Google News' JS-mediated redirect before inspecting publisher metadata.
     link=str(item.get('link',''))
     if 'news.google.com/' in link:
+        item['google_news_url']=link
         try:
             decoded=decode_google_news_url(link)
             if decoded and decoded!=link:
@@ -349,6 +350,10 @@ def fair_image_candidates(items, limit=100):
     country_codes=sorted(groups)
     if country_codes:
         slot=int(now.timestamp()//1800)
+        for code in country_codes:
+            if groups[code]:
+                offset=slot%len(groups[code])
+                groups[code]=groups[code][offset:]+groups[code][:offset]
         start=(slot*limit)%len(country_codes)
         country_codes=country_codes[start:]+country_codes[:start]
     while len(selected)<limit:
@@ -363,8 +368,16 @@ def fair_image_candidates(items, limit=100):
             break
     return selected
 
+try:
+    with open('news.json',encoding='utf-8') as cache_file:
+        cache_data=json.load(cache_file)
+    cache_stories=cache_data.get('news',[]) if isinstance(cache_data,dict) else cache_data
+    previous_google_urls={str(x.get('google_news_url')) for x in cache_stories if x.get('google_news_url')}
+except Exception:
+    previous_google_urls=set()
+
 image_candidates=fair_image_candidates(
-    (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))),
+    (x for x in fresh if (not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))) and str(x.get('link','')) not in previous_google_urls),
     limit=50
 )
 print('Fresh image candidates selected fairly by country:',len(image_candidates))
@@ -445,6 +458,8 @@ for item in previous+fresh:
         if not old_item.get('media_embed') and item.get('media_embed'):
             old_item['media_embed']=item['media_embed']
             old_item['media_type']=item.get('media_type','')
+        if not old_item.get('google_news_url') and item.get('google_news_url'):
+            old_item['google_news_url']=item['google_news_url']
 
 # Conservative incident grouping: same country/category/date and near-identical headlines.
 # Keep one visible record, but preserve the other publishers as related sources.
