@@ -34,7 +34,7 @@ jobs:
           stories = data.get('news', []) if isinstance(data, dict) else []
           if not stories:
               raise SystemExit('Existing news.json is empty; refusing to replace a missing backup.')
-          if any(not str(x.get('image', '')).startswith(('https://', 'http://')) for x in stories):
+          if any(not str(x.get('image', '')).startswith(('https://', 'http://')) or x.get('image') == 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300' for x in stories):
               raise SystemExit('Existing news.json contains a story without an image; refusing to overwrite it.')
           PY
           cp news.json news-backup.candidate.json
@@ -64,7 +64,9 @@ jobs:
               raise SystemExit('Refusing to publish a story without an image.')
           previous = json.loads(subprocess.check_output(['git', 'show', 'HEAD:news.json'], text=True))
           old_stories = previous.get('news', []) if isinstance(previous, dict) else []
-          minimum = max(10, int(len(old_stories) * 0.20))
+          generic_image = 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
+          old_good_count = sum(1 for x in old_stories if str(x.get('image', '')).startswith(('https://', 'http://')) and x.get('image') != generic_image)
+          minimum = max(10, int(old_good_count * 0.20))
           if len(stories) < minimum:
               raise SystemExit(f'Refusing suspicious drop: {len(stories)} stories; minimum {minimum}.')
           raw = pathlib.Path('sitemap.xml').read_text(encoding='utf-8')
