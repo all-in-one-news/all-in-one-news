@@ -37,7 +37,7 @@ jobs:
           if any(not str(x.get('image', '')).startswith(('https://', 'http://')) for x in stories):
               raise SystemExit('Existing news.json contains a story without an image; refusing to overwrite it.')
           PY
-          cp news.json news-backup.json
+          cp news.json news-backup.candidate.json
       - name: Collect categorized country news with automatic retry
         run: |
           for attempt in 1 2 3; do
@@ -83,6 +83,10 @@ jobs:
                       raise SystemExit('Sitemap points to a missing article page: ' + url)
           print(f'Validated {len(stories)} image-backed stories and {len(urls)} sitemap URLs.')
           PY
+          if ! cmp -s news-backup.candidate.json news.json; then
+            cp news-backup.candidate.json news-backup.json
+          fi
+          rm -f news-backup.candidate.json
       - name: Save News
         run: |
           git add news.json news-backup.json sitemap.xml articles/
