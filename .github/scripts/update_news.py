@@ -1,4 +1,4 @@
-import json, re, os, time, urllib.request, urllib.parse, urllib.error, xml.etree.ElementTree as ET
+import json, re, os, time, http.cookiejar, urllib.request, urllib.parse, urllib.error, xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
@@ -192,41 +192,118 @@ import html
 from urllib.parse import urljoin
 GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 enrichment_errors=[]
+CHROME_UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
+
+def decode_google_news_url(link):
+    if 'news.google.com/' not in str(link):
+        return link
+    article_id=urllib.parse.urlparse(link).path.rstrip('/').rsplit('/',1)[-1]
+    if not article_id:
+        return link
+    cookies=http.cookiejar.CookieJar()
+    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookies))
+    page_html=''
+    signature=''
+    timestamp=''
+    for path in ('/rss/articles/','/articles/'):
+        page_url='https://news.google.com'+path+article_id
+        headers={
+            'User-Agent':CHROME_UA,
+            'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+            'Accept-Language':'en-US,en;q=0.9',
+            'Cookie':'CONSENT=PENDING+987',
+            'Upgrade-Insecure-Requests':'1'
+        }
+        request=urllib.request.Request(page_url,headers=headers)
+        with opener.open(request,timeout=18) as response:
+            page_html=response.read(1200000).decode('utf-8','ignore')
+        sg=re.search(r'data-n-a-sg="([^"]+)"',page_html)
+        ts=re.search(r'data-n-a-ts="([^"]+)"',page_html)
+        if sg and ts:
+            signature=sg.group(1)
+            timestamp=int(ts.group(1))
+            break
+    if not signature or not timestamp:
+        raise ValueError('Google News signature/timestamp missing; possible consent page or rate limit')
+    inner=[
+        'garturlreq',
+        [['X','X',['X','X'],None,None,1,1,'US:en',None,1,None,None,None,None,None,0,1],
+         'X','X',1,[1,1,1],1,1,None,0,0,None,0],
+        article_id,timestamp,signature
+    ]
+    inner_json=json.dumps(inner,separators=(',',':'))
+    outer_json=json.dumps([[['Fbv4je',inner_json]]],separators=(',',':'))
+    body=urllib.parse.urlencode({'f.req':outer_json}).encode('utf-8')
+    post_headers={
+        'User-Agent':CHROME_UA,
+        'Accept':'*/*',
+        'Accept-Language':'en-US,en;q=0.9',
+        'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8',
+        'Origin':'https://news.google.com',
+        'Referer':'https://news.google.com/',
+        'X-Same-Domain':'1'
+    }
+    post=urllib.request.Request(
+        'https://news.google.com/_/DotsSplashUi/data/batchexecute',
+        data=body,headers=post_headers,method='POST'
+    )
+    with opener.open(post,timeout=18) as response:
+        raw=response.read(500000).decode('utf-8','ignore')
+    parts=raw.split('\\n\\n',1)
+    payload_text=parts[1] if len(parts)==2 else re.sub(r'^\\)\\]\\}\'\\s*','',raw)
+    frames=json.loads(payload_text)
+    frame=next((x for x in frames if isinstance(x,list) and len(x)>2 and x[0]=='wrb.fr' and x[1]=='Fbv4je'),None)
+    if not frame or not frame[2]:
+        raise ValueError('Google News batchexecute returned no article URL')
+    result=json.loads(frame[2])
+    if isinstance(result,list) and len(result)>1 and result[0]=='garturlres' and str(result[1]).startswith(('https://','http://')):
+        return result[1]
+    raise ValueError('Google News decoder returned an unexpected payload')
+
 def enrich_article_image(item):
-    # Resolve Google News redirects even when an RSS image already exists;
-    # this also lets us detect genuine YouTube/Facebook video URLs.
+    # Decode Google News' JS-mediated redirect before inspecting publisher metadata.
     link=str(item.get('link',''))
+    if 'news.google.com/' in link:
+        try:
+            decoded=decode_google_news_url(link)
+            if decoded and decoded!=link:
+                item['link']=decoded
+                link=decoded
+        except Exception as error:
+            if len(enrichment_errors)<40:
+                enrichment_errors.append((item.get('country'),item.get('category'),'decode_'+type(error).__name__,str(error)[:160]))
+            return item
     needs_image=not item.get('image') or item.get('image') == GENERIC_IMAGE_URL
-    needs_resolve='news.google.com/' in link
-    if not needs_image and not needs_resolve:
+    needs_summary=not str(item.get('summary','')).strip()
+    if not needs_image and not needs_summary:
         return item
     if item.get('image') == GENERIC_IMAGE_URL:
         item['image']=''
-    if not link.startswith(('https://','http://')):
+    if not link.startswith(('https://','http://')) or 'news.google.com/' in link:
         return item
     try:
         req=urllib.request.Request(link,headers={
-            'User-Agent':'Mozilla/5.0 (compatible; AllInOneNews/1.0)',
-            'Accept':'text/html,application/xhtml+xml'
+            'User-Agent':CHROME_UA,
+            'Accept':'text/html,application/xhtml+xml',
+            'Accept-Language':'en-US,en;q=0.9'
         })
-        with urllib.request.urlopen(req,timeout=8) as response:
+        with urllib.request.urlopen(req,timeout=10) as response:
             final_url=response.geturl()
             raw=response.read(900000).decode('utf-8','ignore')
-        # Prefer publisher-selected social preview images when needed.
-        if not item.get('image'):
-            for tag in re.findall(r'<meta\b[^>]*>',raw,re.I):
-                attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\w:-]+)\s*=\s*["\']([^"\']*)["\']',tag)}
-                key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
-                candidate=attrs.get('content','').strip()
-                if key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
-                    item['image']=urljoin(final_url,candidate)
-                    break
-        if final_url and not final_url.startswith('https://news.google.com/'):
+        if final_url and final_url.startswith(('https://','http://')):
             item['link']=final_url
+        for tag in re.findall(r'<meta\\b[^>]*>',raw,re.I):
+            attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\\w:-]+)\\s*=\\s*["\\']([^"\\']*)["\\']',tag)}
+            key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
+            candidate=attrs.get('content','').strip()
+            if not item.get('image') and key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
+                item['image']=urljoin(final_url,candidate)
+            if not str(item.get('summary','')).strip() and key in ('description','og:description','twitter:description'):
+                item['summary']=html.unescape(re.sub(r'<[^>]+>',' ',candidate))[:1200]
         resolved=str(item.get('link',''))
         item['media_embed']=''
         item['media_type']=''
-        yt=re.search(r'(?:youtube\.com/watch\?v=|youtu\.be/|youtube\.com/shorts/)([A-Za-z0-9_-]{6,})',resolved,re.I)
+        yt=re.search(r'(?:youtube\\.com/watch\\?v=|youtu\\.be/|youtube\\.com/shorts/)([A-Za-z0-9_-]{6,})',resolved,re.I)
         if yt:
             item['media_embed']='https://www.youtube-nocookie.com/embed/'+yt.group(1)
             item['media_type']='youtube'
@@ -240,18 +317,24 @@ def enrich_article_image(item):
                 item['media_type']='facebook'
     except Exception as error:
         if len(enrichment_errors)<40:
-            enrichment_errors.append((item.get('country'),item.get('category'),type(error).__name__,str(error)[:160]))
+            enrichment_errors.append((item.get('country'),item.get('category'),'publisher_'+type(error).__name__,str(error)[:160]))
     return item
+
+# Share image-recovery capacity fairly    return item
 
 # Share image-recovery capacity fairly across countries instead of letting
 # the newest few countries consume the entire global enrichment limit.
-def fair_image_candidates(items, limit=1000):
+def fair_image_candidates(items, limit=100):
     groups={}
     for item in sorted(items,key=lambda x:x.get('published',''),reverse=True):
         code=str(item.get('country') or 'WORLD').upper()
         groups.setdefault(code,[]).append(item)
     selected=[]
     country_codes=sorted(groups)
+    if country_codes:
+        slot=int(now.timestamp()//1800)
+        start=(slot*limit)%len(country_codes)
+        country_codes=country_codes[start:]+country_codes[:start]
     while len(selected)<limit:
         added=False
         for code in country_codes:
@@ -266,10 +349,10 @@ def fair_image_candidates(items, limit=1000):
 
 image_candidates=fair_image_candidates(
     (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))),
-    limit=1000
+    limit=100
 )
 print('Fresh image candidates selected fairly by country:',len(image_candidates))
-with ThreadPoolExecutor(max_workers=8) as pool:
+with ThreadPoolExecutor(max_workers=2) as pool:
     list(pool.map(enrich_article_image,image_candidates))
 print('Fresh candidate images recovered:',sum(1 for x in image_candidates if x.get('image') and x.get('image') != GENERIC_IMAGE_URL))
 print('Fresh Google News links resolved:',sum(1 for x in image_candidates if 'news.google.com/' not in str(x.get('link',''))))
@@ -303,7 +386,7 @@ except Exception: previous=[]
 # Backfill older stored stories too; otherwise the site keeps showing
 # the old no-image placeholder even after the collector is improved.
 previous_image_candidates=fair_image_candidates(
-    (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))),
+    (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link','')) or not str(x.get('summary','')).strip()),
     limit=1000
 )
 print('Previous image candidates selected fairly by country:',len(previous_image_candidates))
@@ -336,8 +419,16 @@ for item in previous+fresh:
     item.setdefault('summary',item.get('description',''))
     item.setdefault('verification_status','source_reported')
     old_item=by_link.get(link)
-    if old_item is None or (not old_item.get('image') and item.get('image')):
+    if old_item is None:
         by_link[link]=item
+    else:
+        if not old_item.get('image') and item.get('image'):
+            old_item['image']=item['image']
+        if not str(old_item.get('summary','')).strip() and str(item.get('summary','')).strip():
+            old_item['summary']=item['summary']
+        if not old_item.get('media_embed') and item.get('media_embed'):
+            old_item['media_embed']=item['media_embed']
+            old_item['media_type']=item.get('media_type','')
 
 # Conservative incident grouping: same country/category/date and near-identical headlines.
 # Keep one visible record, but preserve the other publishers as related sources.
