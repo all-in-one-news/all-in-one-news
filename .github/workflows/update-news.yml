@@ -202,6 +202,9 @@ jobs:
           }
           def classify(item):
               s=(item.get('title','')+' '+item.get('summary','')).lower()
+              # A recovered/found-child notice must never be shown as an active missing-child alert.
+              if re.search(r'found child|child found|reunited|recovered child|খুঁজে পাওয়া শিশু|খুঁজে পাওয়া গেছে|উদ্ধার হওয়া শিশু|পরিবারে ফিরেছে',s,re.I):
+                  return ''
               if 'munalert.org' in str(item.get('link','')).lower() or 'mun alert' in str(item.get('source','')).lower(): return 'missing'
               # Classify from the actual headline/summary first; feed query labels can be wrong.
               for key in ('abuse','missing','fire','accident','casualty','reserve'):
