@@ -192,30 +192,51 @@ import html
 from urllib.parse import urljoin
 GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 def enrich_article_image(item):
-    # Google News sometimes repeats one generic thumbnail for unrelated stories.
-    if item.get('image') and item.get('image') != GENERIC_IMAGE_URL:
+    # Resolve Google News redirects even when an RSS image already exists;
+    # this also lets us detect genuine YouTube/Facebook video URLs.
+    link=str(item.get('link',''))
+    needs_image=not item.get('image') or item.get('image') == GENERIC_IMAGE_URL
+    needs_resolve='news.google.com/' in link
+    if not needs_image and not needs_resolve:
         return item
-    item['image']=''
-    if not str(item.get('link','')).startswith(('https://','http://')):
+    if item.get('image') == GENERIC_IMAGE_URL:
+        item['image']=''
+    if not link.startswith(('https://','http://')):
         return item
     try:
-        req=urllib.request.Request(item['link'],headers={
+        req=urllib.request.Request(link,headers={
             'User-Agent':'Mozilla/5.0 (compatible; AllInOneNews/1.0)',
             'Accept':'text/html,application/xhtml+xml'
         })
         with urllib.request.urlopen(req,timeout=8) as response:
             final_url=response.geturl()
             raw=response.read(900000).decode('utf-8','ignore')
-        # Prefer publisher-selected social preview images.
-        for tag in re.findall(r'<meta\b[^>]*>',raw,re.I):
-            attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\w:-]+)\s*=\s*["\']([^"\']*)["\']',tag)}
-            key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
-            candidate=attrs.get('content','').strip()
-            if key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
-                item['image']=urljoin(final_url,candidate)
-                break
+        # Prefer publisher-selected social preview images when needed.
+        if not item.get('image'):
+            for tag in re.findall(r'<meta\b[^>]*>',raw,re.I):
+                attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\w:-]+)\s*=\s*["\']([^"\']*)["\']',tag)}
+                key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
+                candidate=attrs.get('content','').strip()
+                if key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
+                    item['image']=urljoin(final_url,candidate)
+                    break
         if final_url and not final_url.startswith('https://news.google.com/'):
             item['link']=final_url
+        resolved=str(item.get('link',''))
+        item['media_embed']=''
+        item['media_type']=''
+        yt=re.search(r'(?:youtube\.com/watch\?v=|youtu\.be/|youtube\.com/shorts/)([A-Za-z0-9_-]{6,})',resolved,re.I)
+        if yt:
+            item['media_embed']='https://www.youtube-nocookie.com/embed/'+yt.group(1)
+            item['media_type']='youtube'
+        elif 'facebook.com' in resolved.lower():
+            encoded=urllib.parse.quote(resolved,safe='')
+            if any(path in resolved.lower() for path in ('/videos/','/reel/','/watch')):
+                item['media_embed']='https://www.facebook.com/plugins/video.php?href='+encoded+'&show_text=true&width=560'
+                item['media_type']='facebook'
+            elif '/posts/' in resolved.lower() or '/permalink/' in resolved.lower():
+                item['media_embed']='https://www.facebook.com/plugins/post.php?href='+encoded+'&show_text=true&width=560'
+                item['media_type']='facebook'
     except Exception:
         pass
     return item
@@ -242,7 +263,7 @@ def fair_image_candidates(items, limit=1000):
     return selected
 
 image_candidates=fair_image_candidates(
-    (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL),
+    (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))),
     limit=1000
 )
 print('Fresh image candidates selected fairly by country:',len(image_candidates))
@@ -278,7 +299,7 @@ except Exception: previous=[]
 # Backfill older stored stories too; otherwise the site keeps showing
 # the old no-image placeholder even after the collector is improved.
 previous_image_candidates=fair_image_candidates(
-    (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL),
+    (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))),
     limit=1000
 )
 print('Previous image candidates selected fairly by country:',len(previous_image_candidates))
