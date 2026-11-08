@@ -1,4 +1,4 @@
-import json, re, os, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+import json, re, os, time, urllib.request, urllib.parse, urllib.error, xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
@@ -109,9 +109,25 @@ for trusted_source, trusted_query in trusted_missing_queries:
 def fetch(feed):
     country, category, url = feed
     try:
-        req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 AllInOneNews/1.0'})
-        with urllib.request.urlopen(req,timeout=20) as response:
-            root=ET.fromstring(response.read())
+        # Google News can rate-limit bursts. Retry transient failures per feed.
+        for attempt in range(3):
+            try:
+                req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 AllInOneNews/1.0'})
+                with urllib.request.urlopen(req,timeout=20) as response:
+                    root=ET.fromstring(response.read())
+                break
+            except urllib.error.HTTPError as error:
+                if error.code not in (429,500,502,503,504) or attempt==2:
+                    raise
+                delay=(attempt+1)*4
+                print('Transient HTTP',error.code,'retrying',country,category,'after',delay,'seconds')
+                time.sleep(delay)
+            except (urllib.error.URLError,TimeoutError) as error:
+                if attempt==2:
+                    raise
+                delay=(attempt+1)*3
+                print('Transient network error retrying',country,category,'after',delay,'seconds')
+                time.sleep(delay)
         items=[]
         for node in root.iter():
             if local(node.tag) not in ('item','entry'): continue
@@ -165,7 +181,7 @@ def fetch(feed):
         print('Feed error',country,category,str(e)[:180])
         return []
 
-with ThreadPoolExecutor(max_workers=40) as pool:
+with ThreadPoolExecutor(max_workers=8) as pool:
     batches=list(pool.map(fetch,feeds))
 fresh=[x for batch in batches for x in batch]
 
@@ -204,7 +220,7 @@ image_candidates=sorted(
     (x for x in fresh if not x.get('image')),
     key=lambda x:x.get('published',''), reverse=True
 )[:500]
-with ThreadPoolExecutor(max_workers=20) as pool:
+with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,image_candidates))
 
 patterns={
@@ -239,7 +255,7 @@ previous_image_candidates=sorted(
     (x for x in previous if not x.get('image')),
     key=lambda x:x.get('published',''), reverse=True
 )[:500]
-with ThreadPoolExecutor(max_workers=20) as pool:
+with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,previous_image_candidates))
 
 import difflib, hashlib
@@ -376,4 +392,6 @@ print('Country/category feeds:',len(feeds))
 print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
 print('Public Facebook and YouTube discovery feeds: enabled')
 print('Bangladesh Police/CID and trusted newsroom discovery feeds: enabled')
+print('Unique countries in published news:',len({x.get('country') for x in news}))
+print('Countries represented:',','.join(sorted({x.get('country','') for x in news})))
 print('Categorized records since 2026-01-01:',len(news))
