@@ -538,6 +538,34 @@ incidents_with_images=[
 ]
 print('Stories held back because no image was found:',len(incidents)-len(incidents_with_images))
 news=sorted(incidents_with_images,key=lambda x:x['published'],reverse=True)[:12000]
+
+# Final canonical-link deduplication catches duplicate items that arrived
+# through different Google News country editions.
+unique_news={}
+for item in news:
+    canonical=str(item.get('link','')).strip().split('#',1)[0].rstrip('/')
+    if not canonical:
+        continue
+    old=unique_news.get(canonical)
+    if old is None:
+        unique_news[canonical]=item
+    else:
+        sources=old.setdefault('related_sources',[])
+        candidate_source={'name':item.get('source','সংবাদসূত্র'),'link':item.get('link','')}
+        if candidate_source['link'] and not any(x.get('link')==candidate_source['link'] for x in sources):
+            sources.append(candidate_source)
+        old['source_count']=max(int(old.get('source_count',1)),int(item.get('source_count',1)),len(sources)+1)
+        if not old.get('image') and item.get('image'):
+            old['image']=item['image']
+        if not str(old.get('summary','')).strip() and str(item.get('summary','')).strip():
+            old['summary']=item['summary']
+news=list(unique_news.values())
+
+# Normalize language on legacy records as well as newly collected records.
+for item in news:
+    if not item.get('language'):
+        item['language']='bn' if re.search('[ঀ-৿]',str(item.get('title',''))+' '+str(item.get('summary',''))) else 'en'
+
 # Never replace a healthy feed with an unexpectedly empty or drastically smaller run.
 previous_good_count=sum(1 for x in previous if str(x.get('image','')).startswith(('https://','http://')) and x.get('image') != GENERIC_IMAGE_URL)
 minimum_safe_count=max(10, int(previous_good_count*0.20))
