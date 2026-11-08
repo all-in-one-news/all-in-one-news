@@ -209,8 +209,8 @@ jobs:
                       final_url=response.geturl()
                       raw=response.read(900000).decode('utf-8','ignore')
                   # Prefer publisher-selected social preview images.
-                  for tag in re.findall(r'<meta\\b[^>]*>',raw,re.I):
-                      attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\\w:-]+)\\s*=\\s*["\\']([^"\\']*)["\\']',tag)}
+                  for tag in re.findall(r'<meta\b[^>]*>',raw,re.I):
+                      attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\w:-]+)\s*=\s*["\']([^"\']*)["\']',tag)}
                       key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
                       candidate=attrs.get('content','').strip()
                       if key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
