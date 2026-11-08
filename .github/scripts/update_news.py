@@ -212,10 +212,11 @@ def decode_google_news_url(link):
             'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
             'Accept-Language':'en-US,en;q=0.9',
             'Cookie':'CONSENT=PENDING+987',
-            'Upgrade-Insecure-Requests':'1'
+            'Upgrade-Insecure-Requests':'1',
+            'Sec-Fetch-Dest':'document','Sec-Fetch-Mode':'navigate','Sec-Fetch-Site':'none','Sec-Fetch-User':'?1'
         }
         request=urllib.request.Request(page_url,headers=headers)
-        with opener.open(request,timeout=18) as response:
+        with opener.open(request,timeout=12) as response:
             page_html=response.read(1200000).decode('utf-8','ignore')
         sg=re.search(r'data-n-a-sg="([^"]+)"',page_html)
         ts=re.search(r'data-n-a-ts="([^"]+)"',page_html)
@@ -241,13 +242,15 @@ def decode_google_news_url(link):
         'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8',
         'Origin':'https://news.google.com',
         'Referer':'https://news.google.com/',
+        'Cookie':'CONSENT=PENDING+987',
+        'Sec-Fetch-Dest':'empty','Sec-Fetch-Mode':'cors','Sec-Fetch-Site':'same-origin',
         'X-Same-Domain':'1'
     }
     post=urllib.request.Request(
         'https://news.google.com/_/DotsSplashUi/data/batchexecute',
         data=body,headers=post_headers,method='POST'
     )
-    with opener.open(post,timeout=18) as response:
+    with opener.open(post,timeout=12) as response:
         raw=response.read(500000).decode('utf-8','ignore')
     parts=raw.split(chr(10)+chr(10),1)
     payload_text=parts[1] if len(parts)==2 else raw.lstrip(")]}'")
@@ -273,6 +276,19 @@ def enrich_article_image(item):
             if len(enrichment_errors)<40:
                 enrichment_errors.append((item.get('country'),item.get('category'),'decode_'+type(error).__name__,str(error)[:160]))
             return item
+    resolved=str(item.get('link',''))
+    yt=re.search(r'(?:youtube[.]com/watch[?]v=|youtu[.]be/|youtube[.]com/shorts/)([A-Za-z0-9_-]{6,})',resolved,re.I)
+    if yt:
+        item['media_embed']='https://www.youtube-nocookie.com/embed/'+yt.group(1)
+        item['media_type']='youtube'
+    elif 'facebook.com' in resolved.lower():
+        encoded=urllib.parse.quote(resolved,safe='')
+        if any(path in resolved.lower() for path in ('/videos/','/reel/','/watch')):
+            item['media_embed']='https://www.facebook.com/plugins/video.php?href='+encoded+'&show_text=true&width=560'
+            item['media_type']='facebook'
+        elif '/posts/' in resolved.lower() or '/permalink/' in resolved.lower():
+            item['media_embed']='https://www.facebook.com/plugins/post.php?href='+encoded+'&show_text=true&width=560'
+            item['media_type']='facebook'
     needs_image=not item.get('image') or item.get('image') == GENERIC_IMAGE_URL
     needs_summary=not str(item.get('summary','')).strip()
     if not needs_image and not needs_summary:
@@ -349,7 +365,7 @@ def fair_image_candidates(items, limit=100):
 
 image_candidates=fair_image_candidates(
     (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))),
-    limit=100
+    limit=50
 )
 print('Fresh image candidates selected fairly by country:',len(image_candidates))
 with ThreadPoolExecutor(max_workers=2) as pool:
