@@ -98,6 +98,20 @@ jobs:
           feeds.append(('BD','missing',
               'https://news.google.com/rss/search?'+mun_q))
 
+          # Public social-media discovery feeds for Bangladesh missing-child reports.
+          social_queries = [
+              ('Facebook public posts', 'site:facebook.com ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "missing child" OR "MUN Alert")'),
+              ('YouTube public videos', 'site:youtube.com/watch ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "missing child" OR "MUN Alert")')
+          ]
+          for social_source, social_query in social_queries:
+              social_params=urllib.parse.urlencode({
+                  'q':social_query+' after:2025-12-31',
+                  'hl':'bn','gl':'BD','ceid':'BD:bn'
+              })
+              feeds.append(('BD','missing',
+                  'https://news.google.com/rss/search?'+social_params))
+
+
           def fetch(feed):
               country, category, url = feed
               try:
@@ -130,11 +144,25 @@ jobs:
                       for sub in node.iter():
                           if local(sub.tag)=='source' and ''.join(sub.itertext()).strip():
                               source=''.join(sub.itertext()).strip(); break
+                      media_embed=''
+                      media_type=''
+                      yt=re.search(r'(?:youtube\\.com/watch\\?v=|youtu\\.be/|youtube\\.com/shorts/)([A-Za-z0-9_-]{6,})',link,re.I)
+                      if yt:
+                          media_embed='https://www.youtube-nocookie.com/embed/'+yt.group(1)
+                          media_type='youtube'
+                      elif 'facebook.com' in link.lower():
+                          encoded=urllib.parse.quote(link,safe='')
+                          if '/videos/' in link.lower() or 'watch' in link.lower():
+                              media_embed='https://www.facebook.com/plugins/video.php?href='+encoded+'&show_text=true&width=560'
+                              media_type='facebook'
+                          elif '/posts/' in link.lower() or '/permalink/' in link.lower():
+                              media_embed='https://www.facebook.com/plugins/post.php?href='+encoded+'&show_text=true&width=560'
+                              media_type='facebook'
                       items.append({
                           'title':re.sub(r'\\s+',' ',title),
                           'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
                           'link':link,'source':source,'published':published.isoformat(),
-                          'image':image,'country':country,'category':category,
+                          'image':image,'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
                           'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower()) else 'source_reported'
                       })
                   print(country,category,len(items))
@@ -279,6 +307,7 @@ jobs:
           print('SEO article pages generated:',len(sitemap_urls)-1)
           print('Country/category feeds:',len(feeds))
           print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
+          print('Public Facebook and YouTube discovery feeds: enabled')
           print('Categorized records since 2026-01-01:',len(news))
           PY
       - name: Save News
