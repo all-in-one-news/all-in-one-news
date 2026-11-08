@@ -151,7 +151,8 @@ jobs:
                   previous=old.get('news',[]) if isinstance(old,dict) else old
           except Exception: previous=[]
 
-          merged={}
+          import difflib
+          by_link={}
           for item in previous+fresh:
               link=item.get('link') or item.get('url','')
               published=parse_date(item.get('published') or item.get('pubDate') or item.get('date',''))
@@ -164,11 +165,50 @@ jobs:
               item['country']=str(item.get('country') or 'WORLD').upper()
               item.setdefault('summary',item.get('description',''))
               item.setdefault('verification_status','source_reported')
-              old_item=merged.get(link)
+              old_item=by_link.get(link)
               if old_item is None or (not old_item.get('image') and item.get('image')):
-                  merged[link]=item
+                  by_link[link]=item
 
-          news=sorted(merged.values(),key=lambda x:x['published'],reverse=True)[:12000]
+          # Conservative incident grouping: same country/category/date and near-identical headlines.
+          # Keep one visible record, but preserve the other publishers as related sources.
+          buckets={}
+          incidents=[]
+          for item in sorted(by_link.values(),key=lambda x:x['published'],reverse=True):
+              title=re.sub(r'[^\w\u0980-\u09ff]+',' ',item.get('title','').lower()).strip()
+              title=re.sub(r'\\b(?:breaking|update|latest)\\b',' ',title)
+              tokens=set(title.split())
+              day=parse_date(item['published']).date().isoformat()
+              bucket=(item['country'],item['category'],day)
+              match=None
+              for idx in buckets.get(bucket,[]):
+                  other=incidents[idx]
+                  other_title=other.get('_normalized_title','')
+                  other_tokens=set(other_title.split())
+                  ratio=difflib.SequenceMatcher(None,title,other_title).ratio()
+                  union=tokens|other_tokens
+                  overlap=len(tokens&other_tokens)/len(union) if union else 0
+                  if ratio>=0.90 or overlap>=0.88:
+                      match=other
+                      break
+              source={'name':item.get('source','সংবাদসূত্র'),'link':item['link']}
+              if match is not None:
+                  sources=match.setdefault('related_sources',[])
+                  if not any(s.get('link')==source['link'] for s in sources):
+                      sources.append(source)
+                  match['source_count']=len(sources)+1
+                  if not match.get('image') and item.get('image'):
+                      match['image']=item['image']
+              else:
+                  item['_normalized_title']=title
+                  item['related_sources']=[]
+                  item['source_count']=1
+                  idx=len(incidents)
+                  incidents.append(item)
+                  buckets.setdefault(bucket,[]).append(idx)
+
+          for item in incidents:
+              item.pop('_normalized_title',None)
+          news=sorted(incidents,key=lambda x:x['published'],reverse=True)[:12000]
           with open('news.json','w',encoding='utf-8') as file:
               json.dump({'updated_at':now.isoformat(),'news':news},file,ensure_ascii=False,indent=2)
           print('Country/category feeds:',len(feeds))
