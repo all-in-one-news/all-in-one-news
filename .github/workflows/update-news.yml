@@ -34,7 +34,7 @@ jobs:
           from email.utils import parsedate_to_datetime
 
           now = datetime.now(timezone.utc)
-          cutoff = now - timedelta(days=30)
+          cutoff = datetime(2026, 1, 1, tzinfo=timezone.utc)
 
           sources = [
               ('প্রথম আলো','prothomalo.com','bn','BD'),
@@ -90,7 +90,7 @@ jobs:
 
           for name, domain, lang, country in sources:
               url = make_url(
-                  f'site:{domain} when:30d',
+                  f'site:{domain} after:2025-12-31',
                   lang,
                   country
               )
@@ -294,7 +294,7 @@ jobs:
               )
 
           print('Total feeds:', len(feeds))
-          print('Total news kept for 30 days:', len(news))
+          print('Total news kept since 2026-01-01:', len(news))
           print(
               'News with images:',
               sum(bool(x.get('image')) for x in news)
@@ -310,6 +310,6 @@ jobs:
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
             git add news.json
-            git commit -m "Update 30 day news archive"
+            git commit -m "Update 2026 news archive"
             git push
           fi
