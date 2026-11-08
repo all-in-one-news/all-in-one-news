@@ -115,7 +115,7 @@ jobs:
                               if candidate.startswith('https://') or candidate.startswith('http://'):
                                   image=candidate; break
                       if not image:
-                          image_match=re.search(r'<img[^>]+(?:src|data-src)=["\\'](https?://[^"\\']+)',summary,re.I)
+                          image_match=re.search(r"<img[^>]+(?:src|data-src)=[\"'](https?://[^\"']+)",summary,re.I)
                           if image_match: image=image_match.group(1)
                       source=country
                       for sub in node.iter():
