@@ -69,11 +69,15 @@ try{
 let r=await fetch('./news.json?v='+Date.now());
 if(!r.ok)throw new Error('news.json HTTP '+r.status);
 j=await r.json();
+const currentStories=Array.isArray(j)?j:(j.news||j.articles||[]);
+if(!Array.isArray(currentStories)||!currentStories.length)throw new Error('empty current news feed');
 }catch(mainError){
 try{
 let r=await fetch('./news-backup.json?v='+Date.now());
 if(!r.ok)throw new Error('backup HTTP '+r.status);
 j=await r.json();
+const backupStories=Array.isArray(j)?j:(j.news||j.articles||[]);
+if(!Array.isArray(backupStories)||!backupStories.length)throw new Error('empty backup feed');
 fromBackup=true;
 }catch(backupError){
 $('status').textContent='মূল নিউজ ও Backup—দুটিই লোড করা যায়নি';
