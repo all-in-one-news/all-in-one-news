@@ -1,6 +1,11 @@
 name: Update News
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/update_news.py'
+      - '.github/workflows/update-news.yml'
   workflow_dispatch:
   schedule:
     - cron: '*/30 * * * *'
