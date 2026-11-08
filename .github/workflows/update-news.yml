@@ -192,6 +192,44 @@ jobs:
               batches=list(pool.map(fetch,feeds))
           fresh=[x for batch in batches for x in batch]
 
+          # Recover article-page thumbnails when an RSS item has no image.
+          # Google News RSS often exposes a redirect URL and omits the publisher's
+          # Open Graph image, so follow the redirect and inspect page metadata.
+          import html
+          from urllib.parse import urljoin
+          def enrich_article_image(item):
+              if item.get('image') or not str(item.get('link','')).startswith(('https://','http://')):
+                  return item
+              try:
+                  req=urllib.request.Request(item['link'],headers={
+                      'User-Agent':'Mozilla/5.0 (compatible; AllInOneNews/1.0)',
+                      'Accept':'text/html,application/xhtml+xml'
+                  })
+                  with urllib.request.urlopen(req,timeout=8) as response:
+                      final_url=response.geturl()
+                      raw=response.read(900000).decode('utf-8','ignore')
+                  # Prefer publisher-selected social preview images.
+                  for tag in re.findall(r'<meta\\b[^>]*>',raw,re.I):
+                      attrs={k.lower():html.unescape(v) for k,v in re.findall(r'([\\w:-]+)\\s*=\\s*["\\']([^"\\']*)["\\']',tag)}
+                      key=(attrs.get('property') or attrs.get('name') or attrs.get('itemprop') or '').lower()
+                      candidate=attrs.get('content','').strip()
+                      if key in ('og:image','og:image:secure_url','twitter:image','twitter:image:src','image') and candidate.startswith(('https://','http://','/')):
+                          item['image']=urljoin(final_url,candidate)
+                          break
+                  if final_url and not final_url.startswith('https://news.google.com/'):
+                      item['link']=final_url
+              except Exception:
+                  pass
+              return item
+
+          # Keep enrichment bounded so the 195-country collection remains reliable.
+          image_candidates=sorted(
+              (x for x in fresh if not x.get('image')),
+              key=lambda x:x.get('published',''), reverse=True
+          )[:500]
+          with ThreadPoolExecutor(max_workers=20) as pool:
+              list(pool.map(enrich_article_image,image_candidates))
+
           patterns={
             'fire':r'fire|blaze|wildfire|আগুন|অগ্নিকাণ্ড',
             'abuse':r'rape|sexual assault|sexual violence|molest|ধর্ষণ|যৌন নির্যাতন|যৌন হয়রানি',
