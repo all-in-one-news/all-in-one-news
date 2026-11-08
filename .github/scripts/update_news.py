@@ -190,8 +190,13 @@ fresh=[x for batch in batches for x in batch]
 # Open Graph image, so follow the redirect and inspect page metadata.
 import html
 from urllib.parse import urljoin
+GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 def enrich_article_image(item):
-    if item.get('image') or not str(item.get('link','')).startswith(('https://','http://')):
+    # Google News sometimes repeats one generic thumbnail for unrelated stories.
+    if item.get('image') and item.get('image') != GENERIC_IMAGE_URL:
+        return item
+    item['image']=''
+    if not str(item.get('link','')).startswith(('https://','http://')):
         return item
     try:
         req=urllib.request.Request(item['link'],headers={
@@ -217,7 +222,7 @@ def enrich_article_image(item):
 
 # Keep enrichment bounded so the 195-country collection remains reliable.
 image_candidates=sorted(
-    (x for x in fresh if not x.get('image')),
+    (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL),
     key=lambda x:x.get('published',''), reverse=True
 )[:500]
 with ThreadPoolExecutor(max_workers=8) as pool:
@@ -252,7 +257,7 @@ except Exception: previous=[]
 # Backfill older stored stories too; otherwise the site keeps showing
 # the old no-image placeholder even after the collector is improved.
 previous_image_candidates=sorted(
-    (x for x in previous if not x.get('image')),
+    (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL),
     key=lambda x:x.get('published',''), reverse=True
 )[:500]
 with ThreadPoolExecutor(max_workers=8) as pool:
