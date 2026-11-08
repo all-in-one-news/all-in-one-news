@@ -285,6 +285,12 @@ print('Previous image candidates selected fairly by country:',len(previous_image
 with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,previous_image_candidates))
 
+# Never allow the known generic Google thumbnail through merely because it
+# still has an HTTPS URL after a candidate was not enriched.
+for item in previous+fresh:
+    if item.get('image') == GENERIC_IMAGE_URL:
+        item['image']=''
+
 import difflib, hashlib
 by_link={}
 for item in previous+fresh:
