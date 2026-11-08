@@ -151,7 +151,7 @@ jobs:
                   previous=old.get('news',[]) if isinstance(old,dict) else old
           except Exception: previous=[]
 
-          import difflib
+          import difflib, hashlib
           by_link={}
           for item in previous+fresh:
               link=item.get('link') or item.get('url','')
@@ -175,7 +175,7 @@ jobs:
           incidents=[]
           for item in sorted(by_link.values(),key=lambda x:x['published'],reverse=True):
               title=re.sub(r'[^\w\u0980-\u09ff]+',' ',item.get('title','').lower()).strip()
-              title=re.sub(r'\\b(?:breaking|update|latest)\\b',' ',title)
+              title=re.sub(r'\b(?:breaking|update|latest)\b',' ',title)
               tokens=set(title.split())
               day=parse_date(item['published']).date().isoformat()
               bucket=(item['country'],item['category'],day)
@@ -200,6 +200,7 @@ jobs:
                       match['image']=item['image']
               else:
                   item['_normalized_title']=title
+                  item['incident_id']=hashlib.sha1((item['country']+'|'+item['category']+'|'+day+'|'+title).encode('utf-8')).hexdigest()[:16]
                   item['related_sources']=[]
                   item['source_count']=1
                   idx=len(incidents)
