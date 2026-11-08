@@ -2,6 +2,7 @@ import json, re, os, time, http.cookiejar, urllib.request, urllib.parse, urllib.
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
+GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 
 now = datetime.now(timezone.utc)
 cutoff = datetime(2026, 1, 1, tzinfo=timezone.utc)
@@ -159,14 +160,24 @@ def fetch(feed):
             if not title or not link or not published or published<cutoff or published>now+timedelta(hours=2): continue
             summary=text_of(node,('description','summary','content'))
             image=''
+            rss_image_candidates=[]
             for sub in node.iter():
                 if local(sub.tag) in ('thumbnail','content','enclosure'):
                     candidate=(sub.attrib.get('url') or sub.attrib.get('src') or sub.attrib.get('href') or '').strip()
-                    if candidate.startswith('https://') or candidate.startswith('http://'):
-                        image=candidate; break
+                    if candidate.startswith(('https://','http://')) and candidate != GENERIC_IMAGE_URL:
+                        rss_image_candidates.append(candidate)
+            # Google News can place a generic placeholder first and a publisher
+            # image later in the same RSS item; inspect every candidate.
+            for candidate in rss_image_candidates:
+                if candidate != GENERIC_IMAGE_URL:
+                    image=candidate
+                    break
             if not image:
-                image_match=re.search(r"<img[^>]+(?:src|data-src)=[\"'](https?://[^\"']+)",summary,re.I)
-                if image_match: image=image_match.group(1)
+                image_matches=re.findall(r"<img[^>]+(?:src|data-src)=[\"'](https?://[^\"']+)",summary,re.I)
+                for candidate in image_matches:
+                    if candidate != GENERIC_IMAGE_URL:
+                        image=candidate
+                        break
             source='MUN Alert' if 'munalert.org' in link.lower() else country
             for sub in node.iter():
                 if local(sub.tag)=='source' and ''.join(sub.itertext()).strip():
@@ -208,7 +219,6 @@ fresh=[x for batch in batches for x in batch]
 # Open Graph image, so follow the redirect and inspect page metadata.
 import html
 from urllib.parse import urljoin
-GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 enrichment_errors=[]
 CHROME_UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
 
