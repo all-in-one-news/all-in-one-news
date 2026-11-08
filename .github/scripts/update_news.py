@@ -220,11 +220,32 @@ def enrich_article_image(item):
         pass
     return item
 
-# Keep enrichment bounded so the 195-country collection remains reliable.
-image_candidates=sorted(
+# Share image-recovery capacity fairly across countries instead of letting
+# the newest few countries consume the entire global enrichment limit.
+def fair_image_candidates(items, limit=1000):
+    groups={}
+    for item in sorted(items,key=lambda x:x.get('published',''),reverse=True):
+        code=str(item.get('country') or 'WORLD').upper()
+        groups.setdefault(code,[]).append(item)
+    selected=[]
+    country_codes=sorted(groups)
+    while len(selected)<limit:
+        added=False
+        for code in country_codes:
+            if groups[code]:
+                selected.append(groups[code].pop(0))
+                added=True
+                if len(selected)>=limit:
+                    break
+        if not added:
+            break
+    return selected
+
+image_candidates=fair_image_candidates(
     (x for x in fresh if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL),
-    key=lambda x:x.get('published',''), reverse=True
-)[:500]
+    limit=1000
+)
+print('Fresh image candidates selected fairly by country:',len(image_candidates))
 with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,image_candidates))
 
@@ -256,10 +277,11 @@ except Exception: previous=[]
 
 # Backfill older stored stories too; otherwise the site keeps showing
 # the old no-image placeholder even after the collector is improved.
-previous_image_candidates=sorted(
+previous_image_candidates=fair_image_candidates(
     (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL),
-    key=lambda x:x.get('published',''), reverse=True
-)[:500]
+    limit=1000
+)
+print('Previous image candidates selected fairly by country:',len(previous_image_candidates))
 with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,previous_image_candidates))
 
