@@ -135,7 +135,7 @@ jobs:
                           'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
                           'link':link,'source':source,'published':published.isoformat(),
                           'image':image,'country':country,'category':category,
-                          'verification_status':'official_source' if 'munalert.org' in link.lower() else 'source_reported'
+                          'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower()) else 'source_reported'
                       })
                   print(country,category,len(items))
                   return items[:40]
