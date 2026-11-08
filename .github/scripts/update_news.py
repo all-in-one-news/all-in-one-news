@@ -630,7 +630,7 @@ def verify_image_url(item):
         'User-Agent':CHROME_UA,
         'Accept':'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
         'Range':'bytes=0-2047',
-        'Referer':'https://'+host+'/'
+        'Referer':'https://all-in-one-news.github.io/all-in-one-news/'
     }
     try:
         req=Request(image_url,headers=headers)
