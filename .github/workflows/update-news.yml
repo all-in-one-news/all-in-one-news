@@ -146,7 +146,7 @@ jobs:
                               source=''.join(sub.itertext()).strip(); break
                       media_embed=''
                       media_type=''
-                      yt=re.search(r'(?:youtube\\.com/watch\\?v=|youtu\\.be/|youtube\\.com/shorts/)([A-Za-z0-9_-]{6,})',link,re.I)
+                      yt=re.search(r'(?:youtube\.com/watch\\?v=|youtu\.be/|youtube\.com/shorts/)([A-Za-z0-9_-]{6,})',link,re.I)
                       if yt:
                           media_embed='https://www.youtube-nocookie.com/embed/'+yt.group(1)
                           media_type='youtube'
