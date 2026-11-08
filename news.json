@@ -1,28 +1,6 @@
 {
-  "updated_at": "2026-11-08T22:55:52.745441+00:00",
+  "updated_at": "2026-11-08T22:56:55.939573+00:00",
   "news": [
-    {
-      "title": "CPD release photo of suspect in South Side home invasion, sexual assault - CBS News",
-      "summary": " CPD release photo of suspect in South Side home invasion, sexual assault &nbsp;&nbsp; CBS News ",
-      "link": "https://www.cbsnews.com/chicago/news/home-invasion-sexual-assault-auburn-gresham/",
-      "source": "CBS News",
-      "published": "2026-11-08T18:52:00+00:00",
-      "image": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/08/85f95e93-8265-4544-a6a1-4314841f1d93/thumbnail/1200x630/1a7ae348225040dbc5427f4ccc3d4ac6/untitled-design-2026-11-08t124222-903.png",
-      "media_embed": "",
-      "media_type": "",
-      "country": "UG",
-      "category": "abuse",
-      "language": "en",
-      "verification_status": "source_reported",
-      "incident_id": "5bec681f44d491be",
-      "related_sources": [
-        {
-          "name": "ODT",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdDNDQ2VvQUZWc2gzckJRNUZpNjYwdFNvZElJNzBMLVRpWk0tcEduT0MtVm0yR3BMVTV0MThNdndJVXNfa3R2LUpuMjA1UUp1NWJYT2RQQ0dMOEdxVzVpX0ctbEJDWGJHQnFYU3htT0NyVUNPa3c2VkFzcmtXX00wTFp4RzRaQ3czdlRlN2dxaHdYOHBfX1lBblNFVWhWd3R1MzBzR05IZTAwUUwxWjItXw?oc=5"
-        }
-      ],
-      "source_count": 2
-    },
     {
       "title": "Multiple fire crews respond to Bethel Twp. house fire - Springfield News-Sun",
       "summary": " Multiple fire crews respond to Bethel Twp. house fire &nbsp;&nbsp; Springfield News-Sun ",
@@ -37,7 +15,8 @@
       "verification_status": "source_reported",
       "incident_id": "e73547589e1bac5b",
       "related_sources": [],
-      "source_count": 1
+      "source_count": 1,
+      "language": "en"
     },
     {
       "title": "Barn fire in Naples destroys property and farm equipment, according to sheriff's office - 13WHAM-TV",
@@ -53,7 +32,8 @@
       "verification_status": "source_reported",
       "incident_id": "c35687d7817e35fa",
       "related_sources": [],
-      "source_count": 1
+      "source_count": 1,
+      "language": "en"
     },
     {
       "title": "Charlotte FC to Play Chicago Fire FC in Round One of Audi 2026 MLS Cup Playoffs - Charlotte FC",
@@ -69,7 +49,8 @@
       "verification_status": "source_reported",
       "incident_id": "346bad159b6769fb",
       "related_sources": [],
-      "source_count": 1
+      "source_count": 1,
+      "language": "en"
     },
     {
       "title": "Egypt train collision death toll rises to 7, with 112 injured - Türkiye Today",
@@ -104,8 +85,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUjNWRFRzMDZ2VGFQeFB4SzVMTVVyRXhsbUdNcnNvaXd2MkxVaTAxNzVaNjdmWlpaRGxwSWVabFdZd2hHd0J5SG4zTUI1SWVpWHpoLVJkbnFIYWhNQXhNTXVKUnQ2Z2tnQlRPSkZDZlMtdFdGWkRKc1M4N1BmajBVMzZOQ2lWakJHbnBRZnhaaGlOejNGZ0lJX0F1TmprMC1JWjdtRU82dU9iNTU3U2FQSjBWTXNwcUI0el9FY0UzSm50QW5D?oc=5",
       "incident_id": "426f8fe8083df325",
-      "related_sources": [],
-      "source_count": 1
+      "related_sources": [
+        {
+          "name": "New York Daily News",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUjNWRFRzMDZ2VGFQeFB4SzVMTVVyRXhsbUdNcnNvaXd2MkxVaTAxNzVaNjdmWlpaRGxwSWVabFdZd2hHd0J5SG4zTUI1SWVpWHpoLVJkbnFIYWhNQXhNTXVKUnQ2Z2tnQlRPSkZDZlMtdFdGWkRKc1M4N1BmajBVMzZOQ2lWakJHbnBRZnhaaGlOejNGZ0lJX0F1TmprMC1JWjdtRU82dU9iNTU3U2FQSjBWTXNwcUI0el9FY0UzSm50QW5D?oc=5"
+        }
+      ],
+      "source_count": 2
     },
     {
       "title": "St Mirren 0-2 Rangers: Ryan Naderi and Dan Neil fire Rangers to Scottish Premiership victory - Sky Sports",
@@ -138,10 +124,10 @@
       "category": "abuse",
       "language": "en",
       "verification_status": "source_reported",
-      "google_news_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUWJjUXRPME1FWV9fU2pFLUFreHhZMVB3U04wSmIzMnIyVUdiakMyRF8tQzlva3o0LTlwNTdfenVzTEFOWDI0MkxSMXUyTVZRNzNCbTRzQmYtWU1YV2Ixa1E4QzZld2liZTdlUjd5UmRueWZocWZ5TFA3Z214WnM5c3RqQTkySkhy?oc=5",
       "incident_id": "86b8918711504990",
       "related_sources": [],
-      "source_count": 1
+      "source_count": 1,
+      "google_news_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUWJjUXRPME1FWV9fU2pFLUFreHhZMVB3U04wSmIzMnIyVUdiakMyRF8tQzlva3o0LTlwNTdfenVzTEFOWDI0MkxSMXUyTVZRNzNCbTRzQmYtWU1YV2Ixa1E4QzZld2liZTdlUjd5UmRueWZocWZ5TFA3Z214WnM5c3RqQTkySkhy?oc=5"
     },
     {
       "title": "Polluted Delhi Tries ‘Green’ Fireworks to Clear the Air at Diwali",
@@ -155,7 +141,8 @@
       "verification_status": "source_reported",
       "incident_id": "4507b6e15c066ee4",
       "related_sources": [],
-      "source_count": 1
+      "source_count": 1,
+      "language": "en"
     },
     {
       "title": "Two seriously injured after M20 crash involving more than 30 vehicles in Kent",
@@ -171,7 +158,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Six dead after gunman opens fire ‘at random’ in Kraków market square",
@@ -187,7 +175,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Gunman Opens Fire in Krakow, Killing at Least 5, Polish Police Say",
@@ -201,7 +190,8 @@
       "verification_status": "source_reported",
       "incident_id": "4434cf5ac0eff10b",
       "related_sources": [],
-      "source_count": 1
+      "source_count": 1,
+      "language": "en"
     },
     {
       "title": "Evacuations in Liverpool city centre after car crash causes gas leak",
@@ -217,7 +207,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Victims in rape cases must not feel like they are on trial, Burnham says",
@@ -233,7 +224,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Boy, 4, dies after Range Rover crashes on country road",
@@ -249,7 +241,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "India's forex reserves decline by $2.69 billion to $717.06 billion as of October 30 - Times of Oman",
@@ -266,8 +259,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRXRTalZWekJBR2RIbGprSjJUWmhOdGthZzhsNmlMb2I4LWozU3ZHc3dIOFliX0E2M2pCOXR5bGdFYlQ2VEppVGNjSWZaVHFBMGJDa2xiSDRuclY3b19qUm5NeGtwM0ZfVVA0MVhqR2c0MVRkVEFQU3h0cVM3TnlmdzNhdkVIc0FTXzNialdoWm82Ym5EX1FILU90WDNCRTR1aGFabm9BX2l6TElRcjBobVRhYUJUSm1J?oc=5",
       "incident_id": "ae7c172cb27cfaeb",
-      "related_sources": [],
-      "source_count": 1
+      "related_sources": [
+        {
+          "name": "Times of Oman",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRXRTalZWekJBR2RIbGprSjJUWmhOdGthZzhsNmlMb2I4LWozU3ZHc3dIOFliX0E2M2pCOXR5bGdFYlQ2VEppVGNjSWZaVHFBMGJDa2xiSDRuclY3b19qUm5NeGtwM0ZfVVA0MVhqR2c0MVRkVEFQU3h0cVM3TnlmdzNhdkVIc0FTXzNialdoWm82Ym5EX1FILU90WDNCRTR1aGFabm9BX2l6TElRcjBobVRhYUJUSm1J?oc=5"
+        }
+      ],
+      "source_count": 2
     },
     {
       "title": "Death Toll from Israeli Attacks in Gaza Surpasses 74,000 - 8AM Media",
@@ -337,7 +335,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Girl, 7, among two killed in French bus crash - CNA",
@@ -354,8 +353,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWURIUFVySjgxZF9LU1pQUExoS1pDMElYVmh1U2lnb0xmbmZQaDBnSEZ5SHhlSFFDNmFIU2xkYVh5RUk1NW9VN2s1VHpqaU85UGluaV9CMXgwaEZMQXpVblY4MDJlT0VLRE1BdEtxZU9PS25ZUGdwcS01c0M4eUU3UjJPZ0lxNjBid0xSbjRB?oc=5",
       "incident_id": "950d0b1f871e4cf8",
-      "related_sources": [],
-      "source_count": 1
+      "related_sources": [
+        {
+          "name": "CNA",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWURIUFVySjgxZF9LU1pQUExoS1pDMElYVmh1U2lnb0xmbmZQaDBnSEZ5SHhlSFFDNmFIU2xkYVh5RUk1NW9VN2s1VHpqaU85UGluaV9CMXgwaEZMQXpVblY4MDJlT0VLRE1BdEtxZU9PS25ZUGdwcS01c0M4eUU3UjJPZ0lxNjBid0xSbjRB?oc=5"
+        }
+      ],
+      "source_count": 2
     },
     {
       "title": "Russell Brand rape conviction must be ‘wake-up call’, says culture secretary",
@@ -371,7 +375,26 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
+    },
+    {
+      "title": "অক্টোবর শেষে চীনের বৈদেশিক মুদ্রার রিজার্ভের পরিমাণ ৩.৪০৫২ ট্রিলিয়ন মার্কিন ডলার - 国际在线",
+      "summary": " অক্টোবর শেষে চীনের বৈদেশিক মুদ্রার রিজার্ভের পরিমাণ ৩.৪০৫২ ট্রিলিয়ন মার্কিন ডলার &nbsp;&nbsp; 国际在线 ",
+      "link": "https://bengali.cri.cn/2026/11/07/ARTI1794040661813324",
+      "source": "国际在线",
+      "published": "2026-11-06T16:37:44+00:00",
+      "image": "https://38picres.cgtn.com/photoAlbum/page/performance/img/2026/11/7/1794040649029_336.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "reserve",
+      "language": "bn",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE02ZWNyVzllMmpQR2ZqT0ZMTlV1U1E4Y1BsUjdYSEdwVk9fRVFqaGF3THFJdEJ3OTN6UHdoX09SUWRhWFV5cXZpdEVpTjZuLWtmel9tQVZDMURCRWRxb0p4djhjY1c?oc=5",
+      "incident_id": "de4c1b4fa9993265",
+      "related_sources": [],
+      "source_count": 1
     },
     {
       "title": "European troops prepare for possible post-ceasefire deployment to Ukraine",
@@ -387,7 +410,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Germany: Small plane crashes onto A2 highway, killing 2",
@@ -403,7 +427,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Anti-fire ant eradication activist convicted after using legal arguments ‘similar to sovereign citizens’",
@@ -419,7 +444,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Ukraine raises Zaporizhia aid strike death toll to at least 50",
@@ -435,7 +461,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Weeks before rape conviction, Russell Brand was featured speaker for Maha group allied with RFK Jr",
@@ -451,7 +478,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "McIlroy fires 63 to move into Abu Dhabi contention",
@@ -467,7 +495,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "French bus carrying school children crashes, killing 2",
@@ -483,7 +512,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "'Several victims' after bus crashes in France, officials say",
@@ -499,7 +529,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Russell Brand being investigated over rape allegations from two more women, police say",
@@ -515,7 +546,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "Seven people arrested in Glasgow after Bonfire Night violence across Scotland - The Guardian",
@@ -532,7 +564,8 @@
       "source_count": 1,
       "media_embed": "",
       "media_type": "",
-      "google_news_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbi1Rc0lidE45a0dxT2NBdUZGMXVqT2ZJeG5DY1lKSUJhb0l3dGZpUVdxYjM1bkN2QWhkeWl2NGZqblZoSkc1ZXJRdVlZNVYwSnZyMlV6NEVBRUVsdndxTVB0Y2dmQWtfR3AzdWNWcm80aXFFN2hUX1Mta0RzVmt2OU1zX0l6UGt6Ry12UXNtVUliZlRRNFhYLXFVTQ?oc=5"
+      "google_news_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbi1Rc0lidE45a0dxT2NBdUZGMXVqT2ZJeG5DY1lKSUJhb0l3dGZpUVdxYjM1bkN2QWhkeWl2NGZqblZoSkc1ZXJRdVlZNVYwSnZyMlV6NEVBRUVsdndxTVB0Y2dmQWtfR3AzdWNWcm80aXFFN2hUX1Mta0RzVmt2OU1zX0l6UGt6Ry12UXNtVUliZlRRNFhYLXFVTQ?oc=5",
+      "language": "en"
     },
     {
       "title": "Death a ‘distinct possibility’ in collision running and face-slapping competitions, inquiry hears",
@@ -548,7 +581,26 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
+    },
+    {
+      "title": "Indonesia’s Foreign Reserves Rise to $146.77 Billion in October - Jakarta Globe",
+      "summary": " Indonesia’s Foreign Reserves Rise to $146.77 Billion in October &nbsp;&nbsp; Jakarta Globe ",
+      "link": "https://jakartaglobe.id/business/indonesias-foreign-reserves-rise-to-14677-billion-in-october",
+      "source": "Jakarta Globe",
+      "published": "2026-11-06T08:12:00+00:00",
+      "image": "https://img2.beritasatu.com/cache/jakartaglobe/960x620-w/2026/11/1793951909-2660x1773.webp",
+      "media_embed": "",
+      "media_type": "",
+      "country": "AF",
+      "category": "reserve",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPVEpqNWwtSTEwQVRhRk1Fb0pHMnF6clc5VEFGSkhxRjMxc3Aya2NRVEw0SkRTVjhkckluRG9ndk1jVXFoTTVmSXMzdE15V3Z5V2RTMzhXVEZUSEZCR05GREVpQkJXV3F4cDA1UUJxdmo0LUtPYXc3Vjh0LXBsY3ppSnRCcFR5RE1mbWRDOElTUlFZQnV0b25VeA?oc=5",
+      "incident_id": "a68417baf1c51ae7",
+      "related_sources": [],
+      "source_count": 1
     },
     {
       "title": "A wildfire killed their loved ones in Spain. These British families demand to know why",
@@ -564,7 +616,8 @@
       "related_sources": [],
       "source_count": 1,
       "media_embed": "",
-      "media_type": ""
+      "media_type": "",
+      "language": "en"
     },
     {
       "title": "শিশু নিখোঁজ হলে বা হারিয়ে গেলে কী করবেন? - BBC",
@@ -581,6 +634,24 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9HcDJGaEFiUVd5Z09oLTlLUTlpYUZrdzczVFMtdTd3MDVNQU1TVVFiV1lLbGFReEg2OE05Mlk0VVpocU1lS1FUMHkyWmdEc1hGSVV5UGliNHJYbThqMFZv0gFkQVVfeXFMTXdjWndTVHk0WGVkOVA4VVYzTlZlMm9tOGdaUDFVRVV6amRrYkRkVXl5WUNkcWltbzl3cGZIYU1XYl9jRFdfZnNESVhvV1pIY21PcXRpXzNkMHJiZDc0OTRScEhFNA?oc=5",
       "incident_id": "9fcd23abfc639ecf",
+      "related_sources": [],
+      "source_count": 1
+    },
+    {
+      "title": "Child missing in Paradise area has been found - CBC",
+      "summary": " Child missing in Paradise area has been found &nbsp;&nbsp; CBC ",
+      "link": "https://www.cbc.ca/news/canada/newfoundland-labrador/child-missing-in-paradise-area-has-been-found-9.7235854",
+      "source": "CBC",
+      "published": "2026-06-15T07:00:00+00:00",
+      "image": "https://i.cbc.ca/ais/af4fb51a-017c-4282-b447-f1f3cc6b757b,1781544806195/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C1920%2C1080%29%3BResize%3D620",
+      "media_embed": "",
+      "media_type": "",
+      "country": "UG",
+      "category": "missing",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeUtSQ0RQeHlXSVdWaHpGWkJiWnEyeUg3cjIyZkZnUzBlSjJlM0k5bk1pb1M1VzZueW5mRWF5ZW9SdmxKMVVFY0wtX3BPUVFhYkRkZ3k3RlJ2Tk50MGtfQlFodDYtNTBlTHZmajRRbTh0VVpMRWc5OFFjUGt3NFFtandmRE1sb3NhNmpfNmtRd25QZ3MxcC1tR1ZVblg1VVJCa2wyYWgzOExPRmdX?oc=5",
+      "incident_id": "954a755c86836095",
       "related_sources": [],
       "source_count": 1
     }
