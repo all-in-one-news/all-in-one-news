@@ -588,6 +588,57 @@ for item in news:
         item['language']='bn' if re.search('[ঀ-৿]',str(item.get('title',''))+' '+str(item.get('summary',''))) else 'en'
     anonymize_sensitive_story(item)
 
+# Verify that newly published image URLs really return image data, not an
+# HTML error page. Successful checks are cached for seven days.
+def verify_image_url(item):
+    image_url=str(item.get('image','')).strip()
+    if not image_url.startswith('https://') or image_url==GENERIC_IMAGE_URL:
+        return item,False,'invalid-url'
+    verified_at=item.get('image_verified_at')
+    if verified_at:
+        try:
+            verified_dt=datetime.fromisoformat(str(verified_at).replace('Z','+00:00'))
+            if verified_dt.tzinfo is None:
+                verified_dt=verified_dt.replace(tzinfo=now.tzinfo)
+            if (now-verified_dt).total_seconds()<7*24*60*60:
+                return item,True,'cached'
+        except Exception:
+            pass
+    host=urllib.parse.urlsplit(image_url).netloc
+    headers={
+        'User-Agent':CHROME_UA,
+        'Accept':'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+        'Range':'bytes=0-2047',
+        'Referer':'https://'+host+'/'
+    }
+    try:
+        req=Request(image_url,headers=headers)
+        with urlopen(req,timeout=8) as response:
+            content_type=str(response.headers.get('Content-Type','')).split(';',1)[0].lower()
+            sample=response.read(32)
+        valid=content_type.startswith('image/') or sample.startswith((
+            b'\\xff\\xd8\\xff',b'\\x89PNG\\r\\n\\x1a\\n',b'GIF87a',b'GIF89a'
+        )) or (sample[:4]==b'RIFF' and sample[8:12]==b'WEBP')
+        if valid:
+            item['image_verified_at']=now.isoformat()
+        return item,valid,host
+    except Exception as error:
+        return item,False,host+':'+type(error).__name__
+
+with ThreadPoolExecutor(max_workers=6) as pool:
+    image_checks=list(pool.map(verify_image_url,news))
+verified_news=[]
+failed_image_hosts=[]
+for checked_item,is_valid,detail in image_checks:
+    if is_valid:
+        verified_news.append(checked_item)
+    else:
+        failed_image_hosts.append(detail)
+print('Image URL checks:',len(image_checks),'verified:',len(verified_news),'rejected:',len(failed_image_hosts))
+if failed_image_hosts:
+    print('Rejected image hosts:',failed_image_hosts[:20])
+news=verified_news
+
 # Sanitize the last-good snapshot too, so the frontend fallback does not
 # re-expose personal details from an older version.
 backup_candidate='news-backup.candidate.json'
