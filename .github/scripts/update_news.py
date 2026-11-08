@@ -1,4 +1,4 @@
-import json, re, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+import json, re, os, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
@@ -208,7 +208,7 @@ with ThreadPoolExecutor(max_workers=20) as pool:
     list(pool.map(enrich_article_image,image_candidates))
 
 patterns={
-  'fire':r'fire|blaze|wildfire|আগুন|অগ্নিকাণ্ড',
+  'fire':r'\bfire\b|\bblaze\b|wildfire|আগুন|অগ্নিকাণ্ড',
   'abuse':r'rape|sexual assault|sexual violence|molest|ধর্ষণ|যৌন নির্যাতন|যৌন হয়রানি',
   'missing':r'missing child|child missing|missing (?:boy|girl|minor)|abducted child|নিখোঁজ শিশু|শিশু নিখোঁজ|নিখোঁজ কিশোরী|নিখোঁজ কিশোর|নিখোঁজ বালক|নিখোঁজ বালিকা',
   'accident':r'accident|crash|collision|derailment|shipwreck|দুর্ঘটনা|সংঘর্ষ|নৌকাডুবি',
@@ -308,8 +308,24 @@ incidents_with_images=[
 ]
 print('Stories held back because no image was found:',len(incidents)-len(incidents_with_images))
 news=sorted(incidents_with_images,key=lambda x:x['published'],reverse=True)[:12000]
-with open('news.json','w',encoding='utf-8') as file:
+# Never replace a healthy feed with an unexpectedly empty or drastically smaller run.
+minimum_safe_count=max(10, int(len(previous)*0.20))
+if len(news)<minimum_safe_count:
+    raise SystemExit(
+        f"Safety stop: collected {len(news)} image-backed stories; "
+        f"minimum safe count is {minimum_safe_count}. Existing news.json is preserved."
+    )
+# Validate the candidate before atomically replacing the published data file.
+news_tmp='news.json.tmp'
+with open(news_tmp,'w',encoding='utf-8') as file:
     json.dump({'updated_at':now.isoformat(),'news':news},file,ensure_ascii=False,indent=2)
+with open(news_tmp,encoding='utf-8') as file:
+    candidate=json.load(file)
+if not isinstance(candidate,dict) or not isinstance(candidate.get('news'),list):
+    raise SystemExit("Safety stop: generated news JSON has an invalid structure.")
+if not candidate['news'] or any(not str(x.get('image','')).startswith(('https://','http://')) for x in candidate['news']):
+    raise SystemExit("Safety stop: generated news JSON is empty or contains a story without an image.")
+os.replace(news_tmp,'news.json')
 # Build crawlable article pages automatically for recent stories.
 import html, os
 from urllib.parse import quote
@@ -351,10 +367,10 @@ for item in news:
         out.write(page)
     sitemap_urls.append(url)
 with open('sitemap.xml','w',encoding='utf-8') as out:
-    out.write('<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n')
+    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for url in sitemap_urls:
-        out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\\n')
-    out.write('</urlset>\\n')
+        out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\n')
+    out.write('</urlset>\n')
 print('SEO article pages generated:',len(sitemap_urls)-1)
 print('Country/category feeds:',len(feeds))
 print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
