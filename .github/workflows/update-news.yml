@@ -70,6 +70,8 @@ jobs:
               raise SystemExit('Refusing to publish duplicate or empty article links.')
           if any(x.get('language') not in ('bn', 'en') for x in stories):
               raise SystemExit('Every story must have a valid language tag.')
+          if any(not x.get('image_verified_at') for x in stories):
+              raise SystemExit('Every published image must pass a real image-response check.')
           previous = json.loads(subprocess.check_output(['git', 'show', 'HEAD:news.json'], text=True))
           old_stories = previous.get('news', []) if isinstance(previous, dict) else []
           generic_image = 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
