@@ -375,13 +375,34 @@ def fair_image_candidates(items, limit=100):
         code=str(item.get('country') or 'WORLD').upper()
         groups.setdefault(code,[]).append(item)
     selected=[]
-    country_codes=sorted(groups)
+    slot=int(os.environ.get('GITHUB_RUN_NUMBER') or (now.timestamp()//1800))
+
+    # Always give Bangladesh local reports and global Bangla reports a place
+    # in each batch; prioritize public missing-child/social alerts in BD.
+    if groups.get('BD'):
+        groups['BD'].sort(key=lambda x:(
+            str(x.get('category','')).lower()=='missing' and any(
+                token in str(x.get('source','')).lower() for token in ('facebook','youtube')
+            ),
+            str(x.get('category','')).lower()=='missing',
+            x.get('published','')
+        ),reverse=True)
+        take=min(3,limit,len(groups['BD']))
+        selected.extend(groups['BD'][:take])
+        groups['BD']=groups['BD'][take:]
+    if len(selected)<limit and groups.get('WORLD'):
+        groups['WORLD'].sort(key=lambda x:(
+            str(x.get('language',''))=='bn',x.get('published','')
+        ),reverse=True)
+        take=min(2,limit-len(selected),len(groups['WORLD']))
+        selected.extend(groups['WORLD'][:take])
+        groups['WORLD']=groups['WORLD'][take:]
+
+    country_codes=sorted(code for code,group in groups.items() if group and code not in ('BD','WORLD'))
     if country_codes:
-        slot=int(os.environ.get('GITHUB_RUN_NUMBER') or (now.timestamp()//1800))
         for code in country_codes:
-            if groups[code]:
-                offset=slot%len(groups[code])
-                groups[code]=groups[code][offset:]+groups[code][:offset]
+            offset=slot%len(groups[code])
+            groups[code]=groups[code][offset:]+groups[code][:offset]
         start=(slot*limit)%len(country_codes)
         country_codes=country_codes[start:]+country_codes[:start]
     while len(selected)<limit:
