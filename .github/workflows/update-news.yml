@@ -256,6 +256,15 @@ jobs:
                   previous=old.get('news',[]) if isinstance(old,dict) else old
           except Exception: previous=[]
 
+          # Backfill older stored stories too; otherwise the site keeps showing
+          # the old no-image placeholder even after the collector is improved.
+          previous_image_candidates=sorted(
+              (x for x in previous if not x.get('image')),
+              key=lambda x:x.get('published',''), reverse=True
+          )[:500]
+          with ThreadPoolExecutor(max_workers=20) as pool:
+              list(pool.map(enrich_article_image,previous_image_candidates))
+
           import difflib, hashlib
           by_link={}
           for item in previous+fresh:
