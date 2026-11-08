@@ -656,7 +656,7 @@ if os.path.isfile(backup_candidate):
 
 # Never replace a healthy feed with an unexpectedly empty or drastically smaller run.
 previous_good_count=sum(1 for x in previous if str(x.get('image','')).startswith(('https://','http://')) and x.get('image') != GENERIC_IMAGE_URL)
-minimum_safe_count=max(10, int(previous_good_count*0.20))
+minimum_safe_count=max(10, int(previous_good_count*0.50))
 if len(news)<minimum_safe_count:
     raise SystemExit(
         f"Safety stop: collected {len(news)} image-backed stories; "
