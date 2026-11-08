@@ -111,9 +111,12 @@ jobs:
                       image=''
                       for sub in node.iter():
                           if local(sub.tag) in ('thumbnail','content','enclosure'):
-                              candidate=sub.attrib.get('url','')
+                              candidate=(sub.attrib.get('url') or sub.attrib.get('src') or sub.attrib.get('href') or '').strip()
                               if candidate.startswith('https://') or candidate.startswith('http://'):
                                   image=candidate; break
+                      if not image:
+                          image_match=re.search(r'<img[^>]+(?:src|data-src)=["\\'](https?://[^"\\']+)',summary,re.I)
+                          if image_match: image=image_match.group(1)
                       source=country
                       for sub in node.iter():
                           if local(sub.tag)=='source' and ''.join(sub.itertext()).strip():
