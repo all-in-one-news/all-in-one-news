@@ -66,6 +66,23 @@ for country in countries:
         feeds.append((country, category,
             'https://news.google.com/rss/search?' + params))
 
+# A separate Bangla-language global feed means language preference does not
+# depend on the visitor's IP country.
+bangla_global_queries={
+    'fire':'আগুন OR অগ্নিকাণ্ড OR দাবানল OR বিস্ফোরণ',
+    'missing':'নিখোঁজ শিশু OR শিশু নিখোঁজ OR হারিয়ে যাওয়া শিশু OR অপহৃত শিশু',
+    'abuse':'ধর্ষণ OR যৌন নির্যাতন OR যৌন সহিংসতা',
+    'accident':'সড়ক দুর্ঘটনা OR ট্রেন দুর্ঘটনা OR নৌ দুর্ঘটনা OR দুর্ঘটনা',
+    'casualty':'নিহত OR মৃত্যু OR হতাহত OR আহত',
+    'reserve':'বৈদেশিক মুদ্রার রিজার্ভ OR বৈদেশিক মুদ্রা রিজার্ভ'
+}
+for category, query in bangla_global_queries.items():
+    params=urllib.parse.urlencode({
+        'q':'('+query+') after:2025-12-31',
+        'hl':'bn','gl':'BD','ceid':'BD:bn'
+    })
+    feeds.append(('WORLD',category,'https://news.google.com/rss/search?'+params))
+
 
 # Dedicated Bangladesh official missing-child alert discovery.
 mun_q=urllib.parse.urlencode({
@@ -173,6 +190,7 @@ def fetch(feed):
                 'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
                 'link':link,'source':source,'published':published.isoformat(),
                 'image':image,'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
+                'language':'bn' if re.search('[ঀ-৿]',title+' '+summary) else 'en',
                 'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower() or 'police.gov.bd' in link.lower()) else 'source_reported'
             })
         print(country,category,len(items))
