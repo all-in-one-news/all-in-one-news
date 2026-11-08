@@ -111,6 +111,23 @@ jobs:
               feeds.append(('BD','missing',
                   'https://news.google.com/rss/search?'+social_params))
 
+          # Targeted discovery from official Bangladesh Police/CID and established newsrooms.
+          trusted_missing_queries = [
+              ('Bangladesh Police', 'site:police.gov.bd ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "missing child" OR "abducted child")'),
+              ('Police portal CID', 'site:police.portal.gov.bd ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "missing child")'),
+              ('BSS', 'site:bssnews.net ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "missing child" OR "MUN Alert")'),
+              ('The Daily Star', 'site:thedailystar.net ("নিখোঁজ শিশু" OR "missing child" OR "MUN Alert")'),
+              ('The Business Standard', 'site:tbsnews.net ("নিখোঁজ শিশু" OR "missing child" OR "MUN Alert")'),
+              ('Prothom Alo', 'site:prothomalo.com ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "MUN Alert")')
+          ]
+          for trusted_source, trusted_query in trusted_missing_queries:
+              trusted_params=urllib.parse.urlencode({
+                  'q':trusted_query+' after:2025-12-31',
+                  'hl':'bn','gl':'BD','ceid':'BD:bn'
+              })
+              feeds.append(('BD','missing',
+                  'https://news.google.com/rss/search?'+trusted_params))
+
 
           def fetch(feed):
               country, category, url = feed
@@ -163,7 +180,7 @@ jobs:
                           'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
                           'link':link,'source':source,'published':published.isoformat(),
                           'image':image,'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
-                          'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower()) else 'source_reported'
+                          'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower() or 'police.gov.bd' in link.lower()) else 'source_reported'
                       })
                   print(country,category,len(items))
                   return items[:40]
@@ -308,6 +325,7 @@ jobs:
           print('Country/category feeds:',len(feeds))
           print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
           print('Public Facebook and YouTube discovery feeds: enabled')
+          print('Bangladesh Police/CID and trusted newsroom discovery feeds: enabled')
           print('Categorized records since 2026-01-01:',len(news))
           PY
       - name: Save News
