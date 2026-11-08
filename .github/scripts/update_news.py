@@ -377,7 +377,7 @@ def fair_image_candidates(items, limit=100):
     selected=[]
     country_codes=sorted(groups)
     if country_codes:
-        slot=int(now.timestamp()//1800)
+        slot=int(os.environ.get('GITHUB_RUN_NUMBER') or (now.timestamp()//1800))
         for code in country_codes:
             if groups[code]:
                 offset=slot%len(groups[code])
