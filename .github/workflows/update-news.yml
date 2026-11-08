@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: update-news
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   update-news:
@@ -20,9 +20,64 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate news collector syntax
         run: python -m py_compile .github/scripts/update_news.py
-      - name: Collect categorized country news
+      - name: Validate current news and snapshot last known-good data
         run: |
-          python .github/scripts/update_news.py
+          python - <<'PY'
+          import json
+          with open('news.json', encoding='utf-8') as f:
+              data = json.load(f)
+          stories = data.get('news', []) if isinstance(data, dict) else []
+          if not stories:
+              raise SystemExit('Existing news.json is empty; refusing to replace a missing backup.')
+          if any(not str(x.get('image', '')).startswith(('https://', 'http://')) for x in stories):
+              raise SystemExit('Existing news.json contains a story without an image; refusing to overwrite it.')
+          PY
+          cp news.json news-backup.json
+      - name: Collect categorized country news with automatic retry
+        run: |
+          for attempt in 1 2 3; do
+            echo "Collector attempt $attempt of 3"
+            if python .github/scripts/update_news.py; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep $((attempt * 20))
+            fi
+          done
+          echo "All collector attempts failed; the published news remains unchanged."
+          exit 1
+      - name: Validate generated news and sitemap before publishing
+        run: |
+          python - <<'PY'
+          import json, pathlib, subprocess, xml.etree.ElementTree as ET
+          with open('news.json', encoding='utf-8') as f:
+              data = json.load(f)
+          stories = data.get('news', []) if isinstance(data, dict) else []
+          if not stories:
+              raise SystemExit('Refusing to publish an empty news feed.')
+          if any(not str(x.get('image', '')).startswith(('https://', 'http://')) for x in stories):
+              raise SystemExit('Refusing to publish a story without an image.')
+          previous = json.loads(subprocess.check_output(['git', 'show', 'HEAD:news.json'], text=True))
+          old_stories = previous.get('news', []) if isinstance(previous, dict) else []
+          minimum = max(10, int(len(old_stories) * 0.20))
+          if len(stories) < minimum:
+              raise SystemExit(f'Refusing suspicious drop: {len(stories)} stories; minimum {minimum}.')
+          raw = pathlib.Path('sitemap.xml').read_text(encoding='utf-8')
+          if r'\n' in raw:
+              raise SystemExit('Sitemap contains literal backslash-n characters.')
+          root = ET.fromstring(raw)
+          if not root.tag.endswith('urlset'):
+              raise SystemExit('Sitemap root is not urlset.')
+          urls = [e.text for e in root.iter() if e.tag.endswith('loc') and e.text]
+          if not urls:
+              raise SystemExit('Sitemap contains no URLs.')
+          for url in urls:
+              if '/articles/' in url:
+                  rel = url.split('/articles/', 1)[1].strip('/') + '/index.html'
+                  if not pathlib.Path('articles', rel).is_file():
+                      raise SystemExit('Sitemap points to a missing article page: ' + url)
+          print(f'Validated {len(stories)} image-backed stories and {len(urls)} sitemap URLs.')
+          PY
       - name: Save News
         run: |
           if git diff --quiet -- news.json sitemap.xml articles/; then
@@ -30,7 +85,7 @@ jobs:
           else
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add news.json sitemap.xml articles/
+            git add news.json news-backup.json sitemap.xml articles/
             git commit -m "Collect country-based categorized news"
             git push
           fi
