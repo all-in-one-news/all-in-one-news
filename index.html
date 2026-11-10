@@ -101,11 +101,8 @@ $('latest').textContent=rows[0]?clean(rows[0].title):'এখনো খবর ন
 render();
 try{
 let g=await fetch('https://ipapi.co/json/').then(r=>r.json());
-if(g.country_code&&!localStorage.getItem('ain_country')){
-country=g.country_code;
-$('country').value=country;
-$('geo').textContent='দেশ স্বয়ংক্রিয় শনাক্ত';
-render();
+if(g.country_code){
+$('geo').textContent='IP অবস্থান: '+g.country_code+' · দেশ নিজে নির্বাচন করুন';
 }
 }catch(e){}
 if(fromBackup)$('status').textContent='সতর্কতা: নতুন নিউজ লোড হয়নি—শেষ ভালো Backup দেখানো হচ্ছে।';
