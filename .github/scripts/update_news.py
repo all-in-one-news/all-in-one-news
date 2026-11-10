@@ -443,6 +443,73 @@ patterns={
   'casualty':r'death toll|fatalities|people killed|casualties|নিহত|প্রাণহানি|হতাহত',
   'reserve':r'foreign exchange reserves|forex reserves|foreign reserves|বৈদেশিক মুদ্রার রিজার্ভ|রিজার্ভ'
 }
+# Country labels must describe the reported incident, not the Google News
+# edition used to discover it. Use only explicit location evidence; otherwise
+# keep the story in WORLD rather than publishing a guessed country.
+INCIDENT_LOCATION_ALIASES = {
+    'BD': ('bangladesh','bangladeshi','dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar"),
+    'US': ('united states','u.s.','usa','american','new york city','new york','chicago','los angeles','san francisco','washington dc','washington, d.c.','florida','texas','ohio','california','naples','springfield','bethel township','auburn gresham','athens, georgia'),
+    'GB': ('united kingdom','britain','british','england','scotland','wales','london','kent','maidstone','liverpool','bathgate','west lothian','dundee','glasgow'),
+    'IN': ('india','indian','delhi','new delhi','mumbai','kolkata','chennai','bengaluru','bangalore','hyderabad'),
+    'ID': ('indonesia','indonesian','jakarta','bali','surabaya'),
+    'UA': ('ukraine','ukrainian','kyiv','khmelnytskyi','odesa','kharkiv','donetsk'),
+    'EG': ('egypt','egyptian','cairo','alexandria'),
+    'FR': ('france','french','paris','lyon','marseille'),
+    'DE': ('germany','german','berlin','munich','hamburg'),
+    'PL': ('poland','polish','krakow','kraków','warsaw'),
+    'PS': ('gaza','west bank','palestine','palestinian'),
+    'IL': ('israel','israeli','tel aviv','jerusalem'),
+    'CA': ('canada','canadian','ontario','quebec','toronto','sudbury','vancouver'),
+    'AU': ('australia','australian','sydney','melbourne','brisbane'),
+    'NZ': ('new zealand','auckland','wellington'),
+    'PK': ('pakistan','pakistani','islamabad','karachi','lahore'),
+    'MY': ('malaysia','malaysian','kuala lumpur'),
+    'SG': ('singapore','singaporean'),
+    'ZA': ('south africa','south african','johannesburg','cape town'),
+    'KE': ('kenya','kenyan','nairobi'),
+    'NG': ('nigeria','nigerian','lagos','abuja'),
+    'RU': ('russia','russian','moscow'),
+    'TR': ('turkey','türkiye','turkish','ankara','istanbul'),
+    'IR': ('iran','iranian','tehran'),
+    'SA': ('saudi arabia','saudi','riyadh'),
+    'AE': ('united arab emirates','uae','dubai','abu dhabi'),
+    'JP': ('japan','japanese','tokyo','osaka'),
+    'CN': ('china','chinese','beijing','shanghai'),
+    'KR': ('south korea','south korean','seoul'),
+    'TH': ('thailand','thai','bangkok'),
+    'VN': ('vietnam','vietnamese','hanoi','ho chi minh city'),
+    'BR': ('brazil','brazilian','rio de janeiro','sao paulo'),
+    'MX': ('mexico','mexican','mexico city'),
+    'AR': ('argentina','argentinian','buenos aires'),
+    'ES': ('spain','spanish','madrid','barcelona'),
+    'IT': ('italy','italian','rome','milan'),
+    'NL': ('netherlands','dutch','amsterdam'),
+    'BE': ('belgium','belgian','brussels'),
+    'CH': ('switzerland','swiss','zurich','geneva'),
+    'SE': ('sweden','swedish','stockholm'),
+    'NO': ('norway','norwegian','oslo'),
+    'DK': ('denmark','danish','copenhagen'),
+    'IE': ('ireland','irish','dublin'),
+    'GR': ('greece','greek','athens'),
+    'CZ': ('czech republic','czechia','prague'),
+    'RO': ('romania','romanian','bucharest'),
+    'ET': ('ethiopia','ethiopian','addis ababa'),
+    'TZ': ('tanzania','tanzanian','dar es salaam'),
+    'UG': ('uganda','ugandan','kampala'),
+    'ZW': ('zimbabwe','zimbabwean','harare'),
+    'AF': ('afghanistan','afghan','kabul'),
+}
+def incident_country(item):
+    story=' '+(str(item.get('title',''))+' '+str(item.get('summary',''))).lower()+' '
+    # Specific places are checked before demonyms/country names so that,
+    # for example, a city in Ukraine wins over a headline mentioning Russia.
+    priority = ('BD','US','GB','IN','ID','UA','EG','FR','DE','PL','PS','IL','CA','AU','NZ','PK','MY','SG','ZA','KE','NG','RU','TR','IR','SA','AE','JP','CN','KR','TH','VN','BR','MX','AR','ES','IT','NL','BE','CH','SE','NO','DK','IE','GR','CZ','RO','ET','TZ','UG','ZW','AF')
+    for code in priority:
+        for alias in INCIDENT_LOCATION_ALIASES.get(code, ()):
+            if re.search(r'(?<![a-z])'+re.escape(alias)+r'(?![a-z])',story,re.I):
+                return code
+    return 'WORLD'
+
 def classify(item):
     s=(item.get('title','')+' '+item.get('summary','')).lower()
     # A recovered/found-child notice must never be shown as an active missing-child alert.
@@ -493,7 +560,7 @@ for item in previous+fresh:
     item['link']=link
     item['published']=published.isoformat()
     item['category']=category
-    item['country']=str(item.get('country') or 'WORLD').upper()
+    item['country']=incident_country(item)
     item.setdefault('summary',item.get('description',''))
     item.setdefault('verification_status','source_reported')
     old_item=by_link.get(link)
