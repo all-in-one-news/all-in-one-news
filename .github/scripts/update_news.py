@@ -427,10 +427,10 @@ except Exception:
 
 image_candidates=fair_image_candidates(
     (x for x in fresh if (not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link',''))) and str(x.get('link','')) not in previous_google_urls),
-    limit=200
+    limit=500
 )
 print('Fresh image candidates selected fairly by country:',len(image_candidates))
-with ThreadPoolExecutor(max_workers=4) as pool:
+with ThreadPoolExecutor(max_workers=8) as pool:
     list(pool.map(enrich_article_image,image_candidates))
 print('Fresh candidate images recovered:',sum(1 for x in image_candidates if x.get('image') and x.get('image') != GENERIC_IMAGE_URL))
 print('Fresh Google News links resolved:',sum(1 for x in image_candidates if 'news.google.com/' not in str(x.get('link',''))))
