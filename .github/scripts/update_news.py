@@ -499,15 +499,68 @@ INCIDENT_LOCATION_ALIASES = {
     'ZW': ('zimbabwe','zimbabwean','harare'),
     'AF': ('afghanistan','afghan','kabul'),
 }
+INCIDENT_PLACE_ALIASES = {
+    'BD': ('dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar"),
+    'US': ('new york city','new york','chicago','los angeles','san francisco','washington dc','washington, d.c.','florida','texas','ohio','california','naples','springfield','bethel township','auburn gresham','athens, georgia'),
+    'GB': ('london','kent','maidstone','liverpool','bathgate','west lothian','dundee','glasgow'),
+    'IN': ('delhi','new delhi','mumbai','kolkata','chennai','bengaluru','bangalore','hyderabad'),
+    'ID': ('jakarta','bali','surabaya'),
+    'UA': ('kyiv','khmelnytskyi','odesa','kharkiv','donetsk'),
+    'EG': ('cairo','alexandria'),
+    'FR': ('paris','lyon','marseille'),
+    'DE': ('berlin','munich','hamburg'),
+    'PL': ('krakow','kraków','warsaw'),
+    'PS': ('gaza','west bank'),
+    'IL': ('tel aviv','jerusalem'),
+    'CA': ('ontario','quebec','toronto','sudbury','vancouver'),
+    'AU': ('sydney','melbourne','brisbane'),
+    'NZ': ('auckland','wellington'),
+    'PK': ('islamabad','karachi','lahore'),
+    'MY': ('kuala lumpur',),
+    'ZA': ('johannesburg','cape town'),
+    'KE': ('nairobi',),
+    'NG': ('lagos','abuja'),
+    'RU': ('moscow',),
+    'TR': ('ankara','istanbul'),
+    'IR': ('tehran',),
+    'SA': ('riyadh',),
+    'AE': ('dubai','abu dhabi'),
+    'JP': ('tokyo','osaka'),
+    'CN': ('beijing','shanghai'),
+    'KR': ('seoul',),
+    'TH': ('bangkok',),
+    'VN': ('hanoi','ho chi minh city'),
+    'BR': ('rio de janeiro','sao paulo'),
+    'MX': ('mexico city',),
+    'AR': ('buenos aires',),
+    'ES': ('madrid','barcelona'),
+    'IT': ('rome','milan'),
+    'NL': ('amsterdam',),
+    'BE': ('brussels',),
+    'CH': ('zurich','geneva'),
+    'SE': ('stockholm',),
+    'NO': ('oslo',),
+    'DK': ('copenhagen',),
+    'IE': ('dublin',),
+    'GR': ('athens',),
+    'CZ': ('prague',),
+    'RO': ('bucharest',),
+    'ET': ('addis ababa',),
+    'TZ': ('dar es salaam',),
+    'UG': ('kampala',),
+    'ZW': ('harare',),
+    'AF': ('kabul',),
+}
 def incident_country(item):
     story=' '+(str(item.get('title',''))+' '+str(item.get('summary',''))).lower()+' '
     # Specific places are checked before demonyms/country names so that,
     # for example, a city in Ukraine wins over a headline mentioning Russia.
     priority = ('BD','US','GB','IN','ID','UA','EG','FR','DE','PL','PS','IL','CA','AU','NZ','PK','MY','SG','ZA','KE','NG','RU','TR','IR','SA','AE','JP','CN','KR','TH','VN','BR','MX','AR','ES','IT','NL','BE','CH','SE','NO','DK','IE','GR','CZ','RO','ET','TZ','UG','ZW','AF')
-    for code in priority:
-        for alias in INCIDENT_LOCATION_ALIASES.get(code, ()):
-            if re.search(r'(?<![a-z])'+re.escape(alias)+r'(?![a-z])',story,re.I):
-                return code
+    for aliases in (INCIDENT_PLACE_ALIASES, INCIDENT_LOCATION_ALIASES):
+        for code in priority:
+            for alias in aliases.get(code, ()):
+                if re.search(r'(?<![a-z])'+re.escape(alias)+r'(?![a-z])',story,re.I):
+                    return code
     return 'WORLD'
 
 def classify(item):
