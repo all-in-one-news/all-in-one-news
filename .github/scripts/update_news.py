@@ -756,8 +756,8 @@ def verify_image_url(item):
         'Referer':'https://all-in-one-news.github.io/all-in-one-news/'
     }
     try:
-        req=Request(image_url,headers=headers)
-        with urlopen(req,timeout=8) as response:
+        req=urllib.request.Request(image_url,headers=headers)
+        with urllib.request.urlopen(req,timeout=8) as response:
             content_type=str(response.headers.get('Content-Type','')).split(';',1)[0].lower()
             sample=response.read(32)
         valid=content_type.startswith('image/') or sample.startswith((
