@@ -200,7 +200,7 @@ def fetch(feed):
                 'title':re.sub(r'\\s+',' ',title),
                 'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
                 'link':link,'source':source,'published':published.isoformat(),
-                'image':image,'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
+                'image':image,'image_candidates':list(dict.fromkeys(rss_image_candidates))[:8],'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
                 'language':'bn' if re.search('[ঀ-৿]',title+' '+summary) else 'en',
                 'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower() or 'police.gov.bd' in link.lower()) else 'source_reported'
             })
@@ -735,11 +735,15 @@ for item in news:
 # Verify that newly published image URLs really return image data, not an
 # HTML error page. Successful checks are cached for seven days.
 def verify_image_url(item):
-    image_url=str(item.get('image','')).strip()
-    if not image_url.startswith('https://') or image_url==GENERIC_IMAGE_URL:
-        return item,False,'invalid-url'
+    # Try every distinct RSS thumbnail, not just the first one: publishers
+    # sometimes include stale tracking images before the actual article photo.
+    candidates=[]
+    for candidate in [item.get('image','')]+list(item.get('image_candidates') or []):
+        candidate=str(candidate or '').strip()
+        if candidate.startswith('https://') and candidate!=GENERIC_IMAGE_URL and candidate not in candidates:
+            candidates.append(candidate)
     verified_at=item.get('image_verified_at')
-    if verified_at:
+    if verified_at and candidates and item.get('image')==candidates[0]:
         try:
             verified_dt=datetime.fromisoformat(str(verified_at).replace('Z','+00:00'))
             if verified_dt.tzinfo is None:
@@ -748,26 +752,32 @@ def verify_image_url(item):
                 return item,True,'cached'
         except Exception:
             pass
-    host=urllib.parse.urlsplit(image_url).netloc
     headers={
         'User-Agent':CHROME_UA,
         'Accept':'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
         'Range':'bytes=0-2047',
         'Referer':'https://all-in-one-news.github.io/all-in-one-news/'
     }
-    try:
-        req=urllib.request.Request(image_url,headers=headers)
-        with urllib.request.urlopen(req,timeout=8) as response:
-            content_type=str(response.headers.get('Content-Type','')).split(';',1)[0].lower()
-            sample=response.read(32)
-        valid=content_type.startswith('image/') or sample.startswith((
-            bytes.fromhex('ffd8ff'),bytes.fromhex('89504e470d0a1a0a'),b'GIF87a',b'GIF89a'
-        )) or (sample[:4]==b'RIFF' and sample[8:12]==b'WEBP')
-        if valid:
-            item['image_verified_at']=now.isoformat()
-        return item,valid,host
-    except Exception as error:
-        return item,False,host+':'+type(error).__name__
+    last_error='no-image-candidate'
+    for image_url in candidates:
+        host=urllib.parse.urlsplit(image_url).netloc
+        try:
+            req=urllib.request.Request(image_url,headers=headers)
+            with urllib.request.urlopen(req,timeout=8) as response:
+                content_type=str(response.headers.get('Content-Type','')).split(';',1)[0].lower()
+                sample=response.read(32)
+            valid=content_type.startswith('image/') or sample.startswith((
+                bytes.fromhex('ffd8ff'),bytes.fromhex('89504e470d0a'),b'GIF87a',b'GIF89a'
+            )) or (sample[:4]==b'RIFF' and sample[8:12]==b'WEBP')
+            if valid:
+                item['image']=image_url
+                item['image_verified_at']=now.isoformat()
+                item.pop('image_candidates',None)
+                return item,True,host
+            last_error=host+':not-image'
+        except Exception as error:
+            last_error=host+':'+type(error).__name__
+    return item,False,last_error
 
 with ThreadPoolExecutor(max_workers=6) as pool:
     image_checks=list(pool.map(verify_image_url,news))
