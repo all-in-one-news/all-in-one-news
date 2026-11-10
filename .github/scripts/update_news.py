@@ -572,8 +572,11 @@ def classify(item):
     # Classify from the actual headline/summary first; feed query labels can be wrong.
     for key in ('abuse','missing','fire','accident','casualty','reserve'):
         if re.search(patterns[key],s,re.I): return key
-    # Keep the source feed category only when the text gives no contrary signal.
-    return item.get('category','') if item.get('category') in patterns else ''
+    # Never trust a feed's fire label by itself: broad feeds can match sports,
+    # ceasefire and other unrelated stories. A real fire incident must match
+    # the headline/summary fire pattern above.
+    fallback=item.get('category','')
+    return fallback if fallback in patterns and fallback!='fire' else ''
 
 try:
     with open('news.json',encoding='utf-8') as file:
