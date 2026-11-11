@@ -1,6 +1,44 @@
 {
-  "updated_at": "2026-11-11T09:40:58.571053+00:00",
+  "updated_at": "2026-11-11T09:49:36.903090+00:00",
   "news": [
+    {
+      "title": "হামে নভেম্বরের প্রথম ১০ দিনে মৃত্যু ৪১ - Apan Desh",
+      "summary": " হামে নভেম্বরের প্রথম ১০ দিনে মৃত্যু ৪১ &nbsp;&nbsp; Apan Desh ",
+      "link": "https://www.dailyapandesh.com/health/news/62870",
+      "source": "Apan Desh",
+      "published": "2026-11-11T09:47:00+00:00",
+      "image": "https://www.dailyapandesh.com/media/imgAll/2026September/Daily-Apan-Desh-03-2611110947.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "casualty",
+      "language": "bn",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02cW5EOTk3M1hIRGRvNWxST0VqbWxaOWhCYUZJODk3NnA0RFNlclVwaGpZc0ptX3hoYTV3WEw1dHpFY3VSUlRWZlpNOGVGc2NSTVQ0bWFrSjNUYkE?oc=5",
+      "incident_id": "5eb10e8813f8e478",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "গাজীপুরে উড়াল সেতুতে সড়ক দুর্ঘটনায় প্রাণ গেল একই পরিবারের তিনজনের - Janobani",
+      "summary": " গাজীপুরে উড়াল সেতুতে সড়ক দুর্ঘটনায় প্রাণ গেল একই পরিবারের তিনজনের &nbsp;&nbsp; Janobani ",
+      "link": "https://janobani.com/words-of-bengal/92844",
+      "source": "Janobani",
+      "published": "2026-11-11T09:46:00+00:00",
+      "image": "https://api.janobani.com/uploads/og/el0upkbv0a5.png",
+      "media_embed": "",
+      "media_type": "",
+      "country": "BD",
+      "category": "accident",
+      "language": "bn",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5XdlVIellCekVnRE9GcVVGcnlkZXp3QjRoV0k4a0ROU18yN0xueWJDdWRzVGlSN2xlN2d0VmNCZGZpbHRXVDZLaWxOLTI4WHpjVDNibA?oc=5",
+      "incident_id": "d42cee2ccdd43400",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
     {
       "title": "ছেলের মৃত্যুর খবর শুনে বাবার মৃত্যু, পাশাপাশি দাফন - dhakapost.com",
       "summary": " ছেলের মৃত্যুর খবর শুনে বাবার মৃত্যু, পাশাপাশি দাফন &nbsp;&nbsp; dhakapost.com ",
@@ -16,14 +54,19 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE01VVdOeUJFRFBldXBLRG01UWhjbVYzYmZBcHN0QnVGVFU3QlpZU3BpcFBPYjJlbUV6VUdyazFFMEhobFNCQ1R5dGZQUDhoTV92VUE?oc=5",
       "incident_id": "292c0ca1ea34b73a",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "dhakapost.com",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE01VVdOeUJFRFBldXBLRG01UWhjbVYzYmZBcHN0QnVGVFU3QlpZU3BpcFBPYjJlbUV6VUdyazFFMEhobFNCQ1R5dGZQUDhoTV92VUE?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
       "title": "রাঙ্গুনিয়ায় মোটরসাইকেল দুর্ঘটনায় নিহত ১ - dhakapost.com",
       "summary": " রাঙ্গুনিয়ায় মোটরসাইকেল দুর্ঘটনায় নিহত ১ &nbsp;&nbsp; dhakapost.com ",
-      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1vdzZUa3ZyTE50T1RPanhPTjY4djUxc3lSUkI3OFBUQ3ZEZUpHTjNwZjBxQ1VmWkc3TURsYTE4OUR0X0JNMWt0QW5uMkZaYmhPdlVZ?oc=5",
+      "link": "https://www.dhakapost.com/national/497075",
       "source": "dhakapost.com",
       "published": "2026-11-11T09:38:50+00:00",
       "image": "https://assets.dhakapost.com/og-image/media/imgAll/BG/2026November/new-project-2-20261111153850.jpg?cid=497075",
@@ -37,11 +80,12 @@
       "related_sources": [
         {
           "name": "dhakapost.com",
-          "link": "https://www.dhakapost.com/national/497075"
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1vdzZUa3ZyTE50T1RPanhPTjY4djUxc3lSUkI3OFBUQ3ZEZUpHTjNwZjBxQ1VmWkc3TURsYTE4OUR0X0JNMWt0QW5uMkZaYmhPdlVZ?oc=5"
         }
       ],
       "source_count": 2,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
+      "image_verified_at": "2026-11-11T09:40:58.571053+00:00",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1vdzZUa3ZyTE50T1RPanhPTjY4djUxc3lSUkI3OFBUQ3ZEZUpHTjNwZjBxQ1VmWkc3TURsYTE4OUR0X0JNMWt0QW5uMkZaYmhPdlVZ?oc=5"
     },
     {
       "title": "দক্ষিণ কোরিয়ায় ৩২টি যানবাহনকে আঘাত যাত্রীবাহী বাসের, আহত ৫৭ - dhakapost.com",
@@ -52,12 +96,12 @@
       "image": "https://assets.dhakapost.com/og-image/media/imgAll/BG/2026November/south-koria-0-20261111145614.jpg?cid=497054",
       "media_embed": "",
       "media_type": "",
-      "country": "WORLD",
+      "country": "KR",
       "category": "casualty",
       "language": "bn",
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9fYm02M2R3SmRyN2NRcnZsTDFrTjVLRE1vcTR3cFRleWRuZ056eXAxa0NxX3JnYVJLWUpmSmdlOGxOYW1heTdHUmZBOWdFTEVjOG45YlpVNll0Zw?oc=5",
-      "incident_id": "5855fb150cee3a2e",
+      "incident_id": "43308a132a1c1a4a",
       "related_sources": [
         {
           "name": "dhakapost.com",
@@ -292,6 +336,33 @@
       "image_verified_at": "2026-11-11T08:37:00.863212+00:00"
     },
     {
+      "title": "Minivan crashes into people outside Los Angeles metro station, killing 3 - Alton Telegraph",
+      "summary": " Minivan crashes into people outside Los Angeles metro station, killing 3 &nbsp;&nbsp; Alton Telegraph ",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxORWNWeGtma1NzV2Y3TG9VYUFpdjFqbURoNGFxckZmVkM4Vm1DYlRuVU9hLVNrR0c0MWpscG1zSURjM2FvOXZoSDdFZVo2SDB2RVNlZVN3QmMtLWlua0J6NXB6YWpjUWdUOHkwSjFNQ3hQT0l0WHZXb2syUlRQYnFST2ljclNTbHhiQnk1el9kd2JyTk9ENWw4UjZzeUc2bHp1WXJQRWZVSQ?oc=5",
+      "source": "Alton Telegraph",
+      "published": "2026-11-11T07:33:31+00:00",
+      "image": "https://bloximages.chicago2.vip.townnews.com/oskaloosa.com/content/tncms/assets/v3/editorial/e/d2/ed2f6ceb-c705-5dae-8f83-e6cd2069bfb4/6af3ea4201d98.image.jpg?crop=1920%2C1008%2C0%2C35&resize=1200%2C630&order=crop%2Cresize",
+      "media_embed": "",
+      "media_type": "",
+      "country": "US",
+      "category": "accident",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "a0cd32ae7c19e56b",
+      "related_sources": [
+        {
+          "name": "Oskaloosa Herald",
+          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPd2cwUFd1U1FwLWt5NlpYMHVPZUFxMkN6azNEZVRpaGYtQkM5MktETXl2UEk4LXF0RWxFdl9MOHRhazlEMjExTWNkUEZoZ2Z1N0JJd2FtQVdSNlBIRk9CNGNWbkpDZHNRcHI0bGxWaFpKYTVaZkpwLUJqNmFBV0pYYW91TGpNUkZWc0hVOG9HR2U5YllvVTBBMUpKTGsteXVxLUw5TWZ3aEVUZnBQS0JVY01qTHZwaGRmREctcVZiaDdIaHJNSXlqb1U0bDFCcnlxNEthZ2UzM1NYWUdjVXB0V3JxdkVXWFcxNXd6LVlReVNlb3dRSlBEU3Rn?oc=5"
+        },
+        {
+          "name": "Oskaloosa Herald",
+          "link": "https://www.oskaloosa.com/news/national_news/minivan-crashes-into-people-outside-los-angeles-metro-station-killing-3/article_20c8303d-e6f2-54f3-81b8-da7c909a9be7.html"
+        }
+      ],
+      "source_count": 3,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
       "title": "Fire crews work through night at Irvine recycling centre blaze - The Herald",
       "summary": " Fire crews work through night at Irvine recycling centre blaze &nbsp;&nbsp; The Herald ",
       "link": "https://www.heraldscotland.com/news/26718091.fire-crews-work-night-irvine-recycling-centre-blaze/",
@@ -507,6 +578,29 @@
       "google_news_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1JT2NkNkE2dmxJLTFLVGIybVo0bXg4UUdPbnZ5dTMzWGNYWFJ1blBmZXIzeGhGSU1kNHpJd3ZnSHR4QnBEN1BSX0FId3dTd1ZSRzItb2Q0X0lKNmRhRkE?oc=5"
     },
     {
+      "title": "One dead, another injured in crash on HWY 53 in Eau Claire County - WEAU",
+      "summary": " One dead, another injured in crash on HWY 53 in Eau Claire County &nbsp;&nbsp; WEAU ",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOOEVaemxlRnhXa2dDRjBYaHdWb3p4YUdUSTQtSXp5dUktUWZIMFNFLXhidzF6VmZpaFl4TUlWYTBlNGtHQnRaRlFFc0VKb0Y1dmgzOXh6Z1dMb0o0QV9xWDZHaEJwaHJzeTQ0aWlPdFpOM2VxS3N3bWVFalY0UmpzMXpfS2xraUd1WUhZVWhENEZ1QdIBpgFBVV95cUxPOTlMZjh5OFNKdFdEQ2RhTHF6cjVDYUI2QlhCT2FybllxQzZ6S3BEN25iNkVfa2tVZ3NscExDanVsR1o3cER1Q2dsRUF0ZDdRQzI0NnpyU3RsbENKZjBQNUd4VS01am03bFZ4RmVRZUlZWF9sR2hDTUUtZTM3ZmpEajYwRkNIeWwzdkRWOUpKN04yWElFcVZQSU9RTzZpelpsc0luZWpR?oc=5",
+      "source": "WEAU",
+      "published": "2026-11-11T06:10:00+00:00",
+      "image": "https://gray-weau-prod.gtv-cdn.com/resizer/v2/ECXEHPEWZNHFBM46NR2IETDZX4.jpeg?auth=5555223b7853c2404577e2e19cc11a116b1cc21ba7e4ce62b894497819d7daa8&width=1200&height=600&smart=true",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "accident",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "c1923cdfad099d24",
+      "related_sources": [
+        {
+          "name": "WEAU",
+          "link": "https://www.weau.com/2026/11/11/one-dead-another-injured-crash-hwy-53-eau-claire-county/"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
       "title": "The General Staff has updated the figures on Russian military casualties as of November 11 - UA.NEWS",
       "summary": " The General Staff has updated the figures on Russian military casualties as of November 11 &nbsp;&nbsp; UA.NEWS ",
       "link": "https://ua.news/en/war-vs-rf/genshtab-onoviv-dani-pro-vtrati-rosiiskoyi-armiyi-stanom-na-11-listopada",
@@ -529,6 +623,29 @@
       "source_count": 2,
       "image_verified_at": "2026-11-11T08:37:00.863212+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSEkyQ0dxbFZBUWNSd3RKQjhzUEtoUWhQV3oxaUpXOTlrM0NnRDBGSEZGSHVnQ2hQdHg4NC1qSUNHWXU4cXVGc2FoRmF1UXFyaXJCRVk2T3dHckFLNmR1eVNqSk9PNHhXQVBnRXZWTklCRmxZZVZJV0I4S2t4OTN3RVlpTEpqOGxKVFpQZlJpUmR4anl5UmozM01LdmxoUUtyTnpR?oc=5"
+    },
+    {
+      "title": "Legislators hear about efforts to reduce teen driver fatalities - Messenger-Inquirer",
+      "summary": " Legislators hear about efforts to reduce teen driver fatalities &nbsp;&nbsp; Messenger-Inquirer ",
+      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPNEI1X0poZlFmZ0VUTk9CRFAtVnBlbWtiSUpFWVpkQ19xaTdTbjZjRkJGcmppSnVJUkVJcDBtaExZNnFQcDFHNVUwQzhBSGtOa3VFY29WS1VDdUV2V3EwVFg2d2xodjcwUDZUeUloMU5RNU5yb2doN255UXNwN0NhUXQ1ejJyeDN0N09MS2ZILW1aU3FGS3VuOGptYmJ6SnFvaHBuaV9qQmllLVFYcVRPMjZaN0d3NWpPVTZsWUtLZGt5Q3FMaWNqTmI2ZVRyNGlYWndGaTM5akI1QWpIcmF3SmZBMlM3aWxsNmZwRXJKNWZwRHVKUWQ0N0VlNTQ?oc=5",
+      "source": "Messenger-Inquirer",
+      "published": "2026-11-11T06:00:00+00:00",
+      "image": "https://bloximages.chicago2.vip.townnews.com/messenger-inquirer.com/content/tncms/assets/v3/editorial/3/2b/32b819fd-086f-5de3-a2c9-c5829af0bd94/6af3951907fce.image.jpg?crop=1199%2C631%2C0%2C84",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "casualty",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "2720d3350cab78da",
+      "related_sources": [
+        {
+          "name": "Messenger-Inquirer",
+          "link": "https://www.messenger-inquirer.com/grayson_county/news/legislators-hear-about-efforts-to-reduce-teen-driver-fatalities/article_f7e009b8-bf64-5d4a-bccb-27122ae75cdc.html"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
     },
     {
       "title": "Three dead, others injured in crash near North Hollywood Metro station - Los Angeles Times",
@@ -712,8 +829,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPS09Kcl9rWWo3ZldMWXhSLVZYYVhWNzV5VU04ajlqNzBmdjVQUGFnbHQ3TlJFc3ZYTExKdVowYzFTY05aM0o3dDBNS0hHX2RuNUZkNE5zWVQ1OGxxYmJ0MWo4WmNPN3lTSHRNSXNwTmJwZ3lzRFFCMVZZcWgwMTFCM2U0Rmk4R3B4UGRJY1d5cVdLeDBBNFZ3bWdzYUo2VUszTW9TalZ3?oc=5",
       "incident_id": "f620d8a8f9d7fde4",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Psychology Today",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPeThPN2VrTVhldmdXQnEwdURlVklsUEpkT0FkaGpYMjY2SGhwbDhsNHh1cE5DaS1ITmo5X2psYU01OXR3c0Y3Sk90dlRJLTZVZ19sV2tXc1pmRnM0Rlh0cGU0S0RfMlNNenRLel9uUmpyOWRaY20xX3lZZTBsX1FpdElZU2NxYVItSUZDRmo2SEMtdVYyUkV4eg?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T06:47:31.612864+00:00"
     },
     {
@@ -1085,8 +1207,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "2aa697c71b191e79",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "6abc Philadelphia",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWU1KR3plT0tWWERNWmFIZl9CUEVwbTJQc2VEY1B3cWJlRlNlMnZqWU5wUGRIV3FzYV95UkVzSnFzWDk2VURBaTh4bkZ5TWxQQ19TOHNKUjZOcmlCRlU0MXczMWtWV2QxUGFUeU9WN2RvRjliRm1Fdi0wQ19XcTVKUTJra21nZWda0gGOAUFVX3lxTFBBTXptN0dZdlBDNjRDNFkxRndESm1Yby1TREcwajlvb1l3NFUxWHNSU3doZ2ZFZWFBZXpudllwWklfWmMzYk9fc0QxNEJJMWl2dE5ZUUtUS0ZFSjMzTXpvNkVkdk44YzY1dENUOWtHU25nVERvSmt0U2pCOVB5LV9SaVdXUVZHM0tIN3Y1cFE?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T08:37:00.863212+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWU1KR3plT0tWWERNWmFIZl9CUEVwbTJQc2VEY1B3cWJlRlNlMnZqWU5wUGRIV3FzYV95UkVzSnFzWDk2VURBaTh4bkZ5TWxQQ19TOHNKUjZOcmlCRlU0MXczMWtWV2QxUGFUeU9WN2RvRjliRm1Fdi0wQ19XcTVKUTJra21nZWda0gGOAUFVX3lxTFBBTXptN0dZdlBDNjRDNFkxRndESm1Yby1TREcwajlvb1l3NFUxWHNSU3doZ2ZFZWFBZXpudllwWklfWmMzYk9fc0QxNEJJMWl2dE5ZUUtUS0ZFSjMzTXpvNkVkdk44YzY1dENUOWtHU25nVERvSmt0U2pCOVB5LV9SaVdXUVZHM0tIN3Y1cFE?oc=5"
     },
@@ -1176,8 +1303,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "cdf3805fd41918b6",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Modern Ghana",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9nX0dsSExnZmU3am9vRWpuMXZnNzU0LTFhYjkycGRXcTJHRUFRSW1ZLW5qS2gzVXRzWF9zck10MkpkQmNvdDdQU1BhOVFzZ1dtaHNzRTB2WmttUkdfb2t30gFcQVVfeXFMUGxyRURpWlNsWTJoUE9DcjFwd0NrVUZ4VmdCNFp6bjNjX1VNQl82S21uSDdVdFJibDdscXRrczJPMkRkMVdjV0ZNakdLTlVieFdlSWdzUnlSVWlSWng?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T08:37:00.863212+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9nX0dsSExnZmU3am9vRWpuMXZnNzU0LTFhYjkycGRXcTJHRUFRSW1ZLW5qS2gzVXRzWF9zck10MkpkQmNvdDdQU1BhOVFzZ1dtaHNzRTB2WmttUkdfb2t30gFcQVVfeXFMUGxyRURpWlNsWTJoUE9DcjFwd0NrVUZ4VmdCNFp6bjNjX1VNQl82S21uSDdVdFJibDdscXRrczJPMkRkMVdjV0ZNakdLTlVieFdlSWdzUnlSVWlSWng?oc=5"
     },
@@ -1327,8 +1459,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "00cb804f1df753d6",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "WJAC",
+          "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxON25laGRTOWtvNjZmazdKaWtHYlcwZGJneUtxMmxPYllXUWZxYkF4NWtxRDdwN2YyREtuZmN3d2R1R0tkTUg4LVNXLWRSYmJpbWVmT18tbDBZT1hSVVVqMTU5ZlFmM0E3Y2c4ZklyRVA4RTZwM0plNmw4dEZBN3lJMndISGdrMEh5dUpKNkZPd0RrYnA3eXIzZ3l4Ql9hYWp2bTZwOHhyN1ZWWmJtbk5OUldXdURtNlBkVWhmczE3b05TbWRTUFplbzk2VG5zaDhjUTRGcHc1NWpsTUxfT2hkR0dWRUdyajRQUHc5MG9GNjk3VzV1VmkzXzNuZ3pDNTBPc3gwM3JaaEVmV1RYUkNCWQ?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T04:43:26.191951+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxON25laGRTOWtvNjZmazdKaWtHYlcwZGJneUtxMmxPYllXUWZxYkF4NWtxRDdwN2YyREtuZmN3d2R1R0tkTUg4LVNXLWRSYmJpbWVmT18tbDBZT1hSVVVqMTU5ZlFmM0E3Y2c4ZklyRVA4RTZwM0plNmw4dEZBN3lJMndISGdrMEh5dUpKNkZPd0RrYnA3eXIzZ3l4Ql9hYWp2bTZwOHhyN1ZWWmJtbk5OUldXdURtNlBkVWhmczE3b05TbWRTUFplbzk2VG5zaDhjUTRGcHc1NWpsTUxfT2hkR0dWRUdyajRQUHc5MG9GNjk3VzV1VmkzXzNuZ3pDNTBPc3gwM3JaaEVmV1RYUkNCWQ?oc=5"
     },
@@ -1570,7 +1707,7 @@
     {
       "title": "আগুন-ককটেল বিস্ফোরণ ঠেকাতে আইজিপির কড়া নির্দেশনা - bvnews24",
       "summary": " আগুন-ককটেল বিস্ফোরণ ঠেকাতে আইজিপির কড়া নির্দেশনা &nbsp;&nbsp; bvnews24 ",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8xX1pnbXdvcGo5Wl9FczR0c1pQZHlRYmhOLU0wVUpPQmxzVk5ubXJhQ0FDamUxZW82TnltWWhVaXIyakNzenFxakVRbE9DRGxRMk0xM0F5VlBRaTIy?oc=5",
+      "link": "https://www.bvnews24.com/sohor-nogor/news/221337",
       "source": "bvnews24",
       "published": "2026-11-11T03:50:17+00:00",
       "image": "https://www.bvnews24.com/media/imgAll/2026October/igp-11112026-2611110319.jpg",
@@ -1584,11 +1721,12 @@
       "related_sources": [
         {
           "name": "bvnews24",
-          "link": "https://www.bvnews24.com/sohor-nogor/news/221337"
+          "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8xX1pnbXdvcGo5Wl9FczR0c1pQZHlRYmhOLU0wVUpPQmxzVk5ubXJhQ0FDamUxZW82TnltWWhVaXIyakNzenFxakVRbE9DRGxRMk0xM0F5VlBRaTIy?oc=5"
         }
       ],
       "source_count": 2,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
+      "image_verified_at": "2026-11-11T09:40:58.571053+00:00",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8xX1pnbXdvcGo5Wl9FczR0c1pQZHlRYmhOLU0wVUpPQmxzVk5ubXJhQ0FDamUxZW82TnltWWhVaXIyakNzenFxakVRbE9DRGxRMk0xM0F5VlBRaTIy?oc=5"
     },
     {
       "title": "Vancouver mother, 2 children die in Kansas City semi crash - KPTV",
@@ -2013,27 +2151,23 @@
       "image_verified_at": "2026-11-11T08:37:00.863212+00:00"
     },
     {
-      "title": "Sexual-violence report — US",
+      "title": "Sexual-violence report — WORLD",
       "summary": "The survivor’s identity and personal details are withheld. Open the original source for verified reporting.",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQOERjYVNFQ2FzN3o0bC11a3VYWXVUZVdhTVpHdFFBNC1MNVQ3QW9wLWJFS3lZbVNTWm9nR29qeGJ0SnZOM2pvS1ByRnFiTkw5MjRXUXh0alZiZGIwcGt3eEZudVRyOWFFX016akpGcTI5TmpiVUdqRHVFbE44dFpfNy1CcjZjVnc1SFZjcDViN2lhcE9KbHdXc0VycDFacUhZX2JES3pGYUpkVUhwdEZQX3FVOG04NFA20gG-AUFVX3lxTE83bGUxaUo2eGJWRGhnOUhFcVJHQW1Od3JNaVFQbVFBd1JENnJkMFdPTHlXS1N3Rm1TMWQxTjZRay1aNjl6b0N5VEtGRTJCRlZUcTYtcFJieEpQX0MyV09YRzRyY0ZlMllLZlB6NUU3ZXBrM2J0b21VcDcxRjYzOE5HbTZnMEo0VHZ1bVhqUG0yamNjQnJNcllFWEZIY2hkQ2I3VlBCUjMtSU5vTi1LSjJnMlRPdEpHLUFuWkh3Mnc?oc=5",
+      "link": "https://abc7chicago.com/post/auburn-gresham-chicago-crime-person-interest-custody-home-invasion-sex-assault/20030262/",
       "source": "ABC7 Chicago",
       "published": "2026-11-11T02:10:14+00:00",
       "image": "https://cdn.abcotvs.com/dip/images/20032085_111026-wls-tre-auburn-gresham-sex-assault-charges-10p-vid.jpg?w=1600",
       "media_embed": "",
       "media_type": "",
-      "country": "US",
+      "country": "WORLD",
       "category": "abuse",
       "language": "en",
       "verification_status": "source_reported",
-      "incident_id": "f71c3b7fbddad09f",
-      "related_sources": [
-        {
-          "name": "ABC7 Chicago",
-          "link": "https://abc7chicago.com/post/auburn-gresham-chicago-crime-person-interest-custody-home-invasion-sex-assault/20030262/"
-        }
-      ],
-      "source_count": 2,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
+      "incident_id": "32cf2b645fd1e1b1",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:40:58.571053+00:00",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQOERjYVNFQ2FzN3o0bC11a3VYWXVUZVdhTVpHdFFBNC1MNVQ3QW9wLWJFS3lZbVNTWm9nR29qeGJ0SnZOM2pvS1ByRnFiTkw5MjRXUXh0alZiZGIwcGt3eEZudVRyOWFFX016akpGcTI5TmpiVUdqRHVFbE44dFpfNy1CcjZjVnc1SFZjcDViN2lhcE9KbHdXc0VycDFacUhZX2JES3pGYUpkVUhwdEZQX3FVOG04NFA20gG-AUFVX3lxTE83bGUxaUo2eGJWRGhnOUhFcVJHQW1Od3JNaVFQbVFBd1JENnJkMFdPTHlXS1N3Rm1TMWQxTjZRay1aNjl6b0N5VEtGRTJCRlZUcTYtcFJieEpQX0MyV09YRzRyY0ZlMllLZlB6NUU3ZXBrM2J0b21VcDcxRjYzOE5HbTZnMEo0VHZ1bVhqUG0yamNjQnJNcllFWEZIY2hkQ2I3VlBCUjMtSU5vTi1LSjJnMlRPdEpHLUFuWkh3Mnc?oc=5"
     },
     {
       "title": "Survey: Should Michigan fire Kyle Whittingham? - Yahoo Sports",
@@ -2058,29 +2192,6 @@
       ],
       "source_count": 2,
       "image_verified_at": "2026-11-11T08:37:00.863212+00:00"
-    },
-    {
-      "title": "Sexual-violence report — WORLD",
-      "summary": "The survivor’s identity and personal details are withheld. Open the original source for verified reporting.",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPeThPN2VrTVhldmdXQnEwdURlVklsUEpkT0FkaGpYMjY2SGhwbDhsNHh1cE5DaS1ITmo5X2psYU01OXR3c0Y3Sk90dlRJLTZVZ19sV2tXc1pmRnM0Rlh0cGU0S0RfMlNNenRLel9uUmpyOWRaY20xX3lZZTBsX1FpdElZU2NxYVItSUZDRmo2SEMtdVYyUkV4eg?oc=5",
-      "source": "Psychology Today",
-      "published": "2026-11-11T02:08:03+00:00",
-      "image": "https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/teaser_image/blog_entry/2026-11/img_4371.jpeg.jpg?itok=biyopBW-",
-      "media_embed": "",
-      "media_type": "",
-      "country": "WORLD",
-      "category": "abuse",
-      "language": "en",
-      "verification_status": "source_reported",
-      "incident_id": "8c898117b980c7a7",
-      "related_sources": [
-        {
-          "name": "Psychology Today",
-          "link": "https://www.psychologytoday.com/us/blog/traitor-within/202611/how-can-we-stop-sexual-violence"
-        }
-      ],
-      "source_count": 2,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
       "title": "Spain holds state funeral for 69 killed in high-speed rail crash - Los Angeles Times",
@@ -3766,13 +3877,8 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "e7c7a5148405b7b8",
-      "related_sources": [
-        {
-          "name": "TRT World",
-          "link": "https://www.trtworld.com/article/7993dfc943c2"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
@@ -4186,13 +4292,8 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "f5e5d944557a28df",
-      "related_sources": [
-        {
-          "name": "UzDaily.uz",
-          "link": "https://www.uzdaily.uz/en/uzbekistans-foreign-reserves-fall-to-us6363bn-in-october/"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
@@ -4301,13 +4402,8 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUjNWRFRzMDZ2VGFQeFB4SzVMTVVyRXhsbUdNcnNvaXd2MkxVaTAxNzVaNjdmWlpaRGxwSWVabFdZd2hHd0J5SG4zTUI1SWVpWHpoLVJkbnFIYWhNQXhNTXVKUnQ2Z2tnQlRPSkZDZlMtdFdGWkRKc1M4N1BmajBVMzZOQ2lWakJHbnBRZnhaaGlOejNGZ0lJX0F1TmprMC1JWjdtRU82dU9iNTU3U2FQSjBWTXNwcUI0el9FY0UzSm50QW5D?oc=5",
       "incident_id": "e9f18603d388434c",
-      "related_sources": [
-        {
-          "name": "NPR",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZjRvdUpnQ2FpUTJxS0d4Tlp2eFhGUXBZekpINlYxSFlKRlZJMndqWERpU2pFU0QzamlkNkxhc2RPRGdHbldYQ1lyT1ZsRGxOXzJiR0w3Zld4Z2Q4OHp4NGtEZXFNNkowU2VHVHoway1rTThrR3VSZXVHbnk1cEF3QkhBVFJKcmtqNlkxRFhwM1daSWstN2VLNXpGWjFFYW5zTjhCYk9RQ0d5UQ?oc=5"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-10T12:30:59.287832+00:00"
     },
     {
@@ -4600,28 +4696,14 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "5d4c8e4f377b75ca",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Kurdistan24",
+          "link": "https://www.kurdistan24.net/en/story/951454/erbil-flash-floods-kill-volunteer-rescuer-five-year-old-child-missing"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T08:43:51.926698+00:00"
-    },
-    {
-      "title": "Missing-child alert — WORLD",
-      "summary": "The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.",
-      "link": "https://www.kurdistan24.net/en/story/951454/erbil-flash-floods-kill-volunteer-rescuer-five-year-old-child-missing",
-      "source": "Kurdistan24",
-      "published": "2026-11-07T20:52:49+00:00",
-      "image": "https://d2wqffb2bc8st5.cloudfront.net/images/1794084930_kurdistan24.jpg",
-      "media_embed": "",
-      "media_type": "",
-      "country": "WORLD",
-      "category": "missing",
-      "language": "en",
-      "verification_status": "source_reported",
-      "google_news_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQjVjbC14cjV2eEdsT3d1cXF6Y0VfSDMzeDgyY2RRRXh0VGd6N3UzdzVZTUZQUlUwV01UbkloVzZLZHF2Skp0T3h5ZjVIOHFGVVptNDhZRnJJMXNjVHo3NjlMb0N2clN4a2tCZ3NWeEo3eXIwdUZzZlV6Q3poMTRqUzFROE9PR2pFYnBBc20yb3ZwVFEyX1pTN0FHT2VCUTBJLTZNVVhlM3V6T05jWXZObHNYTQ?oc=5",
-      "incident_id": "c8b6f1402412903b",
-      "related_sources": [],
-      "source_count": 1,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
       "title": "Foreign Reserves Top $3.4trn As China Increases Gold Buying - MarketForces Africa",
@@ -4805,8 +4887,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1velBCSXUyNlByd0UyOGtoZ1VRV0k5QVZMLW1hMjZ4U3UzWS1XWVlZa3ZIRG5XZzRYclVMVHpnenNXVE9NLVdBWU9Gdm5OWTVMR1A4V1hKTkR3eldRTFBOYXBydVktTUsxV0tXVkJIRQ?oc=5",
       "incident_id": "bbe8b81b2f968b92",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Global News",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1velBCSXUyNlByd0UyOGtoZ1VRV0k5QVZMLW1hMjZ4U3UzWS1XWVlZa3ZIRG5XZzRYclVMVHpnenNXVE9NLVdBWU9Gdm5OWTVMR1A4V1hKTkR3eldRTFBOYXBydVktTUsxV0tXVkJIRQ?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T09:35:58.225759+00:00"
     },
     {
@@ -5183,12 +5270,12 @@
       "image": "https://38picres.cgtn.com/photoAlbum/page/performance/img/2026/11/7/1794040649029_336.jpg",
       "media_embed": "",
       "media_type": "",
-      "country": "WORLD",
+      "country": "CN",
       "category": "reserve",
       "language": "bn",
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE02ZWNyVzllMmpQR2ZqT0ZMTlV1U1E4Y1BsUjdYSEdwVk9fRVFqaGF3THFJdEJ3OTN6UHdoX09SUWRhWFV5cXZpdEVpTjZuLWtmel9tQVZDMURCRWRxb0p4djhjY1c?oc=5",
-      "incident_id": "de4c1b4fa9993265",
+      "incident_id": "df02058fc7a241e5",
       "related_sources": [
         {
           "name": "国际在线",
@@ -5358,8 +5445,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "2154c352fade2f49",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Le Monde.fr",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPLXRDY0hyLTB4ODBsTzVwcDdyUWhMWmFKcHQzSE4yOEtEeExCUXBQQUkwNGpUMkVlZTZ4NWdDd3NEYW9aRGdCdXdaMHRiRTJsWkRPOER3bXYybzAyX2MzYWQ3bF9URFFKWFF5eDFhcGZPbF90MXRNTTRMaFB2NXUyYjdwbW1FeUdod09kTTRkcXhMVlJwMWRFMndqa0p6akdWMjI0a1lqZzdGc2hGUDlnVTJYbHZBVzNYM1NDYWhXaDFQaGR3MkR1R0p3aEpVRS12MnBlbVVxLW45XzFpRXc?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T09:01:49.820066+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPLXRDY0hyLTB4ODBsTzVwcDdyUWhMWmFKcHQzSE4yOEtEeExCUXBQQUkwNGpUMkVlZTZ4NWdDd3NEYW9aRGdCdXdaMHRiRTJsWkRPOER3bXYybzAyX2MzYWQ3bF9URFFKWFF5eDFhcGZPbF90MXRNTTRMaFB2NXUyYjdwbW1FeUdod09kTTRkcXhMVlJwMWRFMndqa0p6akdWMjI0a1lqZzdGc2hGUDlnVTJYbHZBVzNYM1NDYWhXaDFQaGR3MkR1R0p3aEpVRS12MnBlbVVxLW45XzFpRXc?oc=5"
     },
@@ -5665,8 +5757,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9CR1dmVFFUci05bUJvbU94VDR0Yk02ajc5MmhUcnZaQkc4Y1dyMXhKeWlNRVJGSFZscW90cDBXT3BueDZoMjZ5R1hhOWtjSElaSmp3Wlp4SXM0MkQ3VXc?oc=5",
       "incident_id": "04a757891197efaf",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "BBC",
+          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9CR1dmVFFUci05bUJvbU94VDR0Yk02ajc5MmhUcnZaQkc4Y1dyMXhKeWlNRVJGSFZscW90cDBXT3BueDZoMjZ5R1hhOWtjSElaSmp3Wlp4SXM0MkQ3VXc?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-10T12:30:59.287832+00:00"
     },
     {
@@ -5754,8 +5851,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "25b91608745a4741",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Dawn",
+          "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9La25WNWZEbVN2RVp6cVJlY0g3T1BvQ0ZySnhxMHhqZVFIeEd3NWJNc09WVE9ILUNzbFJReDdiY3BfTTFUNlhxeA?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T09:01:49.820066+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9La25WNWZEbVN2RVp6cVJlY0g3T1BvQ0ZySnhxMHhqZVFIeEd3NWJNc09WVE9ILUNzbFJReDdiY3BfTTFUNlhxeA?oc=5"
     },
@@ -5798,13 +5900,8 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBxdlRtamMtdmxpXzQwMUhUd3Z1dE1lOEdablpBNncteTBMNl9pSEdGRHd0eXk5VnNFeENNUFhZdTE2QmgzZ0djdkJrOXp4U3FNWElnay1n?oc=5",
       "incident_id": "8b06ddc00dd2b5e9",
-      "related_sources": [
-        {
-          "name": "KMOV",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbm92dzVFd2ZrYnR0UnBqX0FxQkh6RWlnRExmRjZFTmpOeUlheTR5RGM3eTRqTGpSRTVmUUxBeVA1d1k0STRVUGdJUHhmNmtCRWtFakZHZ0ktVXpndk9fTlNVeEEtam1BQmlGYjVEZXR5c1FoVUVpeGRYWFh5VEE3YmNlVEJ5RHNmQ0xtV2phSEw?oc=5"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-11T09:01:49.820066+00:00"
     },
     {
@@ -5845,8 +5942,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "f45406908b453237",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "bdnews24.com",
+          "link": "https://bdnews24.com/economy/7nx8a8fxp0"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T09:01:49.820066+00:00"
     },
     {
@@ -5887,7 +5989,7 @@
       "image_verified_at": "2026-11-10T12:30:59.287832+00:00"
     },
     {
-      "title": "Sexual-violence report — AU",
+      "title": "Sexual-violence report — WORLD",
       "summary": "The survivor’s identity and personal details are withheld. Open the original source for verified reporting.",
       "link": "https://www.abc.net.au/news/2026-11-06/russell-brand-jury-verdict/107353304",
       "source": "ABC News & Headlines – Australian Broadcasting Corporation",
@@ -5895,12 +5997,12 @@
       "image": "https://live-production.wcms.abc-cdn.net.au/dd8b093d203b5f351193d29b4c7d6b15?impolicy=wcms_watermark_news&cropH=1233&cropW=2192&xPos=0&yPos=112&width=862&height=485&imformat=generic",
       "media_embed": "",
       "media_type": "",
-      "country": "AU",
+      "country": "WORLD",
       "category": "abuse",
       "language": "en",
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPRnkwaU1fWnFBbkNfV2taN3Z0eVRMVHBLc2V6aHY3VklFbnpVYmhUOE9aVFhaRU5sS0tqYU5SaUFIUUVJNXZucllnSDdxM2R6Y0RKekdxWDJYUzlEb1E3V1hMLUw0THA4b0tkR1ZITV9fRFdESXpxWDhRWEJGWFh4Rw?oc=5",
-      "incident_id": "f093e97493390037",
+      "incident_id": "a91ba5e244b080ed",
       "related_sources": [],
       "source_count": 1,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
@@ -5977,6 +6079,25 @@
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
+      "title": "26 people taken to hospital after three-vehicle accident in Tuas - The Straits Times",
+      "summary": " 26 people taken to hospital after three-vehicle accident in Tuas &nbsp;&nbsp; The Straits Times ",
+      "link": "https://www.straitstimes.com/singapore/26-people-taken-to-hospital-after-three-vehicle-accident-in-tuas",
+      "source": "The Straits Times",
+      "published": "2026-11-05T02:40:00+00:00",
+      "image": "https://cassette.sphdigital.com.sg/image/straitstimes/6f03205078fdb03c3dafa8a51e65a3ab4152f5c4edef8fb507825242b7f56fd2?t=og",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "accident",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQaUtYb2JfcXQ2b09xeVpBWTZkR1NpMlRMdEJ2T3cxLUNTZGFDWTA4M0o1bGpyamctb2dpLUVfa1l1OFpla1ZIazFfX1I2YnpUa3BBbXZsVDJWWDh3MFFPaDYzaTN6UnFSeEE2OXlEMFRCZWFoMDN5eGt5WVBxZXdpX0NwblZYVThzcEZPbWhMc0NNbDNmcWl1OW1xenZQSm8yUEZPYUl3?oc=5",
+      "incident_id": "2af5a5e81cb16fe2",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
       "title": "Egypt’s foreign reserves climb to $57.5B at end of October - Egypt Today",
       "summary": " Egypt’s foreign reserves climb to $57.5B at end of October &nbsp;&nbsp; Egypt Today ",
       "link": "https://www.egypttoday.com/Article/3/150433/Egypt%E2%80%99s-foreign-reserves-climb-to-57-5B-at-end-of",
@@ -6014,8 +6135,13 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "4d9163e4fed2168a",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPcVRFdTRVRUpQZXAtOU5PSVZiR0g2SFFzMktoWHlJeXRNdjI3VXpsRlpqam1MV1J1NEFmNEZFYzhfNFdoTFN4WDZhdUJYQXV0TWFDb0NudVpyOXhPaWZlcTBtTWVZRXFvWXZCb2I5dzd2YTZkRkkwWnBMLS1GODFXX2VKMHNiUWpUbmVuOWg1bTQ5NmRUaEJLY1dvUEdnX3MzczFNeF9NeWZjZ2xuVURac21nNNIBuAFBVV95cUxQeng1QzJNVi1pdnV4Y0JZQWNkTVRiQ3JMbDJuTkxNUEsxZnJKSVlMMUZGcVZVVHpzRVRYZFdpbF9NZ215MlZMS0pERFZISThJeWRPanNpb0tMa3ZMeERwbC0tSEp0bElncFh5cWhsR25mU2h4MG5URF9xUGxpNWdvZjI1X3NobWRfQi13Q3dlTTJHeUUweHFTcFZsZWQzOVVNQm0yUmpuVGhUM2NOcTlZeHJZRkFraVpJ?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-11T08:57:06.703601+00:00",
       "google_news_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPcVRFdTRVRUpQZXAtOU5PSVZiR0g2SFFzMktoWHlJeXRNdjI3VXpsRlpqam1MV1J1NEFmNEZFYzhfNFdoTFN4WDZhdUJYQXV0TWFDb0NudVpyOXhPaWZlcTBtTWVZRXFvWXZCb2I5dzd2YTZkRkkwWnBMLS1GODFXX2VKMHNiUWpUbmVuOWg1bTQ5NmRUaEJLY1dvUEdnX3MzczFNeF9NeWZjZ2xuVURac21nNNIBuAFBVV95cUxQeng1QzJNVi1pdnV4Y0JZQWNkTVRiQ3JMbDJuTkxNUEsxZnJKSVlMMUZGcVZVVHpzRVRYZFdpbF9NZ215MlZMS0pERFZISThJeWRPanNpb0tMa3ZMeERwbC0tSEp0bElncFh5cWhsR25mU2h4MG5URF9xUGxpNWdvZjI1X3NobWRfQi13Q3dlTTJHeUUweHFTcFZsZWQzOVVNQm0yUmpuVGhUM2NOcTlZeHJZRkFraVpJ?oc=5"
     },
@@ -6041,7 +6167,7 @@
     {
       "title": "South Korea’s Foreign Exchange Reserves Rise - Qatar news agency",
       "summary": " South Korea’s Foreign Exchange Reserves Rise &nbsp;&nbsp; Qatar news agency ",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQY1ZfYnBJWXlPcmdRZ3psaHN4VWN6NmpyRG1NeFlyN2dKU0VIaEdMSGV0eFd6UldmdzI1UmozdXJVejR2S3VDRVhwSEdnRG1Fc09mN3M2dEJ5RU9CZmxxNVZmN3FPM0tPMEczdWZ3TzMxYXhxbUlWSkdycWl6YUdCVVM1djF1bGgyd2djN1RnTnprLTBvUmc?oc=5",
+      "link": "https://qna.org.qa/en/News-Area/News/2026-11/4/south-koreaas-foreign-exchange-reserves-rise",
       "source": "Qatar news agency",
       "published": "2026-11-04T05:22:26+00:00",
       "image": "https://cdn.qna.org.qa/media/tdkdevxo/qna_centeral_bank_south_k_13_07_2022.jpg?width=1200&height=900&v=1db4c53c8b47db0",
@@ -6056,7 +6182,7 @@
       "related_sources": [
         {
           "name": "Qatar news agency",
-          "link": "https://qna.org.qa/en/news/news-details?id=south-koreaas-foreign-exchange-reserves-rise&date=4/11/2026"
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQY1ZfYnBJWXlPcmdRZ3psaHN4VWN6NmpyRG1NeFlyN2dKU0VIaEdMSGV0eFd6UldmdzI1UmozdXJVejR2S3VDRVhwSEdnRG1Fc09mN3M2dEJ5RU9CZmxxNVZmN3FPM0tPMEczdWZ3TzMxYXhxbUlWSkdycWl6YUdCVVM1djF1bGgyd2djN1RnTnprLTBvUmc?oc=5"
         }
       ],
       "source_count": 2,
@@ -6077,14 +6203,28 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWGxVeDF2QjdpN1JlMmRqMlZZWEpFckFVYWZ2Uk1maHZnUk01M1BNUVFCbWlraDlqT1hUQ1FKSkp6aXdua3JsMHNJVE5rNGhqZi15OUdiTU9UTjVxdFh5cmpNTkJxVDhaR0c1Q3FsaGRiNGtmSnRqNHp3QjYzTkZqdDVwSjJTQUJuWnJZcDlB?oc=5",
       "incident_id": "63113fd344a5cc5f",
-      "related_sources": [
-        {
-          "name": "www.wam.ae",
-          "link": "https://www.wam.ae/en/article/17ib7vm-koreas-foreign-reserves-rebound-us44316-billion"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
+    },
+    {
+      "title": "Bird flu death toll remains hidden as governments report ‘events’, not wildlife deaths - Biodiversity Council Australia",
+      "summary": " Bird flu death toll remains hidden as governments report ‘events’, not wildlife deaths &nbsp;&nbsp; Biodiversity Council Australia ",
+      "link": "https://biodiversitycouncil.org.au/news/bird-flu-death-toll-remains-hidden-as-governments-report-events-not-wildlife-deaths",
+      "source": "Biodiversity Council Australia",
+      "published": "2026-11-04T00:14:32+00:00",
+      "image": "https://biodiversitycouncil.org.au/admin/uploads/55053529908_3328ce3e1e_o_65b4d07a41.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "AU",
+      "category": "casualty",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNWsxNmpwNXh4WEhKS2VNWktiVWFtWnN0dkVWTDM5a2hHdmx6LWJYRlZjN2JuazlXWHZzRzVKU1lYMTRySllfdnVneERGOHVhN3BQWVpEYzM2VDdmWkZiMVpJVGloQThkX3pKd1Q2UVVFWEk2S0tOd09NOFM2cGZYUDVDMXhnbWszVnVNU3FTS2Y5V05kYXNqaHJnNmRKUXNGZ2EtYk5nZTBoR2YwRXVITmlkNHBoUU96MTRPeklzTDA?oc=5",
+      "incident_id": "f811c869b77b04dd",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
     },
     {
       "title": "October Foreign Reserves Rise to $443.2 Billion, Global Ranking Rises to 9th - news.sbs.co.kr",
@@ -6124,8 +6264,13 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4tRXhaUXNTaU91Q0s5VHNLMHZwNjZmQllsaDhEWFMyWVNxYk0yb1loYllZV2NNakpaaEU5VVQ5WEozQlZ3YTVIUlBCVHRvQnRoNTBkSm5YaTNuZkRyOTdfNks3T0FBY3dBbVNYVGc4NHdoWmRRTXEtbA?oc=5",
       "incident_id": "19a74652c17bace5",
-      "related_sources": [],
-      "source_count": 1,
+      "related_sources": [
+        {
+          "name": "MissingKids.org",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYlloSHhCZHVTNUw5MXFHcWVjazl2ODZQSGlXdlpQZ1RmcDNVWWp2eG5WOE9tWjNMZUJDZ3ZrQUdtdlNESUVlVG1BNFVaN01hNTRtZkxNS2xITDJ6Z3VEN1Z3X29uSHh4emJ6VlRyNndYRXhienNPZTAwSnZnbV84b21EWEpTM0dvLVNicHNZTk5nT0ExcEJ3MUJrbHdTS21hcVVxd2NXTWg?oc=5"
+        }
+      ],
+      "source_count": 2,
       "image_verified_at": "2026-11-10T12:30:59.287832+00:00"
     },
     {
@@ -6143,37 +6288,8 @@
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdXF1OGo3RTk2eEdJNDgyYkJxZ2NLRDdDWkVLal9ULWNENjlYeVVkS2EzWXV3aUQxUnlENlN2V0daMVlhWnZyZF9ocnFaZXdIWlJvNjZUR3VLYU1CS2hqdVNaSi1QMDMzYlRlV2VBdnc2eERUcG10MEF4TXYzZ1RJX3F3QUctSFpvNnlFdEVjbnE0d0liYlJZYjJEMA?oc=5",
       "incident_id": "bb66c4b8f2210b29",
-      "related_sources": [
-        {
-          "name": "Azərtac",
-          "link": "https://azertag.az/en/xeber/azerbaijans_central_bank_foreign_exchange_reserves_increase-4492575"
-        }
-      ],
-      "source_count": 2,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
-    },
-    {
-      "title": "Missing-child alert — WORLD",
-      "summary": "The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYlloSHhCZHVTNUw5MXFHcWVjazl2ODZQSGlXdlpQZ1RmcDNVWWp2eG5WOE9tWjNMZUJDZ3ZrQUdtdlNESUVlVG1BNFVaN01hNTRtZkxNS2xITDJ6Z3VEN1Z3X29uSHh4emJ6VlRyNndYRXhienNPZTAwSnZnbV84b21EWEpTM0dvLVNicHNZTk5nT0ExcEJ3MUJrbHdTS21hcVVxd2NXTWg?oc=5",
-      "source": "MissingKids.org",
-      "published": "2026-11-03T08:00:00+00:00",
-      "image": "https://www.missingkids.org/content/dam/missingkids/hero-banners/blog-karen-rojas.jpg",
-      "media_embed": "",
-      "media_type": "",
-      "country": "WORLD",
-      "category": "missing",
-      "language": "en",
-      "verification_status": "source_reported",
-      "google_news_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYlloSHhCZHVTNUw5MXFHcWVjazl2ODZQSGlXdlpQZ1RmcDNVWWp2eG5WOE9tWjNMZUJDZ3ZrQUdtdlNESUVlVG1BNFVaN01hNTRtZkxNS2xITDJ6Z3VEN1Z3X29uSHh4emJ6VlRyNndYRXhienNPZTAwSnZnbV84b21EWEpTM0dvLVNicHNZTk5nT0ExcEJ3MUJrbHdTS21hcVVxd2NXTWg?oc=5",
-      "incident_id": "81aa4b25b44f4f94",
-      "related_sources": [
-        {
-          "name": "MissingKids.org",
-          "link": "https://www.missingkids.org/blog/2026/breaking-news-missing-5-year-old-la-girl-found-safe-after-six-years"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
@@ -6190,34 +6306,15 @@
       "language": "en",
       "verification_status": "source_reported",
       "google_news_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1BWEFLVUZFYmhEYmZhU3lFNFFoc0pRWUh2Skd1M21vRk5rVExCYzZKWEdiM095TkJETnJ0REhnMHJ5azJ5X1BuVUhwWl9rS0kxV3cwU3FhM3docm01cjJST1NHYTZ0UnJhS2dHVkt1eXBqSmJZR3RiRWJWV3V1WEnSAZMBQVVfeXFMT1Rxb0NBU3ZZSXZVcEY4bVFMR29acDdDekJ3Njc0Ri1VWkQxWGdoOXpmTm5Xazh1V0F6SE84NmlyN3MxNkpGOWVjUjg3THV2ZXVnM0J6ZXY2MzM0LS0xQ09Bd2ZjN1FvZHVibWF4ZnlVdWNTY0hFZS1tclZrV0s5aExXck5xbmRNZTNtM3cwQUZSMWVB?oc=5",
-      "incident_id": "a652102c88e9f51a",
+      "incident_id": "ec78b0ffb4732929",
       "related_sources": [
         {
           "name": "WSAZ",
-          "link": "https://www.wsaz.com/2026/11/02/wsaz-volunteers-join-search-missing-child/"
+          "link": "https://www.wsaz.com/2026/11/02/missing-child-lawrence-county-ky/"
         }
       ],
       "source_count": 2,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
-    },
-    {
-      "title": "Missing-child alert — WORLD",
-      "summary": "The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.",
-      "link": "https://www.wsaz.com/2026/11/02/missing-child-lawrence-county-ky/",
-      "source": "WSAZ",
-      "published": "2026-11-02T01:52:00+00:00",
-      "image": "https://gray-wsaz-prod.gtv-cdn.com/resizer/v2/H6EPW6DL4VHDXA5T3E5VVBPS2A.jpg?auth=2e56b89f2d5572a052ef82fedd6bbceec3c6fc6f11ce0954aaab0d401643b732&width=1200&height=600&smart=true",
-      "media_embed": "",
-      "media_type": "",
-      "country": "WORLD",
-      "category": "missing",
-      "language": "en",
-      "verification_status": "source_reported",
-      "incident_id": "ec78b0ffb4732929",
-      "related_sources": [],
-      "source_count": 1,
-      "image_verified_at": "2026-11-10T12:36:29.261328+00:00",
-      "google_news_url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE12S2tHVlI1UmpVU2NIenk5OVN2eFlwV04tU282R2lzQ2ZxaVh6YXo2VUFQZHl1MjBUNVRCVENtS21hVDZGaDkyRXdKak0tVEdYSkczRjVOYWlKVTA1T3AxdHAxcjI0TUpNWkMxTWRYTFhMbTjSAYcBQVVfeXFMTkZUX0lTUlV0WkJnQWtfMG00M2lCUjl1VUExcElSYU9ETmUxTmJOSVpuNXFNalZXak1ieEVzbjdyR2tiNGUxSlBZLWticElhQm55XzJnaVdwcWFyRVRsYzVRdVF1azRoQzZlV3Q1RVpCMVhabVdBQTZNSGMxVGJTQ3dDNklsTXAw?oc=5"
     },
     {
       "title": "Missing-child alert — WORLD",
@@ -6232,15 +6329,218 @@
       "category": "missing",
       "language": "en",
       "verification_status": "source_reported",
+      "incident_id": "ad51259c7804c9c1",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:40:58.571053+00:00",
+      "google_news_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZkVBSWRYVGRKWGpnSXRqckVaYTF5ZUNYWDJyQml5R3NYR0VkYjY2V2hYZFN1OHZleURTS1JWYlpNdGRVS1FVMjZBaFlTdklNbnlyQkpYSXZYREZhSXNHWjNJRG45akVfZFYtaWJvNVY4cC1iTGFlaDZSZC1Cb1VlaHVCc2NnWDk4Y3k2Tm5IR29oc3FWemIzMU14VThQZw?oc=5"
+    },
+    {
+      "title": "Missing-child alert — WORLD",
+      "summary": "The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.",
+      "link": "https://www.wsaz.com/video/2026/11/01/volunteers-help-search-missing-child-more-top-stories-wsaz/",
+      "source": "WSAZ",
+      "published": "2026-11-01T21:29:00+00:00",
+      "image": "https://gray-wsaz-prod.gtv-cdn.com/resizer/v2/https%3A%2F%2Fdo0bihdskp9dy.cloudfront.net%2F11-02-2026%2Ft_c4f2925b2d5f49249cb3420152810854_name_file_1280x720_2000_v3_1_.jpg?auth=aa5360f354a03481d45fb22d9f3fdae3c434c5a0a7df7f5027f7f525bea65c71&width=1200&height=600&smart=true",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "missing",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZkVBSWRYVGRKWGpnSXRqckVaYTF5ZUNYWDJyQml5R3NYR0VkYjY2V2hYZFN1OHZleURTS1JWYlpNdGRVS1FVMjZBaFlTdklNbnlyQkpYSXZYREZhSXNHWjNJRG45akVfZFYtaWJvNVY4cC1iTGFlaDZSZC1Cb1VlaHVCc2NnWDk4Y3k2Tm5IR29oc3FWemIzMU14VThQZw?oc=5",
       "incident_id": "263f9237511060a1",
+      "related_sources": [],
+      "source_count": 1,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "Missing-child alert — WORLD",
+      "summary": "The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.",
+      "link": "https://www.hernandosun.com/2026/10/31/hcso-finds-missing-child-in-house/",
+      "source": "Hernando Sun",
+      "published": "2026-10-31T07:00:00+00:00",
+      "image": "https://www.hernandosun.com/wp-content/uploads/2026/10/Screenshot-2026-10-31-214515.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "missing",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9RRzBwa0ZpeW5wZzV0UnZOd3pBLWNjcE0xZjBEN2dmS01NQXZCLWtvS1hILWF4VzVZNXpDbWg5MUJNcE5saTlMRTNhMFIyUHNpQlBUeEQ4aE9ndFlXbU14S2NCWlg5QUFsYzJ2bG9oNTRHVlBtNFBobnhaaXhaQQ?oc=5",
+      "incident_id": "9055732215170f86",
       "related_sources": [
         {
-          "name": "WSAZ",
-          "link": "https://www.wsaz.com/video/2026/11/01/volunteers-help-search-missing-child-more-top-stories-wsaz/"
+          "name": "Hernando Sun",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9RRzBwa0ZpeW5wZzV0UnZOd3pBLWNjcE0xZjBEN2dmS01NQXZCLWtvS1hILWF4VzVZNXpDbWg5MUJNcE5saTlMRTNhMFIyUHNpQlBUeEQ4aE9ndFlXbU14S2NCWlg5QUFsYzJ2bG9oNTRHVlBtNFBobnhaaXhaQQ?oc=5"
         }
       ],
       "source_count": 2,
-      "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "Forex reserves decline over $1.2bn last week - News On AIR",
+      "summary": " Forex reserves decline over $1.2bn last week &nbsp;&nbsp; News On AIR ",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE41bmx2REZQX3ZmSUhLS2tRdHl0a3VPSjl6cGxVX0tVYjlKWExMa3h2MnUtSlRiQ2tkTGxEQWRtVG51X0tCVG90cmpuSkJjaHNBMXV6LUFqdzFGc3FZanltWTJ3dHRKMVp2VjBnQ0thTm5rbndHV2pvWFhZSQ?oc=5",
+      "source": "News On AIR",
+      "published": "2026-10-30T12:45:00+00:00",
+      "image": "https://newsonair.gov.in/wp-content/themes/newsonair/assets/custom-assets/images/fb.svg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "reserve",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "cb201f36e9919307",
+      "related_sources": [
+        {
+          "name": "News On AIR",
+          "link": "https://newsonair.gov.in/forex-reserves-decline-nearly-1-3bn-last-week/"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "India's forex reserves fall to $719.748 billion, RBI data shows - BusinessLine",
+      "summary": " India's forex reserves fall to $719.748 billion, RBI data shows &nbsp;&nbsp; BusinessLine ",
+      "link": "https://www.thehindubusinessline.com/markets/forex/indias-forex-reserves-fall-by-1269-billion-to-719748-billion/article71644927.ece",
+      "source": "BusinessLine",
+      "published": "2026-10-30T07:00:00+00:00",
+      "image": "https://bl-i.thgim.com/public/migration_catalog/8louhu-bl09SMU-jrG9P3NDMC51BL10DOLLAR2jpg/alternates/LANDSCAPE_1200/bl09SMU-jrG9P3NDMC51BL10DOLLAR2jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "IN",
+      "category": "reserve",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcVVQcGNORFdXMmlEcTNXRnByLUM0MmJiWWFVbWNwUWRLaTJBOGM3SGM3M3owZWstbnFpRy1QUEpRdGRmcEdsZzBzNHdpaVgxYkhhY0UtcTMybUxHQWxTSklMR0w5c1hXdC0zWk9HU2o5Z2xCX01CaS1mOFZLS1hKYVpGeGpmQm9OWjlQRVh6NjRDNG9DTTZjbXdpcHRiaXNOdkE0akVQSjJkY2w0ZDN4NklZRmp3VGlQQXNDaGhXMExIOFVLdlNXV1l6UdIB0gFBVV95cUxQY2hxaG5qM2R2WVktZ1ppWGZnSlNyeWpvMHZpMmV2NmYtWVZfVlg4LTF1X0QwODV5dWMxbUpUS0ZtbnFxX0FycDFwV1dqV2ZGcklVX3hkRXo5bHlvMlczeUhlcHNBdnR4MWhPTjdmUnlGTVNfWGZMUVlFanp6QTdZSm9iQVNUdWliMDFtdDBQU05ldW13cVdEMFBmd0tPU29PY3Y0eDc0dzJWX1NCU0lMUkNlUXhZbDlfdkpFbDBkM0ZGMDhVaGEzR0Y4OWxhUDNxNVE?oc=5",
+      "incident_id": "81ba9f274debef59",
+      "related_sources": [
+        {
+          "name": "BusinessLine",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcVVQcGNORFdXMmlEcTNXRnByLUM0MmJiWWFVbWNwUWRLaTJBOGM3SGM3M3owZWstbnFpRy1QUEpRdGRmcEdsZzBzNHdpaVgxYkhhY0UtcTMybUxHQWxTSklMR0w5c1hXdC0zWk9HU2o5Z2xCX01CaS1mOFZLS1hKYVpGeGpmQm9OWjlQRVh6NjRDNG9DTTZjbXdpcHRiaXNOdkE0akVQSjJkY2w0ZDN4NklZRmp3VGlQQXNDaGhXMExIOFVLdlNXV1l6UdIB0gFBVV95cUxQY2hxaG5qM2R2WVktZ1ppWGZnSlNyeWpvMHZpMmV2NmYtWVZfVlg4LTF1X0QwODV5dWMxbUpUS0ZtbnFxX0FycDFwV1dqV2ZGcklVX3hkRXo5bHlvMlczeUhlcHNBdnR4MWhPTjdmUnlGTVNfWGZMUVlFanp6QTdZSm9iQVNUdWliMDFtdDBQU05ldW13cVdEMFBmd0tPU29PY3Y0eDc0dzJWX1NCU0lMUkNlUXhZbDlfdkpFbDBkM0ZGMDhVaGEzR0Y4OWxhUDNxNVE?oc=5"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "India’s forex reserves fall $1.27 billion to $719.75 billion- Moneycontrol.com - LinkedIn",
+      "summary": " India’s forex reserves fall $1.27 billion to $719.75 billion- Moneycontrol.com &nbsp;&nbsp; LinkedIn ",
+      "link": "https://www.linkedin.com/posts/moneycontrol_indias-forex-reserves-fall-127-billion-activity-7521918223919935488-ya7O",
+      "source": "LinkedIn",
+      "published": "2026-10-30T07:00:00+00:00",
+      "image": "https://media.licdn.com/dms/image/sync/v2/D4E27AQH2cc1FbzQNjg/articleshare-shrink_1280_800/B4EaGM35C5HAAg-/0/1793364824729?e=2147483647&v=beta&t=EAYTbuFH2if9fnvXoHM6E8jKQhqsgBtn1BRhHoKAj6s",
+      "media_embed": "",
+      "media_type": "",
+      "country": "IN",
+      "category": "reserve",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQVklSWjhmR2JUOGtsOUhxQ1pLMFdrTXAta25maEJKUGwxUEVNRGRlWm1WWjJSYi1MVW5OOVN1S3FPVFNCTWl1UEhXUjladC16VTBSSE5FWk5TX0dqOF9pNFE2RDV0N093cUZFZlhDeGZ0Y3FjdFpEcnFqUlNNYzJUVXJ3al91dTRuTUh4ekNtRVNIY1Jfa3NUMHRZY2R2ZGdyX1d4TzMwT3Jqc0xoSzNnTnRhT1dhcjg?oc=5",
+      "incident_id": "f1ccd86b07ceebc1",
+      "related_sources": [
+        {
+          "name": "LinkedIn",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQVklSWjhmR2JUOGtsOUhxQ1pLMFdrTXAta25maEJKUGwxUEVNRGRlWm1WWjJSYi1MVW5OOVN1S3FPVFNCTWl1UEhXUjladC16VTBSSE5FWk5TX0dqOF9pNFE2RDV0N093cUZFZlhDeGZ0Y3FjdFpEcnFqUlNNYzJUVXJ3al91dTRuTUh4ekNtRVNIY1Jfa3NUMHRZY2R2ZGdyX1d4TzMwT3Jqc0xoSzNnTnRhT1dhcjg?oc=5"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "Death toll from Spain train crash revised to 69 as royals visit victims - Euronews.com",
+      "summary": " Death toll from Spain train crash revised to 69 as royals visit victims &nbsp;&nbsp; Euronews.com ",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSzZ3RnNxVkZKRExnRGkyekpCWmszakVNaDh1TmZ1eldLbkN4Z1Eyc3BkblFVc1ZvM3BIX3F4Mzl5bG9SRnJRdlM0dlhWV0pIREpaeV9hVDJ6VEkzeW1qVk5nMTFob2dQWFJDbXB1WjU1ejVzNi1Ld25zOEhGVTZzd2JoYXRfbnBaa0tXX1FuR2h0NEpkeWt6amtXcngxXy1FUDQxcDR2TGQ?oc=5",
+      "source": "Euronews.com",
+      "published": "2026-10-29T07:00:00+00:00",
+      "image": "https://images.euronews.com/articles/stories/09/97/19/18/1200x675_cmsv2_16d97e11-4b02-5a04-8103-53784ecef8cf-9971918.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "ES",
+      "category": "accident",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "fb803f38e84e7b90",
+      "related_sources": [
+        {
+          "name": "Euronews.com",
+          "link": "https://www.euronews.com/2026/10/29/death-toll-from-spain-train-crash-rises-to-74-as-royals-visit-victims"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "Azerbaijan’s strategic foreign exchange reserves reach $89.4 billion - azərtac",
+      "summary": " Azerbaijan’s strategic foreign exchange reserves reach $89.4 billion &nbsp;&nbsp; azərtac ",
+      "link": "https://azertag.az/en/xeber/azerbaijans_strategic_foreign_exchange_reserves_reach_894_billion-4486305",
+      "source": "azərtac",
+      "published": "2026-10-29T07:00:00+00:00",
+      "image": "https://azertag.az/files/2026/3/1200x630/17932680456184336417_1200x630.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "reserve",
+      "language": "en",
+      "verification_status": "source_reported",
+      "google_news_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUDRTX0UzTlliaVFwRmRRZHJiWU83TXVwTEc5eUtDa2hWenV6RXJtWmRmV0FFZmJxRDhJSm5OWTRCWkFON0Q2WmpEQTFuYVp6RzEzcENxYV9Eb2R6SWc4U2NBaHRkMjAyT1R5aW1tbzNfa1BCU2V6eHpOZlhKLUVvbUR3MXRkQkUzNWE3Rm15dXl3QmtwVXdLM19hNzY1ZWFsR3JN?oc=5",
+      "incident_id": "c1edcc9bc93273ab",
+      "related_sources": [
+        {
+          "name": "Azərtac",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUDRTX0UzTlliaVFwRmRRZHJiWU83TXVwTEc5eUtDa2hWenV6RXJtWmRmV0FFZmJxRDhJSm5OWTRCWkFON0Q2WmpEQTFuYVp6RzEzcENxYV9Eb2R6SWc4U2NBaHRkMjAyT1R5aW1tbzNfa1BCU2V6eHpOZlhKLUVvbUR3MXRkQkUzNWE3Rm15dXl3QmtwVXdLM19hNzY1ZWFsR3JN?oc=5"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "Azerbaijan’s strategic foreign exchange reserves exceed external debt by 19.8 times - azərtac",
+      "summary": " Azerbaijan’s strategic foreign exchange reserves exceed external debt by 19.8 times &nbsp;&nbsp; azərtac ",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQelY1bXhsU2YyUVRDN2ZSMzNLWVVLYjh2SllvaDNZMTk3ZzlBNjFHZWNQSjhXNkRtZXYtR2cyUHAzYWVlUk4tdzRYU1kzTkVIM3AwNjc1OFRSaUJ4NFRseUhXOUFHRTROeGE4SEl1NzZSQUpOUGgxelZCRUxhSkd4VzR6YThWOVVRZ3ZOLTg2d2pfUTRUWFZnVmhfVjRxZm9xVXY1cFg0ZlF6NHlSam16R1lPR19zOHlK?oc=5",
+      "source": "azərtac",
+      "published": "2026-10-28T07:00:00+00:00",
+      "image": "https://azertag.az/files/2026/3/1200x630/179319328641058910_1200x630.jpg",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "reserve",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "f8fb92a1ecee4230",
+      "related_sources": [
+        {
+          "name": "azərtac",
+          "link": "https://azertag.az/en/xeber/azerbaijans_strategic_foreign_exchange_reserves_exceed_external_debt_by_198_times-4485045"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
+    },
+    {
+      "title": "Missing-child alert — WORLD",
+      "summary": "The child’s name, age and personal details are withheld. Open the original source for verified information and contact instructions.",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9xY196Z1dGSWtpaEpBTm9TTkxuZHVLOUdfaFBzNmdYb0VjLUNscnFUSkVPZmw5UEhncW1VUVJEV3h1ak5rMXYzSXVOS0lXenh6RGc?oc=5",
+      "source": "Citizen app",
+      "published": "2026-10-27T16:31:14+00:00",
+      "image": "https://images.prismic.io/citizen-site/ea51fded-bedd-482d-85b6-0ae1b743d636_Thumbnail+-+Invite.png?auto=compress,format",
+      "media_embed": "",
+      "media_type": "",
+      "country": "WORLD",
+      "category": "missing",
+      "language": "en",
+      "verification_status": "source_reported",
+      "incident_id": "ac785ea0ee81e57b",
+      "related_sources": [
+        {
+          "name": "Citizen app",
+          "link": "https://citizen.com/-P4yC4QUm0qSKf4O0wMb"
+        }
+      ],
+      "source_count": 2,
+      "image_verified_at": "2026-11-11T09:49:36.903090+00:00"
     },
     {
       "title": "Missing-child alert — WORLD",
@@ -6275,13 +6575,8 @@
       "language": "en",
       "verification_status": "source_reported",
       "incident_id": "de3ec82a8d091d0f",
-      "related_sources": [
-        {
-          "name": "News On AIR",
-          "link": "https://newsonair.gov.in/countrys-forex-reserves-decline-by-5bn-to-721bn/"
-        }
-      ],
-      "source_count": 2,
+      "related_sources": [],
+      "source_count": 1,
       "image_verified_at": "2026-11-11T09:40:58.571053+00:00"
     },
     {
