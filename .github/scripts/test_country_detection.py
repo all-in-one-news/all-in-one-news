@@ -102,3 +102,45 @@ workflow_text = WORKFLOW.read_text(encoding="utf-8")
 if "cron: '*/10 * * * *'" not in workflow_text:
     raise SystemExit("News collection must be scheduled every 10 minutes.")
 print("Passed automated news collection schedule regression test.")
+
+# Global editorial desks must be discoverable in both English and Bangla.
+collector_text = SOURCE.read_text(encoding="utf-8")
+for desk in ("politics", "economy", "sports", "technology", "entertainment", "market"):
+    if "'" + desk + "': (" not in collector_text:
+        raise SystemExit(f"Missing global news collection query for {desk}.")
+    if "('WORLD', desk," not in collector_text:
+        raise SystemExit(f"Global {desk} query is not added to the collector feed list.")
+print("Passed six global news desk feed configuration checks.")
+
+# Exercise the collector's real headline classifier for the new desks.
+classifier_nodes = [
+    node for node in tree.body
+    if (isinstance(node, ast.Assign) and any(
+        isinstance(target, ast.Name) and target.id == "patterns"
+        for target in node.targets
+    )) or (isinstance(node, ast.FunctionDef) and node.name == "classify")
+]
+classifier_ns = {"re": re}
+exec(compile(ast.Module(body=classifier_nodes, type_ignores=[]), str(SOURCE), "exec"), classifier_ns)
+classify = classifier_ns["classify"]
+desk_cases = {
+    "Election commission announces national vote schedule": "politics",
+    "Inflation rises as central bank changes interest rate": "economy",
+    "Bangladesh cricket team wins the final match": "sports",
+    "New artificial intelligence chip unveiled by researchers": "technology",
+    "Popular anime film breaks box office record": "entertainment",
+    "Stock market shares rise after trading session": "market",
+}
+for title, expected in desk_cases.items():
+    actual = classify({"title": title, "summary": "", "category": "WORLD"})
+    if actual != expected:
+        raise SystemExit(f"News desk classification failed: {title!r}: expected {expected}, got {actual}")
+print(f"Passed {len(desk_cases)} global news desk classification tests.")
+
+# Every new desk must have a visible homepage filter and matching count.
+for desk in ("politics", "economy", "sports", "technology", "entertainment", "market"):
+    if 'data-cat="' + desk + '"' not in index_text or 'id="n-' + desk + '"' not in index_text:
+        raise SystemExit(f"Homepage is missing the {desk} news desk filter/count.")
+    if desk + ":/" not in index_text:
+        raise SystemExit(f"Homepage headline matching is missing for {desk}.")
+print("Passed six homepage news desk filter checks.")
