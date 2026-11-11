@@ -542,6 +542,10 @@ INCIDENT_LOCATION_ALIASES = {
     'UG': ('uganda','ugandan','kampala'),
     'ZW': ('zimbabwe','zimbabwean','harare'),
     'AF': ('afghanistan','afghan','kabul'),
+    'HK': ('hong kong','hong konger'),
+    'MO': ('macau','macao','macanese'),
+    'TW': ('taiwan','taiwanese','taipei','kaohsiung','tainan'),
+    'XK': ('kosovo','kosovar','pristina','prishtina'),
 }
 INCIDENT_PLACE_ALIASES = {
     'BD': ('dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar"),
@@ -594,12 +598,16 @@ INCIDENT_PLACE_ALIASES = {
     'UG': ('kampala',),
     'ZW': ('harare',),
     'AF': ('kabul',),
+    'HK': ('hong kong',),
+    'MO': ('macau','macao'),
+    'TW': ('taipei','kaohsiung','tainan'),
+    'XK': ('pristina','prishtina'),
 }
 def incident_country(item):
     story=' '+(str(item.get('title',''))+' '+str(item.get('summary',''))).lower()+' '
     # Specific places are checked before demonyms/country names so that,
     # for example, a city in Ukraine wins over a headline mentioning Russia.
-    priority = ('BD','US','GB','IN','ID','UA','EG','FR','DE','PL','PS','IL','CA','AU','NZ','PK','MY','SG','ZA','KE','NG','RU','TR','IR','SA','AE','JP','CN','KR','TH','VN','BR','MX','AR','ES','IT','NL','BE','CH','SE','NO','DK','IE','GR','CZ','RO','ET','TZ','UG','ZW','AF')
+    priority = ('BD','US','GB','IN','ID','UA','EG','FR','DE','PL','PS','IL','CA','AU','NZ','PK','MY','SG','ZA','KE','NG','RU','TR','IR','SA','AE','JP','CN','KR','TH','VN','BR','MX','AR','ES','IT','NL','BE','CH','SE','NO','DK','IE','GR','CZ','RO','ET','TZ','UG','ZW','AF','HK','MO','TW','XK')
     for aliases in (INCIDENT_PLACE_ALIASES, INCIDENT_LOCATION_ALIASES):
         for code in priority:
             for alias in aliases.get(code, ()):
