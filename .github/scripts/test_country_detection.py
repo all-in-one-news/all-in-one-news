@@ -95,3 +95,10 @@ if "if($('to').value&&$('to').value<$('from').value)" not in index_text:
 if 'শেষ তারিখ শুরুর তারিখের আগে হতে পারবে না' not in index_text:
     raise SystemExit("The invalid date range must show a clear Bengali explanation.")
 print("Passed invalid date range validation regression test.")
+
+# Keep the automated collection cadence at the agreed 10-minute interval.
+WORKFLOW = SOURCE.parents[1] / "workflows" / "update-news.yml"
+workflow_text = WORKFLOW.read_text(encoding="utf-8")
+if "cron: '*/10 * * * *'" not in workflow_text:
+    raise SystemExit("News collection must be scheduled every 10 minutes.")
+print("Passed automated news collection schedule regression test.")
