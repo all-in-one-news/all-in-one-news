@@ -52,7 +52,7 @@ print(f"Passed {len(cases)} country-detection regression tests.")
 # Country filter regression: WORLD is included only in the all-countries view.
 INDEX = SOURCE.parents[2] / "index.html"
 index_text = INDEX.read_text(encoding="utf-8")
-match = re.search(r"function matches\\(x\\)\\{([^}]+)\\}", index_text)
+match = re.search(r"function matches\(x\)\{([^}]+)\}", index_text)
 if not match:
     raise SystemExit("Could not locate the country/language filter.")
 filter_body = match.group(1)
