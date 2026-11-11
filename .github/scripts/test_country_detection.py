@@ -166,3 +166,20 @@ if "shown.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE)" not in index_text:
 if "Math.ceil(shown.length/PAGE_SIZE)" not in index_text:
     raise SystemExit("Homepage page count must use the shared page size.")
 print("Passed 40-story pagination regression test.")
+
+# Browser storage can be unavailable in private/restricted contexts; feed preferences must still work.
+if "function readPref(key,fallback)" not in index_text or "function writePref(key,value)" not in index_text:
+    raise SystemExit("Safe browser preference helpers are missing.")
+if "language=readPref('ain_language'" not in index_text or "country=readPref('ain_country','BD')" not in index_text:
+    raise SystemExit("Language and country preferences must use safe reads.")
+if "writePref('ain_language',language)" not in index_text or "writePref('ain_country',country)" not in index_text:
+    raise SystemExit("Language and country preferences must use safe writes.")
+print("Passed restricted browser storage preference regression test.")
+
+# Keyboard users must be able to skip directly to the main news content.
+if 'href="#main-content"' not in index_text or 'id="main-content" tabindex="-1"' not in index_text:
+    raise SystemExit("The keyboard skip link or its focusable main target is missing.")
+if ".skip-link:focus" not in index_text:
+    raise SystemExit("The skip link must become visible when keyboard-focused.")
+print("Passed keyboard skip navigation regression test.")
+
