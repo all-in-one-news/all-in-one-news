@@ -35,8 +35,11 @@ cases = {
     "গোপালগঞ্জে পৃথক সড়ক দুর্ঘটনায় নিহত": "BD",
     "পল্লবীতে পার্কিংয়ে থাকা বাসে আগুন": "BD",
     "মাধবপুরে সড়ক দুর্ঘটনায় চালকের মৃত্যু": "BD",
+    "আসামে ট্রেন লাইনচ্যুত, আহত বেশ কয়েকজন": "IN",
+    "Train derailment reported in Guwahati": "IN",
     "Fire reported in London": "GB",
     "Unlocated international incident headline": "WORLD",
+    "A train incident in an unspecified location": "WORLD",
 }
 
 for title, expected in cases.items():
