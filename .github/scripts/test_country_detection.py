@@ -62,3 +62,12 @@ print("Passed country filter regression test.")
 if "if(!isRefresh&&!$('from').value)$('from').value=retentionStart;" not in index_text:
     raise SystemExit("Manual refresh must preserve the selected start date.")
 print("Passed date filter persistence regression test.")
+
+# Theme preference regression: dark mode must persist across page reloads.
+if 'localStorage.setItem(\'ain_theme\',next)' not in index_text:
+    raise SystemExit("Theme toggle must save the visitor's selected theme.")
+if 'applyTheme(localStorage.getItem(\'ain_theme\')||\'light\')' not in index_text:
+    raise SystemExit("Saved theme preference must be restored on page load.")
+if 'onclick="toggleTheme()"' not in index_text:
+    raise SystemExit("Theme button must use the persistent theme toggle.")
+print("Passed dark mode preference persistence regression test.")
