@@ -357,7 +357,7 @@ def enrich_article_image(item):
                         item['image']=candidate
                         break
         if not item.get('image'):
-            for script in re.findall(r'<script[^>]*type=["']application/ld\+json["'][^>]*>(.*?)</script>',raw,re.I|re.S):
+            for script in re.findall(r"""<script[^>]*type=["']application/ld\+json["'][^>]*>(.*?)</script>""",raw,re.I|re.S):
                 try:
                     data=json.loads(html.unescape(script.strip()))
                 except Exception:
