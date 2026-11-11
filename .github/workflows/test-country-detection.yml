@@ -1,0 +1,35 @@
+name: Website regression tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '.github/scripts/update_news.py'
+      - '.github/scripts/test_country_detection.py'
+      - '.github/workflows/test-country-detection.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - '.github/scripts/update_news.py'
+      - '.github/scripts/test_country_detection.py'
+      - '.github/workflows/test-country-detection.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Validate collector syntax
+        run: python -m py_compile .github/scripts/update_news.py
+      - name: Run country, feed-filter, and date-filter regression tests
+        run: python .github/scripts/test_country_detection.py
