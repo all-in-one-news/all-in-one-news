@@ -144,3 +144,8 @@ for desk in ("politics", "economy", "sports", "technology", "entertainment", "ma
     if desk + ":/" not in index_text:
         raise SystemExit(f"Homepage headline matching is missing for {desk}.")
 print("Passed six homepage news desk filter checks.")
+
+# Feed registry must exist before global desk feeds are appended.
+if collector_text.index("feeds=[]") > collector_text.index("for desk, (english_query, bangla_query)"):
+    raise SystemExit("Global desk feeds are appended before the feed registry is initialized.")
+print("Passed global feed initialization order regression test.")
