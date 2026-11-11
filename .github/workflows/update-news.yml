@@ -25,6 +25,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate news collector syntax
         run: python -m py_compile .github/scripts/update_news.py
+      - name: Test country detection for Bangla and international headlines
+        run: python .github/scripts/test_country_detection.py
       - name: Validate current news and snapshot last known-good data
         run: |
           python - <<'PY'
