@@ -88,3 +88,10 @@ for control in ('country', 'language', 'q', 'sort', 'from', 'to'):
 if 'aria-label="খবর আবার লোড করুন"' not in index_text:
     raise SystemExit("The reload button is missing an accessible label.")
 print("Passed accessible control label regression test.")
+
+# Reject invalid date ranges instead of silently showing an empty feed.
+if "if($('to').value&&$('to').value<$('from').value)" not in index_text:
+    raise SystemExit("The date filter must reject an end date earlier than its start date.")
+if 'শেষ তারিখ শুরুর তারিখের আগে হতে পারবে না' not in index_text:
+    raise SystemExit("The invalid date range must show a clear Bengali explanation.")
+print("Passed invalid date range validation regression test.")
