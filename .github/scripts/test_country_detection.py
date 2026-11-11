@@ -149,3 +149,12 @@ print("Passed six homepage news desk filter checks.")
 if collector_text.index("feeds=[]") > collector_text.index("for desk, (english_query, bangla_query)"):
     raise SystemExit("Global desk feeds are appended before the feed registry is initialized.")
 print("Passed global feed initialization order regression test.")
+
+# Homepage should expose more records per page without changing feed retention.
+if "const PAGE_SIZE=40;" not in index_text:
+    raise SystemExit("Homepage pagination must show 40 stories per page.")
+if "shown.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE)" not in index_text:
+    raise SystemExit("Homepage story slicing must use the shared page size.")
+if "Math.ceil(shown.length/PAGE_SIZE)" not in index_text:
+    raise SystemExit("Homepage page count must use the shared page size.")
+print("Passed 40-story pagination regression test.")
