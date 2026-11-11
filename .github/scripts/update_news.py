@@ -1,4 +1,4 @@
-import json, re, os, time, http.cookiejar, urllib.request, urllib.parse, urllib.error, xml.etree.ElementTree as ET
+import json, re, os, time, html, http.cookiejar, urllib.request, urllib.parse, urllib.error, xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
@@ -33,6 +33,12 @@ bangla = {
 
 def local(tag):
     return tag.split('}')[-1].lower()
+
+def clean_feed_text(value, limit=None):
+    """Normalize RSS text and decode entities before publishing headlines."""
+    cleaned = html.unescape(re.sub(r'<[^>]*>', ' ', str(value or '')))
+    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+    return cleaned[:limit] if limit is not None else cleaned
 
 def text_of(node, names):
     for child in node.iter():
@@ -269,8 +275,8 @@ def fetch(feed):
                     media_embed='https://www.facebook.com/plugins/post.php?href='+encoded+'&show_text=true&width=560'
                     media_type='facebook'
             items.append({
-                'title':re.sub(r'\\s+',' ',title),
-                'summary':re.sub(r'<[^>]+>',' ',summary)[:1200],
+                'title':clean_feed_text(title),
+                'summary':clean_feed_text(summary,1200),
                 'link':link,'source':source,'published':published.isoformat(),
                 'image':image,'image_candidates':list(dict.fromkeys(rss_image_candidates))[:8],'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
                 'language':'bn' if re.search('[ঀ-৿]',title+' '+summary) else 'en',
