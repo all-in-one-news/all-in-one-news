@@ -83,7 +83,7 @@ print("Passed dark mode first-paint regression test.")
 
 # Accessible names for key controls (screen readers and assistive technology).
 for control in ('country', 'language', 'q', 'sort', 'from', 'to'):
-    if not re.search(r'<(?:input|select)\\b[^>]*id="' + re.escape(control) + r'"[^>]*aria-label="[^"]+"', index_text):
+    if not re.search(r'<(?:input|select)\b[^>]*id="' + re.escape(control) + r'"[^>]*aria-label="[^"]+"', index_text):
         raise SystemExit(f"Control {control!r} is missing an accessible label.")
 if 'aria-label="খবর আবার লোড করুন"' not in index_text:
     raise SystemExit("The reload button is missing an accessible label.")
