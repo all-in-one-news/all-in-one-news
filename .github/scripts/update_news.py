@@ -345,6 +345,49 @@ def enrich_article_image(item):
                 item['image']=urljoin(final_url,candidate)
             if not str(item.get('summary','')).strip() and key in ('description','og:description','twitter:description'):
                 item['summary']=html.unescape(re.sub(r'<[^>]+>',' ',candidate))[:1200]
+
+        # Some publishers omit Open Graph tags but expose the article image in
+        # JSON-LD, a link[rel=image_src], or lazy-loaded image attributes.
+        if not item.get('image'):
+            for tag in re.findall(r'<link[^>]*>',raw,re.I):
+                attrs={k.lower():html.unescape(v) for k,v in re.findall(r"""([\w:-]+)\s*=\s*["']([^"']*)["']""",tag)}
+                if 'image_src' in attrs.get('rel','').lower():
+                    candidate=urljoin(final_url,attrs.get('href','').strip())
+                    if candidate.startswith(('https://','http://')):
+                        item['image']=candidate
+                        break
+        if not item.get('image'):
+            for script in re.findall(r'<script[^>]*type=["']application/ld\+json["'][^>]*>(.*?)</script>',raw,re.I|re.S):
+                try:
+                    data=json.loads(html.unescape(script.strip()))
+                except Exception:
+                    continue
+                stack=data if isinstance(data,list) else [data]
+                while stack and not item.get('image'):
+                    node=stack.pop(0)
+                    if isinstance(node,dict):
+                        candidate=node.get('image') or node.get('thumbnailUrl')
+                        if isinstance(candidate,dict):
+                            candidate=candidate.get('url') or candidate.get('contentUrl')
+                        elif isinstance(candidate,list):
+                            candidate=next((v.get('url') if isinstance(v,dict) else v for v in candidate if v), '')
+                        if isinstance(candidate,str) and candidate.strip():
+                            candidate=urljoin(final_url,candidate.strip())
+                            if candidate.startswith(('https://','http://')):
+                                item['image']=candidate
+                                break
+                        graph=node.get('@graph')
+                        if isinstance(graph,list): stack.extend(graph)
+        if not item.get('image'):
+            for tag in re.findall(r'<img[^>]*>',raw,re.I):
+                attrs={k.lower():html.unescape(v) for k,v in re.findall(r"""([\w:-]+)\s*=\s*["']([^"']*)["']""",tag)}
+                candidate=next((attrs.get(k,'') for k in ('data-src','data-original','data-lazy-src','src') if attrs.get(k)), '')
+                if not candidate and attrs.get('srcset'):
+                    candidate=attrs['srcset'].split(',')[-1].strip().split(' ')[0]
+                candidate=urljoin(final_url,candidate.strip())
+                if candidate.startswith(('https://','http://')) and not any(x in candidate.lower() for x in ('logo','icon','avatar','pixel','spacer')):
+                    item['image']=candidate
+                    break
         resolved=str(item.get('link',''))
         item['media_embed']=''
         item['media_type']=''
