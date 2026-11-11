@@ -62,9 +62,8 @@ jobs:
               raise SystemExit('Refusing to publish an empty news feed.')
           if any(not str(x.get('image', '')).startswith(('https://', 'http://')) or x.get('image') == 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300' for x in stories):
               raise SystemExit('Refusing to publish a story without an image.')
-          image_urls = [str(x.get('image', '')).strip() for x in stories]
-          if len(set(image_urls)) != len(image_urls):
-              raise SystemExit('Refusing to publish duplicate image URLs.')
+          # Different articles may legitimately reuse the same publisher image.
+          # Duplicate article links are still rejected below.
           canonical_links = [str(x.get('link', '')).strip().split('#', 1)[0].rstrip('/') for x in stories]
           if not all(canonical_links) or len(set(canonical_links)) != len(canonical_links):
               raise SystemExit('Refusing to publish duplicate or empty article links.')
