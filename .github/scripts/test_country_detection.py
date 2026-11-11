@@ -59,3 +59,6 @@ filter_body = match.group(1)
 if "country==='ALL'||c===country" not in filter_body or "c==='WORLD'" in filter_body:
     raise SystemExit("Country-specific feeds must not include unassigned WORLD stories.")
 print("Passed country filter regression test.")
+if "if(!isRefresh&&!$('from').value)$('from').value=retentionStart;" not in index_text:
+    raise SystemExit("Manual refresh must preserve the selected start date.")
+print("Passed date filter persistence regression test.")
