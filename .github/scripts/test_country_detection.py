@@ -71,3 +71,12 @@ if 'applyTheme(localStorage.getItem(\'ain_theme\')||\'light\')' not in index_tex
 if 'onclick="toggleTheme()"' not in index_text:
     raise SystemExit("Theme button must use the persistent theme toggle.")
 print("Passed dark mode preference persistence regression test.")
+
+# Avoid a light-theme flash before the page body is parsed.
+if "localStorage.getItem('ain_theme')==='dark'" not in index_text:
+    raise SystemExit("Saved dark mode must be applied from the document head.")
+if "html.dark-preload body{" not in index_text:
+    raise SystemExit("Early dark-mode CSS variables are missing.")
+if "document.documentElement.classList.toggle('dark-preload',dark)" not in index_text:
+    raise SystemExit("Theme changes must synchronize the early-loading theme class.")
+print("Passed dark mode first-paint regression test.")
