@@ -86,9 +86,29 @@ for desk, (english_query, bangla_query) in global_desk_queries.items():
 # These are Google News RSS searches, not direct publisher/API integrations.
 bangladesh_publisher_domains = (
     'bdnews24.com', 'thedailystar.net', 'prothomalo.com',
-    'tbsnews.net', 'dhakatribune.com'
+    'tbsnews.net', 'dhakatribune.com', 'bssnews.net',
+    'dhakapost.com', 'jagonews24.com', 'banglanews24.com',
+    'samakal.com'
 )
 publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)
+
+# Incident and public-safety desks also get Bangladesh publisher-focused
+# discovery in Bangla and English, not just the six global editorial desks.
+for category, english_query in categories.items():
+    bangla_query = bangla[category]
+    for desk_language, query, ceid in (
+        ('en', english_query, 'BD:en'),
+        ('bn', bangla_query, 'BD:bn')
+    ):
+        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after
+        params = urllib.parse.urlencode({
+            'q': targeted_query,
+            'hl': 'bn' if desk_language == 'bn' else 'en',
+            'gl': 'BD',
+            'ceid': ceid
+        })
+        feeds.append(('BD', category, 'https://news.google.com/rss/search?' + params))
+
 for desk, (english_query, bangla_query) in global_desk_queries.items():
     for desk_language, query, ceid in (
         ('en', english_query, 'BD:en'),
