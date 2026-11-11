@@ -205,7 +205,7 @@ def fetch(feed):
                 'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower() or 'police.gov.bd' in link.lower()) else 'source_reported'
             })
         print(country,category,len(items))
-        return items[:40]
+        return items[:60]
     except Exception as e:
         print('Feed error',country,category,str(e)[:180])
         return []
