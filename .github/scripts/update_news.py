@@ -838,20 +838,9 @@ if failed_image_hosts:
     print('Rejected image hosts:',failed_image_hosts[:20])
 news=verified_news
 
-# A publisher may reuse one thumbnail for several unrelated stories.
-# Keep the newest verified story for each image URL.
-unique_image_news=[]
-seen_image_urls=set()
-for item in sorted(news,key=lambda x:x.get('published',''),reverse=True):
-    image_url=str(item.get('image','')).strip()
-    if not image_url or image_url in seen_image_urls:
-        continue
-    seen_image_urls.add(image_url)
-    unique_image_news.append(item)
-duplicates_removed=len(news)-len(unique_image_news)
-if duplicates_removed:
-    print('Duplicate image URLs removed:',duplicates_removed)
-news=unique_image_news
+# Do not deduplicate stories by thumbnail URL: publishers may reuse the
+# same image for separate articles. Canonical-link and incident-level
+# deduplication above already remove duplicate coverage safely.
 
 # Sanitize the last-good snapshot too, so the frontend fallback does not
 # re-expose personal details from an older version.
