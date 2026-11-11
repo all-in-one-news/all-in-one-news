@@ -209,6 +209,29 @@ if "$('latest').textContent=tickerStory?clean(tickerStory.title):'এই দে�
     raise SystemExit("The ticker must show a clear empty state when the selected feed has no stories.")
 print("Passed selected-feed latest ticker regression test.")
 
+# Bangladesh publisher-focused discovery must cover every global desk in both languages.
+publisher_domains = (
+    "bdnews24.com",
+    "thedailystar.net",
+    "prothomalo.com",
+    "tbsnews.net",
+    "dhakatribune.com",
+)
+if "bangladesh_publisher_domains = (" not in collector_text:
+    raise SystemExit("Bangladesh publisher domain registry is missing.")
+for domain in publisher_domains:
+    if "'" + domain + "'" not in collector_text:
+        raise SystemExit(f"Publisher-focused discovery is missing {domain}.")
+if "publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)" not in collector_text:
+    raise SystemExit("Publisher domains must be combined into a site-scoped RSS query.")
+if "targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after" not in collector_text:
+    raise SystemExit("Publisher RSS discovery must retain desk keywords and the 30-day date window.")
+if "('en', english_query, 'BD:en')" not in collector_text or "('bn', bangla_query, 'BD:bn')" not in collector_text:
+    raise SystemExit("Publisher-focused feeds must be collected in both English and Bangla.")
+if "feeds.append(('WORLD', desk, 'https://news.google.com/rss/search?' + params))" not in collector_text:
+    raise SystemExit("Publisher-focused results must enter the normal classifier pipeline.")
+print("Passed Bangladesh publisher-focused discovery regression test.")
+
 # Project documentation must describe real collection limits and maintenance paths.
 README = SOURCE.parents[2] / "README.md"
 readme_text = README.read_text(encoding="utf-8")
