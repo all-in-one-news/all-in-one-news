@@ -491,7 +491,7 @@ patterns={
 # edition used to discover it. Use only explicit location evidence; otherwise
 # keep the story in WORLD rather than publishing a guessed country.
 INCIDENT_LOCATION_ALIASES = {
-    'BD': ('bangladesh','bangladeshi','dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar"),
+    'BD': ('bangladesh','bangladeshi','dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar",'fatullah','fatulla','pallabi','gopalganj','madhabpur','narayanganj','brahmanbaria','bogura','bogra','cumilla','comilla','feni','noakhali','pabna','kushtia','jashore','jessore','satkhira','bagerhat','patuakhali','bhola','habiganj','moulvibazar','sunamganj','netrokona','jamalpur','sherpur','tangail','manikganj','munshiganj','narsingdi','gazipur','faridpur','madaripur','shariatpur','chandpur','lakshmipur','rangamati','bandarban','khagrachhari','dinajpur','thakurgaon','panchagarh','nilphamari','lalmonirhat','kurigram','gaibandha','joypurhat','naogaon','natore','chapainawabganj','sirajganj','meherpur','chuadanga','jhenaidah','magura','narail','jhalokathi','barguna'),
     'US': ('united states','u.s.','usa','american','new york city','new york','chicago','los angeles','san francisco','washington dc','washington, d.c.','florida','texas','ohio','california','naples','springfield','bethel township','auburn gresham','athens, georgia'),
     'GB': ('united kingdom','britain','british','england','scotland','wales','london','kent','maidstone','liverpool','bathgate','west lothian','dundee','glasgow'),
     'IN': ('india','indian','delhi','new delhi','mumbai','kolkata','chennai','bengaluru','bangalore','hyderabad'),
@@ -548,7 +548,7 @@ INCIDENT_LOCATION_ALIASES = {
     'XK': ('kosovo','kosovar','pristina','prishtina'),
 }
 INCIDENT_PLACE_ALIASES = {
-    'BD': ('dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar"),
+    'BD': ('dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar",'fatullah','fatulla','pallabi','gopalganj','madhabpur','narayanganj','brahmanbaria','bogura','bogra','cumilla','comilla','feni','noakhali','pabna','kushtia','jashore','jessore','satkhira','bagerhat','patuakhali','bhola','habiganj','moulvibazar','sunamganj','netrokona','jamalpur','sherpur','tangail','manikganj','munshiganj','narsingdi','gazipur','faridpur','madaripur','shariatpur','chandpur','lakshmipur','rangamati','bandarban','khagrachhari','dinajpur','thakurgaon','panchagarh','nilphamari','lalmonirhat','kurigram','gaibandha','joypurhat','naogaon','natore','chapainawabganj','sirajganj','meherpur','chuadanga','jhenaidah','magura','narail','jhalokathi','barguna'),
     'US': ('new york city','new york','chicago','los angeles','san francisco','washington dc','washington, d.c.','florida','texas','ohio','california','naples','springfield','bethel township','auburn gresham','athens, georgia'),
     'GB': ('london','kent','maidstone','liverpool','bathgate','west lothian','dundee','glasgow'),
     'IN': ('delhi','new delhi','mumbai','kolkata','chennai','bengaluru','bangalore','hyderabad'),
