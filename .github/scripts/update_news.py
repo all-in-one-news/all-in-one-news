@@ -31,6 +31,28 @@ bangla = {
     'reserve':'বৈদেশিক মুদ্রার রিজার্ভ'
 }
 
+def local(tag):
+    return tag.split('}')[-1].lower()
+
+def text_of(node, names):
+    for child in node.iter():
+        if child is node: continue
+        if local(child.tag) in names:
+            value = ''.join(child.itertext()).strip()
+            if value: return value
+    return ''
+
+def parse_date(value):
+    if not value: return None
+    try: dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    except Exception:
+        try: dt = parsedate_to_datetime(value)
+        except Exception: return None
+    if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+feeds=[]
+
 # Broad global desks are collected separately to avoid multiplying every
 # country/category feed. Country is inferred from the reported location.
 global_desk_queries = {
@@ -60,27 +82,6 @@ for desk, (english_query, bangla_query) in global_desk_queries.items():
         })
         feeds.append(('WORLD', desk, 'https://news.google.com/rss/search?' + params))
 
-def local(tag):
-    return tag.split('}')[-1].lower()
-
-def text_of(node, names):
-    for child in node.iter():
-        if child is node: continue
-        if local(child.tag) in names:
-            value = ''.join(child.itertext()).strip()
-            if value: return value
-    return ''
-
-def parse_date(value):
-    if not value: return None
-    try: dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
-    except Exception:
-        try: dt = parsedate_to_datetime(value)
-        except Exception: return None
-    if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
-    return dt.astimezone(timezone.utc)
-
-feeds=[]
 for country in countries:
     for category, query in categories.items():
         q = query
