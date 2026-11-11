@@ -31,6 +31,35 @@ bangla = {
     'reserve':'বৈদেশিক মুদ্রার রিজার্ভ'
 }
 
+# Broad global desks are collected separately to avoid multiplying every
+# country/category feed. Country is inferred from the reported location.
+global_desk_queries = {
+    'politics': ('election OR parliament OR government OR minister OR president OR prime minister OR opposition OR politics',
+                 'নির্বাচন OR সংসদ OR সরকার OR মন্ত্রী OR রাষ্ট্রপতি OR প্রধানমন্ত্রী OR বিরোধী দল OR রাজনীতি'),
+    'economy': ('economy OR inflation OR GDP OR budget OR trade OR exports OR imports OR central bank',
+                'অর্থনীতি OR মূল্যস্ফীতি OR জিডিপি OR বাজেট OR বাণিজ্য OR রপ্তানি OR আমদানি OR কেন্দ্রীয় ব্যাংক'),
+    'sports': ('sports OR football OR cricket OR tennis OR basketball OR tournament OR world cup',
+               'খেলাধুলা OR ফুটবল OR ক্রিকেট OR টেনিস OR বাস্কেটবল OR টুর্নামেন্ট OR বিশ্বকাপ'),
+    'technology': ('technology OR artificial intelligence OR AI OR software OR smartphone OR cybersecurity',
+                   'প্রযুক্তি OR কৃত্রিম বুদ্ধিমত্তা OR এআই OR সফটওয়্যার OR স্মার্টফোন OR সাইবার নিরাপত্তা'),
+    'entertainment': ('movie OR film OR cinema OR anime OR television series OR streaming OR actor OR actress',
+                      'সিনেমা OR চলচ্চিত্র OR অ্যানিমে OR টিভি সিরিজ OR ওয়েব সিরিজ OR অভিনেতা OR অভিনেত্রী'),
+    'market': ('stock market OR share market OR stock exchange OR shares OR stocks OR Nasdaq OR Dow Jones',
+               'শেয়ার বাজার OR শেয়ারবাজার OR পুঁজিবাজার OR স্টক এক্সচেঞ্জ OR শেয়ার OR সূচক')
+}
+for desk, (english_query, bangla_query) in global_desk_queries.items():
+    for desk_language, query, gl, ceid in (
+        ('en', english_query, 'US', 'US:en'),
+        ('bn', bangla_query, 'BD', 'BD:bn')
+    ):
+        params = urllib.parse.urlencode({
+            'q': '(' + query + ') ' + search_after,
+            'hl': 'bn' if desk_language == 'bn' else 'en-US',
+            'gl': gl,
+            'ceid': ceid
+        })
+        feeds.append(('WORLD', desk, 'https://news.google.com/rss/search?' + params))
+
 def local(tag):
     return tag.split('}')[-1].lower()
 
@@ -485,7 +514,13 @@ patterns={
   'missing':r'missing child|child missing|missing (?:boy|girl|minor)|abducted child|নিখোঁজ শিশু|শিশু নিখোঁজ|নিখোঁজ কিশোরী|নিখোঁজ কিশোর|নিখোঁজ বালক|নিখোঁজ বালিকা',
   'accident':r'accident|crash|collision|derailment|shipwreck|দুর্ঘটনা|সংঘর্ষ|নৌকাডুবি',
   'casualty':r'death toll|fatalities|people killed|casualties|নিহত|প্রাণহানি|হতাহত',
-  'reserve':r'foreign exchange reserves|forex reserves|foreign reserves|বৈদেশিক মুদ্রার রিজার্ভ|রিজার্ভ'
+  'reserve':r'foreign exchange reserves|forex reserves|foreign reserves|বৈদেশিক মুদ্রার রিজার্ভ|রিজার্ভ',
+  'politics':r'election|parliament|government|minister|president|prime minister|opposition|politics|নির্বাচন|সংসদ|সরকার|মন্ত্রী|রাষ্ট্রপতি|প্রধানমন্ত্রী|বিরোধী দল|রাজনীতি',
+  'economy':r'economy|inflation|GDP|budget|trade|exports|imports|central bank|অর্থনীতি|মূল্যস্ফীতি|জিডিপি|বাজেট|বাণিজ্য|রপ্তানি|আমদানি|কেন্দ্রীয় ব্যাংক',
+  'sports':r'sports|football|cricket|tennis|basketball|tournament|world cup|খেলাধুলা|ফুটবল|ক্রিকেট|টেনিস|বাস্কেটবল|টুর্নামেন্ট|বিশ্বকাপ',
+  'technology':r'technology|artificial intelligence|cybersecurity|smartphone|software|\bAI\b|প্রযুক্তি|কৃত্রিম বুদ্ধিমত্তা|এআই|সফটওয়্যার|স্মার্টফোন|সাইবার নিরাপত্তা',
+  'entertainment':r'movie|film|cinema|anime|television series|web series|streaming|actor|actress|সিনেমা|চলচ্চিত্র|অ্যানিমে|টিভি সিরিজ|ওয়েব সিরিজ|অভিনেতা|অভিনেত্রী',
+  'market':r'stock market|share market|stock exchange|shares|stocks|Nasdaq|Dow Jones|শেয়ার বাজার|শেয়ারবাজার|পুঁজিবাজার|স্টক এক্সচেঞ্জ|শেয়ার|সূচক'
 }
 # Country labels must describe the reported incident, not the Google News
 # edition used to discover it. Use only explicit location evidence; otherwise
@@ -622,7 +657,7 @@ def classify(item):
         return ''
     if 'munalert.org' in str(item.get('link','')).lower() or 'mun alert' in str(item.get('source','')).lower(): return 'missing'
     # Classify from the actual headline/summary first; feed query labels can be wrong.
-    for key in ('abuse','missing','fire','accident','casualty','reserve'):
+    for key in ('abuse','missing','fire','accident','casualty','reserve','politics','economy','sports','technology','entertainment','market'):
         if re.search(patterns[key],s,re.I): return key
     # Never trust a feed's fire label by itself: broad feeds can match sports,
     # ceasefire and other unrelated stories. A real fire incident must match
