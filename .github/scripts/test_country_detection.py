@@ -216,6 +216,11 @@ publisher_domains = (
     "prothomalo.com",
     "tbsnews.net",
     "dhakatribune.com",
+    "bssnews.net",
+    "dhakapost.com",
+    "jagonews24.com",
+    "banglanews24.com",
+    "samakal.com",
 )
 if "bangladesh_publisher_domains = (" not in collector_text:
     raise SystemExit("Bangladesh publisher domain registry is missing.")
@@ -231,6 +236,16 @@ if "('en', english_query, 'BD:en')" not in collector_text or "('bn', bangla_quer
 if "feeds.append(('WORLD', desk, 'https://news.google.com/rss/search?' + params))" not in collector_text:
     raise SystemExit("Publisher-focused results must enter the normal classifier pipeline.")
 print("Passed Bangladesh publisher-focused discovery regression test.")
+
+# Bangladesh incident desks must also use the publisher-focused RSS search.
+if "for category, english_query in categories.items():" not in collector_text:
+    raise SystemExit("Publisher-focused incident discovery loop is missing.")
+if "bangla_query = bangla[category]" not in collector_text:
+    raise SystemExit("Publisher-focused incident feeds must include Bangla query terms.")
+if "feeds.append(('BD', category, 'https://news.google.com/rss/search?' + params))" not in collector_text:
+    raise SystemExit("Publisher-focused incident results must be assigned to Bangladesh and their incident desk.")
+print("Passed Bangladesh publisher-focused incident feed regression test.")
+
 
 # Project documentation must describe real collection limits and maintenance paths.
 README = SOURCE.parents[2] / "README.md"
