@@ -5,7 +5,8 @@ from email.utils import parsedate_to_datetime
 GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 
 now = datetime.now(timezone.utc)
-cutoff = datetime(2026, 1, 1, tzinfo=timezone.utc)
+cutoff = now - timedelta(days=30)
+search_after = 'after:' + cutoff.date().isoformat()
 countries = [
     'AF','AL','DZ','AD','AO','AG','AR','AM','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BT','BO','BA','BW','BR','BN','BG','BF','BI','CV','KH','CM','CA','CF','TD','CL','CN','CO','KM','CG','CR',
     'CI','HR','CU','CY','CZ','CD','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','SZ','ET','FJ','FI','FR','GA','GM','GE','DE','GH','GR','GD','GT','GN','GW','GY','HT','HN','HU','IS','IN','ID','IR','IQ',
@@ -59,7 +60,7 @@ for country in countries:
             q = '(' + query + ') OR (' + bangla[category] + ')'
             lang='bn'
         params = urllib.parse.urlencode({
-            'q': q + ' after:2025-12-31',
+            'q': q + ' ' + search_after,
             'hl': 'bn' if lang=='bn' else 'en-US',
             'gl': country,
             'ceid': country + ':' + lang
@@ -79,7 +80,7 @@ bangla_global_queries={
 }
 for category, query in bangla_global_queries.items():
     params=urllib.parse.urlencode({
-        'q':'('+query+') after:2025-12-31',
+        'q':'('+query+') ' + search_after,
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('WORLD',category,'https://news.google.com/rss/search?'+params))
@@ -100,7 +101,7 @@ social_queries = [
 ]
 for social_source, social_query in social_queries:
     social_params=urllib.parse.urlencode({
-        'q':social_query+' after:2025-12-31',
+        'q':social_query+' ' + search_after,
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('BD','missing',
@@ -117,7 +118,7 @@ trusted_missing_queries = [
 ]
 for trusted_source, trusted_query in trusted_missing_queries:
     trusted_params=urllib.parse.urlencode({
-        'q':trusted_query+' after:2025-12-31',
+        'q':trusted_query+' ' + search_after,
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('BD','missing',
