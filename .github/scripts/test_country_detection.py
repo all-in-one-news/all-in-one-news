@@ -57,6 +57,19 @@ for title, expected in cases.items():
 
 print(f"Passed {len(cases)} country-detection regression tests.")
 
+# RSS headline and summary text must be readable after markup/entity cleanup.
+cleaner_node = next((node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "clean_feed_text"), None)
+if cleaner_node is None:
+    raise SystemExit("RSS text normalization helper is missing.")
+cleaner_ns = {"re": re, "html": __import__("html")}
+exec(compile(ast.Module(body=[cleaner_node], type_ignores=[]), str(SOURCE), "exec"), cleaner_ns)
+clean_feed_text = cleaner_ns["clean_feed_text"]
+if clean_feed_text("  <b>Breaking&nbsp;News</b>  &amp;   Updates ") != "Breaking News & Updates":
+    raise SystemExit("RSS text normalization failed to remove markup, decode entities, or collapse whitespace.")
+if clean_feed_text("<p>First</p><p>Second</p>", 8) != "First Se":
+    raise SystemExit("RSS summary normalization must enforce the requested length limit.")
+print("Passed RSS headline and summary normalization regression tests.")
+
 # Country filter regression: WORLD is included only in the all-countries view.
 INDEX = SOURCE.parents[2] / "index.html"
 index_text = INDEX.read_text(encoding="utf-8")
