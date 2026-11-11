@@ -66,7 +66,7 @@ mediaHtml='<div class="media-frame"><iframe loading="lazy" src="'+x.media_embed.
 return '<article class="story">'+mediaHtml+photoHtml+'<div><div class="meta">'+esc(clean(x.source||'সংবাদসূত্র'))+' · '+(isNaN(d)?'':d.toLocaleString('bn-BD'))+'</div><h3><a target="_blank" rel="noopener" href="'+u+'">'+esc(t)+'</a></h3><p class="summary">'+esc(s||'বিস্তারিত জানতে মূল সংবাদসূত্রে পড়ুন।')+'</p><div class="actions"><button onclick="share(\''+encodeURIComponent(u)+'\',\''+encodeURIComponent(t)+'\')">শেয়ার</button><a target="_blank" rel="noopener" href="'+u+'">মূল খবর পড়ুন ↗</a></div></div></article>'}).join(''):'<div class="empty">এই বিভাগে কোনো খবর পাওয়া যায়নি।</div>';let n=Math.ceil(shown.length/20);$('pages').innerHTML=n>1?'<button onclick="move(-1)" '+(page===1?'disabled':'')+'>আগের</button> '+page+' / '+n+' <button onclick="move(1)" '+(page===n?'disabled':'')+'>পরের</button>':''}
 function move(n){page+=n;draw();scrollTo(0,0)}function share(u,t){u=decodeURIComponent(u);t=decodeURIComponent(t);if(navigator.share)navigator.share({title:t,url:u});else navigator.clipboard.writeText(t+' '+u)}
 function resetDates(){$('from').value=retentionStart;$('to').value='';render()}
-async function load(){
+async function load(isRefresh=false){
 let j,fromBackup=false;
 try{
 let r=await fetch('./news.json?v='+Date.now());
@@ -88,7 +88,7 @@ $('feed').innerHTML='<div class="empty">পরে আবার চেষ্ট�
 return;
 }
 }
-$('from').value=retentionStart;
+if(!isRefresh)$('from').value=retentionStart;
 rows=(Array.isArray(j)?j:(j.news||j.articles||[])).filter(x=>x.title&&!isNaN(dt(x))&&dt(x)>=new Date(retentionStart+'T00:00:00')&&kind(x));
 rows.sort((a,b)=>dt(b)-dt(a));
 const allCountries='AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI CV KH CM CA CF TD CL CN CO KM CG CR CI HR CU CY CZ CD DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KP KR KW KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG MK NO OM PK PW PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA SS ES LK SD SR SE CH SY TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW PS'.split(' ');
@@ -103,15 +103,17 @@ $('country').value=country;
 $('country').onchange=()=>{country=$('country').value;localStorage.setItem('ain_country',country);render()};
 $('latest').textContent=rows[0]?clean(rows[0].title):'এখনো খবর নেই';
 render();
+if(!isRefresh){
 try{
 let g=await fetch('https://ipapi.co/json/').then(r=>r.json());
 if(g.country_code){
 $('geo').textContent='IP অবস্থান: '+g.country_code+' · দেশ নিজে নির্বাচন করুন';
 }
 }catch(e){}
+}
 if(fromBackup)$('status').textContent='সতর্কতা: নতুন নিউজ লোড হয়নি—শেষ ভালো Backup দেখানো হচ্ছে।';
 }
 $('stats').onclick=e=>{let b=e.target.closest('[data-cat]');if(!b)return;cat=b.dataset.cat;document.querySelectorAll('.stat').forEach(x=>x.classList.toggle('active',x===b));render()};['q','sort','from','to'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',render));load();
 // Refresh the feed once a minute while the page is visible.
-setInterval(()=>{if(!document.hidden)load()},60000);
+setInterval(()=>{if(!document.hidden)load(true)},60000);
 </script></body></html>
