@@ -63,6 +63,8 @@ function applyTheme(theme){const dark=theme==='dark';document.documentElement.cl
 function toggleTheme(){const next=document.body.classList.contains('dark')?'light':'dark';localStorage.setItem('ain_theme',next);applyTheme(next)}
 try{applyTheme(localStorage.getItem('ain_theme')||'light')}catch(e){applyTheme('light')}
 const $=x=>document.getElementById(x), dt=x=>new Date(x.published||x.pubDate||x.date||0), clean=x=>String(x||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+function readPref(key,fallback){try{const value=localStorage.getItem(key);return value===null?fallback:value}catch(e){return fallback}}
+function writePref(key,value){try{localStorage.setItem(key,value)}catch(e){}}
 const retentionDate=new Date(Date.now()-30*24*60*60*1000);retentionDate.setHours(0,0,0,0);const retentionStart=[retentionDate.getFullYear(),String(retentionDate.getMonth()+1).padStart(2,'0'),String(retentionDate.getDate()).padStart(2,'0')].join('-');
 function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function safeUrl(x){try{let u=new URL(String(x||''),location.href);return /^https?:$/.test(u.protocol)?esc(u.href):'#'}catch{return '#'}}
@@ -109,11 +111,11 @@ let codes=['ALL',...allCountries];
 const dn=new Intl.DisplayNames(['bn'],{type:'region'});
 const flag=c=>String.fromCodePoint(...c.split('').map(ch=>127397+ch.charCodeAt(0)));
 $('country').innerHTML=codes.map(c=>c==='ALL'?'<option value="ALL">🌍 সব দেশ</option>':'<option value="'+c+'">'+flag(c)+' '+(dn.of(c)||c)+'</option>').join('');
-language=localStorage.getItem('ain_language')||(navigator.language&&navigator.language.toLowerCase().startsWith('bn')?'bn':'en');$('language').value=language;$('language').onchange=()=>{language=$('language').value;localStorage.setItem('ain_language',language);render()};
-country=localStorage.getItem('ain_country')||'BD';
+language=readPref('ain_language',(navigator.language&&navigator.language.toLowerCase().startsWith('bn')?'bn':'en'));$('language').value=language;$('language').onchange=()=>{language=$('language').value;writePref('ain_language',language);render()};
+country=readPref('ain_country','BD');
 if(!codes.includes(country))country='BD';
 $('country').value=country;
-$('country').onchange=()=>{country=$('country').value;localStorage.setItem('ain_country',country);render()};
+$('country').onchange=()=>{country=$('country').value;writePref('ain_country',country);render()};
 $('latest').textContent=rows[0]?clean(rows[0].title):'এখনো খবর নেই';
 render(isRefresh);
 if(!isRefresh){
