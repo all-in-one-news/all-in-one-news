@@ -588,7 +588,9 @@ except Exception: previous=[]
 # the old no-image placeholder even after the collector is improved.
 previous_image_candidates=fair_image_candidates(
     (x for x in previous if not x.get('image') or x.get('image') == GENERIC_IMAGE_URL or 'news.google.com/' in str(x.get('link','')) or not str(x.get('summary','')).strip()),
-    limit=1000
+    # Process a rotating batch each run so thousands of old stories do not
+    # monopolize the 35-minute workflow or delay fresh news collection.
+    limit=200
 )
 print('Previous image candidates selected fairly by country:',len(previous_image_candidates))
 with ThreadPoolExecutor(max_workers=8) as pool:
