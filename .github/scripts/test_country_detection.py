@@ -217,7 +217,7 @@ for required in (
     "every 10 minutes",
     "every 60 seconds",
     "30 days",
-    "not a direct Facebook or YouTube API ingestion service",
+    "it is not a direct Facebook or YouTube API ingestion service",
     "`.github/scripts/update_news.py`",
     "`news-backup.json`",
 ):
