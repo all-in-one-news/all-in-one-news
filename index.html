@@ -50,7 +50,7 @@
 <p class="note">সংখ্যা সংগৃহীত সংবাদ-রেকর্ডের হিসাব; সব দেশের সব ঘটনার পূর্ণ সরকারি পরিসংখ্যান নয়। একই ঘটনার একাধিক প্রতিবেদন এক ঘটনা হিসেবে গণনার চেষ্টা করা হবে। নিখোঁজ শিশু ও যৌন সহিংসতার ভুক্তভোগীর পরিচয় গোপন রাখা হবে।</p></main><footer>All In One News</footer>
 <script>
 const defs={fire:/\bfire\b|\bblaze\b|wildfire|আগুন|অগ্নিকাণ্ড/i,missing:/missing child|child missing|missing (?:boy|girl|minor)|abducted child|নিখোঁজ শিশু|শিশু নিখোঁজ|নিখোঁজ কিশোরী|নিখোঁজ কিশোর|নিখোঁজ বালক|নিখোঁজ বালিকা/i,abuse:/rape|sexual assault|sexual violence|molest|ধর্ষণ|যৌন নির্যাতন|যৌন হয়রানি/i,accident:/accident|crash|collision|derailment|shipwreck|দুর্ঘটনা|সংঘর্ষ|নৌকাডুবি/i,casualty:/killed|death toll|fatalities|নিহত|মৃত্যু|প্রাণহানি|হতাহত/i,reserve:/foreign exchange reserve|forex reserve|foreign reserves|বৈদেশিক মুদ্রার রিজার্ভ|রিজার্ভ/i};
-let rows=[],cat='all',country='BD',language='bn',page=1,shown=[];
+let rows=[],cat='all',country='BD',language='bn',page=1,shown=[],newsUpdatedAt=null;
 const $=x=>document.getElementById(x), dt=x=>new Date(x.published||x.pubDate||x.date||0), clean=x=>String(x||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 const retentionDate=new Date(Date.now()-30*24*60*60*1000);retentionDate.setHours(0,0,0,0);const retentionStart=[retentionDate.getFullYear(),String(retentionDate.getMonth()+1).padStart(2,'0'),String(retentionDate.getDate()).padStart(2,'0')].join('-');
 function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -59,7 +59,7 @@ function kind(x){let s=clean(x.title)+' '+clean(x.description||x.summary);if(x.c
 function matches(x){let c=String(x.country||'').toUpperCase(),t=clean(x.title)+' '+clean(x.summary||x.description),l=String(x.language||(/[\u0980-\u09FF]/.test(t)?'bn':'en')).toLowerCase();return (country==='ALL'||c===country||c==='WORLD')&&l===language}
 function incidentCount(list){let ids=new Set();for(let x of list)ids.add(x.incident_id||x.link||x.url||clean(x.title)+'|'+dt(x).toISOString().slice(0,10));return ids.size}
 function render(keepPage=false){let previousPage=page;let from=new Date(($('from').value||retentionStart)+'T00:00:00'),to=$('to').value?new Date($('to').value+'T23:59:59'):new Date('2100-01-01');for(let k in defs)$('n-'+k).textContent=incidentCount(rows.filter(x=>matches(x)&&kind(x)===k&&dt(x)>=from&&dt(x)<=to)).toLocaleString('bn-BD');let q=$('q').value.toLowerCase();let feedFrom=from;shown=rows.filter(x=>matches(x)&&dt(x)>=feedFrom&&dt(x)<=to&&(!cat||cat==='all'||kind(x)===cat)&&(!q||(clean(x.title)+' '+clean(x.description||x.summary)).toLowerCase().includes(q)));shown.sort((a,b)=>$('sort').value==='old'?dt(a)-dt(b):dt(b)-dt(a));page=keepPage?Math.min(previousPage,Math.max(1,Math.ceil(shown.length/20))):1;draw()}
-function draw(){let a=shown.slice((page-1)*20,page*20);if($('missing-source'))$('missing-source').hidden=cat!=='missing';$('heading').textContent=cat==='all'?'সব ঘটনার খবর':({fire:'আগুন',missing:'নিখোঁজ শিশু',abuse:'ধর্ষণ ও নির্যাতন',accident:'দুর্ঘটনা',casualty:'মৃত্যু ও হতাহত',reserve:'বৈদেশিক রিজার্ভ'}[cat]+' সংক্রান্ত খবর');$('status').textContent=shown.length.toLocaleString('bn-BD')+'টি সংবাদ-রেকর্ড · '+$('from').value+' থেকে '+($('to').value||'আজ পর্যন্ত');$('feed').innerHTML=a.length?a.map(x=>{let u=safeUrl(x.link||x.url||'#'),t=clean(x.title),d=dt(x),s=clean(x.description||x.summary||'');if(s.length>330)s=s.slice(0,327)+'…';let photo=safeUrl(x.image||x.thumbnail||'');let photoHtml=photo!=='#'?'<img loading="lazy" src="'+photo+'" alt="সংবাদের ছবি" onerror="this.outerHTML=\'<div class=&quot;photo-placeholder&quot;>📰 ছবিটি দেখা যাচ্ছে না</div>\'">':'<div class="photo-placeholder">📰 এই সংবাদের ছবি পাওয়া যায়নি</div>';let mediaHtml=''
+function draw(){let a=shown.slice((page-1)*20,page*20);if($('missing-source'))$('missing-source').hidden=cat!=='missing';$('heading').textContent=cat==='all'?'সব ঘটনার খবর':({fire:'আগুন',missing:'নিখোঁজ শিশু',abuse:'ধর্ষণ ও নির্যাতন',accident:'দুর্ঘটনা',casualty:'মৃত্যু ও হতাহত',reserve:'বৈদেশিক রিজার্ভ'}[cat]+' সংক্রান্ত খবর');let updatedLabel=newsUpdatedAt&&!isNaN(new Date(newsUpdatedAt))?' · উৎসের সর্বশেষ আপডেট: '+new Date(newsUpdatedAt).toLocaleString('bn-BD',{timeZone:'Asia/Dhaka',dateStyle:'medium',timeStyle:'short'}):'';$('status').textContent=shown.length.toLocaleString('bn-BD')+'টি সংবাদ-রেকর্ড · '+$('from').value+' থেকে '+($('to').value||'আজ পর্যন্ত')+updatedLabel;$('feed').innerHTML=a.length?a.map(x=>{let u=safeUrl(x.link||x.url||'#'),t=clean(x.title),d=dt(x),s=clean(x.description||x.summary||'');if(s.length>330)s=s.slice(0,327)+'…';let photo=safeUrl(x.image||x.thumbnail||'');let photoHtml=photo!=='#'?'<img loading="lazy" src="'+photo+'" alt="সংবাদের ছবি" onerror="this.outerHTML=\'<div class=&quot;photo-placeholder&quot;>📰 ছবিটি দেখা যাচ্ছে না</div>\'">':'<div class="photo-placeholder">📰 এই সংবাদের ছবি পাওয়া যায়নি</div>';let mediaHtml=''
 if(x.media_embed&&(x.media_embed.startsWith('https://www.youtube-nocookie.com/embed/')||x.media_embed.startsWith('https://www.facebook.com/plugins/video.php?')||x.media_embed.startsWith('https://www.facebook.com/plugins/post.php?'))){
 mediaHtml='<div class="media-frame"><iframe loading="lazy" src="'+x.media_embed.replace(/"/g,'&quot;')+'" title="সংযুক্ত ভিডিও বা পোস্ট" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>'
 }
@@ -72,6 +72,7 @@ try{
 let r=await fetch('./news.json?v='+Date.now());
 if(!r.ok)throw new Error('news.json HTTP '+r.status);
 j=await r.json();
+newsUpdatedAt=Array.isArray(j)?null:(j.updated_at||j.generated_at||j.last_updated||null);
 const currentStories=Array.isArray(j)?j:(j.news||j.articles||[]);
 if(!Array.isArray(currentStories)||!currentStories.length)throw new Error('empty current news feed');
 }catch(mainError){
@@ -79,6 +80,7 @@ try{
 let r=await fetch('./news-backup.json?v='+Date.now());
 if(!r.ok)throw new Error('backup HTTP '+r.status);
 j=await r.json();
+newsUpdatedAt=Array.isArray(j)?null:(j.updated_at||j.generated_at||j.last_updated||null);
 const backupStories=Array.isArray(j)?j:(j.news||j.articles||[]);
 if(!Array.isArray(backupStories)||!backupStories.length)throw new Error('empty backup feed');
 fromBackup=true;
