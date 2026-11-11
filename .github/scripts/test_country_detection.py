@@ -72,8 +72,8 @@ if "if(!isRefresh&&!$('from').value)$('from').value=retentionStart;" not in inde
 print("Passed date filter persistence regression test.")
 
 # Theme preference regression: dark mode must persist across page reloads.
-if 'localStorage.setItem(\'ain_theme\',next)' not in index_text:
-    raise SystemExit("Theme toggle must save the visitor's selected theme.")
+if "writePref('ain_theme',next)" not in index_text:
+    raise SystemExit("Theme toggle must save the visitor's selected theme through safe storage.")
 if 'applyTheme(localStorage.getItem(\'ain_theme\')||\'light\')' not in index_text:
     raise SystemExit("Saved theme preference must be restored on page load.")
 if 'onclick="toggleTheme()"' not in index_text:
@@ -182,4 +182,24 @@ if 'href="#main-content"' not in index_text or 'id="main-content" tabindex="-1"'
 if ".skip-link:focus" not in index_text:
     raise SystemExit("The skip link must become visible when keyboard-focused.")
 print("Passed keyboard skip navigation regression test.")
+
+# Theme toggle must remain usable when browser storage is unavailable.
+if "function toggleTheme(){const next=document.body.classList.contains('dark')?'light':'dark';writePref('ain_theme',next);applyTheme(next)}" not in index_text:
+    raise SystemExit("Theme toggle must apply the theme even when preference storage fails.")
+print("Passed restricted browser storage theme regression test.")
+
+# Dynamic news updates should be announced politely to assistive technology.
+if 'id="status" role="status" aria-live="polite" aria-atomic="true"' not in index_text:
+    raise SystemExit("Feed status must be announced to screen readers.")
+if 'class="ticker" role="status" aria-live="polite" aria-atomic="true"' not in index_text:
+    raise SystemExit("The latest-news ticker must expose a polite live status.")
+print("Passed live news announcement accessibility test.")
+
+# Pagination controls need meaningful accessible names and a current-page indicator.
+if 'aria-label="আগের পৃষ্ঠা"' not in index_text or 'aria-label="পরের পৃষ্ঠা"' not in index_text:
+    raise SystemExit("Pagination buttons must have accessible names.")
+if 'aria-current="page" aria-live="polite"' not in index_text:
+    raise SystemExit("The current pagination position must be announced.")
+print("Passed accessible pagination regression test.")
+
 
