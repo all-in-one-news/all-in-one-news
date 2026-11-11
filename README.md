@@ -20,7 +20,7 @@ The scheduled GitHub Actions collector searches Google News RSS feeds for countr
 - Collection schedule: every 10 minutes (GitHub Actions cron).
 - Browser refresh: every 60 seconds while the page is visible.
 - Retention window: 30 days.
-- The site uses public RSS/search discovery for Facebook and YouTube links where available; it is **not** a direct Facebook or YouTube API ingestion service.
+- The site uses public RSS/search discovery for Facebook and YouTube links where available; it is not a direct Facebook or YouTube API ingestion service.
 - Country is assigned from explicit incident-location evidence. Unlocated international stories remain under the global `WORLD` label.
 
 ## Repository map
