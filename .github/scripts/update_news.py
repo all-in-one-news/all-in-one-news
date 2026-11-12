@@ -62,18 +62,18 @@ feeds=[]
 # Broad global desks are collected separately to avoid multiplying every
 # country/category feed. Country is inferred from the reported location.
 global_desk_queries = {
-    'politics': ('election OR parliament OR government OR minister OR president OR prime minister OR opposition OR politics',
-                 'নির্বাচন OR সংসদ OR সরকার OR মন্ত্রী OR রাষ্ট্রপতি OR প্রধানমন্ত্রী OR বিরোধী দল OR রাজনীতি'),
-    'economy': ('economy OR inflation OR GDP OR budget OR trade OR exports OR imports OR central bank',
-                'অর্থনীতি OR মূল্যস্ফীতি OR জিডিপি OR বাজেট OR বাণিজ্য OR রপ্তানি OR আমদানি OR কেন্দ্রীয় ব্যাংক'),
-    'sports': ('sports OR football OR cricket OR tennis OR basketball OR tournament OR world cup',
-               'খেলাধুলা OR ফুটবল OR ক্রিকেট OR টেনিস OR বাস্কেটবল OR টুর্নামেন্ট OR বিশ্বকাপ'),
-    'technology': ('technology OR artificial intelligence OR AI OR software OR smartphone OR cybersecurity',
-                   'প্রযুক্তি OR কৃত্রিম বুদ্ধিমত্তা OR এআই OR সফটওয়্যার OR স্মার্টফোন OR সাইবার নিরাপত্তা'),
-    'entertainment': ('movie OR film OR cinema OR anime OR television series OR streaming OR actor OR actress',
-                      'সিনেমা OR চলচ্চিত্র OR অ্যানিমে OR টিভি সিরিজ OR ওয়েব সিরিজ OR অভিনেতা OR অভিনেত্রী'),
-    'market': ('stock market OR share market OR stock exchange OR shares OR stocks OR Nasdaq OR Dow Jones',
-               'শেয়ার বাজার OR শেয়ারবাজার OR পুঁজিবাজার OR স্টক এক্সচেঞ্জ OR শেয়ার OR সূচক')
+    'politics': ('election OR vote OR polling OR parliament OR government OR minister OR president OR prime minister OR opposition OR cabinet OR ruling party OR political party OR politics',
+                 'নির্বাচন OR ভোট OR ভোটগ্রহণ OR সংসদ OR সরকার OR মন্ত্রী OR রাষ্ট্রপতি OR প্রধানমন্ত্রী OR বিরোধী দল OR মন্ত্রিসভা OR ক্ষমতাসীন দল OR রাজনৈতিক দল OR রাজনীতি'),
+    'economy': ('economy OR inflation OR GDP OR budget OR trade OR exports OR imports OR central bank OR banking OR jobs OR employment OR remittance OR tax OR business OR industry OR wages',
+                'অর্থনীতি OR মূল্যস্ফীতি OR জিডিপি OR বাজেট OR বাণিজ্য OR রপ্তানি OR আমদানি OR কেন্দ্রীয় ব্যাংক OR ব্যাংকিং OR কর্মসংস্থান OR চাকরি OR রেমিট্যান্স OR কর OR ব্যবসা OR শিল্প OR মজুরি'),
+    'sports': ('sports OR football OR cricket OR tennis OR basketball OR tournament OR world cup OR league OR match OR player OR coach OR goal OR wicket OR Olympics OR FIFA OR ICC OR BPL OR IPL',
+               'খেলাধুলা OR ফুটবল OR ক্রিকেট OR টেনিস OR বাস্কেটবল OR টুর্নামেন্ট OR বিশ্বকাপ OR লিগ OR ম্যাচ OR খেলোয়াড় OR কোচ OR গোল OR উইকেট OR অলিম্পিক OR ফিফা OR আইসিসি'),
+    'technology': ('technology OR tech OR artificial intelligence OR AI OR software OR smartphone OR mobile phone OR app OR internet OR cybersecurity OR chip OR gadget OR startup',
+                   'প্রযুক্তি OR প্রযুক্তিপণ্য OR কৃত্রিম বুদ্ধিমত্তা OR এআই OR সফটওয়্যার OR স্মার্টফোন OR মোবাইল OR অ্যাপ OR ইন্টারনেট OR সাইবার নিরাপত্তা OR চিপ OR গ্যাজেট OR স্টার্টআপ'),
+    'entertainment': ('movie OR film OR cinema OR anime OR television series OR web series OR streaming OR actor OR actress OR celebrity OR singer OR music OR album OR drama OR Netflix OR concert OR box office',
+                      'সিনেমা OR চলচ্চিত্র OR অ্যানিমে OR টিভি সিরিজ OR ওয়েব সিরিজ OR অভিনেতা OR অভিনেত্রী OR তারকা OR সংগীত OR গান OR অ্যালবাম OR নাটক OR কনসার্ট OR বক্স অফিস'),
+    'market': ('stock market OR share market OR stock exchange OR share price OR shares OR stocks OR DSE OR Dhaka Stock Exchange OR Nasdaq OR Dow Jones OR trading session',
+               'শেয়ার বাজার OR শেয়ারবাজার OR পুঁজিবাজার OR স্টক এক্সচেঞ্জ OR শেয়ারদর OR শেয়ারের দাম OR ডিএসই OR ঢাকা স্টক এক্সচেঞ্জ OR শেয়ার OR সূচক')
 }
 for desk, (english_query, bangla_query) in global_desk_queries.items():
     for desk_language, query, gl, ceid in (
@@ -566,12 +566,12 @@ patterns={
   'accident':r'accident|crash|collision|derailment|shipwreck|দুর্ঘটনা|সংঘর্ষ|নৌকাডুবি',
   'casualty':r'death toll|fatalities|people killed|casualties|নিহত|প্রাণহানি|হতাহত',
   'reserve':r'foreign exchange reserves|forex reserves|foreign reserves|বৈদেশিক মুদ্রার রিজার্ভ|রিজার্ভ',
-  'politics':r'election|parliament|government|minister|president|prime minister|opposition|politics|নির্বাচন|সংসদ|সরকার|মন্ত্রী|রাষ্ট্রপতি|প্রধানমন্ত্রী|বিরোধী দল|রাজনীতি',
-  'economy':r'economy|inflation|GDP|budget|trade|exports|imports|central bank|অর্থনীতি|মূল্যস্ফীতি|জিডিপি|বাজেট|বাণিজ্য|রপ্তানি|আমদানি|কেন্দ্রীয় ব্যাংক',
-  'sports':r'sports|football|cricket|tennis|basketball|tournament|world cup|খেলাধুলা|ফুটবল|ক্রিকেট|টেনিস|বাস্কেটবল|টুর্নামেন্ট|বিশ্বকাপ',
-  'technology':r'technology|artificial intelligence|cybersecurity|smartphone|software|\bAI\b|প্রযুক্তি|কৃত্রিম বুদ্ধিমত্তা|এআই|সফটওয়্যার|স্মার্টফোন|সাইবার নিরাপত্তা',
-  'entertainment':r'movie|film|cinema|anime|television series|web series|streaming|actor|actress|সিনেমা|চলচ্চিত্র|অ্যানিমে|টিভি সিরিজ|ওয়েব সিরিজ|অভিনেতা|অভিনেত্রী',
-  'market':r'stock market|share market|stock exchange|shares|stocks|Nasdaq|Dow Jones|শেয়ার বাজার|শেয়ারবাজার|পুঁজিবাজার|স্টক এক্সচেঞ্জ|শেয়ার|সূচক'
+  'politics':r'election|vote|polling|parliament|government|minister|president|prime minister|opposition|cabinet|ruling party|political party|politics|নির্বাচন|ভোট|ভোটগ্রহণ|সংসদ|সরকার|মন্ত্রী|রাষ্ট্রপতি|প্রধানমন্ত্রী|বিরোধী দল|মন্ত্রিসভা|ক্ষমতাসীন দল|রাজনৈতিক দল|রাজনীতি',
+  'economy':r'economy|inflation|GDP|budget|trade|exports|imports|central bank|banking|employment|remittance|tax|business|industry|wages|অর্থনীতি|মূল্যস্ফীতি|জিডিপি|বাজেট|বাণিজ্য|রপ্তানি|আমদানি|কেন্দ্রীয় ব্যাংক|ব্যাংকিং|কর্মসংস্থান|চাকরি|রেমিট্যান্স|কর|ব্যবসা|শিল্প|মজুরি',
+  'sports':r'sports|football|cricket|tennis|basketball|tournament|world cup|league|match|player|coach|goal|wicket|olympics|FIFA|ICC|BPL|IPL|খেলাধুলা|ফুটবল|ক্রিকেট|টেনিস|বাস্কেটবল|টুর্নামেন্ট|বিশ্বকাপ|লিগ|ম্যাচ|খেলোয়াড়|কোচ|গোল|উইকেট|অলিম্পিক',
+  'technology':r'technology|tech|artificial intelligence|cybersecurity|smartphone|mobile phone|software|internet|app|chip|gadget|startup|\bAI\b|প্রযুক্তি|প্রযুক্তিপণ্য|কৃত্রিম বুদ্ধিমত্তা|এআই|সফটওয়্যার|স্মার্টফোন|মোবাইল|অ্যাপ|ইন্টারনেট|সাইবার নিরাপত্তা|চিপ|গ্যাজেট|স্টার্টআপ',
+  'entertainment':r'movie|film|cinema|anime|television series|web series|streaming|actor|actress|celebrity|singer|music|album|drama|Netflix|concert|box office|তারকা|সংগীত|গান|অ্যালবাম|নাটক|কনসার্ট|বক্স অফিস|সিনেমা|চলচ্চিত্র|অ্যানিমে|টিভি সিরিজ|ওয়েব সিরিজ|অভিনেতা|অভিনেত্রী',
+  'market':r'stock market|share market|stock exchange|share price|shares|stocks|DSE|Dhaka Stock Exchange|Nasdaq|Dow Jones|trading session|শেয়ার বাজার|শেয়ারবাজার|পুঁজিবাজার|স্টক এক্সচেঞ্জ|শেয়ারদর|শেয়ারের দাম|ডিএসই|ঢাকা স্টক এক্সচেঞ্জ|শেয়ার|সূচক'
 }
 # Country labels must describe the reported incident, not the Google News
 # edition used to discover it. Use only explicit location evidence; otherwise
