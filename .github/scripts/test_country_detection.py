@@ -415,10 +415,16 @@ for required in (
 print("Passed Facebook and YouTube multi-category discovery regression checks.")
 
 
-# Country selector is removed; the language selector remains.
-if 'id="country"' in index_text or 'id="language"' not in index_text or "return l===language" not in index_text:
+# Country selector is removed; Bangladesh visitors are automatically filtered to BD news.
+if 'id="country"' in index_text or 'id="language"' not in index_text:
     raise SystemExit("Homepage must omit country selection and preserve language selection.")
-print("Passed simplified language filter regression checks.")
+if "visitorCountry!=='BD'||c==='BD'" not in index_text:
+    raise SystemExit("Visitors detected in Bangladesh must see only BD-tagged news.")
+if "fetch('https://ipapi.co/json/')" not in index_text or "timeZone==='Asia/Dhaka'" not in index_text:
+    raise SystemExit("Visitor country detection must use IP geolocation with a Dhaka-timezone fallback.")
+if "if(!locationResolved){await detectVisitorCountry();locationResolved=true}" not in index_text:
+    raise SystemExit("Visitor country must be detected before the first news render.")
+print("Passed automatic Bangladesh visitor news-filter regression checks.")
 
 # All twelve news categories must be represented in the UI and classifier.
 for category in (
