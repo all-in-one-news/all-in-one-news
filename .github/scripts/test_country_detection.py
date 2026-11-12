@@ -458,3 +458,30 @@ for required in (
     if required not in index_text:
         raise SystemExit(f"Mobile responsive layout is missing: {required}")
 print("Passed mobile responsive layout regression checks.")
+
+
+# Performance safeguards: defer off-screen card rendering and decode images asynchronously.
+for required in (
+    "content-visibility:auto",
+    "contain-intrinsic-size:auto 430px",
+    'loading="lazy" decoding="async"',
+):
+    if required not in index_text:
+        raise SystemExit(f"Frontend performance optimization is missing: {required}")
+print("Passed frontend rendering and image-decoding performance checks.")
+
+# Core search-engine metadata and generated article schema must remain available.
+for required in (
+    '<html lang="bn">',
+    '<meta name="description"',
+    '<meta name="robots" content="index,follow',
+    '<link rel="canonical"',
+    'property="og:title"',
+    'name="twitter:card"',
+    '"@type":"WebSite"',
+):
+    if required not in index_text:
+        raise SystemExit(f"Homepage SEO metadata is missing: {required}")
+if "Sitemap: https://all-in-one-news.github.io/all-in-one-news/sitemap.xml" not in (INDEX.parents[0] / "robots.txt").read_text(encoding="utf-8"):
+    raise SystemExit("robots.txt must advertise the canonical sitemap URL.")
+print("Passed homepage SEO metadata and robots sitemap checks.")
