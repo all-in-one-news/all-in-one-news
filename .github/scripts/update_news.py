@@ -771,6 +771,14 @@ for item in previous+fresh:
     else:
         if not old_item.get('image') and item.get('image'):
             old_item['image']=item['image']
+        # Preserve alternative RSS thumbnails across duplicate feed editions.
+        candidates=list(old_item.get('image_candidates') or [])
+        for candidate in [item.get('image','')]+list(item.get('image_candidates') or []):
+            candidate=str(candidate or '').strip()
+            if candidate.startswith(('https://','http://')) and candidate!=GENERIC_IMAGE_URL and candidate not in candidates:
+                candidates.append(candidate)
+        if candidates:
+            old_item['image_candidates']=candidates[:12]
         if not str(old_item.get('summary','')).strip() and str(item.get('summary','')).strip():
             old_item['summary']=item['summary']
         if not old_item.get('media_embed') and item.get('media_embed'):
@@ -808,6 +816,14 @@ for item in sorted(by_link.values(),key=lambda x:x['published'],reverse=True):
         match['source_count']=len(sources)+1
         if not match.get('image') and item.get('image'):
             match['image']=item['image']
+        # Keep alternative thumbnails across near-identical reports too.
+        candidates=list(match.get('image_candidates') or [])
+        for candidate in [item.get('image','')]+list(item.get('image_candidates') or []):
+            candidate=str(candidate or '').strip()
+            if candidate.startswith(('https://','http://')) and candidate!=GENERIC_IMAGE_URL and candidate not in candidates:
+                candidates.append(candidate)
+        if candidates:
+            match['image_candidates']=candidates[:12]
     else:
         item['_normalized_title']=title
         item['incident_id']=hashlib.sha1((item['country']+'|'+item['category']+'|'+day+'|'+title).encode('utf-8')).hexdigest()[:16]
