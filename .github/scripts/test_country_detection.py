@@ -211,10 +211,8 @@ print("Passed 60-story pagination regression test.")
 # Browser storage can be unavailable in private/restricted contexts; feed preferences must still work.
 if "function readPref(key,fallback)" not in index_text or "function writePref(key,value)" not in index_text:
     raise SystemExit("Safe browser preference helpers are missing.")
-if "language=readPref('ain_language'" not in index_text or "country=readPref('ain_country','BD')" not in index_text:
-    raise SystemExit("Language and country preferences must use safe reads.")
-if "writePref('ain_language',language)" not in index_text or "writePref('ain_country',country)" not in index_text:
-    raise SystemExit("Language and country preferences must use safe writes.")
+if "language=readPref('ain_language'" not in index_text or "writePref('ain_language',language)" not in index_text:
+    raise SystemExit("The language preference must use safe reads and writes; country preference is removed.")
 print("Passed restricted browser storage preference regression test.")
 
 # Keyboard users must be able to skip directly to the main news content.
