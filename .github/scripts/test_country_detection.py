@@ -49,7 +49,7 @@ cases = {
     "জুলাই গণঅভ্যুত্থানে আহত হয়েও গেজেটভুক্ত নন": "BD",
     "৪২০টির বেশি শিক্ষামূলক খেলা যোগ হচ্ছে প্রাথমিকের নতুন পাঠ্যক্রমে": "BD",
     "Dhaka Stock Exchange reports record turnover": "BD",
-    "DSE reports record turnover in the Indian market": "WORLD",
+    "DSE reports record turnover in the Indian market": "IN",
     "আখাউড়ায় ট্রেনে আগুন": "BD",
     "রাঙ্গুনিয়ায় মোটরসাইকেল দুর্ঘটনা": "BD",
     "Markapuram: Four Injured In Tractor-Car Collision": "IN",
