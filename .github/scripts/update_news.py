@@ -511,7 +511,7 @@ def fair_image_candidates(items, limit=100):
             str(x.get('category','')).lower()=='missing',
             x.get('published','')
         ),reverse=True)
-        take=min(3,limit,len(groups['BD']))
+        take=min(15,limit,len(groups['BD']))
         selected.extend(groups['BD'][:take])
         groups['BD']=groups['BD'][take:]
     if len(selected)<limit and groups.get('WORLD'):
