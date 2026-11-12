@@ -420,6 +420,8 @@ if 'id="country"' in index_text or 'id="language"' not in index_text:
     raise SystemExit("Homepage must omit country selection and preserve language selection.")
 if "visitorCountry!=='BD'||c==='BD'" not in index_text:
     raise SystemExit("Visitors detected in Bangladesh must see only BD-tagged news.")
+if "readPref('ain_language',visitorCountry==='BD'?'bn'" not in index_text:
+    raise SystemExit("Bangladesh visitors must default to Bangla unless they previously chose another language.")
 if "fetch('https://ipapi.co/json/')" not in index_text or "timeZone==='Asia/Dhaka'" not in index_text:
     raise SystemExit("Visitor country detection must use IP geolocation with a Dhaka-timezone fallback.")
 if "if(!locationResolved){await detectVisitorCountry();locationResolved=true}" not in index_text:
