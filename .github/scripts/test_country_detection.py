@@ -243,10 +243,10 @@ if 'aria-current="page" aria-live="polite"' not in index_text:
     raise SystemExit("The current pagination position must be announced.")
 print("Passed accessible pagination regression test.")
 
-# The latest-news ticker must follow the selected country, language, and desk.
+# The latest-news ticker must follow the selected language and desk.
 if "const tickerStory=rows.find(x=>matches(x)&&(!cat||cat==='all'||kind(x)===cat));" not in index_text:
-    raise SystemExit("The latest-news ticker must use the selected country/language and desk.")
-if "$('latest').textContent=tickerStory?clean(tickerStory.title):'এই দেশ ও ভাষায় এখনো খবর নেই';" not in index_text:
+    raise SystemExit("The latest-news ticker must use the selected language and desk.")
+if "$('latest').textContent=tickerStory?clean(tickerStory.title):'এই ভাষায় এখনো খবর নেই';" not in index_text:
     raise SystemExit("The ticker must show a clear empty state when the selected feed has no stories.")
 print("Passed selected-feed latest ticker regression test.")
 
