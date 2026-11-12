@@ -95,19 +95,21 @@ if clean_feed_text("<p>First</p><p>Second</p>", 8) != "First Se":
     raise SystemExit("RSS summary normalization must enforce the requested length limit.")
 print("Passed RSS headline and summary normalization regression tests.")
 
-# Country filter regression: WORLD is included only in the all-countries view.
+# Country and date selectors are intentionally removed; retention is category-based.
 INDEX = SOURCE.parents[2] / "index.html"
 index_text = INDEX.read_text(encoding="utf-8")
+if 'id="country"' in index_text or 'id="from"' in index_text or 'id="to"' in index_text:
+    raise SystemExit("Country and date selection controls must not appear on the homepage.")
 match = re.search(r"function matches\(x\)\{([^}]+)\}", index_text)
-if not match:
-    raise SystemExit("Could not locate the country/language filter.")
-filter_body = match.group(1)
-if "country==='ALL'||c===country" not in filter_body or "c==='WORLD'" in filter_body:
-    raise SystemExit("Country-specific feeds must not include unassigned WORLD stories.")
-print("Passed country filter regression test.")
-if "if(!isRefresh&&!$('from').value)$('from').value=retentionStart;" not in index_text:
-    raise SystemExit("Manual refresh must preserve the selected start date.")
-print("Passed date filter persistence regression test.")
+if not match or "return l===language" not in match.group(1):
+    raise SystemExit("The remaining language filter must work without country selection.")
+if "SPECIAL_RETENTION_CATEGORIES=new Set(['fire','missing','abuse','accident','casualty'])" not in index_text or "keepByRetention(x)" not in index_text:
+    raise SystemExit("The homepage must apply one-year retention to special incident categories.")
+if "regular_cutoff = now - timedelta(days=30)" not in collector_text or "special_cutoff = now - timedelta(days=365)" not in collector_text:
+    raise SystemExit("The collector must retain regular news for 30 days and special incident news for 365 days.")
+if "published<cutoff_for_category(category)" not in collector_text or "published<cutoff_for_category(item.get('category'))" not in collector_text:
+    raise SystemExit("Collector and SEO article generation must use category-specific retention.")
+print("Passed category-based 30-day/365-day retention regression checks.")
 
 # Theme preference regression: dark mode must persist across page reloads.
 if "writePref('ain_theme',next)" not in index_text:
@@ -128,19 +130,14 @@ if "document.documentElement.classList.toggle('dark-preload',dark)" not in index
 print("Passed dark mode first-paint regression test.")
 
 # Accessible names for key controls (screen readers and assistive technology).
-for control in ('country', 'language', 'q', 'sort', 'from', 'to'):
+for control in ('language', 'q', 'sort'):
     if not re.search(r'<(?:input|select)\b[^>]*id="' + re.escape(control) + r'"[^>]*aria-label="[^"]+"', index_text):
         raise SystemExit(f"Control {control!r} is missing an accessible label.")
 if 'aria-label="খবর আবার লোড করুন"' not in index_text:
     raise SystemExit("The reload button is missing an accessible label.")
 print("Passed accessible control label regression test.")
 
-# Reject invalid date ranges instead of silently showing an empty feed.
-if "if($('to').value&&$('to').value<$('from').value)" not in index_text:
-    raise SystemExit("The date filter must reject an end date earlier than its start date.")
-if 'শেষ তারিখ শুরুর তারিখের আগে হতে পারবে না' not in index_text:
-    raise SystemExit("The invalid date range must show a clear Bengali explanation.")
-print("Passed invalid date range validation regression test.")
+# Date selection is removed; category retention is tested above.
 
 # Keep the automated collection cadence at the agreed 10-minute interval.
 WORKFLOW = SOURCE.parents[1] / "workflows" / "update-news.yml"
@@ -284,7 +281,7 @@ for domain in publisher_domains:
         raise SystemExit(f"Publisher-focused discovery is missing {domain}.")
 if "publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)" not in collector_text:
     raise SystemExit("Publisher domains must be combined into a site-scoped RSS query.")
-if "targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after" not in collector_text:
+if "targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_for_category(category)" not in collector_text:
     raise SystemExit("Publisher RSS discovery must retain desk keywords and the 30-day date window.")
 if "('en', english_query, 'BD:en')" not in collector_text or "('bn', bangla_query, 'BD:bn')" not in collector_text:
     raise SystemExit("Publisher-focused feeds must be collected in both English and Bangla.")
@@ -420,17 +417,10 @@ for required in (
 print("Passed Facebook and YouTube multi-category discovery regression checks.")
 
 
-# Country and language filters must combine correctly and retain the ALL option.
-for required in (
-    "(country==='ALL'||c===country)",
-    "l===language",
-    "codes.map(c=>c==='ALL'?'<option value=\"ALL\">",
-    "id=\"country\"",
-    "id=\"language\"",
-):
-    if required not in index_text:
-        raise SystemExit(f"Country/language filter regression: missing {required}")
-print("Passed country and language filter regression checks.")
+# Country selector is removed; the language selector remains.
+if 'id="country"' in index_text or 'id="language"' not in index_text or "return l===language" not in index_text:
+    raise SystemExit("Homepage must omit country selection and preserve language selection.")
+print("Passed simplified language filter regression checks.")
 
 # All twelve news categories must be represented in the UI and classifier.
 for category in (
@@ -443,16 +433,15 @@ for category in (
         raise SystemExit(f"Category classifier is missing: {category}")
 print("Passed all twelve category UI and classifier regression checks.")
 
-# Mobile layout should stack filters, make country/date controls touch-friendly,
+# Mobile layout should keep the remaining language/search controls touch-friendly
 # and use a compact two-column category grid.
 for required in (
     "@media(max-width:560px)",
-    ".country{display:grid;grid-template-columns:1fr;",
-    ".country select{width:100%;min-height:42px}",
+    ".language{gap:6px}",
+    ".language select{min-height:42px}",
     ".stats{grid-template-columns:repeat(2,minmax(0,1fr))",
     ".filters{grid-template-columns:minmax(0,1fr);",
     ".filters input,.filters select{width:100%;min-height:43px}",
-    ".dates input{width:100%;min-width:0;min-height:42px}",
     ".pages button{min-width:38px;min-height:38px}",
 ):
     if required not in index_text:
