@@ -183,13 +183,13 @@ if collector_text.index("feeds=[]") > collector_text.index("for desk, (english_q
 print("Passed global feed initialization order regression test.")
 
 # Homepage should expose more records per page without changing feed retention.
-if "const PAGE_SIZE=40;" not in index_text:
-    raise SystemExit("Homepage pagination must show 40 stories per page.")
+if "const PAGE_SIZE=60;" not in index_text:
+    raise SystemExit("Homepage pagination must show 60 stories per page.")
 if "shown.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE)" not in index_text:
     raise SystemExit("Homepage story slicing must use the shared page size.")
 if "Math.ceil(shown.length/PAGE_SIZE)" not in index_text:
     raise SystemExit("Homepage page count must use the shared page size.")
-print("Passed 40-story pagination regression test.")
+print("Passed 60-story pagination regression test.")
 
 # Browser storage can be unavailable in private/restricted contexts; feed preferences must still work.
 if "function readPref(key,fallback)" not in index_text or "function writePref(key,value)" not in index_text:
