@@ -11,7 +11,7 @@ A Bengali-first, bilingual news dashboard that brings Bangladesh and internation
 - Search, date range, newest/oldest sorting, and paginated results.
 - Light/dark theme, responsive layout, and accessible labels/live announcements.
 - Article thumbnails and supported YouTube/Facebook embeds when the source provides them.
-- A latest-news ticker that follows the selected country, language, and news desk.
+- A latest-news ticker that follows the selected language and news desk.
 
 ## How news is collected
 
@@ -19,7 +19,8 @@ The scheduled GitHub Actions collector searches Google News RSS feeds for countr
 
 - Collection schedule: every 10 minutes (GitHub Actions cron).
 - Browser refresh: every 60 seconds while the page is visible.
-- Retention window: 30 days.
+- Regular news retention: 30 days.
+- Special incident categories (missing children, fire, abuse, accidents, and casualties) retention: 365 days.
 - The site uses public RSS/search discovery for Facebook and YouTube links where available; it is not a direct Facebook or YouTube API ingestion service.
 - Country is assigned from explicit incident-location evidence. Unlocated international stories remain under the global `WORLD` label.
 
@@ -27,7 +28,7 @@ The scheduled GitHub Actions collector searches Google News RSS feeds for countr
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | News dashboard, filters, theme, and rendering |
+| `index.html` | News dashboard, language/search filters, theme, and rendering |
 | `news.json` | Current generated news snapshot |
 | `news-backup.json` | Last known-good news snapshot |
 | `sitemap.xml` | Search-engine sitemap |
