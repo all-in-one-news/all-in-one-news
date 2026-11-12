@@ -338,8 +338,8 @@ social_accounts = {
 for label, url in social_accounts.items():
     if 'href="' + url + '"' not in social_section:
         raise SystemExit(f"Social shortcut is missing {label}: {url}")
-if 'aria-label="অফিসিয়াল YouTube চ্যানেল"' not in social_section or 'aria-label="অফিসিয়াল Facebook পেজ"' not in social_section:
-    raise SystemExit("Social shortcut rows must be clearly identified for accessibility.")
+if 'aria-label="YouTube চ্যানেল লিংক"' not in social_section or 'aria-label="Facebook পেজ লিংক"' not in social_section:
+    raise SystemExit("Social shortcut rows must be clearly identified without claiming unverified official status.")
 if social_section.count('class="social-link"') != 20:
     raise SystemExit("Exactly 20 social shortcuts (10 YouTube and 10 Facebook) must be present.")
 if ".social-row{" not in index_text or "overflow-x:auto" not in index_text or ".social-link:focus-visible" not in index_text:
