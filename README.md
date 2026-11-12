@@ -53,4 +53,4 @@ The regression workflow runs these checks on relevant pushes and pull requests. 
 
 - News availability, category accuracy, summaries, and thumbnails depend on third-party feeds and publisher pages; coverage is not exhaustive.
 - The dashboard is a news discovery and linking service, not an official emergency-alert authority. For urgent cases, follow the linked official source.
-- A visitor's chosen language controls the displayed language; IP location is informational and does not override that preference.
+- Visitors can switch between Bangla and English; country and date selectors are intentionally omitted.
