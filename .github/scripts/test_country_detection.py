@@ -418,3 +418,43 @@ for required in (
     if required not in collector_text:
         raise SystemExit(f"Social-news discovery is missing: {required}")
 print("Passed Facebook and YouTube multi-category discovery regression checks.")
+
+
+# Country and language filters must combine correctly and retain the ALL option.
+for required in (
+    "(country==='ALL'||c===country)",
+    "l===language",
+    "codes.map(c=>c==='ALL'?'<option value=\"ALL\">",
+    "id=\"country\"",
+    "id=\"language\"",
+):
+    if required not in index_text:
+        raise SystemExit(f"Country/language filter regression: missing {required}")
+print("Passed country and language filter regression checks.")
+
+# All twelve news categories must be represented in the UI and classifier.
+for category in (
+    "fire","missing","abuse","accident","casualty","reserve",
+    "politics","economy","sports","technology","entertainment","market"
+):
+    if f'data-cat="{category}"' not in index_text or f'id="n-{category}"' not in index_text:
+        raise SystemExit(f"Category card or count is missing: {category}")
+    if not re.search(r'\b'+re.escape(category)+r':/', index_text):
+        raise SystemExit(f"Category classifier is missing: {category}")
+print("Passed all twelve category UI and classifier regression checks.")
+
+# Mobile layout should stack filters, make country/date controls touch-friendly,
+# and use a compact two-column category grid.
+for required in (
+    "@media(max-width:560px)",
+    ".country{display:grid;grid-template-columns:1fr}",
+    ".country select{width:100%;min-height:42px}",
+    ".stats{grid-template-columns:repeat(2,minmax(0,1fr))",
+    ".filters{grid-template-columns:minmax(0,1fr)}",
+    ".filters input,.filters select{width:100%;min-height:43px}",
+    ".dates input{width:100%;min-width:0;min-height:42px}",
+    ".pages button{min-width:38px;min-height:38px}",
+):
+    if required not in index_text:
+        raise SystemExit(f"Mobile responsive layout is missing: {required}")
+print("Passed mobile responsive layout regression checks.")
