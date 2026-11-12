@@ -193,6 +193,25 @@ for social_source, social_query in social_queries:
     feeds.append(('BD','missing',
         'https://news.google.com/rss/search?'+social_params))
 
+# Public Facebook and YouTube news discovery beyond missing-child alerts.
+# Results enter the normal classifier; country is inferred from the story text.
+social_news_queries = {
+    'fire': 'আগুন OR অগ্নিকাণ্ড OR দাবানল',
+    'accident': 'দুর্ঘটনা OR সড়ক দুর্ঘটনা OR ট্রেন দুর্ঘটনা',
+    'casualty': 'নিহত OR মৃত্যু OR হতাহত OR আহত',
+    'politics': 'নির্বাচন OR সংসদ OR সরকার OR রাজনীতি',
+    'economy': 'অর্থনীতি OR মূল্যস্ফীতি OR রেমিট্যান্স OR বাজেট',
+    'sports': 'ক্রিকেট OR ফুটবল OR খেলাধুলা OR বিশ্বকাপ'
+}
+social_platform_query = '(site:facebook.com OR site:youtube.com)'
+for social_category, social_terms in social_news_queries.items():
+    social_params=urllib.parse.urlencode({
+        'q':social_platform_query+' ('+social_terms+') (বাংলাদেশ OR বাংলাদেশি OR ঢাকা) '+search_after,
+        'hl':'bn','gl':'BD','ceid':'BD:bn'
+    })
+    feeds.append(('WORLD',social_category,
+        'https://news.google.com/rss/search?'+social_params))
+
 # Targeted discovery from official Bangladesh Police/CID and established newsrooms.
 trusted_missing_queries = [
     ('Bangladesh Police', 'site:police.gov.bd ("নিখোঁজ শিশু" OR "শিশু নিখোঁজ" OR "missing child" OR "abducted child")'),
