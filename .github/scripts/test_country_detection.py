@@ -48,6 +48,8 @@ cases = {
     "অক্টোবরে ডিএসই থেকে ১৭৫ কোটি টাকা তুলে নিয়েছেন বিদেশি বিনিয়োগকারীরা": "BD",
     "জুলাই গণঅভ্যুত্থানে আহত হয়েও গেজেটভুক্ত নন": "BD",
     "৪২০টির বেশি শিক্ষামূলক খেলা যোগ হচ্ছে প্রাথমিকের নতুন পাঠ্যক্রমে": "BD",
+    "Dhaka Stock Exchange reports record turnover": "BD",
+    "DSE reports record turnover in the Indian market": "WORLD",
     "আখাউড়ায় ট্রেনে আগুন": "BD",
     "রাঙ্গুনিয়ায় মোটরসাইকেল দুর্ঘটনা": "BD",
     "Markapuram: Four Injured In Tractor-Car Collision": "IN",
@@ -261,6 +263,13 @@ publisher_domains = (
     "jagonews24.com",
     "banglanews24.com",
     "samakal.com",
+    "banglatribune.com",
+    "risingbd.com",
+    "sarabangla.net",
+    "thefinancialexpress.com.bd",
+    "dhakatimes24.com",
+    "protidinersangbad.com",
+    "vodbangla.com",
 )
 if "bangladesh_publisher_domains = (" not in collector_text:
     raise SystemExit("Bangladesh publisher domain registry is missing.")
