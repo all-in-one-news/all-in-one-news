@@ -101,8 +101,8 @@ index_text = INDEX.read_text(encoding="utf-8")
 if 'id="country"' in index_text or 'id="from"' in index_text or 'id="to"' in index_text:
     raise SystemExit("Country and date selection controls must not appear on the homepage.")
 match = re.search(r"function matches\(x\)\{([^}]+)\}", index_text)
-if not match or "return l===language" not in match.group(1):
-    raise SystemExit("The remaining language filter must work without country selection.")
+if not match or "visitorCountry!=='BD'||c==='BD'" not in match.group(1) or "l===language" not in match.group(1):
+    raise SystemExit("The language filter must combine with automatic Bangladesh country detection.")
 if "SPECIAL_RETENTION_CATEGORIES=new Set(['fire','missing','abuse','accident','casualty'])" not in index_text or "keepByRetention(x)" not in index_text:
     raise SystemExit("The homepage must apply one-year retention to special incident categories.")
 if "regular_cutoff = now - timedelta(days=30)" not in collector_text or "special_cutoff = now - timedelta(days=365)" not in collector_text:
