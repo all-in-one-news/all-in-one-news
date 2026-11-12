@@ -447,10 +447,10 @@ print("Passed all twelve category UI and classifier regression checks.")
 # and use a compact two-column category grid.
 for required in (
     "@media(max-width:560px)",
-    ".country{display:grid;grid-template-columns:1fr}",
+    ".country{display:grid;grid-template-columns:1fr;",
     ".country select{width:100%;min-height:42px}",
     ".stats{grid-template-columns:repeat(2,minmax(0,1fr))",
-    ".filters{grid-template-columns:minmax(0,1fr)}",
+    ".filters{grid-template-columns:minmax(0,1fr);",
     ".filters input,.filters select{width:100%;min-height:43px}",
     ".dates input{width:100%;min-width:0;min-height:42px}",
     ".pages button{min-width:38px;min-height:38px}",
