@@ -376,3 +376,45 @@ if social_section.count('class="social-link"') != 20:
 if ".social-row{" not in index_text or "overflow-x:auto" not in index_text or ".social-link:focus-visible" not in index_text:
     raise SystemExit("Social shortcuts must scroll horizontally and remain keyboard accessible.")
 print("Passed 20 Bangladesh TV Facebook and YouTube shortcut regression checks.")
+
+
+# Image recovery must retain alternate RSS thumbnails when duplicate feed
+# editions or near-identical reports are merged, so the verifier can fall back.
+for required in (
+    "old_item['image_candidates']=candidates[:12]",
+    "match['image_candidates']=candidates[:12]",
+    "for candidate in [item.get('image','')]+list(item.get('image_candidates') or []):",
+    "for image_url in candidates:",
+):
+    if required not in collector_text:
+        raise SystemExit(f"Image recovery fallback is missing: {required}")
+print("Passed alternate-image preservation and fallback regression checks.")
+
+# Duplicate stories must merge by canonical link and conservative headline
+# similarity, while re-used thumbnails must not merge unrelated stories.
+for required in (
+    "canonical=str(item.get('link','')).strip().split('#',1)[0].rstrip('/')",
+    "difflib.SequenceMatcher(None,title,other_title).ratio()",
+    "if ratio>=0.90 or overlap>=0.88:",
+    "Do not deduplicate stories by thumbnail URL",
+):
+    if required not in collector_text:
+        raise SystemExit(f"Duplicate-news protection is missing: {required}")
+print("Passed canonical-link, headline-similarity, and image-reuse deduplication checks.")
+
+# Public social discovery should cover multiple Bangladesh news desks, not
+# only missing-child notices, and must leave country classification to text.
+for required in (
+    "social_news_queries = {",
+    "'fire': 'আগুন OR অগ্নিকাণ্ড OR দাবানল'",
+    "'accident': 'দুর্ঘটনা OR সড়ক দুর্ঘটনা OR ট্রেন দুর্ঘটনা'",
+    "'casualty': 'নিহত OR মৃত্যু OR হতাহত OR আহত'",
+    "'politics': 'নির্বাচন OR সংসদ OR সরকার OR রাজনীতি'",
+    "'economy': 'অর্থনীতি OR মূল্যস্ফীতি OR রেমিট্যান্স OR বাজেট'",
+    "'sports': 'ক্রিকেট OR ফুটবল OR খেলাধুলা OR বিশ্বকাপ'",
+    "social_platform_query = '(site:facebook.com OR site:youtube.com)'",
+    "feeds.append(('WORLD',social_category,",
+):
+    if required not in collector_text:
+        raise SystemExit(f"Social-news discovery is missing: {required}")
+print("Passed Facebook and YouTube multi-category discovery regression checks.")
