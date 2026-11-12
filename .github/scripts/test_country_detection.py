@@ -151,11 +151,17 @@ exec(compile(ast.Module(body=classifier_nodes, type_ignores=[]), str(SOURCE), "e
 classify = classifier_ns["classify"]
 desk_cases = {
     "Election commission announces national vote schedule": "politics",
+    "Cabinet approves new policy after parliamentary debate": "politics",
     "Inflation rises as central bank changes interest rate": "economy",
+    "Remittance inflows and employment rise this quarter": "economy",
     "Bangladesh cricket team wins the final match": "sports",
+    "Bangladesh Premier League match ends with a last-ball goal": "sports",
     "New artificial intelligence chip unveiled by researchers": "technology",
+    "New mobile app and smartphone technology announced": "technology",
     "Popular anime film breaks box office record": "entertainment",
+    "Singer releases a new music album before concert": "entertainment",
     "Stock market shares rise after trading session": "market",
+    "DSE share prices rise during Dhaka Stock Exchange trading": "market",
 }
 for title, expected in desk_cases.items():
     actual = classify({"title": title, "summary": "", "category": "WORLD"})
