@@ -287,4 +287,19 @@ for required in (
         raise SystemExit(f"README is missing required project detail: {required}")
 print("Passed project documentation accuracy regression test.")
 
-
+# Bangladesh TV news channel shortcuts must link to their official broadcaster websites.
+channel_index = index_text.find('<section class="channels"')
+if channel_index < 0 or 'aria-labelledby="channel-heading"' not in index_text:
+    raise SystemExit("The Bangladesh TV channel shortcut section is missing or inaccessible.")
+channel_section = index_text[channel_index:index_text.find('</section>', channel_index) + len('</section>')]
+for domain in (
+    "jamuna.tv", "somoynews.tv", "ekattor.tv", "channel24bd.tv", "ntvbd.com",
+    "rtvonline.com", "dbcnews.tv", "independent24.com", "news24bd.tv", "atnnewstv.com",
+):
+    if 'https://www.' + domain + '/' not in channel_section and 'https://' + domain + '/' not in channel_section:
+        raise SystemExit(f"TV channel shortcut is missing the official website for {domain}.")
+if "google.com/s2/favicons?domain=" not in channel_section or "nextElementSibling.style.display='grid'" not in channel_section:
+    raise SystemExit("TV channel logos must have a visible fallback when a favicon cannot load.")
+if "overflow-x:auto" not in index_text or ".channel-link:focus-visible" not in index_text:
+    raise SystemExit("TV channel shortcuts must scroll horizontally and remain keyboard accessible.")
+print("Passed 10 Bangladesh TV channel shortcut, logo fallback, and accessibility checks.")
