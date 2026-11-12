@@ -5,8 +5,16 @@ from email.utils import parsedate_to_datetime
 GENERIC_IMAGE_URL='https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300'
 
 now = datetime.now(timezone.utc)
-cutoff = now - timedelta(days=30)
-search_after = 'after:' + cutoff.date().isoformat()
+SPECIAL_RETENTION_CATEGORIES = {'fire','missing','abuse','accident','casualty'}
+regular_cutoff = now - timedelta(days=30)
+special_cutoff = now - timedelta(days=365)
+search_after_regular = 'after:' + regular_cutoff.date().isoformat()
+search_after_special = 'after:' + special_cutoff.date().isoformat()
+def cutoff_for_category(category):
+    return special_cutoff if str(category or '').lower() in SPECIAL_RETENTION_CATEGORIES else regular_cutoff
+def search_after_for_category(category):
+    return search_after_special if str(category or '').lower() in SPECIAL_RETENTION_CATEGORIES else search_after_regular
+
 countries = [
     'AF','AL','DZ','AD','AO','AG','AR','AM','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BT','BO','BA','BW','BR','BN','BG','BF','BI','CV','KH','CM','CA','CF','TD','CL','CN','CO','KM','CG','CR','HK','MO',
     'CI','HR','CU','CY','CZ','CD','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','SZ','ET','FJ','FI','FR','GA','GM','GE','DE','GH','GR','GD','GT','GN','GW','GY','HT','HN','HU','IS','IN','ID','IR','IQ',
@@ -81,7 +89,7 @@ for desk, (english_query, bangla_query) in global_desk_queries.items():
         ('bn', bangla_query, 'BD', 'BD:bn')
     ):
         params = urllib.parse.urlencode({
-            'q': '(' + query + ') ' + search_after,
+            'q': '(' + query + ') ' + search_after_regular,
             'hl': 'bn' if desk_language == 'bn' else 'en-US',
             'gl': gl,
             'ceid': ceid
@@ -115,7 +123,7 @@ for category, english_query in categories.items():
         ('en', english_query, 'BD:en'),
         ('bn', bangla_query, 'BD:bn')
     ):
-        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after
+        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_for_category(category)
         params = urllib.parse.urlencode({
             'q': targeted_query,
             'hl': 'bn' if desk_language == 'bn' else 'en',
@@ -129,7 +137,7 @@ for desk, (english_query, bangla_query) in global_desk_queries.items():
         ('en', english_query, 'BD:en'),
         ('bn', bangla_query, 'BD:bn')
     ):
-        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after
+        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_regular
         params = urllib.parse.urlencode({
             'q': targeted_query,
             'hl': 'bn' if desk_language == 'bn' else 'en',
@@ -146,7 +154,7 @@ for country in countries:
             q = '(' + query + ') OR (' + bangla[category] + ')'
             lang='bn'
         params = urllib.parse.urlencode({
-            'q': q + ' ' + search_after,
+            'q': q + ' ' + search_after_for_category(category),
             'hl': 'bn' if lang=='bn' else 'en-US',
             'gl': country,
             'ceid': country + ':' + lang
@@ -166,7 +174,7 @@ bangla_global_queries={
 }
 for category, query in bangla_global_queries.items():
     params=urllib.parse.urlencode({
-        'q':'('+query+') ' + search_after,
+        'q':'('+query+') ' + search_after_for_category(category),
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('WORLD',category,'https://news.google.com/rss/search?'+params))
@@ -187,7 +195,7 @@ social_queries = [
 ]
 for social_source, social_query in social_queries:
     social_params=urllib.parse.urlencode({
-        'q':social_query+' ' + search_after,
+        'q':social_query+' ' + search_after_special,
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('BD','missing',
@@ -206,7 +214,7 @@ social_news_queries = {
 social_platform_query = '(site:facebook.com OR site:youtube.com)'
 for social_category, social_terms in social_news_queries.items():
     social_params=urllib.parse.urlencode({
-        'q':social_platform_query+' ('+social_terms+') (বাংলাদেশ OR বাংলাদেশি OR ঢাকা) '+search_after,
+        'q':social_platform_query+' ('+social_terms+') (বাংলাদেশ OR বাংলাদেশি OR ঢাকা) '+search_after_for_category(social_category),
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('WORLD',social_category,
@@ -223,7 +231,7 @@ trusted_missing_queries = [
 ]
 for trusted_source, trusted_query in trusted_missing_queries:
     trusted_params=urllib.parse.urlencode({
-        'q':trusted_query+' ' + search_after,
+        'q':trusted_query+' ' + search_after_special,
         'hl':'bn','gl':'BD','ceid':'BD:bn'
     })
     feeds.append(('BD','missing',
@@ -263,7 +271,7 @@ def fetch(feed):
                     if link: break
             if not link: link=text_of(node,('link',))
             published=parse_date(text_of(node,('pubdate','published','updated','date')))
-            if not title or not link or not published or published<cutoff or published>now+timedelta(hours=2): continue
+            if not title or not link or not published or published<cutoff_for_category(category) or published>now+timedelta(hours=2): continue
             summary=text_of(node,('description','summary','content'))
             image=''
             rss_image_candidates=[]
@@ -775,7 +783,7 @@ by_link={}
 for item in previous+fresh:
     link=item.get('link') or item.get('url','')
     published=parse_date(item.get('published') or item.get('pubDate') or item.get('date',''))
-    if not link or not published or published<cutoff or published>now+timedelta(hours=2): continue
+    if not link or not published or published<cutoff_for_category(category) or published>now+timedelta(hours=2): continue
     category=classify(item)
     if not category: continue
     item['link']=link
@@ -1017,10 +1025,10 @@ import html, os
 from urllib.parse import quote
 base='https://all-in-one-news.github.io/all-in-one-news'
 sitemap_urls=[base+'/']
-seo_cutoff=now-timedelta(days=30)
+
 for item in news:
     published=parse_date(item.get('published',''))
-    if not published or published<seo_cutoff:
+    if not published or published<cutoff_for_category(item.get('category')):
         continue
     article_id=re.sub(r'[^a-f0-9]','',str(item.get('incident_id') or hashlib.sha1(item['link'].encode()).hexdigest()))[:20]
     if not article_id:
