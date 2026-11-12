@@ -62,6 +62,14 @@ for title, expected in cases.items():
 
 print(f"Passed {len(cases)} country-detection regression tests.")
 
+# Bangladesh must receive a reserved share of each image-recovery batch.
+collector_text = SOURCE.read_text(encoding="utf-8")
+if "take=min(15,limit,len(groups['BD']))" not in collector_text:
+    raise SystemExit("Bangladesh image-recovery reservation must be 15 candidates per batch.")
+if "groups['BD'].sort(key=" not in collector_text or "str(x.get('category','')).lower()=='missing'" not in collector_text:
+    raise SystemExit("Bangladesh image-recovery priority for missing-child alerts must remain enabled.")
+print("Passed Bangladesh image-recovery quota and priority regression test.")
+
 # RSS headline and summary text must be readable after markup/entity cleanup.
 cleaner_node = next((node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "clean_feed_text"), None)
 if cleaner_node is None:
