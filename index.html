@@ -152,7 +152,7 @@ return;
 }
 rows=(Array.isArray(j)?j:(j.news||j.articles||[])).filter(x=>x.title&&!isNaN(dt(x))&&keepByRetention(x));
 rows.sort((a,b)=>dt(b)-dt(a));
-language=readPref('ain_language',(navigator.language&&navigator.language.toLowerCase().startsWith('bn')?'bn':'en'));$('language').value=language;$('language').onchange=()=>{language=$('language').value;writePref('ain_language',language);render()};
+language=readPref('ain_language',visitorCountry==='BD'?'bn':(navigator.language&&navigator.language.toLowerCase().startsWith('bn')?'bn':'en'));$('language').value=language;$('language').onchange=()=>{language=$('language').value;writePref('ain_language',language);render()};
 $('latest').textContent=rows[0]?clean(rows[0].title):'এখনো খবর নেই';
 render(isRefresh);
 if(fromBackup)$('status').textContent='সতর্কতা: নতুন নিউজ লোড হয়নি—শেষ ভালো Backup দেখানো হচ্ছে।';
