@@ -94,7 +94,10 @@ bangladesh_publisher_domains = (
     'bdnews24.com', 'thedailystar.net', 'prothomalo.com',
     'tbsnews.net', 'dhakatribune.com', 'bssnews.net',
     'dhakapost.com', 'jagonews24.com', 'banglanews24.com',
-    'samakal.com'
+    'samakal.com', 'jamuna.tv', 'somoynews.tv',
+    'ekattor.tv', 'channel24bd.tv', 'ntvbd.com',
+    'rtvonline.com', 'jugantor.com', 'kalerkantho.com',
+    'ittefaq.com.bd', 'dailyinqilab.com'
 )
 publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)
 
