@@ -111,6 +111,21 @@ if "published<cutoff_for_category(category)" not in collector_text or "published
     raise SystemExit("Collector and SEO article generation must use category-specific retention.")
 print("Passed category-based 30-day/365-day retention regression checks.")
 
+# The stored-news retention check must run after the headline is classified.
+retention_loop = re.search(
+    r"for item in previous\\+fresh:(.*?)# Conservative incident grouping",
+    collector_text,
+    re.S,
+)
+if retention_loop is None:
+    raise SystemExit("Could not locate the stored-news classification and retention loop.")
+loop_text = retention_loop.group(1)
+classify_position = loop_text.find("category=classify(item)")
+retention_position = loop_text.find("published<cutoff_for_category(category)")
+if classify_position < 0 or retention_position < 0 or retention_position < classify_position:
+    raise SystemExit("Stored-news retention must use the category classified for that same story.")
+print("Passed per-story category-before-retention regression test.")
+
 # Theme preference regression: dark mode must persist across page reloads.
 if "writePref('ain_theme',next)" not in index_text:
     raise SystemExit("Theme toggle must save the visitor's selected theme through safe storage.")
