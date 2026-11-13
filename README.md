@@ -17,7 +17,7 @@ A Bengali-first, bilingual news dashboard that brings Bangladesh and internation
 
 The scheduled GitHub Actions collector searches Google News RSS feeds for country and topic coverage, enriches some article links and images from publisher pages, classifies stories, groups near-duplicate reports, and writes the generated data to `news.json`. A last-known-good `news-backup.json` is retained for frontend fallback.
 
-- Collection schedule: every 10 minutes (GitHub Actions cron).
+- Collection schedule: every 5 minutes (GitHub Actions cron; actual runs can be delayed).
 - Browser refresh: every 60 seconds while the page is visible.
 - Regular news retention: 30 days.
 - Special incident categories (missing children, fire, abuse, accidents, and casualties) retention: 365 days.
@@ -29,6 +29,7 @@ The scheduled GitHub Actions collector searches Google News RSS feeds for countr
 | Path | Purpose |
 | --- | --- |
 | `index.html` | News dashboard, language/search filters, theme, and rendering |
+| `og-image.svg` | Branded social sharing preview image |
 | `news.json` | Current generated news snapshot |
 | `news-backup.json` | Last known-good news snapshot |
 | `sitemap.xml` | Search-engine sitemap |
