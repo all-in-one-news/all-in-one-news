@@ -156,12 +156,22 @@ print("Passed accessible control label regression test.")
 
 # Date selection is removed; category retention is tested above.
 
-# Keep the automated collection cadence at the agreed 10-minute interval.
+# Keep the automated collection cadence at the five-minute GitHub Actions minimum.
 WORKFLOW = SOURCE.parents[1] / "workflows" / "update-news.yml"
 workflow_text = WORKFLOW.read_text(encoding="utf-8")
-if "cron: '*/10 * * * *'" not in workflow_text:
-    raise SystemExit("News collection must be scheduled every 10 minutes.")
+if "cron: '*/5 * * * *'" not in workflow_text:
+    raise SystemExit("News collection must be scheduled every five minutes.")
 print("Passed automated news collection schedule regression test.")
+
+
+# Each configured publisher must have its own broad, all-topic RSS discovery feed.
+if "for publisher_domain in bangladesh_publisher_domains:" not in collector_text:
+    raise SystemExit("Individual publisher feed loop is missing.")
+if "'q': 'site:' + publisher_domain + ' ' + search_after_regular" not in collector_text:
+    raise SystemExit("Individual publisher feeds must search all topics for each domain.")
+if "feeds.append(('BD', 'publisher'," not in collector_text:
+    raise SystemExit("Individual publisher feed must be registered for collection.")
+print("Passed individual all-topic publisher feed configuration regression test.")
 
 # Global editorial desks must be discoverable in both English and Bangla.
 collector_text = SOURCE.read_text(encoding="utf-8")
