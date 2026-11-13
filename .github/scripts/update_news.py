@@ -487,9 +487,17 @@ def fetch(feed):
                         image=candidate
                         break
             source='MUN Alert' if 'munalert.org' in link.lower() else country
+            publisher_domain=''
             for sub in node.iter():
-                if local(sub.tag)=='source' and ''.join(sub.itertext()).strip():
-                    source=''.join(sub.itertext()).strip(); break
+                if local(sub.tag)=='source':
+                    if ''.join(sub.itertext()).strip():
+                        source=''.join(sub.itertext()).strip()
+                    source_url=(sub.attrib.get('url') or '').strip()
+                    if source_url:
+                        publisher_domain=(urllib.parse.urlparse(source_url).hostname or '').lower()
+                        if publisher_domain.startswith('www.'):
+                            publisher_domain=publisher_domain[4:]
+                    break
             media_embed=''
             media_type=''
             yt=re.search(r'(?:youtube\.com/watch\?v=|youtu\.be/|youtube\.com/shorts/)([A-Za-z0-9_-]{6,})',link,re.I)
@@ -508,7 +516,7 @@ def fetch(feed):
                 'title':clean_feed_text(title),
                 'summary':clean_feed_text(summary,1200),
                 'link':link,'source':source,'published':published.isoformat(),
-                'image':image,'image_candidates':list(dict.fromkeys(rss_image_candidates))[:8],'media_embed':media_embed,'media_type':media_type,'country':country,'category':category,
+                'image':image,'image_candidates':list(dict.fromkeys(rss_image_candidates))[:8],'media_embed':media_embed,'media_type':media_type,'publisher_domain':publisher_domain,'country':country,'category':category,
                 'language':'bn' if re.search('[ঀ-৿]',title+' '+summary) else 'en',
                 'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower() or 'police.gov.bd' in link.lower()) else 'source_reported'
             })
@@ -521,6 +529,40 @@ def fetch(feed):
 with ThreadPoolExecutor(max_workers=8) as pool:
     batches=list(pool.map(fetch,feeds))
 fresh=[x for batch in batches for x in batch]
+
+# Track which configured publisher domains actually appeared in Google News RSS.
+# Not seen in one run does not prove a website is offline.
+publisher_counts={}
+publisher_samples={}
+for story in fresh:
+    domain=str(story.get('publisher_domain','') or '').lower()
+    if domain.startswith('www.'):
+        domain=domain[4:]
+    if domain in bangladesh_publisher_domains:
+        publisher_counts[domain]=publisher_counts.get(domain,0)+1
+        publisher_samples.setdefault(domain,[])
+        if len(publisher_samples[domain])<3:
+            publisher_samples[domain].append({
+                'title':story.get('title',''),
+                'link':story.get('link',''),
+                'published':story.get('published','')
+            })
+publisher_audit={
+    'checked_at':now.isoformat(),
+    'configured_total':len(bangladesh_publisher_domains),
+    'observed_in_rss_total':len(publisher_counts),
+    'not_observed_total':len(bangladesh_publisher_domains)-len(publisher_counts),
+    'note':'Not observed means no matching publisher source appeared in this run; it does not prove the website is offline.',
+    'publishers':[
+        {'domain':domain,'status':'seen_in_rss' if domain in publisher_counts else 'not_seen_in_latest_fetch',
+         'article_count':publisher_counts.get(domain,0),'sample_articles':publisher_samples.get(domain,[])}
+        for domain in bangladesh_publisher_domains
+    ]
+}
+with open('publisher_audit.json','w',encoding='utf-8') as audit_file:
+    json.dump(publisher_audit,audit_file,ensure_ascii=False,indent=2)
+print('Bangladesh publisher audit:',publisher_audit['observed_in_rss_total'],'observed of',publisher_audit['configured_total'])
+
 
 # Recover article-page thumbnails when an RSS item has no image.
 # Google News RSS often exposes a redirect URL and omits the publisher's
