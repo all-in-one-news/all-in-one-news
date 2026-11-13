@@ -547,10 +547,9 @@ def fetch(feed):
         for publisher_name, publisher_domain, direct_url in direct_publisher_feeds:
             if url == direct_url:
                 source = publisher_name
-                if not any(item.get('publisher_domain') for item in items):
-                    for item in items:
-                        item['source'] = publisher_name
-                        item['publisher_domain'] = publisher_domain
+                for item in items:
+                    item['source'] = publisher_name
+                    item['publisher_domain'] = publisher_domain
                 break
         print(country,category,len(items))
         return items[:200]
@@ -584,7 +583,9 @@ publisher_audit={
     'configured_total':len(bangladesh_publisher_domains),
     'observed_in_rss_total':len(publisher_counts),
     'not_observed_total':len(bangladesh_publisher_domains)-len(publisher_counts),
-    'note':'Not observed means no matching publisher source appeared in this run; it does not prove the website is offline.',
+    'direct_feed_domains':[domain for _,domain,_ in direct_publisher_feeds],
+    'direct_feed_count':len(direct_publisher_feeds),
+    'note':'Observed counts include direct feeds and Google News RSS discovery. Not observed does not prove a website is offline.',
     'publishers':[
         {'domain':domain,'status':'seen_in_rss' if domain in publisher_counts else 'not_seen_in_latest_fetch',
          'article_count':publisher_counts.get(domain,0),'sample_articles':publisher_samples.get(domain,[])}
@@ -878,7 +879,7 @@ patterns={
 # edition used to discover it. Use only explicit location evidence; otherwise
 # keep the story in WORLD rather than publishing a guessed country.
 INCIDENT_LOCATION_ALIASES = {
-    'BD': ('bangladesh','bangladeshi','dhaka','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar",'fatullah','fatulla','pallabi','gopalganj','madhabpur','narayanganj','brahmanbaria','bogura','bogra','cumilla','comilla','feni','noakhali','pabna','kushtia','jashore','jessore','satkhira','bagerhat','patuakhali','bhola','habiganj','moulvibazar','sunamganj','netrokona','jamalpur','sherpur','tangail','manikganj','munshiganj','narsingdi','gazipur','faridpur','madaripur','shariatpur','chandpur','lakshmipur','rangamati','bandarban','khagrachhari','dinajpur','thakurgaon','panchagarh','nilphamari','lalmonirhat','kurigram','gaibandha','joypurhat','naogaon','natore','chapainawabganj','sirajganj','meherpur','chuadanga','jhenaidah','magura','narail','jhalokathi','barguna','dhamrai','akhaura','rangunia','boda','বোদা','বোদা উপজেলায়','বোদা উপজেলায়','subarnachar','সুবর্ণচর','সুবর্ণচরে','সুবর্ণচরের','gabtoli','গাবতলী','kalai','কালাই','ঢাকা স্টক এক্সচেঞ্জ','ডিএসই','জুলাই গণঅভ্যুত্থান','প্রাথমিকের নতুন পাঠ্যক্রম','ধামরাই','ধামরাইয়ে','ধামরাইয়ে','আখাউড়া','আখাউড়ায়','আখাউড়ায়','রাঙ্গুনিয়া','রাঙ্গুনিয়ায়','রাঙ্গুনিয়া','রাঙ্গুনিয়ায়','বাংলাদেশ','ঢাকা','চট্টগ্রাম','চাটগাঁ','সিলেট','রাজশাহী','খুলনা','বরিশাল','রংপুর','ময়মনসিংহ','ময়মনসিংহ','কক্সবাজার','ফতুল্লা','ফতুল্লায়','পল্লবী','পল্লবীতে','গোপালগঞ্জ','গোপালগঞ্জে','মাধবপুর','মাধবপুরে','নারায়ণগঞ্জ','নারায়ণগঞ্জ','ব্রাহ্মণবাড়িয়া','ব্রাহ্মণবাড়িয়া','বগুড়া','বগুড়া','কুমিল্লা','কুমিল্লায়','কুমিল্লায়','ফেনী','নোয়াখালী','নোয়াখালী','পাবনা','কুষ্টিয়া','কুষ্টিয়া','যশোর','সাতক্ষীরা','বাগেরহাট','পটুয়াখালী','পটুয়াখালী','ভোলা','হবিগঞ্জ','মৌলভীবাজার','সুনামগঞ্জ','নেত্রকোনা','জামালপুর','শেরপুর','টাঙ্গাইল','মানিকগঞ্জ','মুন্সিগঞ্জ','নরসিংদী','গাজীপুর','ফরিদপুর','মাদারীপুর','শরীয়তপুর','শরিয়তপুর','চাঁদপুর','লক্ষ্মীপুর','রাঙামাটি','রাঙ্গামাটি','বান্দরবান','খাগড়াছড়ি','খাগড়াছড়ি','দিনাজপুর','ঠাকুরগাঁও','পঞ্চগড়','পঞ্চগড়','নীলফামারী','লালমনিরহাট','কুড়িগ্রাম','কুড়িগ্রাম','গাইবান্ধা','জয়পুরহাট','জয়পুরহাট','নওগাঁ','নাটোর','চাঁপাইনবাবগঞ্জ','সিরাজগঞ্জ','মেহেরপুর','চুয়াডাঙ্গা','চুয়াডাঙ্গা','ঝিনাইদহ','মাগুরা','নড়াইল','নড়াইল','ঝালকাঠি','বরগুনা'),
+    'BD': ('bangladesh','bangladeshi','dhaka','mirpur','uttara','savar','ashulia','tongi','keraniganj','sreepur','kapasia','kaliganj','sonargaon','rupganj','মিরপুর','উত্তরা','সাভার','আশুলিয়া','আশুলিয়া','টঙ্গী','কেরানীগঞ্জ','শ্রীপুর','কাপাসিয়া','কালীগঞ্জ','সোনারগাঁও','রূপগঞ্জ','chattogram','chittagong','sylhet','rajshahi','khulna','barishal','rangpur','mymensingh',"cox's bazar",'fatullah','fatulla','pallabi','gopalganj','madhabpur','narayanganj','brahmanbaria','bogura','bogra','cumilla','comilla','feni','noakhali','pabna','kushtia','jashore','jessore','satkhira','bagerhat','patuakhali','bhola','habiganj','moulvibazar','sunamganj','netrokona','jamalpur','sherpur','tangail','manikganj','munshiganj','narsingdi','gazipur','faridpur','madaripur','shariatpur','chandpur','lakshmipur','rangamati','bandarban','khagrachhari','dinajpur','thakurgaon','panchagarh','nilphamari','lalmonirhat','kurigram','gaibandha','joypurhat','naogaon','natore','chapainawabganj','sirajganj','meherpur','chuadanga','jhenaidah','magura','narail','jhalokathi','barguna','dhamrai','akhaura','rangunia','boda','বোদা','বোদা উপজেলায়','বোদা উপজেলায়','subarnachar','সুবর্ণচর','সুবর্ণচরে','সুবর্ণচরের','gabtoli','গাবতলী','kalai','কালাই','ঢাকা স্টক এক্সচেঞ্জ','ডিএসই','জুলাই গণঅভ্যুত্থান','প্রাথমিকের নতুন পাঠ্যক্রম','ধামরাই','ধামরাইয়ে','ধামরাইয়ে','আখাউড়া','আখাউড়ায়','আখাউড়ায়','রাঙ্গুনিয়া','রাঙ্গুনিয়ায়','রাঙ্গুনিয়া','রাঙ্গুনিয়ায়','বাংলাদেশ','ঢাকা','চট্টগ্রাম','চাটগাঁ','সিলেট','রাজশাহী','খুলনা','বরিশাল','রংপুর','ময়মনসিংহ','ময়মনসিংহ','কক্সবাজার','ফতুল্লা','ফতুল্লায়','পল্লবী','পল্লবীতে','গোপালগঞ্জ','গোপালগঞ্জে','মাধবপুর','মাধবপুরে','নারায়ণগঞ্জ','নারায়ণগঞ্জ','ব্রাহ্মণবাড়িয়া','ব্রাহ্মণবাড়িয়া','বগুড়া','বগুড়া','কুমিল্লা','কুমিল্লায়','কুমিল্লায়','ফেনী','নোয়াখালী','নোয়াখালী','পাবনা','কুষ্টিয়া','কুষ্টিয়া','যশোর','সাতক্ষীরা','বাগেরহাট','পটুয়াখালী','পটুয়াখালী','ভোলা','হবিগঞ্জ','মৌলভীবাজার','সুনামগঞ্জ','নেত্রকোনা','জামালপুর','শেরপুর','টাঙ্গাইল','মানিকগঞ্জ','মুন্সিগঞ্জ','নরসিংদী','গাজীপুর','ফরিদপুর','মাদারীপুর','শরীয়তপুর','শরিয়তপুর','চাঁদপুর','লক্ষ্মীপুর','রাঙামাটি','রাঙ্গামাটি','বান্দরবান','খাগড়াছড়ি','খাগড়াছড়ি','দিনাজপুর','ঠাকুরগাঁও','পঞ্চগড়','পঞ্চগড়','নীলফামারী','লালমনিরহাট','কুড়িগ্রাম','কুড়িগ্রাম','গাইবান্ধা','জয়পুরহাট','জয়পুরহাট','নওগাঁ','নাটোর','চাঁপাইনবাবগঞ্জ','সিরাজগঞ্জ','মেহেরপুর','চুয়াডাঙ্গা','চুয়াডাঙ্গা','ঝিনাইদহ','মাগুরা','নড়াইল','নড়াইল','ঝালকাঠি','বরগুনা'),
     'US': ('united states','u.s.','usa','american','new york city','new york','chicago','los angeles','san francisco','washington dc','washington, d.c.','florida','texas','ohio','california','naples','springfield','bethel township','auburn gresham','athens, georgia','brooklyn','যুক্তরাষ্ট্রে নিযুক্ত'),
     'GB': ('united kingdom','britain','british','england','scotland','wales','london','kent','maidstone','liverpool','bathgate','west lothian','dundee','glasgow'),
     'IN': ('india','indian','delhi','new delhi','mumbai','kolkata','chennai','bengaluru','bangalore','hyderabad','assam','assamese','guwahati','markapuram','mysuru','jammu and kashmir','j&k','আসাম','আসামে','গুয়াহাটি','গুৱাহাটী'),
@@ -1138,15 +1139,15 @@ for item in sorted(by_link.values(),key=lambda x:x['published'],reverse=True):
 
 for item in incidents:
     item.pop('_normalized_title',None)
-# Strict image rule: never publish a text-only news card.
-# If no real publisher/RSS thumbnail could be recovered, hold the story back.
-incidents_with_images=[
-    item for item in incidents
-    if str(item.get('image','')).startswith(('https://','http://'))
-    and item.get('image') != GENERIC_IMAGE_URL
-]
-print('Stories held back because no image was found:',len(incidents)-len(incidents_with_images))
-news=sorted(incidents_with_images,key=lambda x:x['published'],reverse=True)[:12000]
+# Keep stories even when a publisher has no usable thumbnail. The homepage
+# renders an explicit photo placeholder instead of silently dropping the news.
+stories_without_images=sum(
+    1 for item in incidents
+    if not str(item.get('image','')).startswith(('https://','http://'))
+    or item.get('image') == GENERIC_IMAGE_URL
+)
+print('Stories using the homepage image placeholder:',stories_without_images)
+news=sorted(incidents,key=lambda x:x['published'],reverse=True)[:12000]
 
 # Final canonical-link deduplication catches duplicate items that arrived
 # through different Google News country editions.
@@ -1253,6 +1254,12 @@ for checked_item,is_valid,detail in image_checks:
         verified_news.append(checked_item)
     else:
         failed_image_hosts.append(detail)
+        # Remove broken image URLs but keep the article; the homepage has
+        # an accessible no-image placeholder for this case.
+        checked_item.pop('image',None)
+        checked_item.pop('image_verified_at',None)
+        checked_item.pop('image_candidates',None)
+        verified_news.append(checked_item)
 print('Image URL checks:',len(image_checks),'verified:',len(verified_news),'rejected:',len(failed_image_hosts))
 if failed_image_hosts:
     print('Rejected image hosts:',failed_image_hosts[:20])
@@ -1282,7 +1289,7 @@ previous_good_count=sum(1 for x in previous if str(x.get('image','')).startswith
 minimum_safe_count=max(10, int(previous_good_count*0.50))
 if len(news)<minimum_safe_count:
     raise SystemExit(
-        f"Safety stop: collected {len(news)} image-backed stories; "
+        f"Safety stop: collected {len(news)} stories; 
         f"minimum safe count is {minimum_safe_count}. Existing news.json is preserved."
     )
 # Validate the candidate before atomically replacing the published data file.
@@ -1293,8 +1300,8 @@ with open(news_tmp,encoding='utf-8') as file:
     candidate=json.load(file)
 if not isinstance(candidate,dict) or not isinstance(candidate.get('news'),list):
     raise SystemExit("Safety stop: generated news JSON has an invalid structure.")
-if not candidate['news'] or any(not str(x.get('image','')).startswith(('https://','http://')) for x in candidate['news']):
-    raise SystemExit("Safety stop: generated news JSON is empty or contains a story without an image.")
+if not candidate['news'] or any(x.get('image') and (not str(x.get('image')).startswith(('https://','http://')) or x.get('image')==GENERIC_IMAGE_URL) for x in candidate['news']):
+    raise SystemExit("Safety stop: generated news JSON is empty or contains a malformed/generic image URL.")
 os.replace(news_tmp,'news.json')
 # Build crawlable article pages automatically for recent stories.
 import html, os
