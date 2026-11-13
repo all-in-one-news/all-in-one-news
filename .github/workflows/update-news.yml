@@ -37,8 +37,8 @@ jobs:
           stories = data.get('news', []) if isinstance(data, dict) else []
           if not stories:
               raise SystemExit('Existing news.json is empty; refusing to replace a missing backup.')
-          if any(not str(x.get('image', '')).startswith(('https://', 'http://')) for x in stories):
-              raise SystemExit('Existing news.json contains a story without an image; refusing to overwrite it.')
+          if any(x.get('image') and not str(x.get('image')).startswith(('https://', 'http://')) for x in stories):
+              raise SystemExit('Existing news.json contains a malformed image URL; refusing to overwrite it.')
           PY
           cp news.json news-backup.candidate.json
       - name: Collect categorized country news with automatic retry
@@ -63,8 +63,8 @@ jobs:
           stories = data.get('news', []) if isinstance(data, dict) else []
           if not stories:
               raise SystemExit('Refusing to publish an empty news feed.')
-          if any(not str(x.get('image', '')).startswith(('https://', 'http://')) or x.get('image') == 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300' for x in stories):
-              raise SystemExit('Refusing to publish a story without an image.')
+          if any(x.get('image') and (not str(x.get('image')).startswith(('https://', 'http://')) or x.get('image') == 'https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300') for x in stories):
+              raise SystemExit('Refusing to publish a malformed or generic image URL.')
           # Different articles may legitimately reuse the same publisher image.
           # Duplicate article links are still rejected below.
           canonical_links = [str(x.get('link', '')).strip().split('#', 1)[0].rstrip('/') for x in stories]
@@ -72,7 +72,7 @@ jobs:
               raise SystemExit('Refusing to publish duplicate or empty article links.')
           if any(x.get('language') not in ('bn', 'en') for x in stories):
               raise SystemExit('Every story must have a valid language tag.')
-          if any(not x.get('image_verified_at') for x in stories):
+          if any(x.get('image') and not x.get('image_verified_at') for x in stories):
               raise SystemExit('Every published image must pass a real image-response check.')
           previous = json.loads(subprocess.check_output(['git', 'show', 'HEAD:news.json'], text=True))
           old_stories = previous.get('news', []) if isinstance(previous, dict) else []
@@ -95,7 +95,8 @@ jobs:
                   rel = url.split('/articles/', 1)[1].strip('/') + '/index.html'
                   if not pathlib.Path('articles', rel).is_file():
                       raise SystemExit('Sitemap points to a missing article page: ' + url)
-          print(f'Validated {len(stories)} image-backed stories and {len(urls)} sitemap URLs.')
+          image_backed = sum(1 for x in stories if x.get('image') and x.get('image_verified_at'))
+          print(f'Validated {len(stories)} stories ({image_backed} with verified images) and {len(urls)} sitemap URLs.')
           with open('publisher_audit.json', encoding='utf-8') as f:
               audit = json.load(f)
           publishers = audit.get('publishers', [])
