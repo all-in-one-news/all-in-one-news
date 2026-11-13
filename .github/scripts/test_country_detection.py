@@ -546,7 +546,7 @@ print("Passed 200 unique Bangladesh publisher discovery target check.")
 # The source audit must distinguish publishers observed in RSS from those
 # merely not seen in this run; absence is not proof that a site is offline.
 for required in (
-    "publisher_domain=publisher_domain",
+    'publisher_domain':publisher_domain,
     "'seen_in_rss'",
     "'not_seen_in_latest_fetch'",
     "'observed_in_rss_total'",
