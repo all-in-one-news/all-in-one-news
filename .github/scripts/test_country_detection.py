@@ -172,14 +172,11 @@ print("Passed six global news desk feed configuration checks.")
 
 # Bangladesh publisher-targeted desk feeds must be tagged BD, and that scope
 # should be used only when the headline has no explicit foreign location.
-if "targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_regular\\n        params" not in collector_text:
+targeted_start = collector_text.find("targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_regular")
+if targeted_start < 0:
     raise SystemExit("Bangladesh publisher-targeted feed construction is missing.")
-targeted_feed = re.search(
-    r"targeted_query = '\\(' \\+ query \\+ '\\) \\(' \\+ publisher_site_query \\+ '\\) ' \\+ search_after_regular(.*?)feeds\\.append\\(\\('([A-Z]+)'",
-    collector_text,
-    re.S,
-)
-if not targeted_feed or targeted_feed.group(2) != "BD":
+targeted_section = collector_text[targeted_start:collector_text.find("for country in countries:", targeted_start)]
+if "feeds.append(('BD', desk," not in targeted_section:
     raise SystemExit("Bangladesh publisher-targeted news must be collected as BD.")
 if "if detected_country=='WORLD' and str(item.get('country','')).upper()=='BD':\\n        detected_country='BD'" not in collector_text:
     raise SystemExit("Bangladesh feed scope must backstop missing location names without overriding explicit foreign locations.")
