@@ -364,7 +364,7 @@ README = SOURCE.parents[2] / "README.md"
 readme_text = README.read_text(encoding="utf-8")
 for required in (
     "https://all-in-one-news.github.io/all-in-one-news/",
-    "every 10 minutes",
+    "every 5 minutes",
     "every 60 seconds",
     "30 days",
     "it is not a direct Facebook or YouTube API ingestion service",
