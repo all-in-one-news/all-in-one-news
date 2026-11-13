@@ -144,7 +144,7 @@ for desk, (english_query, bangla_query) in global_desk_queries.items():
             'gl': 'BD',
             'ceid': ceid
         })
-        feeds.append(('WORLD', desk, 'https://news.google.com/rss/search?' + params))
+        feeds.append(('BD', desk, 'https://news.google.com/rss/search?' + params))
 
 for country in countries:
     for category, query in categories.items():
@@ -791,7 +791,13 @@ for item in previous+fresh:
     item['link']=link
     item['published']=published.isoformat()
     item['category']=category
-    item['country']=incident_country(item)
+    detected_country=incident_country(item)
+    # Bangladesh-publisher discovery feeds are explicitly scoped to trusted BD outlets.
+    # Preserve an explicit foreign location, but use the BD feed scope when the
+    # headline itself does not name a country or city.
+    if detected_country=='WORLD' and str(item.get('country','')).upper()=='BD':
+        detected_country='BD'
+    item['country']=detected_country
     item.setdefault('summary',item.get('description',''))
     item.setdefault('verification_status','source_reported')
     old_item=by_link.get(link)
