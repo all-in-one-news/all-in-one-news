@@ -783,9 +783,11 @@ by_link={}
 for item in previous+fresh:
     link=item.get('link') or item.get('url','')
     published=parse_date(item.get('published') or item.get('pubDate') or item.get('date',''))
-    if not link or not published or published<cutoff_for_category(category) or published>now+timedelta(hours=2): continue
+    if not link or not published or published>now+timedelta(hours=2): continue
     category=classify(item)
     if not category: continue
+    # Apply the retention window only after identifying this story's real category.
+    if published<cutoff_for_category(category): continue
     item['link']=link
     item['published']=published.isoformat()
     item['category']=category
