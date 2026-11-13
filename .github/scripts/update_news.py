@@ -67,6 +67,18 @@ def parse_date(value):
 
 feeds=[]
 
+# Direct RSS/Atom feeds for the first five Bangladesh publishers.
+# These bypass Google News indexing for these sources.
+direct_publisher_feeds = (
+    ('Prothom Alo', 'prothomalo.com', 'https://www.prothomalo.com/feed/'),
+    ('The Daily Star', 'thedailystar.net', 'https://www.thedailystar.net/frontpage/rss.xml'),
+    ('bdnews24.com', 'bdnews24.com', 'https://bdnews24.com/?widgetName=rssfeed&widgetId=1150&getXmlFeed=true'),
+    ('The Business Standard', 'tbsnews.net', 'https://www.tbsnews.net/top-news/rss.xml'),
+    ('Jamuna TV', 'jamuna.tv', 'https://www.youtube.com/feeds/videos.xml?channel_id=UCN6sm8iHiPd0cnoUardDAnw'),
+)
+for publisher_name, publisher_domain, feed_url in direct_publisher_feeds:
+    feeds.append(('BD', 'publisher', feed_url))
+
 # Broad global desks are collected separately to avoid multiplying every
 # country/category feed. Country is inferred from the reported location.
 global_desk_queries = {
@@ -532,8 +544,16 @@ def fetch(feed):
                 'language':'bn' if re.search('[ঀ-৿]',title+' '+summary) else 'en',
                 'verification_status':'official_source' if ('mun alert' in source.lower() or 'munalert.org' in link.lower() or 'police.gov.bd' in link.lower()) else 'source_reported'
             })
+        for publisher_name, publisher_domain, direct_url in direct_publisher_feeds:
+            if url == direct_url:
+                source = publisher_name
+                if not any(item.get('publisher_domain') for item in items):
+                    for item in items:
+                        item['source'] = publisher_name
+                        item['publisher_domain'] = publisher_domain
+                break
         print(country,category,len(items))
-        return items[:60]
+        return items[:200]
     except Exception as e:
         print('Feed error',country,category,str(e)[:180])
         return []
