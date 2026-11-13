@@ -178,7 +178,7 @@ if targeted_start < 0:
 targeted_section = collector_text[targeted_start:collector_text.find("for country in countries:", targeted_start)]
 if "feeds.append(('BD', desk," not in targeted_section:
     raise SystemExit("Bangladesh publisher-targeted news must be collected as BD.")
-if "if detected_country=='WORLD' and str(item.get('country','')).upper()=='BD':\\n        detected_country='BD'" not in collector_text:
+if "if detected_country=='WORLD' and str(item.get('country','')).upper()=='BD':\n        detected_country='BD'" not in collector_text:
     raise SystemExit("Bangladesh feed scope must backstop missing location names without overriding explicit foreign locations.")
 print("Passed Bangladesh publisher feed country fallback regression checks.")
 
