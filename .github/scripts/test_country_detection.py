@@ -113,7 +113,7 @@ print("Passed category-based 30-day/365-day retention regression checks.")
 
 # The stored-news retention check must run after the headline is classified.
 retention_loop = re.search(
-    r"for item in previous\\+fresh:(.*?)# Conservative incident grouping",
+    r"for item in previous\+fresh:(.*?)# Conservative incident grouping",
     collector_text,
     re.S,
 )
