@@ -170,6 +170,21 @@ for desk in ("politics", "economy", "sports", "technology", "entertainment", "ma
         raise SystemExit(f"Global {desk} query is not added to the collector feed list.")
 print("Passed six global news desk feed configuration checks.")
 
+# Bangladesh publisher-targeted desk feeds must be tagged BD, and that scope
+# should be used only when the headline has no explicit foreign location.
+if "targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_regular\\n        params" not in collector_text:
+    raise SystemExit("Bangladesh publisher-targeted feed construction is missing.")
+targeted_feed = re.search(
+    r"targeted_query = '\\(' \\+ query \\+ '\\) \\(' \\+ publisher_site_query \\+ '\\) ' \\+ search_after_regular(.*?)feeds\\.append\\(\\('([A-Z]+)'",
+    collector_text,
+    re.S,
+)
+if not targeted_feed or targeted_feed.group(2) != "BD":
+    raise SystemExit("Bangladesh publisher-targeted news must be collected as BD.")
+if "if detected_country=='WORLD' and str(item.get('country','')).upper()=='BD':\\n        detected_country='BD'" not in collector_text:
+    raise SystemExit("Bangladesh feed scope must backstop missing location names without overriding explicit foreign locations.")
+print("Passed Bangladesh publisher feed country fallback regression checks.")
+
 # Exercise the collector's real headline classifier for the new desks.
 classifier_nodes = [
     node for node in tree.body
