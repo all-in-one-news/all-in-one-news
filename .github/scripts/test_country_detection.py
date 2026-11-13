@@ -565,3 +565,19 @@ for required in (
     if required not in collector_text:
         raise SystemExit(f"Publisher audit is missing: {required}")
 print("Passed Bangladesh publisher RSS audit regression checks.")
+
+
+# The first five Bangladesh publishers must have direct feeds, independent
+# of Google News indexing, and feed parsing must not truncate at 60 entries.
+for required in (
+    "direct_publisher_feeds = (",
+    "('Prothom Alo', 'prothomalo.com', 'https://www.prothomalo.com/feed/')",
+    "('The Daily Star', 'thedailystar.net', 'https://www.thedailystar.net/frontpage/rss.xml')",
+    "('bdnews24.com', 'bdnews24.com', 'https://bdnews24.com/?widgetName=rssfeed&widgetId=1150&getXmlFeed=true')",
+    "('The Business Standard', 'tbsnews.net', 'https://www.tbsnews.net/top-news/rss.xml')",
+    "('Jamuna TV', 'jamuna.tv', 'https://www.youtube.com/feeds/videos.xml?channel_id=UCN6sm8iHiPd0cnoUardDAnw')",
+    "return items[:200]",
+):
+    if required not in collector_text:
+        raise SystemExit(f"Direct publisher feed or expanded feed capacity is missing: {required}")
+print("Passed direct-feed and expanded RSS capacity regression checks.")
