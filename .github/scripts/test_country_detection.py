@@ -325,8 +325,8 @@ if "bangladesh_publisher_domains = (" not in collector_text:
 for domain in publisher_domains:
     if "'" + domain + "'" not in collector_text:
         raise SystemExit(f"Publisher-focused discovery is missing {domain}.")
-if "publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)" not in collector_text:
-    raise SystemExit("Publisher domains must be combined into a site-scoped RSS query.")
+if "publisher_site_queries = [" not in collector_text or "' OR '.join('site:' + domain for domain in bangladesh_publisher_domains[i:i+40])" not in collector_text:
+    raise SystemExit("Publisher domains must be combined into batched site-scoped RSS queries.")
 if "targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_for_category(category)" not in collector_text:
     raise SystemExit("Publisher RSS discovery must retain desk keywords and the 30-day date window.")
 if "('en', english_query, 'BD:en')" not in collector_text or "('bn', bangla_query, 'BD:bn')" not in collector_text:
