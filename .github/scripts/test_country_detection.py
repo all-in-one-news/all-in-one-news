@@ -40,6 +40,10 @@ cases = {
     "দক্ষিণ কোরিয়ায় ৩২টি যানবাহনকে আঘাত যাত্রীবাহী বাসের": "KR",
     "জাপানের টোকিওতে ভূমিকম্প": "JP",
     "ধামরাইয়ে বসতঘরে অগ্নিকাণ্ড": "BD",
+    "মিরপুরে বাসের ধাক্কায় পথচারী আহত": "BD",
+    "উত্তরায় ভবনে আগুন": "BD",
+    "সাভারে কারখানায় দুর্ঘটনা": "BD",
+    "টঙ্গীতে সড়ক দুর্ঘটনায় নিহত": "BD",
     "বোদা উপজেলায় মোটরসাইকেল দুর্ঘটনায় দুই শিক্ষার্থী নিহত": "BD",
     "বোদা উপজেলায় মোটরসাইকেল দুর্ঘটনায় ২ মাদ্রাসা শিক্ষার্থী নিহত - এইমাত্র": "BD",
     "পঞ্চগড়ের বোদায় সড়ক দুর্ঘটনা": "BD",
@@ -577,7 +581,16 @@ for required in (
     "('The Business Standard', 'tbsnews.net', 'https://www.tbsnews.net/top-news/rss.xml')",
     "('Jamuna TV', 'jamuna.tv', 'https://www.youtube.com/feeds/videos.xml?channel_id=UCN6sm8iHiPd0cnoUardDAnw')",
     "return items[:200]",
+    "for item in items:\n                    item['source'] = publisher_name\n                    item['publisher_domain'] = publisher_domain",
 ):
     if required not in collector_text:
         raise SystemExit(f"Direct publisher feed or expanded feed capacity is missing: {required}")
-print("Passed direct-feed and expanded RSS capacity regression checks.")
+print("Passed direct-feed metadata mapping and expanded RSS capacity regression checks.")
+
+# Stories without a usable image remain publishable because the homepage
+# renders an explicit fallback, while every provided image is verified.
+if "news=sorted(incidents,key=lambda x:x['published'],reverse=True)[:12000]" not in collector_text:
+    raise SystemExit("Stories without a usable thumbnail must remain eligible for publication.")
+if "checked_item.pop('image',None)" not in collector_text:
+    raise SystemExit("Broken image URLs must be removed before rendering the fallback.")
+print("Passed text-only story retention regression check.")
