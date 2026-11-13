@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/scripts/update_news.py'
+      - '.github/scripts/test_country_detection.py'
       - '.github/workflows/update-news.yml'
   workflow_dispatch:
   schedule:
