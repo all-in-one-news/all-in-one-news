@@ -302,7 +302,10 @@ bangladesh_publisher_domains = (
     'dailybangladesh.com',
     'dailyprothomkhobor.com',
 )
-publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)
+publisher_site_queries = [
+    ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains[i:i+40])
+    for i in range(0, len(bangladesh_publisher_domains), 40)
+]
 
 # Incident and public-safety desks also get Bangladesh publisher-focused
 # discovery in Bangla and English, not just the six global editorial desks.
@@ -312,28 +315,30 @@ for category, english_query in categories.items():
         ('en', english_query, 'BD:en'),
         ('bn', bangla_query, 'BD:bn')
     ):
-        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_for_category(category)
-        params = urllib.parse.urlencode({
-            'q': targeted_query,
-            'hl': 'bn' if desk_language == 'bn' else 'en',
-            'gl': 'BD',
-            'ceid': ceid
-        })
-        feeds.append(('BD', category, 'https://news.google.com/rss/search?' + params))
+        for publisher_site_query in publisher_site_queries:
+            targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_for_category(category)
+            params = urllib.parse.urlencode({
+                'q': targeted_query,
+                'hl': 'bn' if desk_language == 'bn' else 'en',
+                'gl': 'BD',
+                'ceid': ceid
+            })
+            feeds.append(('BD', category, 'https://news.google.com/rss/search?' + params))
 
 for desk, (english_query, bangla_query) in global_desk_queries.items():
     for desk_language, query, ceid in (
         ('en', english_query, 'BD:en'),
         ('bn', bangla_query, 'BD:bn')
     ):
-        targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_regular
-        params = urllib.parse.urlencode({
-            'q': targeted_query,
-            'hl': 'bn' if desk_language == 'bn' else 'en',
-            'gl': 'BD',
-            'ceid': ceid
-        })
-        feeds.append(('BD', desk, 'https://news.google.com/rss/search?' + params))
+        for publisher_site_query in publisher_site_queries:
+            targeted_query = '(' + query + ') (' + publisher_site_query + ') ' + search_after_regular
+            params = urllib.parse.urlencode({
+                'q': targeted_query,
+                'hl': 'bn' if desk_language == 'bn' else 'en',
+                'gl': 'BD',
+                'ceid': ceid
+            })
+            feeds.append(('BD', desk, 'https://news.google.com/rss/search?' + params))
 
 for country in countries:
     for category, query in categories.items():
