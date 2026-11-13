@@ -541,3 +541,17 @@ if len(publisher_domains) != 200 or len(set(publisher_domains)) != 200:
 if "publisher_site_queries = [" not in collector_text or "bangladesh_publisher_domains[i:i+40]" not in collector_text:
     raise SystemExit("The 200 Bangladesh publisher targets must feed batched RSS discovery queries.")
 print("Passed 200 unique Bangladesh publisher discovery target check.")
+
+
+# The source audit must distinguish publishers observed in RSS from those
+# merely not seen in this run; absence is not proof that a site is offline.
+for required in (
+    "publisher_domain=publisher_domain",
+    "'seen_in_rss'",
+    "'not_seen_in_latest_fetch'",
+    "'observed_in_rss_total'",
+    "'configured_total':len(bangladesh_publisher_domains)",
+):
+    if required not in collector_text:
+        raise SystemExit(f"Publisher audit is missing: {required}")
+print("Passed Bangladesh publisher RSS audit regression checks.")
