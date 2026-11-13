@@ -95,6 +95,17 @@ jobs:
                   if not pathlib.Path('articles', rel).is_file():
                       raise SystemExit('Sitemap points to a missing article page: ' + url)
           print(f'Validated {len(stories)} image-backed stories and {len(urls)} sitemap URLs.')
+          with open('publisher_audit.json', encoding='utf-8') as f:
+              audit = json.load(f)
+          publishers = audit.get('publishers', [])
+          domains = [x.get('domain') for x in publishers]
+          if audit.get('configured_total') != 200 or len(publishers) != 200 or len(set(domains)) != 200:
+              raise SystemExit('Publisher audit must contain exactly 200 unique configured domains.')
+          if audit.get('observed_in_rss_total', -1) < 0 or audit.get('not_observed_total', -1) < 0:
+              raise SystemExit('Publisher audit counts are invalid.')
+          if audit['observed_in_rss_total'] + audit['not_observed_total'] != 200:
+              raise SystemExit('Publisher audit totals do not add up to 200.')
+          print(f"Validated publisher RSS audit: {audit['observed_in_rss_total']} observed of 200.")
           PY
           if ! cmp -s news-backup.candidate.json news.json; then
             cp news-backup.candidate.json news-backup.json
@@ -102,7 +113,7 @@ jobs:
           rm -f news-backup.candidate.json
       - name: Save News
         run: |
-          git add news.json news-backup.json sitemap.xml articles/
+          git add news.json news-backup.json publisher_audit.json sitemap.xml articles/
           if git diff --cached --quiet; then
             echo "No news changes"
           else
