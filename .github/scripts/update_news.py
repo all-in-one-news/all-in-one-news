@@ -1289,7 +1289,7 @@ previous_good_count=sum(1 for x in previous if str(x.get('image','')).startswith
 minimum_safe_count=max(10, int(previous_good_count*0.50))
 if len(news)<minimum_safe_count:
     raise SystemExit(
-        f"Safety stop: collected {len(news)} stories; 
+        f"Safety stop: collected {len(news)} stories; "
         f"minimum safe count is {minimum_safe_count}. Existing news.json is preserved."
     )
 # Validate the candidate before atomically replacing the published data file.
