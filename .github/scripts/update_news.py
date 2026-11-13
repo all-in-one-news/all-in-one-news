@@ -1309,7 +1309,7 @@ for item in news:
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="'''+url+'''">
 <meta property="og:type" content="article"><meta property="og:title" content="'''+title+'''">
-<meta property="og:description" content="'''+summary[:300]+'''"><meta property="og:url" content="'''+url+'''">
+<meta property="og:description" content="'''+summary[:300]+'''"><meta property="og:url" content="'''+url+'''">\n<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'''+title+'''"><meta name="twitter:description" content="'''+summary[:300]+'''">
 '''+('<meta property="og:image" content="'+html.escape(image,quote=True)+'">' if image_tag else '')+'''
 <script type="application/ld+json">'''+json.dumps({"@context":"https://schema.org","@type":"NewsArticle","headline":str(item.get('title','News')),"datePublished":date,"dateModified":date,"mainEntityOfPage":url,"publisher":{"@type":"Organization","name":"All In One News"},"author":{"@type":"Organization","name":source},"description":str(item.get('summary','') or '')[:1000],**({"image":[image]} if image_tag else {})},ensure_ascii=False).replace('</','<\\/')+'''</script></head><body style="font-family:system-ui;max-width:760px;margin:32px auto;padding:0 16px;line-height:1.7">
 <p><a href="../../">All In One News</a> · '''+source+'''</p><h1>'''+title+'''</h1><time datetime="'''+date+'''">'''+date+'''</time>'''+image_tag+'''<p>'''+summary+'''</p><p>মূল সংবাদ: <a href="'''+link+'''" rel="nofollow noopener" target="_blank">'''+source+'''</a></p></body></html>'''
