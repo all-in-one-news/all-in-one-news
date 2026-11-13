@@ -538,6 +538,6 @@ publisher_block = collector_text[publisher_start:publisher_end]
 publisher_domains = re.findall(r"'([^']+)'", publisher_block)
 if len(publisher_domains) != 200 or len(set(publisher_domains)) != 200:
     raise SystemExit(f"Expected 200 unique Bangladesh publisher targets, found {len(set(publisher_domains))}.")
-if "publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)" not in collector_text:
-    raise SystemExit("The 200 Bangladesh publisher targets must feed the RSS discovery query.")
+if "publisher_site_queries = [" not in collector_text or "bangladesh_publisher_domains[i:i+40]" not in collector_text:
+    raise SystemExit("The 200 Bangladesh publisher targets must feed batched RSS discovery queries.")
 print("Passed 200 unique Bangladesh publisher discovery target check.")
