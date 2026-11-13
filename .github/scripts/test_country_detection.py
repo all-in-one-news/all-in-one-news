@@ -531,7 +531,7 @@ print("Passed homepage SEO metadata and robots sitemap checks.")
 
 # The Bangladesh publisher discovery registry must contain exactly 200 unique domains.
 publisher_start = collector_text.find("bangladesh_publisher_domains = (")
-publisher_end = collector_text.find("\npublisher_site_query", publisher_start)
+publisher_end = collector_text.find("\npublisher_site_queries", publisher_start)
 if publisher_start < 0 or publisher_end < 0:
     raise SystemExit("Bangladesh publisher discovery registry is missing.")
 publisher_block = collector_text[publisher_start:publisher_end]
