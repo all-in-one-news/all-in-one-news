@@ -111,7 +111,30 @@ bangladesh_publisher_domains = (
     'dailyobserverbd.com', 'newagebd.net', 'daily-sun.com',
     'bonikbarta.net', 'dailyjanakantha.com', 'manabzamin.net',
     'bangladeshpost.net', 'theindependentbd.com', 'businesspostbd.com',
-    'daily-sangram.com'
+    'daily-sangram.com',
+    'ajkerpatrika.com',
+    'deshrupantor.com',
+    'channelionline.com',
+    'newsbangla24.com',
+    'ntvbd.com',
+    'dainikamadershomoy.com',
+    'dainikazadi.net',
+    'dainikpurbokone.net',
+    'purbanchal.com',
+    'ctgpratidin.com',
+    'gramerkagoj.com',
+    'sylheterdak.com.bd',
+    'dailynayadiganta.com',
+    'bd-pratidin.com',
+    'daily-sun.com',
+    'dailyjanakantha.com',
+    'dailyinqilab.com',
+    'jaijaidinbd.com',
+    'amadershomoy.com',
+    'priyo.com',
+    'campustimes.press',
+    'shikshabarta.com',
+    'news24bd.tv'
 )
 publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)
 
