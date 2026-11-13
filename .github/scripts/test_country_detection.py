@@ -528,3 +528,14 @@ for required in (
 if "Sitemap: https://all-in-one-news.github.io/all-in-one-news/sitemap.xml" not in (INDEX.parents[0] / "robots.txt").read_text(encoding="utf-8"):
     raise SystemExit("robots.txt must advertise the canonical sitemap URL.")
 print("Passed homepage SEO metadata and robots sitemap checks.")
+
+# The Bangladesh publisher discovery registry must contain exactly 200 unique domains.
+publisher_match = re.search(r"bangladesh_publisher_domains = \\(\\n([\\s\\S]*?)\\n\\)", collector_text)
+if publisher_match is None:
+    raise SystemExit("Bangladesh publisher discovery registry is missing.")
+publisher_domains = re.findall(r"'([^']+)'", publisher_match.group(1))
+if len(publisher_domains) != 200 or len(set(publisher_domains)) != 200:
+    raise SystemExit(f"Expected 200 unique Bangladesh publisher targets, found {len(set(publisher_domains))}.")
+if "publisher_site_query = ' OR '.join('site:' + domain for domain in bangladesh_publisher_domains)" not in collector_text:
+    raise SystemExit("The 200 Bangladesh publisher targets must feed the RSS discovery query.")
+print("Passed 200 unique Bangladesh publisher discovery target check.")
