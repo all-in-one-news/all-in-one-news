@@ -530,7 +530,7 @@ if "Sitemap: https://all-in-one-news.github.io/all-in-one-news/sitemap.xml" not 
 print("Passed homepage SEO metadata and robots sitemap checks.")
 
 # The Bangladesh publisher discovery registry must contain exactly 200 unique domains.
-publisher_match = re.search(r"bangladesh_publisher_domains = \\(\\n([\\s\\S]*?)\\n\\)", collector_text)
+publisher_match = re.search(r"bangladesh_publisher_domains = \\(\n([\\s\\S]*?)\n\\)", collector_text)
 if publisher_match is None:
     raise SystemExit("Bangladesh publisher discovery registry is missing.")
 publisher_domains = re.findall(r"'([^']+)'", publisher_match.group(1))
