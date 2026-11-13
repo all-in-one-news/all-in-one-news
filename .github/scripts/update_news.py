@@ -307,6 +307,18 @@ publisher_site_queries = [
     for i in range(0, len(bangladesh_publisher_domains), 40)
 ]
 
+# Independent all-topic feed for every publisher domain. This complements
+# grouped desk searches so a publisher's new upload is discoverable even when
+# its topic is not among the predefined desks.
+for publisher_domain in bangladesh_publisher_domains:
+    params = urllib.parse.urlencode({
+        'q': 'site:' + publisher_domain + ' ' + search_after_regular,
+        'hl': 'bn',
+        'gl': 'BD',
+        'ceid': 'BD:bn'
+    })
+    feeds.append(('BD', 'publisher', 'https://news.google.com/rss/search?' + params))
+
 # Incident and public-safety desks also get Bangladesh publisher-focused
 # discovery in Bangla and English, not just the six global editorial desks.
 for category, english_query in categories.items():
