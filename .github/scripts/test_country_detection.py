@@ -393,46 +393,12 @@ if "overflow-x:auto" not in index_text or ".channel-link:focus-visible" not in i
 print("Passed 10 Bangladesh TV channel shortcut, logo fallback, and accessibility checks.")
 
 
-# Facebook and YouTube shortcuts must point to the named Bangladesh TV channels.
-social_index = index_text.find('<section class="channels" aria-labelledby="social-heading"')
-if social_index < 0:
-    raise SystemExit("The Facebook and YouTube shortcut section is missing.")
-social_end = index_text.find('</section>', social_index)
-if social_end < 0:
-    raise SystemExit("The Facebook and YouTube shortcut section is not closed.")
-social_section = index_text[social_index:social_end]
-social_accounts = {
-    "Jamuna TV YouTube": "https://www.youtube.com/@jamunatvbd",
-    "Somoy TV YouTube": "https://www.youtube.com/@somoynews360",
-    "Ekattor TV YouTube": "https://www.youtube.com/@EkattorTelevision",
-    "Channel 24 YouTube": "https://www.youtube.com/@channel24digital",
-    "NTV YouTube": "https://www.youtube.com/@ntvlatestnews",
-    "RTV YouTube": "https://www.youtube.com/@rtvnews",
-    "DBC News YouTube": "https://www.youtube.com/@dbcnewstv",
-    "Independent TV YouTube": "https://www.youtube.com/@independenttelevision",
-    "News24 YouTube": "https://www.youtube.com/@news24tv",
-    "ATN News YouTube": "https://www.youtube.com/@atnnewsltd",
-    "Jamuna TV Facebook": "https://www.facebook.com/JamunaTelevision",
-    "Somoy TV Facebook": "https://www.facebook.com/somoynews.tv",
-    "Ekattor TV Facebook": "https://www.facebook.com/EkattorTV",
-    "Channel 24 Facebook": "https://www.facebook.com/channel24bd",
-    "NTV Facebook": "https://www.facebook.com/ntvdigital",
-    "RTV Facebook": "https://www.facebook.com/rtvonline",
-    "DBC News Facebook": "https://www.facebook.com/dbcnews.tv",
-    "Independent TV Facebook": "https://www.facebook.com/itvbdofficial",
-    "News24 Facebook": "https://www.facebook.com/news24bd.tv",
-    "ATN News Facebook": "https://www.facebook.com/ATNNews",
-}
-for label, url in social_accounts.items():
-    if 'href="' + url + '"' not in social_section:
-        raise SystemExit(f"Social shortcut is missing {label}: {url}")
-if 'aria-label="YouTube চ্যানেল লিংক"' not in social_section or 'aria-label="Facebook পেজ লিংক"' not in social_section:
-    raise SystemExit("Social shortcut rows must be clearly identified without claiming unverified official status.")
-if social_section.count('class="social-link"') != 20:
-    raise SystemExit("Exactly 20 social shortcuts (10 YouTube and 10 Facebook) must be present.")
-if ".social-row{" not in index_text or "overflow-x:auto" not in index_text or ".social-link:focus-visible" not in index_text:
-    raise SystemExit("Social shortcuts must scroll horizontally and remain keyboard accessible.")
-print("Passed 20 Bangladesh TV Facebook and YouTube shortcut regression checks.")
+# Facebook and YouTube links/embeds must not appear on the homepage.
+if 'aria-labelledby="social-heading"' in index_text:
+    raise SystemExit("Facebook and YouTube shortcut section must be removed from the homepage.")
+if "facebook.com" in index_text or "youtube.com" in index_text or "media_embed" in index_text:
+    raise SystemExit("Facebook and YouTube links or embedded players must not appear on the homepage.")
+print("Passed Facebook and YouTube homepage removal regression checks.")
 
 
 # Image recovery must retain alternate RSS thumbnails when duplicate feed
