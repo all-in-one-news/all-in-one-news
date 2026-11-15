@@ -270,12 +270,14 @@ if "function toggleTheme(){const next=document.body.classList.contains('dark')?'
     raise SystemExit("Theme toggle must apply the theme even when preference storage fails.")
 print("Passed restricted browser storage theme regression test.")
 
-# Dynamic news updates should be announced politely to assistive technology.
+# Dynamic news updates and the five-item breaking-news ticker must be announced accessibly.
 if 'id="status" role="status" aria-live="polite" aria-atomic="true"' not in index_text:
     raise SystemExit("Feed status must be announced to screen readers.")
-if 'class="ticker" role="status" aria-live="polite" aria-atomic="true"' not in index_text:
-    raise SystemExit("The latest-news ticker must expose a polite live status.")
-print("Passed live news announcement accessibility test.")
+if 'id="ticker-stack" role="status" aria-live="polite" aria-atomic="true"' not in index_text:
+    raise SystemExit("The five-item breaking-news ticker must expose a polite live status.")
+if 'aria-label="সর্বশেষ পাঁচটি ব্রেকিং নিউজ"' not in index_text:
+    raise SystemExit("The breaking-news region must have an accessible name.")
+print("Passed breaking-news live announcement accessibility test.")
 
 # Pagination controls need meaningful accessible names and a current-page indicator.
 if 'aria-label="আগের পৃষ্ঠা"' not in index_text or 'aria-label="পরের পৃষ্ঠা"' not in index_text:
@@ -284,12 +286,14 @@ if 'aria-current="page" aria-live="polite"' not in index_text:
     raise SystemExit("The current pagination position must be announced.")
 print("Passed accessible pagination regression test.")
 
-# The latest-news ticker must follow the selected language and desk.
-if "const tickerStory=rows.find(x=>matches(x)&&(!cat||cat==='all'||kind(x)===cat));" not in index_text:
-    raise SystemExit("The latest-news ticker must use the selected language and desk.")
-if "$('latest').textContent=tickerStory?clean(tickerStory.title):'এই ভাষায় এখনো খবর নেই';" not in index_text:
-    raise SystemExit("The ticker must show a clear empty state when the selected feed has no stories.")
-print("Passed selected-feed latest ticker regression test.")
+# The five breaking-news headlines must use the selected language and remain sequential.
+if "function renderTicker(){const items=rows.filter(x=>matches(x)).slice(0,5);" not in index_text:
+    raise SystemExit("The breaking-news ticker must show up to five headlines from the selected language.")
+if "target.innerHTML=items.length?items.map((x,i)=>'<div class=\"ticker-line\"" not in index_text:
+    raise SystemExit("Breaking-news headlines must be rendered as separate sequential lines.")
+if "ticker-line:nth-child(5){animation-delay:24s}" not in index_text:
+    raise SystemExit("The fifth breaking-news headline must have its own sequential animation slot.")
+print("Passed five-item sequential breaking-news ticker regression test.")
 
 # Bangladesh publisher-focused discovery must cover every global desk in both languages.
 publisher_domains = (
