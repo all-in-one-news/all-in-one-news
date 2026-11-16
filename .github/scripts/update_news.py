@@ -1352,11 +1352,11 @@ for item in news:
         out.write(page)
     sitemap_urls.append((url,published.date().isoformat()))
 with open('sitemap.xml','w',encoding='utf-8') as out:
-    out.write('<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n')
-    out.write('  <url><loc>'+base+'/</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\\n')
+    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+    out.write('  <url><loc>'+base+'/</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\n')
     for url,lastmod in sitemap_urls[1:]:
-        out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+lastmod+'</lastmod></url>\\n')
-    out.write('</urlset>\\n')
+        out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+lastmod+'</lastmod></url>\n')
+    out.write('</urlset>\n')
 print('SEO article pages generated:',len(sitemap_urls)-1)
 print('Country/category feeds:',len(feeds))
 print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
