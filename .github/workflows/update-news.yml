@@ -90,6 +90,13 @@ jobs:
           urls = [e.text for e in root.iter() if e.tag.endswith('loc') and e.text]
           if not urls:
               raise SystemExit('Sitemap contains no URLs.')
+          if not any('/topics/bangladesh/' in u for u in urls) or not any('/topics/world/' in u for u in urls):
+              raise SystemExit('Sitemap is missing Bangladesh or World topic landing pages.')
+          news_raw = pathlib.Path('news-sitemap.xml').read_text(encoding='utf-8')
+          news_root = ET.fromstring(news_raw)
+          news_urls = [e.text for e in news_root.iter() if e.tag.endswith('loc') and e.text]
+          if len(news_urls) > 1000 or not news_root.tag.endswith('urlset'):
+              raise SystemExit('Google News sitemap has an invalid structure or too many URLs.')
           for url in urls:
               if '/articles/' in url:
                   rel = url.split('/articles/', 1)[1].strip('/') + '/index.html'
@@ -115,7 +122,7 @@ jobs:
           rm -f news-backup.candidate.json
       - name: Save News
         run: |
-          git add news.json news-backup.json publisher_audit.json sitemap.xml articles/
+          git add news.json news-backup.json publisher_audit.json sitemap.xml news-sitemap.xml articles/ topics/
           if git diff --cached --quiet; then
             echo "No news changes"
           else
