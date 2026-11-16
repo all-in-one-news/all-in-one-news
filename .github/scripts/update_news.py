@@ -1319,35 +1319,44 @@ for item in news:
     folder=os.path.join('articles',article_id)
     os.makedirs(folder,exist_ok=True)
     url=base+'/articles/'+article_id+'/'
-    title=html.escape(str(item.get('title','News') or 'News'))
-    summary=html.escape(re.sub(r'<[^>]+>',' ',str(item.get('summary','') or ''))[:1000])
-    source=html.escape(str(item.get('source','News source') or 'News source'))
+    raw_title=str(item.get('title','News') or 'News').strip()
+    title=html.escape(raw_title)
+    title_attr=html.escape(raw_title,quote=True)
+    raw_summary=re.sub(r'<[^>]+>',' ',str(item.get('summary','') or ''))
+    raw_summary=' '.join(raw_summary.split())
+    raw_source=str(item.get('source','News source') or 'News source').strip()
+    raw_description=(raw_summary or f"{raw_title} — {raw_source} থেকে সংগৃহীত সর্বশেষ সংবাদ। মূল প্রতিবেদন All In One News-এ পড়ুন।")[:1000]
+    summary=html.escape(raw_description)
+    description_attr=html.escape(raw_description[:300],quote=True)
+    source=html.escape(raw_source)
     link=html.escape(str(item.get('link','')),quote=True)
     image=str(item.get('image','') or '')
     image_tag=''
-    image_json=''
     if image.startswith(('https://','http://')):
-        image_tag='<img src="'+html.escape(image,quote=True)+'" alt="'+title+'" style="max-width:100%;height:auto">'
-        image_json='"image":'+json.dumps(image,ensure_ascii=False)+','
+        image_tag='<img src="'+html.escape(image,quote=True)+'" alt="'+title_attr+'" loading="lazy" decoding="async" style="max-width:100%;height:auto">'
     date=published.isoformat()
-    page='''<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    article_schema={"@context":"https://schema.org","@type":"NewsArticle","headline":raw_title,"datePublished":date,"dateModified":date,"mainEntityOfPage":url,"publisher":{"@type":"NewsMediaOrganization","name":"All In One News","url":base+"/","logo":{"@type":"ImageObject","url":base+"/og-image.svg"}},"author":{"@type":"Organization","name":raw_source},"description":raw_description,"articleSection":str(item.get('category','News')),"inLanguage":str(item.get('language','bn') or 'bn'),"isAccessibleForFree":True,**({"image":[image]} if image_tag else {})}
+    page='''<!doctype html><html lang="'''+html.escape(str(item.get('language','bn') or 'bn'),quote=True)+'''"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>'''+title+''' | All In One News</title>
-<meta name="description" content="'''+summary[:300]+'''">
+<meta name="description" content="'''+description_attr+'''">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="'''+url+'''">
-<meta property="og:type" content="article"><meta property="og:title" content="'''+title+'''">
-<meta property="og:description" content="'''+summary[:300]+'''"><meta property="og:url" content="'''+url+'''">\n<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'''+title+'''"><meta name="twitter:description" content="'''+summary[:300]+'''">
-'''+('<meta property="og:image" content="'+html.escape(image,quote=True)+'">' if image_tag else '')+'''
-<script type="application/ld+json">'''+json.dumps({"@context":"https://schema.org","@type":"NewsArticle","headline":str(item.get('title','News')),"datePublished":date,"dateModified":date,"mainEntityOfPage":url,"publisher":{"@type":"Organization","name":"All In One News"},"author":{"@type":"Organization","name":source},"description":str(item.get('summary','') or '')[:1000],**({"image":[image]} if image_tag else {})},ensure_ascii=False).replace('</','<\\/')+'''</script></head><body style="font-family:system-ui;max-width:760px;margin:32px auto;padding:0 16px;line-height:1.7">
-<p><a href="../../">All In One News</a> · '''+source+'''</p><h1>'''+title+'''</h1><time datetime="'''+date+'''">'''+date+'''</time>'''+image_tag+'''<p>'''+summary+'''</p><p>মূল সংবাদ: <a href="'''+link+'''" rel="nofollow noopener" target="_blank">'''+source+'''</a></p></body></html>'''
+<meta property="og:type" content="article"><meta property="og:site_name" content="All In One News"><meta property="og:locale" content="bn_BD"><meta property="og:title" content="'''+title_attr+'''">
+<meta property="og:description" content="'''+description_attr+'''"><meta property="og:url" content="'''+url+'''">
+<meta property="article:published_time" content="'''+date+'''">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'''+title_attr+'''"><meta name="twitter:description" content="'''+description_attr+'''"><meta name="twitter:image:alt" content="'''+title_attr+'''">
+'''+('<meta property="og:image" content="'+html.escape(image,quote=True)+'"><meta name="twitter:image" content="'+html.escape(image,quote=True)+'">' if image_tag else '<meta property="og:image" content="'+base+'/og-image.svg"><meta name="twitter:image" content="'+base+'/og-image.svg">')+'''
+<script type="application/ld+json">'''+json.dumps(article_schema,ensure_ascii=False).replace('</','<\\/')+'''</script></head><body style="font-family:system-ui;max-width:760px;margin:32px auto;padding:0 16px;line-height:1.7">
+<p><a href="../../">All In One News</a> · '''+source+'''</p><h1>'''+title+'''</h1><time datetime="'''+date+'''">'''+date+'''</time>'''+image_tag+'''<p>'''+summary+'''</p><p>মূল সংবাদ: <a href="'''+link+'''" rel="nofollow noopener noreferrer" target="_blank">'''+source+'''</a></p></body></html>'''
     with open(os.path.join(folder,'index.html'),'w',encoding='utf-8') as out:
         out.write(page)
-    sitemap_urls.append(url)
+    sitemap_urls.append((url,published.date().isoformat()))
 with open('sitemap.xml','w',encoding='utf-8') as out:
-    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-    for url in sitemap_urls:
-        out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\n')
-    out.write('</urlset>\n')
+    out.write('<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n')
+    out.write('  <url><loc>'+base+'/</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\\n')
+    for url,lastmod in sitemap_urls[1:]:
+        out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+lastmod+'</lastmod></url>\\n')
+    out.write('</urlset>\\n')
 print('SEO article pages generated:',len(sitemap_urls)-1)
 print('Country/category feeds:',len(feeds))
 print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
