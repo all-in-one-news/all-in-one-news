@@ -1307,7 +1307,8 @@ os.replace(news_tmp,'news.json')
 import html, os
 from urllib.parse import quote
 base='https://all-in-one-news.github.io/all-in-one-news'
-sitemap_urls=[base+'/']
+sitemap_urls=[(base+'/',now.date().isoformat())]
+news_sitemap_entries=[]
 
 for item in news:
     published=parse_date(item.get('published',''))
@@ -1351,12 +1352,67 @@ for item in news:
     with open(os.path.join(folder,'index.html'),'w',encoding='utf-8') as out:
         out.write(page)
     sitemap_urls.append((url,published.date().isoformat()))
+    if now-timedelta(days=2) <= published <= now+timedelta(minutes=5):
+        news_sitemap_entries.append((url,published,raw_title,str(item.get('language','bn') or 'bn')))
+# Generate crawlable topic landing pages with useful internal links.
+topic_defs = {
+    'bangladesh': ('বাংলাদেশের খবর', 'বাংলাদেশের সর্বশেষ সংবাদ', 'বাংলাদেশের রাজনীতি, অর্থনীতি, দুর্ঘটনা, খেলাধুলা ও জনজীবনের গুরুত্বপূর্ণ খবর এক জায়গায়। প্রতিটি প্রতিবেদনের প্রকাশক ও মূল সংবাদসূত্রের লিংক দেওয়া থাকে।', lambda x: str(x.get('country','')).upper()=='BD'),
+    'world': ('আন্তর্জাতিক খবর', 'বিশ্বের সর্বশেষ সংবাদ', 'বিশ্বের বিভিন্ন দেশের রাজনীতি, অর্থনীতি, প্রযুক্তি, খেলাধুলা ও গুরুত্বপূর্ণ ঘটনার সংবাদ এক জায়গায় দেখুন।', lambda x: str(x.get('country','')).upper() not in ('BD','UNKNOWN','')),
+    'politics': ('রাজনীতি', 'বাংলাদেশ ও বিশ্বের রাজনীতির খবর', 'নির্বাচন, সরকার, সংসদ, নীতি ও রাজনৈতিক ঘটনাবলির সর্বশেষ সংবাদ।'),
+    'economy': ('অর্থনীতি', 'অর্থনীতি ও ব্যবসার সর্বশেষ খবর', 'অর্থনীতি, মূল্যস্ফীতি, বাজেট, বাণিজ্য, ব্যাংকিং ও কর্মসংস্থানের সংবাদ।'),
+    'sports': ('খেলাধুলা', 'খেলাধুলার সর্বশেষ খবর', 'ক্রিকেট, ফুটবল, টুর্নামেন্ট, খেলোয়াড় ও আন্তর্জাতিক ক্রীড়াঙ্গনের সংবাদ।'),
+    'technology': ('প্রযুক্তি', 'প্রযুক্তি ও AI-এর সর্বশেষ খবর', 'প্রযুক্তি, কৃত্রিম বুদ্ধিমত্তা, স্মার্টফোন, সফটওয়্যার ও সাইবার নিরাপত্তার সংবাদ।'),
+    'fire': ('আগুন', 'আগুন ও অগ্নিকাণ্ডের খবর', 'আগুন, অগ্নিকাণ্ড, উদ্ধার অভিযান ও সংশ্লিষ্ট কর্তৃপক্ষের প্রকাশিত প্রতিবেদন।'),
+    'missing': ('নিখোঁজ শিশু', 'নিখোঁজ শিশু সংক্রান্ত সংবাদ', 'নিখোঁজ শিশু সংক্রান্ত প্রকাশিত সংবাদ ও যাচাইযোগ্য মূল সূত্রের লিংক। শিশু ও পরিবারের গোপনীয়তা রক্ষাকে অগ্রাধিকার দেওয়া হয়।'),
+    'abuse': ('নির্যাতন', 'নির্যাতন ও যৌন সহিংসতা সংক্রান্ত সংবাদ', 'নির্যাতন ও যৌন সহিংসতা সংক্রান্ত সংবাদে ভুক্তভোগীর পরিচয় ও গোপনীয়তা রক্ষাকে অগ্রাধিকার দেওয়া হয়।'),
+    'accident': ('দুর্ঘটনা', 'দুর্ঘটনা ও উদ্ধার সংক্রান্ত খবর', 'সড়ক, রেল, নৌ ও অন্যান্য দুর্ঘটনা এবং উদ্ধার কার্যক্রমের সংবাদ।'),
+    'casualty': ('মৃত্যু ও হতাহত', 'মৃত্যু ও হতাহতের সর্বশেষ খবর', 'দুর্ঘটনা ও অন্যান্য ঘটনায় হতাহত, প্রাণহানি এবং কর্তৃপক্ষের নিশ্চিত তথ্যভিত্তিক সংবাদ।'),
+    'reserve': ('বৈদেশিক রিজার্ভ', 'বাংলাদেশের বৈদেশিক মুদ্রার রিজার্ভ', 'বাংলাদেশের বৈদেশিক মুদ্রার রিজার্ভ, কেন্দ্রীয় ব্যাংক ও অর্থনৈতিক সূচক সম্পর্কিত সংবাদ।'),
+    'entertainment': ('বিনোদন', 'বিনোদন ও সিনেমার খবর', 'সিনেমা, অ্যানিমে, সিরিজ, শিল্পী ও বিনোদন জগতের সংবাদ।'),
+    'market': ('শেয়ার বাজার', 'শেয়ার বাজারের সর্বশেষ খবর', 'শেয়ার বাজার, পুঁজিবাজার, স্টক এক্সচেঞ্জ ও বিনিয়োগসংক্রান্ত সংবাদ।')
+}
+topic_urls=[]
+for slug, definition in topic_defs.items():
+    label, page_title, intro = definition[:3]
+    predicate = definition[3] if len(definition)>3 else lambda x, key=slug: str(x.get('category','')).lower()==key
+    selected=[x for x in news if predicate(x) and parse_date(x.get('published','')) and parse_date(x.get('published',''))>=cutoff_for_category(x.get('category'))]
+    selected.sort(key=lambda x: parse_date(x.get('published','')), reverse=True)
+    entries=[]
+    for item in selected[:40]:
+        published=parse_date(item.get('published',''))
+        aid=re.sub(r'[^a-f0-9]','',str(item.get('incident_id') or hashlib.sha1(str(item.get('link','')).encode()).hexdigest()))[:20]
+        if not aid: continue
+        article_url=base+'/articles/'+aid+'/'
+        entries.append((article_url,str(item.get('title','সংবাদ') or 'সংবাদ'),published.isoformat(),str(item.get('source','সংবাদমাধ্যম') or 'সংবাদমাধ্যম')))
+    topic_url=base+'/topics/'+slug+'/'
+    topic_dir=os.path.join('topics',slug)
+    os.makedirs(topic_dir,exist_ok=True)
+    description=(intro+' সর্বশেষ হালনাগাদ: '+now.date().isoformat()+'.')[:290]
+    itemlist=[{"@type":"ListItem","position":i+1,"url":entry[0],"name":entry[1]} for i,entry in enumerate(entries)]
+    schema={"@context":"https://schema.org","@type":"CollectionPage","name":page_title,"description":intro,"url":topic_url,"inLanguage":"bn","isPartOf":{"@type":"WebSite","name":"All In One News","url":base+"/"},"mainEntity":{"@type":"ItemList","itemListElement":itemlist}}
+    links=''.join('<li><a href="'+html.escape(u,quote=True)+'">'+html.escape(t)+'</a><br><small>'+html.escape(src)+' · '+html.escape(dt[:10])+'</small></li>' for u,t,dt,src in entries)
+    if not links: links='<li>এই বিভাগে নতুন খবর সংগ্রহ করা হলে এখানে দেখানো হবে।</li>'
+    doc='''<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'''+html.escape(page_title)+''' | All In One News</title><meta name="description" content="'''+html.escape(description,quote=True)+'''"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="'''+topic_url+'''"><meta property="og:type" content="website"><meta property="og:site_name" content="All In One News"><meta property="og:title" content="'''+html.escape(page_title,quote=True)+'''"><meta property="og:description" content="'''+html.escape(description,quote=True)+'''"><meta property="og:url" content="'''+topic_url+'''"><meta property="og:image" content="'''+base+'''/og-image.svg"><script type="application/ld+json">'''+json.dumps(schema,ensure_ascii=False).replace('</','<\\/')+'''</script><style>body{font-family:system-ui,"Noto Sans Bengali",sans-serif;max-width:850px;margin:28px auto;padding:0 16px;line-height:1.75;color:#172033}a{color:#155eef}li{margin:0 0 14px;padding:0 0 12px;border-bottom:1px solid #e2e8f0}small{color:#64748b}header,footer{padding:12px 0;color:#64748b}h1{line-height:1.4}</style></head><body><header><a href="../../">All In One News</a> · <a href="../../">হোম</a></header><main><h1>'''+html.escape(page_title)+'''</h1><p>'''+html.escape(intro)+'''</p><p>এই বিভাগে সর্বশেষ সংগৃহীত খবর, প্রকাশের তারিখ এবং মূল সংবাদমাধ্যমের পরিচয় দেওয়া হয়েছে। বিস্তারিত তথ্যের জন্য প্রতিটি খবরের মূল প্রকাশকের লিংক অনুসরণ করুন।</p><h2>সর্বশেষ খবর</h2><ol>'''+links+'''</ol></main><footer>All In One News · <a href="../../">সকল খবর দেখুন</a></footer></body></html>'''
+    with open(os.path.join(topic_dir,'index.html'),'w',encoding='utf-8') as out: out.write(doc)
+    sitemap_urls.append((topic_url,now.date().isoformat()))
+    topic_urls.append(topic_url)
+
+# Standard sitemap: homepage, topic pages and article pages.
 with open('sitemap.xml','w',encoding='utf-8') as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-    out.write('  <url><loc>'+base+'/</loc><lastmod>'+now.date().isoformat()+'</lastmod></url>\n')
-    for url,lastmod in sitemap_urls[1:]:
+    for url,lastmod in sitemap_urls:
         out.write('  <url><loc>'+html.escape(url)+'</loc><lastmod>'+lastmod+'</lastmod></url>\n')
     out.write('</urlset>\n')
+
+# Google News sitemap: only articles published in the last 48 hours, max 1000.
+with open('news-sitemap.xml','w',encoding='utf-8') as out:
+    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n')
+    for url,published,title,lang in sorted(news_sitemap_entries,key=lambda x:x[1],reverse=True)[:1000]:
+        lang=lang if lang in ('bn','en') else 'bn'
+        out.write('  <url><loc>'+html.escape(url)+'</loc><news:news><news:publication><news:name>All In One News</news:name><news:language>'+lang+'</news:language></news:publication><news:publication_date>'+published.strftime('%Y-%m-%dT%H:%M:%S+00:00')+'</news:publication_date><news:title>'+html.escape(title)+'</news:title></news:news></url>\n')
+    out.write('</urlset>\n')
+print('Topic landing pages generated:',len(topic_urls))
+print('Google News sitemap entries:',min(1000,len(news_sitemap_entries)))
 print('SEO article pages generated:',len(sitemap_urls)-1)
 print('Country/category feeds:',len(feeds))
 print('Dedicated Bangladesh MUN Alert discovery feed: enabled')
