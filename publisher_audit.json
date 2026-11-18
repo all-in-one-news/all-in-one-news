@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-18T10:46:44.719801+00:00",
+  "checked_at": "2026-11-18T11:42:49.810924+00:00",
   "configured_total": 200,
   "observed_in_rss_total": 127,
   "not_observed_total": 73,
@@ -16,8 +16,13 @@
     {
       "domain": "bdnews24.com",
       "status": "seen_in_rss",
-      "article_count": 299,
+      "article_count": 298,
       "sample_articles": [
+        {
+          "title": "UK authorities investigating after Russell Brand's message from prison - bdnews24.com",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1OZVpZWXRCQmthYlIwSHZNWXBJaC1oYUkzbDItZUFYY1lGVTdSWVl3NVY4Z1JmM3JTRjhqNlpta2k5YTVoOUthbjBqa1otVmhhcWJFOXpNaGw?oc=5",
+          "published": "2026-11-16T13:41:00+00:00"
+        },
         {
           "title": "England end Spain's long unbeaten run, Italy crash out of Nations League - bdnews24.com",
           "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9lTFE3WXdSSmtrR1g2Mk9VWmFMT01xbFlsZWY5bjdtNk1aWVVYQ3Z6OG9Fcnotd0MydVM1aVhCR1A1N2F1c2NQamdIMVhuUQ?oc=5",
@@ -27,18 +32,13 @@
           "title": "Truck and bus collision in India's Assam kills at least 23 people - bdnews24.com",
           "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5Id21XbjJCVklaRjVISWNTSDZHb2tvYlBTUWhzbmZueUp6SGQ3SG5VdzR5YUQtLXpaRlcyV1NLMmQ1YkxRdXpSR2tQazd2MWRkTjU2Wg?oc=5",
           "published": "2026-11-13T13:23:00+00:00"
-        },
-        {
-          "title": "Iran attacks US military radar system in Bahrain despite talks with mediators - bdnews24.com",
-          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE10d0Frc2RESHhlZVAtZl9KbkZ0QWRPTUxOS3pDN2V0T2RGckZQOFFySmZScTlJb2syRmtVakxxbG1YdEcxSjhmLUhCZmNPdmg0SktfckJnVk5xNVdQVWc?oc=5",
-          "published": "2026-11-17T13:28:00+00:00"
         }
       ]
     },
     {
       "domain": "thedailystar.net",
       "status": "seen_in_rss",
-      "article_count": 425,
+      "article_count": 428,
       "sample_articles": [
         {
           "title": "Gopalganj's Tungipara Police Station set on fire following arrests of Awami League activists - The Daily Star",
@@ -60,51 +60,51 @@
     {
       "domain": "prothomalo.com",
       "status": "seen_in_rss",
-      "article_count": 528,
+      "article_count": 539,
       "sample_articles": [
         {
-          "title": "বিশ্ব রেকর্ডটা এখন শুধুই লিটনের, নো বল করে ৫ উইকেট হলো না হাসানের",
+          "title": "ক্যাচ দিয়ে বাঁচলেন মাহফিজুল, আম্পায়ারস কলে তানজিদ",
           "link": "https://www.prothomalo.com/sports/cricket/pbl3tizo6f",
           "published": "2026-11-15T07:26:43+00:00"
         },
         {
-          "title": "‘বহুব্রীহি’ নাটকের মিস্ মিলি এখন কোথায়? কেমন কাটছে জীবন",
-          "link": "https://www.prothomalo.com/entertainment/tv/xdnc6jyg23",
-          "published": "2026-11-18T10:15:00+00:00"
+          "title": "রাজশাহী ও চট্টগ্রামে গ্রামীণ ব্যাংকের কার্যালয়ে পেট্রলবোমা নিক্ষেপ ও অগ্নিসংযোগ",
+          "link": "https://www.prothomalo.com/video/bangladesh/i7vmnu8pky",
+          "published": "2026-11-18T11:30:00+00:00"
         },
         {
-          "title": "পুরুষের স্বাস্থ্য সুরক্ষায় নভেম্বর কেন মুভেম্বর, জানেন?",
-          "link": "https://www.prothomalo.com/lifestyle/health/zlvb54gxcd",
-          "published": "2026-11-18T10:12:59+00:00"
+          "title": "রাজশাহী ও চট্টগ্রামে গ্রামীণ ব্যাংকের কার্যালয়ে পেট্রলবোমা নিক্ষেপ ও অগ্নিসংযোগ",
+          "link": "https://www.prothomalo.com/video/bangladesh/58yjtophcy",
+          "published": "2026-11-18T11:29:47+00:00"
         }
       ]
     },
     {
       "domain": "tbsnews.net",
       "status": "seen_in_rss",
-      "article_count": 451,
+      "article_count": 450,
       "sample_articles": [
         {
-          "title": "House Democrat prepares investigations into Trump family, top officials",
-          "link": "https://www.tbsnews.net/worldbiz/usa/house-democrat-prepares-investigations-trump-family-top-officials-1606591",
-          "published": "2026-11-18T10:35:00+00:00"
+          "title": "Gopalganj unrest snaps Satkhira-Dhaka bus links via Padma Bridge",
+          "link": "https://www.tbsnews.net/bangladesh/transport/gopalganj-unrest-snaps-satkhira-dhaka-bus-links-padma-bridge-1606676",
+          "published": "2026-11-18T11:25:00+00:00"
         },
         {
-          "title": "Litton Das sets world record with eight dismissals in a Test innings",
-          "link": "https://www.tbsnews.net/sports/cricket/litton-das-sets-world-record-eight-dismissals-test-innings-1606581",
-          "published": "2026-11-18T10:25:00+00:00"
+          "title": "3 buses, 2 legunas set on fire in Narayanganj overnight",
+          "link": "https://www.tbsnews.net/bangladesh/crime/3-buses-2-legunas-set-fire-narayanganj-overnight-1606671",
+          "published": "2026-11-18T11:25:00+00:00"
         },
         {
-          "title": "2 labour leaders among 3 held as unrest leads to closure of 132 RMG factories in Ashulia",
-          "link": "https://www.tbsnews.net/economy/rmg/2-labour-leaders-among-3-held-unrest-leads-closure-132-rmg-factories-ashulia-1606536",
-          "published": "2026-11-18T10:00:00+00:00"
+          "title": "Govt, Vital Strategies join hands to raise awareness of amended tobacco control law",
+          "link": "https://www.tbsnews.net/bangladesh/health/govt-vital-strategies-join-hands-raise-awareness-amended-tobacco-control-law",
+          "published": "2026-11-18T11:15:00+00:00"
         }
       ]
     },
     {
       "domain": "dhakatribune.com",
       "status": "seen_in_rss",
-      "article_count": 411,
+      "article_count": 233,
       "sample_articles": [
         {
           "title": "Police, BGB fire tear gas, sound grenades as Gazipur workers block roads - Dhaka Tribune",
@@ -126,7 +126,7 @@
     {
       "domain": "bssnews.net",
       "status": "seen_in_rss",
-      "article_count": 458,
+      "article_count": 453,
       "sample_articles": [
         {
           "title": "প্রধানমন্ত্রীর সভাপতিত্বে বিএনপির সংসদীয় দলের বৈঠক অনুষ্ঠিত | শিরোনাম | বাংলাদেশ সংবাদ সংস্থা (বাসস) - Bangladesh Sangbad Sangstha (BSS)",
@@ -139,16 +139,16 @@
           "published": "2026-11-17T16:34:00+00:00"
         },
         {
-          "title": "ফ্যাসিবাদের পুনরুত্থান ঠেকাতে সবাইকে ঐক্যবদ্ধ থাকার আহ্বান তথ্যমন্ত্রীর - Bangladesh Sangbad Sangstha (BSS)",
-          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1VUTBDcG95UDJwMWpmUXBtaElHbWtnQ2ZJdEVTQUZaRnZraENrdk5IcmkxVTExWHB3N2c0LVQzT2ZyekZaSEQxQ3VNOXFFTWVWRFlsRE1zRFdHWmRKTWtvRUM5M2VJcDlmcVNONWVKNTB6R28?oc=5",
-          "published": "2026-11-17T16:00:00+00:00"
+          "title": "জাতীয় স্বার্থ ও সার্বভৌমত্ব রক্ষায় সংসদে সোচ্চার থাকবে বিরোধী দল - Bangladesh Sangbad Sangstha (BSS)",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9SWUFlUy1SYmZhOWx4YnFyTkN4U2FpbF9JRTZqSjhOQ2UzMnZlRXE4eTJzanJFaGVEalFJak9NWjhNbVJKY1NESnIza3hNVnRoM0Y5QWJaaGxaVzBkOUltWFRWQ1JrM2lhV0V1WWM4eHpydVE?oc=5",
+          "published": "2026-11-10T17:22:00+00:00"
         }
       ]
     },
     {
       "domain": "dhakapost.com",
       "status": "seen_in_rss",
-      "article_count": 109,
+      "article_count": 112,
       "sample_articles": [
         {
           "title": "নতুন ‘জেমস বন্ড’ রবার্ট প্যাটিনসন - dhakapost.com",
@@ -170,7 +170,7 @@
     {
       "domain": "jagonews24.com",
       "status": "seen_in_rss",
-      "article_count": 195,
+      "article_count": 198,
       "sample_articles": [
         {
           "title": "প্রধানমন্ত্রীর সভাপতিত্বে বৈঠকে বিএনপির সংসদীয় দল - Jagonews24",
@@ -178,21 +178,21 @@
           "published": "2026-11-18T09:07:42+00:00"
         },
         {
-          "title": "বরকত উল্লাহ বুলুর পদত্যাগের খবর গুজব, থাইল্যান্ডে চিকিৎসাধীন - Jagonews24",
-          "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9MTzFRNmJPcU8zUElyRWNKcllmc3BvaEhSTHJNMVZtVUM1UjN2cGFRWDMxZWhxWnQ3UVlRSUNSVlkzSGxOejl2RUlxLUV3OGpOcFRWUW5OUjhsMEdz?oc=5",
-          "published": "2026-11-18T08:19:01+00:00"
+          "title": "ইসরায়েলে ৮৫.৬ শতাংশ ভোট গণনা শেষ: কোন দল কত আসনে এগিয়ে? - Jagonews24",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ySnBpQTMzY1E4czUwLVZTT2QzXzU0OFg0c2xLdFJIWm53V0JJMXhUNjMtSjVSOHFTZ3dvVjVFUEpzbmJmUTBKZjExOXM1TmJUZl9UYW95U0NvRzlJMjRITXVnWQ?oc=5",
+          "published": "2026-10-28T07:00:00+00:00"
         },
         {
-          "title": "টুঙ্গিপাড়ায় থানা-জিলানীর বাড়িতে হামলা, ঢাকায় স্বেচ্ছাসেবক দলের বিক্ষোভ - Jagonews24",
-          "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9RTVhnQ0o0M0dJMzc5d3kta1pzTDN1VFVpMGo5MUItY3pyaWxMR1ZHMGNGd0V1QnNOWGhfd21YN3lqZktnMGk3RklJSWhhejZ0TEJyUVdENzRpdTVf?oc=5",
-          "published": "2026-11-17T11:12:00+00:00"
+          "title": "দ্য ইকোনমিস্টের প্রতিবেদন • ব্যাংকিং খাতের এক-তৃতীয়াংশ ঋণখেলাপি, অর্থনীতি নিয়ে সতর্কবার্তা - Jagonews24",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1yQ1V0dzdFT1dDNkhrY3U5RlMzZ2ViVjVIWGtCUkxldWtGQ0xXZE1Tb0ZobU5CTG1KNlVTMmpQdG5zUmV0T1JIUVAyeFdUS200czM3UmFSQXdVNWJ6d2k3QXhEMA?oc=5",
+          "published": "2026-11-17T08:58:36+00:00"
         }
       ]
     },
     {
       "domain": "banglanews24.com",
       "status": "seen_in_rss",
-      "article_count": 111,
+      "article_count": 112,
       "sample_articles": [
         {
           "title": "বিরোধী দলকে ‘লংমার্চ টু টুঙ্গিপাড়া’ কর্মসূচি ঘোষণার আহ্বান - Banglanews24",
@@ -239,19 +239,19 @@
       "article_count": 119,
       "sample_articles": [
         {
-          "title": "🛑 LIVE: জাতীয় সংসদে চলছে প্রধানমন্ত্রীর প্রশ্নোত্তর পর্ব",
-          "link": "https://www.youtube.com/watch?v=BdSKfqAXqaA",
-          "published": "2026-11-18T10:31:53+00:00"
+          "title": "ইসরায়েলের পার্লামেন্টের নতুন স্পিকার নেতানিয়াহুর বিরোধী জোটের কাহানা | Israel New Speaker | JamunaTV",
+          "link": "https://www.youtube.com/watch?v=NokjxDME6JY",
+          "published": "2026-11-18T11:40:39+00:00"
         },
         {
-          "title": "🛑 LIVE: একনজরে বিশ্বের আলোচিত সব খবর | Jamuna i-Desk | 18 November 2026 | Jamuna TV",
-          "link": "https://www.youtube.com/watch?v=p4g__lwrbCY",
-          "published": "2026-11-18T10:01:37+00:00"
+          "title": "বাইপাসকে বাইপাস করার জন্য আমাদের বাইপাস লাগছে: প্রধানমন্ত্রী | PM | Jamuna TV",
+          "link": "https://www.youtube.com/watch?v=WnBeyfaKHjo",
+          "published": "2026-11-18T11:40:11+00:00"
         },
         {
-          "title": "🛑 LIVE: ত্রয়োদশ জাতীয় সংসদের চতুর্থ অধিবেশন",
-          "link": "https://www.youtube.com/watch?v=vioj8VqBB8Q",
-          "published": "2026-11-18T10:09:13+00:00"
+          "title": "রাজধানী ঢাকায় যানজট নিরসনে কী পদক্ষেপ নিচ্ছে সরকার? | Parliament | Jamuna TV",
+          "link": "https://www.youtube.com/watch?v=ZJlsZvKUorU",
+          "published": "2026-11-18T11:35:09+00:00"
         }
       ]
     },
@@ -264,7 +264,7 @@
     {
       "domain": "ekattor.tv",
       "status": "seen_in_rss",
-      "article_count": 97,
+      "article_count": 96,
       "sample_articles": [
         {
           "title": "করদাতাদের জন্য সুখবর, ভ্যাট রিটার্ন দাখিলের সময় বাড়াল এনবিআর - একাত্তর",
@@ -286,7 +286,7 @@
     {
       "domain": "channel24bd.tv",
       "status": "seen_in_rss",
-      "article_count": 105,
+      "article_count": 109,
       "sample_articles": [
         {
           "title": "গণভোটের রায় মেনে নেয়ার ঘোষণা দিন, বিরোধী দল পাশে থাকবে - Channel 24",
@@ -308,7 +308,7 @@
     {
       "domain": "ntvbd.com",
       "status": "seen_in_rss",
-      "article_count": 97,
+      "article_count": 98,
       "sample_articles": [
         {
           "title": "পোশাকশ্রমিকেরা কাজে যোগ না দিলে কাল থেকে কারখানা বন্ধের ঘোষণা মালিকদের - Ntvbd",
@@ -316,14 +316,14 @@
           "published": "2026-11-14T11:25:00+00:00"
         },
         {
+          "title": "চাওয়া-পাওয়া : পর্ব ৪১ - Ntvbd",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE52VENGLUNUMk5UeHZXaGJGZGJndEs2Q0hqeEk2N041Z2lhNUY5czdUMXJrSjU1TThPall0Q05PNmNaNjhCSGk4YVRndUFGcVlWSk9STmVIQXIwdjY5eDVpaW1WNHpBVXY0R1lnNWdR?oc=5",
+          "published": "2026-11-18T10:53:33+00:00"
+        },
+        {
           "title": "এই সময় : পর্ব ৫০১৮ - Ntvbd",
           "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE92TWxWX1BLVGRNalRSUzROM3RnTVRQMjhlUkNtcXJRd0hWeTFfTldCRno3VjBucFBvOVBzNC1DMzZZTlVudDNVRWVoTDQ0cWNYZlBzQTBfNVdpMzlMMW5VMWIzOXpWdUhvN1RfbVU1aTJMM0E?oc=5",
           "published": "2026-11-17T20:07:24+00:00"
-        },
-        {
-          "title": "দুপুরের খবর : ১৮ নভেম্বর ২০২৬ - Ntvbd",
-          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPankydVl5QmpfU25uYXBMWThYdFYwMFJoY0tsS280T0FFZk1la2ZpTndJcGI4ajNXLXVYWGw1Nmg3dW1kQ25FNTNoVmxGTDdEVFROMHJtU1JJX3ByeWhuSHJ2TGFVcmpHNzkxUThHbE1ndkQ4blhOVnZFci1rNWtUOVVwei1MekExZ2FN?oc=5",
-          "published": "2026-11-18T09:16:58+00:00"
         }
       ]
     },
@@ -352,7 +352,7 @@
     {
       "domain": "jugantor.com",
       "status": "seen_in_rss",
-      "article_count": 130,
+      "article_count": 128,
       "sample_articles": [
         {
           "title": "প্রধানমন্ত্রীর সভাপতিত্বে বিএনপির সংসদীয় দলের বৈঠক চলছে - Jugantor",
@@ -374,51 +374,51 @@
     {
       "domain": "kalerkantho.com",
       "status": "seen_in_rss",
-      "article_count": 128,
+      "article_count": 133,
       "sample_articles": [
+        {
+          "title": "প্রধানমন্ত্রীর সভাপতিত্বে বিএনপির সংসদীয় দলের বৈঠক - কালের কণ্ঠ",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBTaXg0QnBMQy1Gal9nRktSN2Rqb3RGQ0pvMHk4ajlsMkpRalIzNmExMXRSd1NKdlA3MDlsTmRFcVNwNVNQUVNMY2lBTS1MV0p4bGdadjlGT19DelpsNnVRMmU0M3BPYW5JNko4X3V3QQ?oc=5",
+          "published": "2026-11-18T10:01:16+00:00"
+        },
         {
           "title": "‘জামায়াত রাজনৈতিক দল হিসেবে শক্তিশালী কিন্তু বিরোধী দল হিসেবে কতটা?’ - কালের কণ্ঠ",
           "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHS1hiYnpsTjhMeHFRcmpEamVuRkNSR1Jmd3NnWUNHYzVyVU5qY19xcmI1Rk44RjNySFV6MVFXcjBlQ0JGTU4tU2Z0aVVMT3l2eFN6T0ppNmpJQW5ZcGFRNW5LTkp6cXN3MURSSEZqXzM?oc=5",
           "published": "2026-11-16T07:30:02+00:00"
         },
         {
-          "title": "পোশাক শ্রমিকদের মজুরি যেন মালিক-শ্রমিকের দর-কষাকষির ওপর নির্ভর না করে - কালের কণ্ঠ",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBkdVRNS2RDZjlqVmxXeVNjdkYzMThXNkFZVk9NenIwdDRkV2p1ZUd2MGk5b3VDSEZfUzJfSEpHazFNS2picEhnTklUaVp5bUZFODFlRHhUbnVmeFVqNFhVRGVIUGdmVzNqcnJvS19wdw?oc=5",
-          "published": "2026-11-18T06:31:49+00:00"
-        },
-        {
-          "title": "বাণিজ্য, বিনিয়োগ ও কর্মসংস্থান বাড়াতে ৪ দেশের প্রতি আহবান - কালের কণ্ঠ",
-          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE01TEtLa0dLVF9jSUs0QmZNdHQxSTFPVHdTX3F2OF9XekJIaUIwOVczbVNBRmJOeUJCSGl5cmI1dkxBU3Z1Q2hWN2tEbGViRXg3c0NJVlc1WjhLbzhOVzB3Njk1cW93ZHlvRm9zMEZUbVhCM1k?oc=5",
-          "published": "2026-11-17T18:00:00+00:00"
+          "title": "বাংলাদেশে ব্যাংকগুলো দেউলিয়া হওয়ার দ্বারপ্রান্তে - কালের কণ্ঠ",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9GQ2FPYnlyMmlwS05SODJaWVJjVDdFblgtLWlxa0RpdXB6NnFYMFlHM19DdmpmSFdRVTgxWE1seXRnNGFoelBVYXZyUzVUZHZsNVlXcU5qN1p4VFhqR09MUEtpVmVITTQwMlJKMEJqOA?oc=5",
+          "published": "2026-11-18T11:25:27+00:00"
         }
       ]
     },
     {
       "domain": "ittefaq.com.bd",
       "status": "seen_in_rss",
-      "article_count": 129,
+      "article_count": 132,
       "sample_articles": [
+        {
+          "title": "দেশের সব রাজনৈতিক দলকে মাঠে নামার আহ্বান গোলাম পরওয়ারের - The Daily Ittefaq",
+          "link": "https://news.google.com/rss/articles/CBMipwRBVV95cUxNcGxZcmlyZGE2SVh6MTNudF9CM19VN3BlX2pULWduSmw2NHVPMXdqOE5qT2lJUE9TN2dEQy1nSzlGUHdQd0Yza2FCVVhIYm8td0tFRWtva3N3cXJfRzFiZjRINEdrS0VRSk9iRVdlZ2FOcF9mYjM3QjNZMXRuMzg5TWVqM1JzTFQ3SXNUdzFnRktXaDhfOGJyWUdpaTNUaTVfem4xV3ZxRGZDSFJ4aERNRVhjeWViRXFOWkVKVTM1MzdUa0VObEZXTXFHNlRNUjhvMXZLZ052bUROTVdpRlg4LUtiWmtPQzdrYnJ0b2RxczVBUklkYVBiMGZ2MDlQX01PcktUNmV0M3h1NFJ0bFp1VktabDB1VnFOV0pWWjdXSmh4WXlMckhpdzlpNDN0MElfem1XOWZhUm9DV0hBUWVBSzlNVzJnQXNuMXBqbGllWHh3a1hLaGUyYkJMOG1pXzhhQTVRT3VwWC1VeENBX2hIdEF6bnRxV1ZrdkZnbDdSajkwT0dENDZRZmJTSHBhc2J0azI3eGpxdEF4Q2NvWW9IdmIxYV9nTXdhTjM4M2k4akRiZlMtUWdpbkVzb2dDSTA5UWloZUNhWVFrZzZYN3JoQ3oxV1NhSmpZVm1MZ01lN1V1bWptRW9MYkYtNzcyM2w1c25ia1lOZ1BrZlJpVEhOdVpwdlBVRHlGNnJMUERMc0lYR29CRGxwV1lhWGNrNlBtZVZvS1Q5c9IBrARBVV95cUxOUzRmcGJ6Y1g5NFFLN1J5MThCUmNpdlNGNmJUOThRU2RwTkVkZ3dQZmpYZ3Y3ZkVNdFZIaXZ6UjMtbFd3b2FxVzZmSjdzRmo5YmxOTmNWQmpRbV9LTTFhR09xVVZhN0lWNHlXRFRPeERtOHJTcW1wcGtVOEFiY0F3QUpvbDI2THpQR2o3X2hsWHhaU1pHV25ndG1zZmkwMF9kVWlpemx0SVNmTUJhdHQwbG1NS3htU3UzdEtBUGV2ZURCdFo2VjU0TTR3UkMtakI0Y0NJUnoxWnB5bzc4NUtKNXZ2WVA1TDhOR2c0bml3MXgtM3k1aG9wMzUtTEFOVDNoRkxKVEU0VDNZQzNBTWVuTVpzRk0tbXQ0OFN3MWh2SVpFSmRobHlfSDl2QUdGZmV1TzdHdERTTGRBdkFEaFA3VTN3YmlfYkI0ODV1NzhZTG5ldkIxV0h3VkRkT20tWG85d3RWSzJRTXBBWWpSWEJkVERGVml1WG1yS0NLaldVNXVtTmJaVWJIWTJ4cnF2YVZJdjVzTm5SVEg4S1pJUmtqLUZLVG5hMlp6VFJtalZ1QUxKaGR6bVNyd3RDWFkzY1FYc2o5b0tSejBVS3dOb2swR1BRZUctTlR2QkJPTWJfbzR3b2x4RF9WT2ZRalExZ2FsUk1hNjVnUzRGdW85eklmdVdLTThyX2NqNGtncXVPMFM0SWZjeEFUM01BRlA1VjRmWWdIUS1KRWtiMzJ5?oc=5",
+          "published": "2026-11-18T11:12:04+00:00"
+        },
+        {
+          "title": "ঢাকায় আসছে ভারতীয় জলসম্পদ মন্ত্রণালয়ের দল, অ্যাজেন্ডায় নেই নতুন গঙ্গা চুক্তি - The Daily Ittefaq",
+          "link": "https://news.google.com/rss/articles/CBMigARBVV95cUxNYmszTnBTQ1hNTlR0QlRsY09TbkM1MDh6dUVrREMtWWdxM2RZaFpXblJJdFhPSzIyUW9wTTlCTF9vcEVpX1BwZGpIUkVpdlBfX2E5b01aRXFtN18wZEtCMTg4dXVWMWxlN0ZrTGZHRm1PTk83eVQ5NGNXU0RwemhIZmt5WWlWdHo4eVkycktEOUhoWGtsVjAzdkpRZl95UEQwRHBuOTVOMG5DWGJkM1RyY3V1MFdlbF84LUk3QWtrWV8zbUZXclRBSnl4UXJvQ0NkQVdOeGxYeDdpaVpzd3ZBQlYzUmpoQUIwQjg0c04yXzVNNVpHQUVTT3B2MGF6Wm1NUnl4VEpNQ3B5TW5kWGNiUVEwRG11RG9OUG5hcWFxNzgwaTRMWVdWcWlrYkJ5TE9zOU1pWVZmQjRLbTQwa1ltd053WXl5Q1NuQWhWOWc5U2o1U3lxYzcza25jTHhrSDlCYUR6NlRXSGx2SHVvd25hZ3JBQlBiQ1QtTnFnb0tsWmtSWVFrQkhMYXkyeUhTaG5Ld0xQSFVabmtOTHlENElOQjkzTUgzVnlOeE5mUUk4TVJBbDFic2c2N3FGcHZJUDZOUFBNM256YzUtOVpYa2RwQS1ab2hoV296NWQ5OHRQLW4tY2xydGpEOF9EOGJJeTRYNVRpbGV0djZ2OFp4X0xyWdIBhgRBVV95cUxQUms2MmNvc1laRjZwMjJDWFEwMnU5ZlVIQzl6MmVZZFF3NHZKZ25BdlFKSE1Gc2tscjlqRUFaaTBXaUhVUW96M1BoWWJhN3Z1VGZ6NTBYdnFna3NMY21sLVFDS1dKTjBSZHBITVNrXzJla2FON05SdEtxN2RaMjJBdkhpNml4Z0xJbUtzek9qV1J6WnJ6YUl2cjhtSzgtalVZMHJCR0N0QXh4TzVEOXdYNlpNUEt5cmdfbnBSbDl2TFc1QmRGZ1ppM3M5aHBvdHd3eXFWMkZMTmdBbjhvQ1dpeVBiNHp3YzRpNnB0T2I3X2hZN2E0Q0o4ZU9HS1kxaGtNMlQyallqZThoZHlnRnFseFpUQlJKTjg5RWxNamdFR29HZ3lDaGdKZFRKaVJRMmpCWE50OWxzRWxXZHd3R1JsRURVa19JZkJzY1hHV3NLVy0xMFBKRmNjOFVvN1N5RTY5UFhib3EwbS0xMllEMTZ5dTJud0RJQUl6eDNqc1JzSHUtanFtRDU5NHhzcENWSVFkejF2UElCLVp2R2hCQmZRQ0dxLXFkNno0MDFFSW5tUUhTa2RTeWd5X3ZyZ2lHV1Jpd3JUUWIyTEhBR3hxaWZrUExjUmNSdk4zLVZnbU9LMzlxbWt4SnktbG02VU52bmJ4dU9IajVTbjZHejdyWmpSa1JQVDBQQQ?oc=5",
+          "published": "2026-11-18T11:12:29+00:00"
+        },
         {
           "title": "ফরিদপুরে কার্যক্রম নিষিদ্ধ আওয়ামী লীগের হামলায় কৃষক দল নেতা নিহত - The Daily Ittefaq",
           "link": "https://news.google.com/rss/articles/CBMivARBVV95cUxNR0ZnNWh6clF4aTMwWF9VNnNicjdvRWQ1YlRFc2xuSDg1dzdMdUIxdm5ZSmVTTFpoaEZHQ1M0LU9QOTRWZW1MTnZVY3ZZbDg4SER6eVZLYW9NZzgxQWtqLUR5RGxfMDFGSlh1eTAydjVMa3pxS0dzNTdnUGRrT2VFWFdyUE13cVJuQldmZEt3Skh5aTY1cUZGbGVHRGEyVm5oamcxNDBDLVhobmtWcl9qNlJYYk92Ukx0bkJNVlpvRjhLUU56ZXA5X3ZaS0I3ZHl0el95U0d2QUNKUWFMU04zeVh2ODluektXMDFEd1VKSjJmUDQ3WTV2Z1VBRU1YOHF3YkJFT3RXTWRVZkNudTZxR0JNd0hIQy1OZU01TExNNzVJQW5fZk9hbDNnbk1BcWNuYWZLSW94S2o1QkxBUFdncVRrTW5DZXBnczRocWZETWI2WGlBZTFoNmdXelZYdHozMVBnN0hQOGRndXRGVEZtTW5GWjBhbm1vS09IMm1qUExRdnZBUy1scDZtQldfQm1lWU5lXzlSRUVsM3haMEVlbEFHN0pBV0kxOTJiTFVOVTJtUFc4emhFTEpfNGdRdUg2TEJVNWhCSEdidkc3dThTWkp4bGhBaDF5a282eHJ1LVozbXp4a3l3a0RKZEhKZWFxWVFOS18wWHF4dzNnNXZYZl9Gd3J6YlRQZDZoQkNRaUg1X0pYZ0pxOEdTT0ZmaldyUGxMMUNtQklfOXR2M1lqY2dLVWVLS0pSbVZYctIBwgRBVV95cUxPVUh4RHFwUW9HWjJlUFctTVI3NXZiSnJDaWthNWYxOWhXTXFvbUdWUk5iMWVBTnRVN1A0QUpxNDdlYTZ6RUhQLTBmUEJiSEVSeXZKY2oxQjFjWTQ4bE9XNjBqMnAySThBNHBqMFlGcE1kLUJ2WnAzZFNIa3c1X2hlR1pLcWt5dGdyekxRWlRNMXBsQlNmTDAyeElOVXBELXpuNTU2VUpoNkE2SlBsWUpZUzVKMTZtQ1FpRlVNSHU2eXhUZ1RkVlJVWjhudXQ0Qml6dHZaRl8zY0ZqYlRhVzUxeTRTV3Q5bzkzQUd5dU4xcGNqYURQQmRXSUdzNWt0aWpoamw3UndYTTRxNDlQN2pNQXdNT2tXV3ZlS0pzcTBqMXd1QUg4TEY3RWoxWndIclBrb0QwSkpUcHBVeVZybTVrRkNOOFlmLXR2ZHRFbGJOWU1hQmJhcnlOSHUwQUtlVkM5YU5OYUNHdjRLcFo1N18yWnNNams5YVBzWUlvbWFISVhDa1VycExzZUxjanEzTk14dTl4Y0dkY1NrNHppVThjTmRuZExTeTY1aXEzY1pVcTVYc3BpVGVmU0pIU0tBYlE1NFBoTEZiWG5XUGRtOHU1LWhicnNualFVdk01ZE83ZHhpRGFMc0tDQVV2eG53cmI1Tk5MRnE4WDFOZDkwb1JLbXFONzhxQUZUQ1o1V3BMZmp0Q3BKSEpPMjJ0aDh1dy1mdi0wNVRMMzRMZmhlZWdRZU5nVGZwUFFNckZieE1uQTNDUQ?oc=5",
           "published": "2026-11-17T17:50:28+00:00"
-        },
-        {
-          "title": "নতুন জেমস বন্ড রবার্ট প্যাটিনসন - The Daily Ittefaq",
-          "link": "https://news.google.com/rss/articles/CBMimANBVV95cUxQS0NxaUxrYkpYdF9LRnZ6N1RmSFZvc1ZQZlViMkNqSnd4dXotNnVnWWVYX2FvRHhjTE9RYVZzRTJIS1JhWVB1Z0lJWXcySExRSzFNVGFTeExaYmJGMTdUcHh5Q2VWQnNhbEpvWFRvdUozaktwV214V0xydHhzWXhUZmU2cHNDemVVY3ZxQkFFb2xzeGdrZjlJRUNQM1pvZzVtdno0ZXJXZ0ltR3pvOUFyREtqS3NvUkJTUHhSQTBJTTQydjIzU1dRa1J2N20yUG9pX054c08zcG5laVVXeURzSzRzbXYwMjFSNGJhRUI1bV8ydVhmc3BtNzY3QW9vejRoOWJDZTlRcm1tYUktUlB6RFFiN04xdkR3cmtyc2ExRlY3YkI0WWVxRE5nU21oTDgxWG5oOGIyMzRpTG5QNzJVVktYQ1BzeXhja1FpcHRnMUNvLTQ3ZTFrOEpiTGdNalpfRE1vR1JmTnpfa3dfNGpSMHBKUHZSRmJpZDc4YVFKalVqVlBta2NETGh4dXlpTmpsRmd3dHdOZmXSAZgDQVVfeXFMUEtDcWlMa2JKWHRfS0Z2ejdUZkhWb3NWUGZVYjJDakp3eHV6LTZ1Z1llWF9hb0R4Y0xPUWFWc0UySEtSYVlQdWdJSVl3MkhMUUsxTVRhU3hMWmJiRjE3VHB4eUNlVkJzYWxKb1hUb3VKM2pLcFdteFdMcnR4c1l4VGZlNnBzQ3plVWN2cUJBRW9sc3hna2Y5SUVDUDNab2c1bXZ6NGVyV2dJbUd6bzlBckRLaktzb1JCU1B4UkEwSU00MnYyM1NXUWtSdjdtMlBvaV9OeHNPM3BuZWlVV3lEc0s0c212MDIxUjRiYUVCNW1fMnVYZnNwbTc2N0Fvb3o0aDliQ2U5UXJtbWFJLVJQekRRYjdOMXZEd3JrcnNhMUZWN2JCNFllcUROZ1NtaEw4MVhuaDhiMjM0aUxuUDcyVVZLWENQc3l4Y2tRaXB0ZzFDby00N2UxazhKYkxnTWpaX0RNb0dSZk56X2t3XzRqUjBwSlB2UkZiaWQ3OGFRSmpValZQbWtjRExoeHV5aU5qbEZnd3R3TmZl?oc=5",
-          "published": "2026-11-17T08:35:23+00:00"
-        },
-        {
-          "title": "ইসলামাবাদেও নারীদের জন্য চালু হচ্ছে বিশেষ পিংক বাস - The Daily Ittefaq",
-          "link": "https://news.google.com/rss/articles/CBMi1wRBVV95cUxNWThwSHlnZENUWU1lVU5NazdYeXVvN1pfTXFnbDh3clBfS0JROXdwcjZReHAtM00tdTRranpGWWpSb245dXNLY25vRXp0RFJBbFNMT0t5a0RMSFVjRjhVdXVjcjAzdmItNmdrN2NnemwtQUdvNmdvWTlkRXZub29feWs0NXdfcWNjYVhqSkdjZkQ2cTd2YjRUUElHeUw3V0hRU2dkYUhuS3VvSE1FNlQ1TlZadHhMdFNUX0w3b29mWUJIaldQSzVsZ3pYWXV0bWVVYU0xcE1JNDNjUFlBaml2OHkzUURkS1pCNjMtMFNDMFVfN2RxYk9OU1dWWFNiUG5DTlpJYUFWRW9Ua0JhbENSMjZhc2FVMXctTHJGZnh3dnhNSjJKR2dhRjV5bHhrVUVNeVNLeV9hdllRTU9wdkF6aWRGMVpmSllrRGt5bkxLMVNac0NsNm9ZLXVMdUpuVjN4VGhIeDViU3d1MlRRLW1wR2ZleHJrMm5EY3ppOXNwclY4a1BDQXFVNVoxQWNRZWU4R1U0NlVCblVwTTBMOUtzZm9sUFZrM2xONnZnQ0hsVE9zb21Gc1pwUDByWFFrMFJYSnRGLVhqUnR3X3FnRlcyTE81TnlvU2Zqc0JMVDRqazB2eWVkcFp6LWRBazBtN3VZMlBsekRwZjEyYWNVMFpFRTJ4RkRISTAwWWxHdEI0T1BTaVRzLWY5NFpqd1hyLURmNTFNcFd3b3Q2Tk9lRzNEZzc4WGRNcnNQSzY4aXBUaUprTUtIRDBGbW9vazZjSEV5TnJKQW5kUdIB3ARBVV95cUxQXzJUNi1xX2NYSUtOSlBHblo1MXVObDd2MEpFN3dydVN5UXZtNkRMUnl0NXNKX1BnRGpReFlMamhpQ2N6eC1wZzVuMllyZnVwcmRfM0wtMndlNTlVN1VzRzZUa05Gak90eG02TXZ2Qm9xMEFnY2R2cy1aRUNwQTlXNzBXb01JZF9YYnRTZEtvWkx5YjlxSnN3Um5sUEtfVVhfOExiSk1RYkVUVElxalhLVEFkMnVmV0VsUXZHRjZ1MUg2TFRTbkRyeWlZWDlyR01VdzZ4NGVTWmNuaURFbjdDZ2s3SURWTFVndzZDbXFJWDFqQS13LVlhaUdSR3hyekN1cHdOZXE3N2RnOGQzaWJ5LVJvZ0EwXzlwU3otcTZiN2ljSlNGQXltREhmQ1NNNXIycGw4S2k3SERwRUlPZjR1eXY3T21tZnk0WXEzZ1dhSVNmVEhYeEtQdEhMcXZvdzdiOXRvWTNWcDltaHhmYWpUSHdON3Jsd0xmM3NEcW1VejBHS3pMM2VxUlgyVDF4Ull3OURxS3FUWTU3cmVjczNpZTlZTk1DQTR6Xzh5M0p0Ylh5S3Y2OWJmYzRNUGlyZ2N1eXNUd3hYTnNOMHpMdjRaaG9NYlE3SjFNX3JOb1hhRDY0dWRRSkRZWDUxeksyOHMxYlJKT0RTWDMwUUNsZEhVd3QwNXRDeVJjNDV0T3MwTWxHbF91eUJCV2l1Z2hQRGVBWHRQUVVGb3FmM0NhWjU3YUxZUE9mbks0SDNJR3BaT1FaSmEyR01CejVYckpuaE1ERFJBNk1VZXpub1Iz?oc=5",
-          "published": "2026-11-16T04:09:42+00:00"
         }
       ]
     },
     {
       "domain": "dailyinqilab.com",
       "status": "seen_in_rss",
-      "article_count": 128,
+      "article_count": 126,
       "sample_articles": [
         {
           "title": "অধিবেশনের শেষ দিনে বিএনপির সংসদীয় দলের বৈঠক, সভাপতিত্বে প্রধানমন্ত্রী - দৈনিক ইনকিলাব",
@@ -431,16 +431,16 @@
           "published": "2026-11-16T11:37:33+00:00"
         },
         {
-          "title": "স্যান্ডপেপার কাণ্ড নিয়ে নতুন উদ্যোগ ক্রিকেট অস্ট্রেলিয়ার - দৈনিক ইনকিলাব",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1sSEh5cWFENXpkNE9uV2Q3WHN5RzlNZm9TZFhmci1tUjNxcXV4ak1nUFhteXRGX3RGYWlPWFMzM3pCb1hqbmZkT1NzVjF3MEV5ZVg4VG8zZkxJQQ?oc=5",
-          "published": "2026-11-18T08:20:27+00:00"
+          "title": "৩৮ বছর বয়সে ফুটবলকে বিদায় জানালেন হুয়ান মাতা - দৈনিক ইনকিলাব",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1mSjZHZktJMVJpMVZ1TENib19xc2VYZGlrVjN2OERWLTVhbi1UZnlrN2JGYlF6R2tGRmxvTVpaX1BWQ0pZU0NjLXJQWE9qUmQ2NnRMa0RpNGVyZlk?oc=5",
+          "published": "2026-11-18T10:35:30+00:00"
         }
       ]
     },
     {
       "domain": "banglatribune.com",
       "status": "seen_in_rss",
-      "article_count": 156,
+      "article_count": 158,
       "sample_articles": [
         {
           "title": "কার্যতালিকায় উঠেও পোশাকশিল্পের সংকট নিয়ে আলোচনা হয়নি, বিরোধী দলের ক্ষোভ - Bangla Tribune",
@@ -462,17 +462,17 @@
     {
       "domain": "risingbd.com",
       "status": "seen_in_rss",
-      "article_count": 101,
+      "article_count": 100,
       "sample_articles": [
+        {
+          "title": "সংবাদপত্রের আলোচিত খবর: ফলোআপ | Follow-up | News stories | Risingbd - Risingbd.com",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBfNFM0OVgwTlZCM29keU9XU1ZESmVyR2lLcmZaRnBwaFpuMkdSU01sb20yaTZwR0FEOURJUWJacERJdjA2Yi1oaFVsOHlVdmNzSmo3UGYtQVR5V2YtZmpndkpmdzZHTGI4RDF3T2xZcw?oc=5",
+          "published": "2026-11-18T05:28:00+00:00"
+        },
         {
           "title": "জাতীয় গ্রিডে রূপপুরের বিদ্যুৎ, উচ্ছ্বসিত স্থানীয়রা | National Grid | Electricity from Rooppur - Risingbd.com",
           "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1LSE5ZTHlqbnprd3pTejZvUG03N1Azd2tQanN5cHJnRGNSWWRLSlcxckxHMVlVRVJJQnZsLTl4WEthclNiTG1XblZRM3RsUEItUnFMb2E4ODB0Vm1aMldsNkhnWDNtRFUzdXBtLWxLOA?oc=5",
           "published": "2026-11-17T12:58:00+00:00"
-        },
-        {
-          "title": "আ.লীগের নৈরাজ্য ঠেকাতে কঠোর হুঁশিয়ারি রিজভীর | Ruhul Kabir Rizvi | RisingBD - Risingbd.com",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9aNXFDQWcyRkNpWThYQmZTSERfZHdENWllalMwbWZWMnlXVkhJNXhrOGZXWDJaNk5scThQWlV6WEVMUWFXT3ppZ0dEZC1kYldSNGZfamVhYW56ZUZicTYwSHpuZFpLSllsMXpDdy1qNA?oc=5",
-          "published": "2026-11-16T12:48:00+00:00"
         },
         {
           "title": "আ.লীগের বিচার আগে হলে পরিস্থিতি এরকম হতো না: নুসরাত | Nusrat Tabassum | NCP MP | AL | RisingBD - Risingbd.com",
@@ -484,7 +484,7 @@
     {
       "domain": "sarabangla.net",
       "status": "seen_in_rss",
-      "article_count": 130,
+      "article_count": 131,
       "sample_articles": [
         {
           "title": "বিএনপির সংসদীয় দলের বৈঠক শুরু, সভাপতিত্ব করছেন প্রধানমন্ত্রী - Sarabangla",
@@ -512,7 +512,7 @@
     {
       "domain": "dhakatimes24.com",
       "status": "seen_in_rss",
-      "article_count": 116,
+      "article_count": 118,
       "sample_articles": [
         {
           "title": "ড. ওসমান ফারুক রাজনীতি ছেড়ে দিতে ১৪/১৫ বছর বেশী সময় নিলেন - Dhakatimes24",
@@ -525,9 +525,9 @@
           "published": "2026-11-15T04:08:00+00:00"
         },
         {
-          "title": "যশোরে জেলা পুলিশের কল্যাণ সভায় খুলনা রেঞ্জের ডিআইজি, অপরাধ নিয়ন্ত্রণে আলোচনা ও বৃক্ষরোপণ - Dhakatimes24",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBpN1IzT0c4aVNoUGozX0lMdVFSQm9HczRqWjBxamVQR2xObEdncTRVT3NKZ2pkQ21NZFByejdiTXZQTnRUSlJ2WHNDLWU5ckJzcEtHdWFoeHBkdw?oc=5",
-          "published": "2026-11-17T18:26:00+00:00"
+          "title": "বাসে আগুন-ককটেল হামলা ঠেকাতে সতর্ক এসআরবি - Dhakatimes24",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE01VFVoSjB4NUFocVUxMXlIck9ERTNCcXFSa2d6eW9sbTUyUm9VM05JVk56VmRma2Rxb20wMHVuWUVEZEFMd25mZURxTmlPMEs4T283N2ZmTFpRdw?oc=5",
+          "published": "2026-11-18T11:25:00+00:00"
         }
       ]
     },
@@ -542,21 +542,21 @@
           "published": "2026-11-17T03:07:30+00:00"
         },
         {
-          "title": "জাতীয়করণ হচ্ছে বেসরকারি প্রাথমিক বিদ্যালয় - Protidiner Sangbad",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5SV1A3YVhrMFM1cmh0Nk5KOFBiVWdVRTRzcEV6Mkk5MnNtOXRrUGU4SmJ2YnNvd1NzSkhDRXB2dzIzU1lrelJ5U0NWbm9IdHhDN29JS3NWVUlHMTFuTmxSeFBULUl6UTFuaEpn?oc=5",
-          "published": "2026-11-14T03:51:47+00:00"
-        },
-        {
           "title": "রূপপুর থেকে বিদ্যুৎ পেল জাতীয় গ্রিড - Protidiner Sangbad",
           "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE50YjIxY3ZtS3VnYVE5dU1icExHTS12TzlqYWVWSEVSVWZCVEIyOE9aZk1PSDBPM0paa3RvdERtNGpZRjRDRDQzRFBuQzQ4WUx4NGlncHRlMl9CT3gxZkxLUFBleWNTRU1HbHpJRzc0TVVqYmptY1o4?oc=5",
           "published": "2026-11-17T18:53:38+00:00"
+        },
+        {
+          "title": "মঙ্গোলিয়ার প্রেসিডেন্টের পদত্যাগের ঘোষণা - Protidiner Sangbad",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBqc1ZlNDNLU3p3LXNXQVdpLV91OUhEMzkyX2hJU29CR2NWbk83Z0VUY0dGUkRlXzgwLWhxdmtIcU1FRjZHek9mQWZZcGQwZEZiYVVLODV0Vy1WeEFxeURFZkI1X1VzNzAtYWt2c3hIV1djdw?oc=5",
+          "published": "2026-11-17T18:53:28+00:00"
         }
       ]
     },
     {
       "domain": "vodbangla.com",
       "status": "seen_in_rss",
-      "article_count": 111,
+      "article_count": 110,
       "sample_articles": [
         {
           "title": "তিন মাস পর ডিএসইতে লেনদেন ৯০০ কোটি ছাড়াল - VOD Bangla",
@@ -584,12 +584,22 @@
     {
       "domain": "newagebd.net",
       "status": "seen_in_rss",
-      "article_count": 1,
+      "article_count": 198,
       "sample_articles": [
         {
-          "title": "JL activist arrested over road fire in Sylhet - New Age BD",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOVnV0ZGRha1JDVjgxUkRGVGs0VW5KSXlpYWJQZThFZWFRX2FQajlTcmNlSUdwdWdtNnlUZGF5d3hwS210RWVWWEhmTjhqSkc2WEtNOWZacWxMV29CMDIyajE3WU50MDJ6NGpSazZGbnBWMjAzNlJTVnF2OFY3U0h4clFRZ1ZNQ3NwYkktTGlRbjMtNUZYVnlF?oc=5",
-          "published": "2026-11-18T09:25:00+00:00"
+          "title": "Forex reserves stand at $36.35 billion: PM - New Age BD",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPekZBT0pVSVB3cDNObDVjelRXSnBIdGY1ZW1WSkNDWDF0TklwbEYzdWtnUUZzaDVLaktIbXpsaUdOZldFUW1wb0E5alphWnJvVTRNNXltaEtSa3pZdXZUMkhlMG9QQTIyNFhQbU1JUjE5Sm11M0ZHdk5CdVFXdEltOFNOa2RyQ2pFNTRQNQ?oc=5",
+          "published": "2026-11-18T11:16:00+00:00"
+        },
+        {
+          "title": "Forex reserves stand at $36.35 billion: PM - New Age BD",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPekZBT0pVSVB3cDNObDVjelRXSnBIdGY1ZW1WSkNDWDF0TklwbEYzdWtnUUZzaDVLaktIbXpsaUdOZldFUW1wb0E5alphWnJvVTRNNXltaEtSa3pZdXZUMkhlMG9QQTIyNFhQbU1JUjE5Sm11M0ZHdk5CdVFXdEltOFNOa2RyQ2pFNTRQNQ?oc=5",
+          "published": "2026-11-18T11:16:00+00:00"
+        },
+        {
+          "title": "Forex reserves stand at $36.35 billion: PM - New Age BD",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPekZBT0pVSVB3cDNObDVjelRXSnBIdGY1ZW1WSkNDWDF0TklwbEYzdWtnUUZzaDVLaktIbXpsaUdOZldFUW1wb0E5alphWnJvVTRNNXltaEtSa3pZdXZUMkhlMG9QQTIyNFhQbU1JUjE5Sm11M0ZHdk5CdVFXdEltOFNOa2RyQ2pFNTRQNQ?oc=5",
+          "published": "2026-11-18T11:16:00+00:00"
         }
       ]
     },
@@ -644,7 +654,7 @@
     {
       "domain": "ajkerpatrika.com",
       "status": "seen_in_rss",
-      "article_count": 121,
+      "article_count": 120,
       "sample_articles": [
         {
           "title": "আমানত-রেমিট্যান্সে পিছিয়ে ইসলামি ধারার ব্যাংক - Ajker Patrika",
@@ -666,7 +676,7 @@
     {
       "domain": "deshrupantor.com",
       "status": "seen_in_rss",
-      "article_count": 87,
+      "article_count": 80,
       "sample_articles": [
         {
           "title": "প্রধানমন্ত্রীর সভাপতিত্বে বিএনপির সংসদীয় দলের বৈঠক - দেশ রূপান্তর",
@@ -679,9 +689,9 @@
           "published": "2026-11-18T05:30:41+00:00"
         },
         {
-          "title": "আর্জেন্টিনার ফুটবল ফেডারেশনের বিরুদ্ধে আইনি লড়াইয়ে মেসি - দেশ রূপান্তর",
-          "link": "https://news.google.com/rss/articles/CBMi7wRBVV95cUxNcWZsWHZ6QW1Qenk5cHFuelNhVkhDVjk4VFh2TXpMM0RfeF9SbkJ3bFlGb0xyd0pLM3pRUUxLdmx5dXBNUkRMYVdudHlNbWdaWXl5MnUzczNYaUNqRWNQQWR3S0NhOG5oRzNydWNhMmszeTFIVnM5aE1QemN4ZV9DRHNSNmRvYWtkd0djVUkxTVgzakJkLXVNOUExTHhaV1VSajlObU91N1RDcmg2RnVUWE9JT3VtQ2dIdzhlSGRlUHEzbGpORXlERVNabGVOb3NXcjZ3ZTVNaTdITEU3THdqYUdkRmNha2tUQ0VJS0FLdG1Na1ZVZ0k5a19iUmtwRXlPTnNpTElqbjIwYW1KaFdUVG0wdFlwd3JEbG5xOHFxc0VSZ2prVlVrOWtud1ZWUnBVMHozdHlaVi00MU9hYWxCNjRsb0hxaHMySXBmS0FHNy1XV3IwN3NYc3Vlc2sxWUVzZzAtWWtJczlmOTlMQkNuOWZKdFB2d003c3BzWWVzNVR0eXd4aUQxS3E4bWdJNFhhNFc3S2ZwV0F1TFF4TV8tQ1BOYVNCSlhWWkxVanI1WUJvcmFlV3FjdUNLY3JhdDNiVG0wT3hRUzA1R2Nfa2k0M25HenBPT2liazJScV9Kd3hYNXI2Q29IMjFLcHVDWU9YamtQNWkyUmVzT1ZpeTZ3cDdFanptcWNHVEhmTGhod01ldDZ3d1ROVDJwcHlOeXhBTXA1TGkwMU9RMU9vdDVjUlBUdVdRTnlJdUc3NHdZeFgza3VrV3Y4SFoxblNyUFduWXplTHlEenhIaEZ5Yl9tMmQ5TW5OUVh5VjYtc3BQMNIB9ARBVV95cUxPYmtlT1YyeWR6R1htWUtILVZPUFNKV1VVYnJLT1NucUNUb1dLcnJ6NFJCOWo5Q2d5YzRkckUyWG9hNnl1NVpFNnpncFhDd21jRXVPVk4tLU53dEhmdHdrRHFwcElGS3l1QVhVRjYyMVV4MTFkdEY4SnF3R3RIOGtYdVdBdS1vYVFqNElxTVBVQk15TU5aeF83bl9EbFE3WU13VnRBX29oYmYwVFRFV3JHWm1ibmFsQ2MzNlliS1RVWFVqTmZRYmI0VVA4UUZJWlB6eXBQTEd1V0tXWHFtZ2g3WFVCWHJiazUxTm15aG1MeEU1bF9wRm5zamtTU1lqdlhYY2E5YUQ5YXVsdWxRcGxXcWRPOHdWbkpJc2FEcFhWVWdyWUZNajg1VXpnS21sc3BJcHg3cXZlZm93TFNkMVMzRXVuTWViUUFJN0prZ29PcVhQV2NSU2FMLUR6Sk5SLU1fcDh4c0RpRHlZcUVrTVhWX1RPOHJZUmRJNjl6S0hiS3AwX3h6NktHZmhrZGtMaTZzNHZoejlyWkp3b3NFcURuejJFRG16ZHNuMGpiRlZ2RThfdzQteHBzXzgydENrVlRib1FSNG5TZXQwWk5LVm5DczhhWGRHU3J4NG9DNlkwNW9lUFpiYUZqNU5VX0dYYzExODdJY3ZvUVVjYzVTLThNVGJNVlNLeTVadmNYUW03R2o1akVYenkyX0ZsdldJRDJBLW1QYlMzWWNURzdjbDIwaWI4ZG0xeTlsOUNhVDFNb2RqY2xydElETEpueTJabHVWd0t6RVllMUxzTVQzdUdvaEU4dURZZzQySTEybEkyUWtUYU1K?oc=5",
-          "published": "2026-11-18T06:17:36+00:00"
+          "title": "টুঙ্গিপাড়া থানা ও এমপির বাড়িতে হামলা-অগ্নিসংযোগ - দেশ রূপান্তর",
+          "link": "https://news.google.com/rss/articles/CBMiwARBVV95cUxPOHpqTVNnYlFoY0lCOE5yZFFZT0FyLUgzTG90RkQzMHRJWnBxUy1TcldZNHBKX1B2Szg3ejRYdFNCbjNUdXM1ZkYyemo0ZnNxMUNsUzAwMXl4OHVoZ1RrVlZMQWtWR2txeWstZkwwSUMxa0lKazc0bzlMOHlXRGV5M3BOeldOM1FKRUJkMGZWaUJsTmVmM2x2LUhCQWNoaVNpNkY5dXlYRlpVc3I3bkhNenJyVFV6a3ZENlpkWEtlcTh5dVJEQWZBaGljZ3V3MWFCWG10OVlkQ0NYbUhmQ2pubUl4alNVX3Z4X0pWLTdTaS1FOG5kU3BFWEU2RXlOb2d5aTFxc3F3dDNRXzJWZW4waHYxRUkwUGJHSFBDcThkckxoQlduOFpDa1BvRDB6MXdPaDk0T2c2dC00bGJybEEtZHVSc21YV2N4MGZDbGF2Y3BrSGtLQzZySUM0c2hfNEZGbTJfVjJ0MUNKTzFyamoxWlVVaS1jbmdUdFRjZGpJOXRsTlFydWhndDlTVWR5ZzlveTJxR1l0NGgyeEU3QUFrU3RURVl2MHc2Y1p6WE1KeUFDcEFwSUtUelFJMVZOTk5yVUZ2bnZRQ0pXZjllOEpWcXh4ck5fRktaTEdVR09GdzlHN18zTVVWQ0IwdmFhNkRrR2RGMkRXaldKbXZnb01weUxWdmx1TE1TSzVrTERXb1Rqa1B1anczeWRweWM3d1B4aWpqTy0xckdEZUF3cy12UnpmQXdlMEpvTk02WlZJLXDSAcYEQVVfeXFMTjNfMzRfZjhReWktRkxITENQZ2NWY2lTNzZBbVpFVjBCVFFmamhuelg3TXVMNGtmOTU0WGRWMnVsUE45SWRvTTBKdEdGWUlXQ0drM19OdkdMWW1oSlExbEJ1QXBUek0wOUN5NS10UjdnaGt0ZGRsOXl0X013SlFYYUJtSUxZVmpxSnRTSjBSQjNJMjRjVzhPMU1OM0RiZEJ1S0M0UmhGMVAtYXVyXzVTX1ZhZHB0UVJPMTlMTDl0b2MyWHlsTHVzR21zNU9qb3owbHJlVlUtdDZVVDc5UlNZQVdieTJ5VE1oeWRDTTc5cFkyNU1iQU9mc1p0VDF2Y2FXUTRxcnliUFNZUEVUVjYwWHdWazdzM1JEZXdFbkdMc2NOVlVZbUdFNjZkeTlIZG54UXhTWlZsQ0ttZFdrbjBUTFFTM0c4cTlaNloweXFGcVFFXzQxUk1mamExZHZtQ05teUszdXZYeGNGVUFZSzNwdzV3NExqdkNmYVp4cXJKYWx2WmdYOUJkcHQ4WVRfMHVxcE9nSkFyaXluS1UzdkNraThWa0QyNEVVT3VON0U2YkdEN3pnaV9kZ2hrMGtrSUN2aU9kYmtPWGNtdHdnMFJPX0E0TUNsbHRSNWNjbUEtUkhyaTdlS0dqaDRvVEl0ZUE3MWE0bzUzUGdJbHV1NVRoVElYWFd4MDZ5Q1VMU2RmUmZ1b1EtSDBzZjFrcUs3VGlPRVpwZjZocDRrVVpSOWk4eTJmZDJQemxKc1dyR1ZhN3FLalFUOFFn?oc=5",
+          "published": "2026-11-17T15:05:30+00:00"
         }
       ]
     },
@@ -693,7 +703,7 @@
         {
           "title": "রোজায় যে ১০ পণ্যের মূল্যবৃদ্ধি ঠেকাতে বিশেষ সুবিধা দিল কেন্দ্রীয় ব্যাংক - Channel i Online",
           "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSzFoUWRubTZfOVdBTGJpdDVhakNMVmYzYnNKVTg2UlBZQ1JkRkJMUTg2T01lZEtGQ21raUZEcmdlUXdZdHV4LXlqcEhzTkY5Y3gxdEJZWVdjdDZFdzQ4ZTJCUm9FR0pFZGRxZVoxRldsYkFhRlhaR1dMY3RzVllDbE5QNWwxUVpKU3ZhM21ob0x5VDhwV2c?oc=5",
-          "published": "2026-11-08T13:39:43+00:00"
+          "published": "2026-11-08T08:00:00+00:00"
         },
         {
           "title": "লাল কার্ডের সিদ্ধান্ত নিয়ে ‘সন্দিহান’ পাকিস্তানের কোচ - Channel i Online",
@@ -710,7 +720,7 @@
     {
       "domain": "newsbangla24.com",
       "status": "seen_in_rss",
-      "article_count": 467,
+      "article_count": 474,
       "sample_articles": [
         {
           "title": "হিমায়িত খাদ্য রপ্তানি খাতে ঋণ দেবে এনসিসি ব্যাংক - News Bangla 24",
@@ -732,8 +742,13 @@
     {
       "domain": "dainikamadershomoy.com",
       "status": "seen_in_rss",
-      "article_count": 337,
+      "article_count": 344,
       "sample_articles": [
+        {
+          "title": "বিরোধী দল ‘লংমার্চ টু টুঙ্গিপাড়া’র ঘোষণা দিলে সমর্থন জানাব: রাশেদ খাঁন - Amader Shomoy",
+          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9tY05kblBlWmRFVHE2SUY4U2dRenpVYkFLeXRYXzg0NFRwSmNfYjdJYzQ5eFBhTm9jMWxyM2ZLTHQ2aHQyaThrLUhQblpvaDMwc0cxRzQyZFdjNWY5dTY5b1U4SGVpUQ?oc=5",
+          "published": "2026-11-18T10:09:00+00:00"
+        },
         {
           "title": "কাপ্তাই লেকে দূরপাল্লা সাঁতার প্রতিযোগিতা অনুষ্ঠিত - Amader Shomoy",
           "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1MV2ozQkNwM0tCaUx0aDBNZ0RtWkZYNTBqSE5UNFVRWV9ZZmtINUZ5M2ZGci1GdkRzMDU2WGZqdkk2bmxVN1NZbmp4UldUSG9Nc281aTREMVNIYTVaUFZNWVRqYno2MlU?oc=5",
@@ -743,11 +758,6 @@
           "title": "সাপ্লিমেন্টারি পরীক্ষায় ৬৩ শতাংশ শিক্ষার্থী অনাগ্রহী - Amader Shomoy",
           "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0wT1VHWjExYVl2ZDVTdWNnS1BEcVM0d0dweG5yUUlEcS13ZzYwZHpfcFBjMXVNZ2xMc1k5Ty10bmdRSE52YjQxZ2N6amZvTE1uU2JlVjJXZjhyUUM4Z1ZGQkttb1dGTzQ?oc=5",
           "published": "2026-11-15T18:24:16+00:00"
-        },
-        {
-          "title": "মাদ্রাসার শৌচাগারে শিশুর মরদেহ, শিক্ষক-সহপাঠী কারাগারে - Amader Shomoy",
-          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB5V2dRdVZZWWZTUk1vYWF4MnIyLUVfdXgtUmFSYmVXRHFTOTZ5U0N1MXVkSlA3YWFzWEN5OXQxR2pMUWNHNmZFMGJQVnZsWnlWN2RuRlVkVVJWbFp6dUREamhNaVRQZw?oc=5",
-          "published": "2026-11-15T09:47:00+00:00"
         }
       ]
     },
@@ -762,21 +772,21 @@
           "published": "2026-11-18T04:31:00+00:00"
         },
         {
-          "title": "সেরা উইকেট শিকারী চট্টগ্রামের হাসান মুরাদ - দৈনিক আজাদী",
-          "link": "https://news.google.com/rss/articles/CBMivgJBVV95cUxPMXlVYjg0UlVmbDMwdlpnQkFBS1lCRnZ0Yk5ZY1M2My1IU2QwcXFNWXh0ZG5iNUpNUkZxNkZYSDhGUXFnV2NKVGI1WURpTTVxQ1lxNjkwem14VmRmZ2RtWENDNUZkQUxGRFBMN1k1a2tieTRPVE9pNUltVXNLY0lWbm8zbk1aTVFLaGx4OU1aUWloUWU1MnpuVklRejNVTDl3NUVBNUNYVXQ1WXNQcjRmQjQ0UnRwQ0ZVVzVEbDNtYXhoQTBTb1cxWFltQngwaGloQmlTUm03ajdiS0p5eXJIMDlsQ0NiRDhXY3EwdnJ0QUpPME1pcU0wdnZwM2ZNT0hMSmNVOXdYSDJ3bG91SmlmUkU2aGhBdlJwZktMWlJScnFUSThuRkV3SG5mMlU5Q2Y5WWdPRUpZaE1hQ2IwT2c?oc=5",
-          "published": "2026-11-18T04:45:00+00:00"
-        },
-        {
           "title": "এক ছেলের জানাজার প্রস্তুতির সময় খবর এলো অপরজনও নেই - দৈনিক আজাদী",
           "link": "https://news.google.com/rss/articles/CBMivgJBVV95cUxNZWVieEVxT3VzSjAzanhGbFpzYVJTbEZ3VmRmOVV3UktzaXpncElQNEpOOW00WjJuVThrcnlpUjZyYWtiQzd5YlNVUHAzUmVYc3BfZTcydENiZlhVN2tCNEFjOWszeFBpblpVc1FzeFZ5YzBtbFpvTWRRdFlLUlF4WS1XQTlDNmZzZzRVc2V0Z1FTX3c1UHhqYVI3NXlhcFNmYkJ6U0p0bE5nb1hrd2M1UjRwVWY3LXp3WGJfN21ycHpTX21MMl9YTlZTNk8ybkdyUk1yb2xaYTZpbFZPZklGZG52WmJNZkp0LXlFd0pZWVczZGpaM1htVDFhTjBpb1RIaHNqZlJ4aExmYzZLTHZ2NUFtOGNDbU1MNkFrOHBzNVdpeTFINW10WkR6S3ctS281bC1ZUy05YkpPUHZWYlE?oc=5",
           "published": "2026-11-18T00:27:00+00:00"
+        },
+        {
+          "title": "রামিসা হত্যা মামালায় সোহেল রানার মৃত্যুদণ্ড বহাল - দৈনিক আজাদী",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE54aEtXLTNxWGg0QUlHUkdOQTlPMFc5Z3lmQzVYcmJnNXVSYlgyb19PTk9kMl81ZGN5WHRLZDcyS0QwaUpma0RSeFJmYmxSRTV0TUhNZksxUm1rQ2dlTERrc0ktcHE3Tmw0aHMwdXhBejV4Nlk?oc=5",
+          "published": "2026-11-16T19:24:00+00:00"
         }
       ]
     },
     {
       "domain": "dainikpurbokone.net",
       "status": "seen_in_rss",
-      "article_count": 144,
+      "article_count": 145,
       "sample_articles": [
         {
           "title": "জালিয়াতি, তামা রপ্তানির নামে যাচ্ছিল জাহাজের পুরোনো পাখা - দৈনিক পূর্বকোণ",
@@ -798,7 +808,7 @@
     {
       "domain": "purbanchal.com",
       "status": "seen_in_rss",
-      "article_count": 57,
+      "article_count": 53,
       "sample_articles": [
         {
           "title": "2026-10-27 - দৈনিক পূর্বাঞ্চল",
@@ -842,7 +852,7 @@
     {
       "domain": "gramerkagoj.com",
       "status": "seen_in_rss",
-      "article_count": 152,
+      "article_count": 148,
       "sample_articles": [
         {
           "title": "রমজানে খেজুর, মাল্টা ও আপেল আমদানিতে শুল্ক-কর কমানোর সিদ্ধান্ত - Gramer Kagoj News",
@@ -864,7 +874,7 @@
     {
       "domain": "sylheterdak.com.bd",
       "status": "seen_in_rss",
-      "article_count": 50,
+      "article_count": 49,
       "sample_articles": [
         {
           "title": "গ্রেটার সিলেট ওয়েলফেয়ার কাউন্সিল ইউকে ইস্ট লন্ডন শাখার বার্ষিক সাধারণ সভা অনুষ্ঠিত - সিলেটের ডাক",
@@ -889,6 +899,11 @@
       "article_count": 124,
       "sample_articles": [
         {
+          "title": "প্রধানমন্ত্রীর সভাপতিত্বে বিএনপির সংসদীয় দলের বৈঠক - Daily Naya Diganta",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5xRUNvUk9nUFc3Y0ZfRU5zMmVGam1JZG5aa0tMSFdHVEdnTFZjTUhVMW1BM0g0VW9wZ0trWFNIQzROczFFVkV3RXpQdlZ4eVZVdjZ5c1dNTEhFMVgxUUtB?oc=5",
+          "published": "2026-11-18T11:03:00+00:00"
+        },
+        {
           "title": "ভাঙ্গায় আ’লীগের হামলায় কৃষক দল নেতা নিহত, তীব্র নিন্দা জানিয়ে যা বললেন রিজভী - Daily Naya Diganta",
           "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1SOC1iYmloN1BqOWlWdE1KaWJ5bWoxM2hnMnVYaDRmWVp3Y2tXU2lyREw4aVlmUVRYZjNodUpENm1BYXc1SDQxYjl4R2g0TURHR3laYWF5NXc?oc=5",
           "published": "2026-11-18T09:12:00+00:00"
@@ -897,18 +912,13 @@
           "title": "ব্যাংকের চলতি হিসাবের লিয়েন তুলে দিয়েছে কেন্দ্রীয় ব্যাংক - Daily Naya Diganta",
           "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1fbTFnTzF6NV93MnBBTHJ3TzZZMEdBOE5iMFFqWnN1OVBoTExsNnFUUDhaZUR0RkNRaExpemJObjl1aE51UVNzLVFhODZJMUx1THRxQVJZdUYxdTBwXzFreUQzX3g4d21WOWVyWUFkX1cyUHZuTVE?oc=5",
           "published": "2026-11-14T17:13:00+00:00"
-        },
-        {
-          "title": "অর্থনীতিতে প্রবাসী শ্রমিকদের অবদান: Daily Naya Diganta (দৈনিক নয়া দিগন্ত) - Daily Naya Diganta",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9GSy1TMzRrcFV0S1hJUk5JRHZDMGVzNERMN0xhLUZYLUNEQ2dJOEN6UHFQWDdqMXFjWVZfYzFaNXBJSnprSnJmUTFTM2NYX1FDU3dBRUxCME04NTA?oc=5",
-          "published": "2026-11-16T15:31:30+00:00"
         }
       ]
     },
     {
       "domain": "bd-pratidin.com",
       "status": "seen_in_rss",
-      "article_count": 108,
+      "article_count": 109,
       "sample_articles": [
         {
           "title": "প্রধানমন্ত্রীর সভাপতিত্বে বিএনপির সংসদীয় দলের বৈঠক - bd-pratidin.com",
@@ -939,19 +949,19 @@
       "article_count": 101,
       "sample_articles": [
         {
+          "title": "রাজধানীর বারিধারা থেকে সাবেক পানিসম্পদ প্রতিমন্ত্রী হিরু গ্রেফতার - AmaderShomoy.com",
+          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE81eUduMTNZN3hKcWxjUHJrbnFobG5CVk1ubDJwbTZmMk95b0lGdFdVdUxLM1dKRGt6UlJKT1FyZHdLTHd2VlQzTlJxRV9nbzFPQnhQRW9hNHk0b3JVUFBHOQ?oc=5",
+          "published": "2026-11-18T07:45:02+00:00"
+        },
+        {
+          "title": "নির্মাতার কু-প্রস্তাব, অন্ধকার জায়গায় গাড়ি বন্ধ করে যা হয়েছিল অভিনেত্রীর সঙ্গে - AmaderShomoy.com",
+          "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5sTFB3LXE0TkZHR3hmblUyUC1tR21kaVZKdktLQlA2bF9jYnBSQ3VvTzJrY2h5UU9FM3FBZmlsMmc4X2Y5ZVdtRTBJaEFuS0llaUE5VEJaRDE4TFo0UkotV0tfLWJxQXdr?oc=5",
+          "published": "2026-11-17T23:03:00+00:00"
+        },
+        {
           "title": "আদমদীঘিতে শ্মশানের পুকুর দখলমুক্ত, স্বস্তিতে হিন্দু সম্প্রদায় - AmaderShomoy.com",
           "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFA1bC1CaV9GQ0IteWxRb3hZODBPUThaT2JOVFVTNmdCMjJwMHVleUJpZHpodnZKRFN5X2NnWWcxVXZSRVRGb2g2VlNBU1ZsUDd4ZDdwME9nQU93VkxYRURMag?oc=5",
           "published": "2026-11-17T00:52:00+00:00"
-        },
-        {
-          "title": "মিরপুরে ডিএনসিসি প্রশাসক মিল্টনের কার্যালয়ে হামলা-ভাঙচুর, আহত কয়েকজন - AmaderShomoy.com",
-          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE41NWlSUTFLYnlCSUlPWU01T05BVDhwOGViLTg0SWFiRE05NWd1UDZJTEVQZk94Sy1xY041cjhfVXhWYjcxcUliTUxMaUJNNnBCM1pFb2k0b0ozbkJjSG5sXw?oc=5",
-          "published": "2026-11-17T20:12:00+00:00"
-        },
-        {
-          "title": "চট্টগ্রামে উদ্বোধনের অপেক্ষায় দৃষ্টিনন্দন ফকিরখীল সড়ক - AmaderShomoy.com",
-          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9UcUljc1FFRUQwdDVLY015dnBBYkVVdTBiRkxxYXo4WkFEOExKNWtOME9idFhMNFZRVlV3Tm91dDRHX3gxN3o5aEpQWlpkWEZWalRQb1p6b1BXVnVySGVOdQ?oc=5",
-          "published": "2026-11-15T21:31:00+00:00"
         }
       ]
     },
@@ -964,7 +974,7 @@
     {
       "domain": "campustimes.press",
       "status": "seen_in_rss",
-      "article_count": 99,
+      "article_count": 101,
       "sample_articles": [
         {
           "title": "প্রধানমন্ত্রী তারেক রহমানকে উষ্ণ অভ্যর্থনা সানায়ে তাকাইচির - Campus Times",
@@ -986,7 +996,7 @@
     {
       "domain": "shikshabarta.com",
       "status": "seen_in_rss",
-      "article_count": 99,
+      "article_count": 100,
       "sample_articles": [
         {
           "title": "দ্বিতীয় দিনেও শাহবাগ ছাড়েননি ১৮তম নিবন্ধনধারীরা - শিক্ষাবার্তা ডট কম",
@@ -1104,22 +1114,22 @@
     {
       "domain": "bangladesh24online.com",
       "status": "seen_in_rss",
-      "article_count": 41,
+      "article_count": 39,
       "sample_articles": [
-        {
-          "title": "উন্নয়ন প্রকল্পের মান নিশ্চিতে ভূমিকা রাখতে হবে এমপিদের - | Bangladesh24Online",
-          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9fQ051VGl1M2stODduZ0NvMzlndnBFNVFUY2tkMzUwZlFsSkplcWUwWk1ScU5wVXVoRDJyczE2REdTUG53aHBFN0x5NW8wSXdIVC0wYnZkU0wySG9TOGtCZ0xzYw?oc=5",
-          "published": "2026-11-17T18:06:45+00:00"
-        },
         {
           "title": "ফ্যাসিবাদ আবারও মাথাচাড়া দিয়ে উঠেছে - | Bangladesh24Online",
           "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1BUG9GTmFsQ1BTS2JEelJIbG9CTmZJbXdYXy1fd3diYlM3cFNpTGY0OGlfaTRMTFA4QlV2VkFEOFhmS3g1cFExYnFvWnpaNjhJbFNIVkhRcG15ZXBYZVZpX0tFMA?oc=5",
           "published": "2026-11-17T12:52:54+00:00"
         },
         {
-          "title": "সারে ১৭ হাজার কোটি টাকা ভর্তুকি দিচ্ছে সরকার - | Bangladesh24Online",
-          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4tVWxUVzhkRDNUOTI3MGdOZWdyY1lTZVRVX2dWQnlzTHJDc2xSMjA3TjlPNFJTMWN5cWFvMGJvam4tR2pmUmdxM0xYSzFhNXptSXhrUGx0blBDZExGeHg5THc4MA?oc=5",
-          "published": "2026-11-11T20:51:33+00:00"
+          "title": "দেশজুড়ে থাকবে নিশ্ছিদ্র নিরাপত্তা বলয় - | Bangladesh24Online",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBWclctaGpicUl5TUYwYXpkcktWZWxNTGJGUnBBYzJxaEx4dkxGTWk5TVFMUUZEN1pPaVEyZ2pnbTVVMzdYRktEblc1blkzQkl1NHNWcWxFM0hiWnh6N2l1MGY5QQ?oc=5",
+          "published": "2026-11-16T12:46:58+00:00"
+        },
+        {
+          "title": "সন্দ্বীপে বসতবাড়িতে অগ্নিকাণ্ড - | Bangladesh24Online",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5iVVFuV1FXQzFfMW9ySkNmaEFxSTh2Qk5SWkR5NXRYYWVYeW43ektZYVRjdVdhcDRGUW96d3dWZGZWbFpYOENwQ0dRSWh6Y25MS1BxVll5ZGhianhySUVKUEZ0SQ?oc=5",
+          "published": "2026-11-02T08:00:00+00:00"
         }
       ]
     },
@@ -1132,7 +1142,7 @@
     {
       "domain": "themailbd.com",
       "status": "seen_in_rss",
-      "article_count": 51,
+      "article_count": 48,
       "sample_articles": [
         {
           "title": "শিক্ষায় প্রযুক্তির সমন্বয় ঘটিয়ে শিক্ষার্থীদের বিজ্ঞানমনস্ক করে তুলতে হবে: শিক্ষামন্ত্রী – দ্যা মেইল বিডি / খবর সবসময় - Themailbd.com",
@@ -1154,7 +1164,7 @@
     {
       "domain": "bbarta24.net",
       "status": "seen_in_rss",
-      "article_count": 95,
+      "article_count": 93,
       "sample_articles": [
         {
           "title": "গোপালগঞ্জে ২১ প্লাটুন বিজিবি মোতায়েন - bbarta24.net",
@@ -1210,7 +1220,7 @@
     {
       "domain": "greenwatchbd.com",
       "status": "seen_in_rss",
-      "article_count": 57,
+      "article_count": 58,
       "sample_articles": [
         {
           "title": "উড়ার আগে বিমানে ছিনতাইয়ের হুমকি, কলকাতা বিমানবন্দরে আতঙ্ক - GreenWatchBD",
@@ -1232,7 +1242,7 @@
     {
       "domain": "unitednews24.com",
       "status": "seen_in_rss",
-      "article_count": 22,
+      "article_count": 21,
       "sample_articles": [
         {
           "title": "চিপস কারখানায় অভিযান, ভ্রাম্যমান আদালতের মাধ্যমে ৫০হাজার জরিমানা - unitednews24",
@@ -1267,22 +1277,17 @@
           "published": "2026-11-14T16:58:28+00:00"
         },
         {
-          "title": "Hasan Major - Zoom Bangla News",
-          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBhMGxYWlczdmFtM2lGMGRiN0V0LXgxOGZNTkhLejFDaE42WHg1NmZCQzZjenFfQjNHdGlyUHJxZTBIOWxocmRsUmFEc0RaaWIy?oc=5",
-          "published": "2026-11-18T03:55:41+00:00"
+          "title": "জামিনে বেরিয়ে প্রধানমন্ত্রীর জন্য দোয়া করলেন ‘নন-পলাতক আওয়ামী লীগ সভাপতি কামাল - Zoom Bangla News",
+          "link": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxQMXlGZ3kxVkEtc3E1R2llY3Q0VmdwbGZRMU5SNzE1RGM4bjdsTTVBemRhQ0hHRUFFZnNFTUh6RGgwZkcwOFVRMmp1SU54ZHFvQ1VHOGtPRlVVczY3akJXbHV2T2JYU3ZrZWNjM2Z0SDNiSDBiNVJtVkFtVnpUejl4djUwSG54ZnMyQVljTGVqS1l0Y1ZNNjJMRnZvbThlR04zTDJZRm5jNl8wOGlkeGhNLXROMXFseENUejJieGJ4clE3a2VWbWh6eUR4X0poemYzcnBpMEtQejNTYndnb1MxYUZDRmd4bXlheV9jLUhkR0Zhc1JsMGpldXlmTHlLWWpBdVV2UWlxd1c3M3pZbk41SldhcHctRndTTGFNUlQ4dXZNNnl2WXlJWnJYdGVuNHhtLWNiSjVpYnNFeGM?oc=5",
+          "published": "2026-11-14T17:06:42+00:00"
         }
       ]
     },
     {
       "domain": "bartabazar.com",
       "status": "seen_in_rss",
-      "article_count": 106,
+      "article_count": 104,
       "sample_articles": [
-        {
-          "title": "সংসদে দাঁড়িয়ে প্রধানমন্ত্রী সহযোগিতা চাইলে বিরোধী দল সহযোগিতা করবে: এনসিপি নেতা তুষার - Barta Bazar",
-          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE0ybXJEMVhsMmJiTVVwUFlLZWVNQUZyVm9KM1Boczc3RDBhZWgzdV9fMkVjdW5YbGVodHdZRGtyRWNuUE84ejdkM3d2dw?oc=5",
-          "published": "2026-11-16T22:06:00+00:00"
-        },
         {
           "title": "এবার ফেসবুকে লিংক শেয়ার করলে লাগবে অর্থ, বিপাকে সরকারি ও নন-প্রফিট পেজ - Barta Bazar",
           "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE16cklvVllBNDhkTTk1czFRNDNCeXZvOC1zRlNrRVA2Vm13Y2hOMFVHV19aSDhVWlZwYlJJQU9tdTYyeFM3N1FGVUc3aw?oc=5",
@@ -1291,6 +1296,11 @@
         {
           "title": "আ.লীগকে ফেরাতে ভারতের সঙ্গে গোপনে আঁতাত করছে সরকার : নাহিদ ইসলাম - Barta Bazar",
           "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9Bc2UxcFd3TXJDQzRYYnFlM0NJUWJyREU5WGFSTjBUY2dIQWc2VTFvd2lxMU14cmplMUl1WHB0LW93R25QbkdtYmN1cw?oc=5",
+          "published": "2026-10-25T07:00:00+00:00"
+        },
+        {
+          "title": "বিএনপি ক্ষমতায় আসার পর ৮০ হাজার মানুষ চাকরি হারিয়েছে: কর্নেল অলি - Barta Bazar",
+          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9Xa1JueVV5VTdnZnk2NzNJYmlBQnd4VE16ZHZuV3FXN045QkdpX0czTGtLbDNjQVVMdzA4bDViSk45LXFIb29fcmpGNA?oc=5",
           "published": "2026-10-25T07:00:00+00:00"
         }
       ]
@@ -1394,7 +1404,7 @@
     {
       "domain": "sharenews24.com",
       "status": "seen_in_rss",
-      "article_count": 135,
+      "article_count": 132,
       "sample_articles": [
         {
           "title": "বাজারে মিশ্র চিত্র, সূচক বাড়লেও বিনিয়োগকারীদের সতর্ক অবস্থান - sharenews24.com",
@@ -1407,9 +1417,9 @@
           "published": "2026-11-17T13:54:26+00:00"
         },
         {
-          "title": "সার্কিট ব্রেকারে সর্বোচ্চ চূড়ায় ৬ কোম্পানির শেয়ার - sharenews24.com",
-          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0wWGZqWXJQT2tVT0dLUnFBYzEwYjJna01CNDQxT1BPRmZOck9uNTZHUjM2U1Y4eW12a2tCMEs0Ukk3TFNFOTNjMDNNanoxTlZMbUw5Z0hfUlRVVVFjZ0E?oc=5",
-          "published": "2026-11-17T13:09:46+00:00"
+          "title": "সূচক ও লেনদেন বাড়লেও আস্থার সংকট কাটানোই শেয়ারবাজারের প্রধান চ্যালেঞ্জ - sharenews24.com",
+          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE44eHBvT3oyMWFGY3RSaUozNnVLQnhUR3RvNGVyT2JlZjlzQ3lfZVR1Mk5jbDQ5MFNkVDQxVUJJdlR3Q2Qxa01BNHh4ZWJMbXVhQWR4U0R2dUt4dW9TcFE?oc=5",
+          "published": "2026-11-17T08:55:42+00:00"
         }
       ]
     },
@@ -1438,7 +1448,7 @@
     {
       "domain": "bd24live.com",
       "status": "seen_in_rss",
-      "article_count": 628,
+      "article_count": 631,
       "sample_articles": [
         {
           "title": "অক্টোবরে কমল মূল্যস্ফীতি, মজুরি বৃদ্ধির হারও নিম্নমুখী - Bd24live",
@@ -1494,7 +1504,7 @@
     {
       "domain": "daily-bangladesh.com",
       "status": "seen_in_rss",
-      "article_count": 56,
+      "article_count": 57,
       "sample_articles": [
         {
           "title": "জামায়াত-এনসিপি: জোটে ঐক্য, ভোটে বাড়ছে দূরত্ব | স্পটলাইট | Daily Bangladesh - Daily Bangladesh",
@@ -1522,7 +1532,7 @@
     {
       "domain": "unb.com.bd",
       "status": "seen_in_rss",
-      "article_count": 95,
+      "article_count": 293,
       "sample_articles": [
         {
           "title": "৫ ধাপে ৪ হাজার ৩০০ ইউপিতে ভোটের সিদ্ধান্ত;দলগুলোর সঙ্গে সংলাপে বসবে ইসি | Election Comission - United News of Bangladesh",
@@ -1550,7 +1560,7 @@
     {
       "domain": "dmpnews.org",
       "status": "seen_in_rss",
-      "article_count": 75,
+      "article_count": 77,
       "sample_articles": [
         {
           "title": "সাফ চ্যাম্পিয়নশিপের দুই সেমিফাইনাল ঘিরে দর্শকদের পর্যাপ্ত সময় হাতে নিয়ে স্টেডিয়ামে আসার অনুরোধ ডিএমপির - ডিএমপি নিউজ",
@@ -1578,13 +1588,8 @@
     {
       "domain": "somoyerkonthosor.com",
       "status": "seen_in_rss",
-      "article_count": 106,
+      "article_count": 104,
       "sample_articles": [
-        {
-          "title": "প্রধানমন্ত্রীর সভাপতিত্বে বৈঠকে বিএনপির সংসদীয় দল - সময়ের কণ্ঠস্বর",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBCMHV1NjdlWm82UVJneW5zMGdPbFFpUUdKdTdrUzhGU0RTOGNPNmRWQlJ0WVc0U1VjM2g5OUdrVGt4TTBKT3hRMlRKWDExRW03ZDVGT1dkcG5WN3RjWldsaFBoeHRSOGQxT0thRWFpRQ?oc=5",
-          "published": "2026-11-18T09:48:00+00:00"
-        },
         {
           "title": "রমজান সামনে রেখে ১০ পণ্য আমদানিতে ঋণসুবিধা দিলো কেন্দ্রীয় ব্যাংক - সময়ের কণ্ঠস্বর",
           "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE56SGVhSlRTN1BNTEMyQ2l2R25pTFdsS1JmcHg0Q0xOM08tb2Nxd1JuRWJoUHNSTkQ2UEhXa0N1LU1GLTQxOERLV21EVEpLRGRCeWxlenJxaE1CUUZ6LUdqSEFHeEV1bS04d2c?oc=5",
@@ -1594,13 +1599,18 @@
           "title": "ত্রিশালে নিষিদ্ধ ছাত্রলীগের তিন নেতা গ্রেপ্তার - সময়ের কণ্ঠস্বর",
           "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9zdG1CTzBBUEMtS3lmUEo1Q1Y3S0haRl9rQzRDS3Q3ekRhbWp0REtORnVzTElWRlJPcklCWTNMX2RhRUhuTzU4ZUdVNnFfR0RnNWVrN3VIcGhFamNQZ3hCTDZmOFc3cUVPZ3NPVXJWX1g1WGhuWmlnLTdqU2E?oc=5",
           "published": "2026-11-17T16:11:00+00:00"
+        },
+        {
+          "title": "ঢামেকে এক কারাবন্দির মৃত্যু - সময়ের কণ্ঠস্বর",
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vUHBTcUxfVHk5VkEwS0tEc2RmTGNwbnBWYWE4c3p6VXJCWFVBQ2tCaFZDM0ExN1F5bkN5WHVZWjN5QjdFOVNvZ2tyZE53bWhTUmU3a0xpc05yZGhZbWJLR1Zzbkx2a3Z6YWg0S0RROEtDYXljWHlLRGppYU8?oc=5",
+          "published": "2026-11-18T02:01:00+00:00"
         }
       ]
     },
     {
       "domain": "arthosuchak.com",
       "status": "seen_in_rss",
-      "article_count": 101,
+      "article_count": 104,
       "sample_articles": [
         {
           "title": "সূচকের মিশ্র প্রতিক্রিয়ায় লেনদেন ৮১৯ কোটি - অর্থসূচক",
@@ -1608,9 +1618,9 @@
           "published": "2026-11-18T09:23:55+00:00"
         },
         {
-          "title": "দরবৃদ্ধির শীর্ষে মেঘনা পেট্রোলিয়াম - অর্থসূচক",
-          "link": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxNZ2F2bWNZUU5ZY1RsZmNOYjQ0VEgtX25FWVJ1MWpkSzJEU09aOXloVldxd09xelhlTDhfeG80dHh2Z0dIZGdSUEJYY2NGMUVqb1ZLUm8xeHNlZ2xkNmdfcnpsU2xrT0NfZkkyUlh1VTZTREg5bEFJRklBRnNZNVQ3d19QYV85UDh2anVpUkF1OWl2ZXF1VnVkVDl5eldmdDgyZjhhQzR2T1VsZWhoUUwzYnh5UzV4bnhqcW9HRl9jdzdfbXlvU0JlVzJ1LWZUY0FBbjd0RTM5WVBpcEMtSlhVR1RuUjRnS0liVXJSRHVmakV1bzZtREhBZFZqb1hBdDhMc0U3d1hRMmhEQWhEbW1pY3FYTjNva0ZZRmpHZEh4emJ4T2VWUjB6M3FWcFc5VWhIM2c0RWNUS1JMSG5GSWIwVlR4NFdTU2luMHNxaUhETEUzdzFFM1FZZA?oc=5",
-          "published": "2026-11-18T10:36:32+00:00"
+          "title": "সূচকের উত্থানে চলছে লেনদেন - অর্থসূচক",
+          "link": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxQdzBEUlp6RDRHTDZXSHdLTmg1dWZ3VjE1V0c4X3MzRFJqbTR1RGxfLUphSVpZR25ITThmc0tmVW9JOVItMDVaTy16dS1FZXdTNUx1MDhpQ3phbGpoYmc5aTZpZkRoSkRqUUFUUkZySGdEa1diR3hKTG5lc1FIUHV3NWVLYnpCa1gxbXpJb0o0dGI5emZpek9MelNLRmc2V1I1aHB4N2dsZ3JHODc2cHpEb0MydUg5Wk16TVY2QzRCcG9qQk1qZ2tkZGFLYWhFVzVNemh5cHNtVU5ZVXFDNzU1N2ZYOWtCNTIzcm83Q2VYd2JTTmRXdWYwY1pFWWxORkk0Rld2N2d1T296eUFEbml4Q0tfbE1SRm1TT3pDbnplaFZMSnRlY0pNNE1aU3pfRDd2SWxRM3Z5ZURwMlBjalU0S2hTMmx0dHZIMzhDbE5HTUNqendBdTEzajloRjhnZw?oc=5",
+          "published": "2026-11-18T05:16:51+00:00"
         },
         {
           "title": "সূচকের মিশ্র প্রতিক্রিয়ায় লেনদেন ৮১৯ কোটি - অর্থসূচক",
@@ -1647,14 +1657,14 @@
       "article_count": 55,
       "sample_articles": [
         {
-          "title": "Annual general meeting of Kohinoor Chemical Company (Bangladesh) PLC - Orthosongbad",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMGNzbWpsdXM2TjItRzJtZk9ERFVYTGliS0wyakFPN2FwRlJaOTVUMzV5WUl2Mncwd3hOSW55QzZQNURtY3IzX19IRVNJR0RmMHJtQU1zc3drUHZKV085YWdkd0FrdHpXYnRRb2t0U3NZLW1kUFp3WlZyZmNJT25hZnRWMDIwQUNkc1BnN2tlQTV3WS1fU01v?oc=5",
-          "published": "2026-11-18T09:54:12+00:00"
-        },
-        {
           "title": "Price Sensitive Information of Mercantile Bank PLC - Orthosongbad",
           "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNR1FkZHhtaEJISnpUN0ZxcFQwSUhaWnlibWRqM2tSaVdsY3NIUXlIR1ctT0NsbHlPRDQzbGdRU01kUkUyazFRcFVudGsySEVTMXQ4cUFNYjZCMkpRblo4NkpKc1FQVDJMRHlYNk5KeVZGMGphZWVnaUJfdzk3dmFMUGRn?oc=5",
           "published": "2026-10-27T07:00:00+00:00"
+        },
+        {
+          "title": "Annual general meeting of Kohinoor Chemical Company (Bangladesh) PLC - Orthosongbad",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMGNzbWpsdXM2TjItRzJtZk9ERFVYTGliS0wyakFPN2FwRlJaOTVUMzV5WUl2Mncwd3hOSW55QzZQNURtY3IzX19IRVNJR0RmMHJtQU1zc3drUHZKV085YWdkd0FrdHpXYnRRb2t0U3NZLW1kUFp3WlZyZmNJT25hZnRWMDIwQUNkc1BnN2tlQTV3WS1fU01v?oc=5",
+          "published": "2026-11-18T09:54:12+00:00"
         },
         {
           "title": "Financial Position Of Aftab Automobiles Limited - Orthosongbad",
@@ -1688,7 +1698,7 @@
     {
       "domain": "onenewsbd.com",
       "status": "seen_in_rss",
-      "article_count": 49,
+      "article_count": 51,
       "sample_articles": [
         {
           "title": "যশোরের সাবেক ও বর্তমান জাতীয় ফুটবলারদের সংবর্ধনা - One News BD",
@@ -1696,14 +1706,14 @@
           "published": "2026-11-14T14:03:17+00:00"
         },
         {
-          "title": "অর্জিত শিক্ষা ও দক্ষতাকে দেশ ও মানুষের কল্যাণে কাজে লাগাতে হবে: রাষ্ট্রপতি - One News BD",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1yUUE1ZWkyWkVhZ1kwOEx3RUZoOU1aTlBKNUhVNlE3cjZuNF85clQ2S21QOXJQMEx4VFdjeENDSzhURlI0X2RrMVhqNVNfQ3JDRFAtczlFb0JFMDA?oc=5",
-          "published": "2026-11-10T12:38:25+00:00"
-        },
-        {
           "title": "তরিকুল ইসলামের স্মরণে সাংবাদিক ইউনিয়ন যশোরের দোয়া মাহফিল - One News BD",
           "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE11VnlScElraTFDSzZMaDRNMHRSZllVcnl4ZVo1TTJucTIyMXJpNWM3STB0b2RwX0FnUF9EeXhfTnNPT3dYY2hNTW00MHdDcHhOdXlQMk1ZSFhYYWc?oc=5",
           "published": "2026-11-14T12:45:22+00:00"
+        },
+        {
+          "title": "আফগানিস্তান-তাজিকিস্তান সীমান্তে শক্তিশালী ভূমিকম্প - One News BD",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5xWUpVUjd2czVJc01QMTRPeUwxd3lra0JUT0xlaDU5ZlltNjRTb3JEcU43UktOam8taVkzTXRQRVZIRDlzRUl6Z2c2QnZfOWFoeGdOWUJB?oc=5",
+          "published": "2026-11-16T04:08:16+00:00"
         }
       ]
     },
@@ -1760,13 +1770,8 @@
     {
       "domain": "bangladaily24.com",
       "status": "seen_in_rss",
-      "article_count": 9,
+      "article_count": 8,
       "sample_articles": [
-        {
-          "title": "মার্সেলে ঘরভর্তি উপহার, বিদেশ ভ্রমণ, ক্যাশব্যাক পাওয়ার সুযোগ - bangladaily24.com",
-          "link": "https://news.google.com/rss/articles/CBMixgJBVV95cUxPSF9SdXZYdWhPZXdJNWlUbjA4T3VVM3Bscl9rTHctVVFqODlsSFFTY0JKNy04bzZYb3F0cXVWQlZVWGpNNzM1YTNLeU5ibGdhZlNQUUFZaVRobFJqZzR3M29vRG9hYlFpT3FYMlFUemFGdGZvRG81Z2lJTFdmcnFTaGRFSV81ZHlRVFFPOFBQRFBTRGdNV2N6U1M5V1ZFYldzX2Q2eDd3T3RBNFFEZUVvalJrTC1QcHVoY21aUGJFZm0zNk9WZXQ2Vzc5Uno4SXE3MzNuS0lNc1dVSFZMdlBYYm12cmMyLXpGSEpQbmVTSHdfVk9xV2F3c2k4UzBUYzJfWVpNUW9wcHVMb1ZBa2lVeVFQSXk4SVQ5MnFfVUNueWJGN1F5clo2WXZtT00zNHJRWVF6YWYtdjBxQ1phd0RDWksxRGZWZw?oc=5",
-          "published": "2026-10-29T07:00:00+00:00"
-        },
         {
           "title": "বাংলাদেশ ব্যাংক ও সম্মিলিত ইসলামী ব্যাংকের মধ্যে চুক্তি স্বাক্ষর - bangladaily24.com",
           "link": "https://news.google.com/rss/articles/CBMixgJBVV95cUxOcGtSUmkzSU9EVEtoYWlsRk8xWUZ0bTNNXzh5Sy1wYW1IY3J2TF8wMjV4M0djUkpXMkt5SUJqenQ2RTNLeVppWnJ2YzJmTnJ0V1VmSTc1SzVKcWZSc09EbDd1N3BSdXNIb0gzYXVocy1tVndqMFZlUW5QNURFVUk1RzNZV3hQTXJfMWZJMWdaeEFMQWY1MlUyTUhCRWNOLV9QQ1BmQUlxdVA1SWdyMzc5bGp0UjI3SFZCa29SZFlRcHZBb0xVeXZ1aW1jUG1QR1U3RWNlal9hRTZfc3Q3cW8tcE43ajRwN1F1aFhuQkJWYjJkVFVPb3lYLWRsMHZpWjUzc0pTNjhTSnJVb2lxY0xyUVJOMkphT3dNd2RzVlZZLUxnbzMtU1EyVm5helJmVDljWlA5V3UwS1F2cWFZTXNVSnZYRVNIdw?oc=5",
@@ -1776,6 +1781,11 @@
           "title": "ওয়ালটন হাউজফুল অফারে ঘরভর্তি পণ্য পেলেন রীমা - bangladaily24.com",
           "link": "https://news.google.com/rss/articles/CBMixgJBVV95cUxOQ2w4dkdpdFMzcmlHVDIwblZreXBfY05RbWhCaHF3Q3kwSEtLSHc5MzRVTWlSRjFEZHJINUNZSFlmYWI0VWJJaVRWc0JQNk1QdGI2YUZzcUFycUZrUE5FTkNCaWlvTFUtRWZuSzBKTE4yd2hfN3g5N0h2NzRKSDNMNk1LWDRmN3g0X2NVS3ZOdGZKN0ZpamlhWWhkRmZaeUhWc3I5ZEc5allPZXp4bElLZEc0b1ZZUU01NGdxc3B2dUVVb1EwQTlQVkJQbGNERE1qZGRsY3o5cWxRWGRoZTZYd0RINlRfMHBmLUcyamoyaEdyZE1faG1SM0QyUzBBc04xVXJNdFhNM3VESHU3WURqNU1kRTNSWUFyTUx1QWtjOTIwRHh5Z2NSNC1KcndNRGtOTkwycjk2UXYtVjJxdkpnbDU2QWlZdw?oc=5",
           "published": "2026-11-05T12:04:40+00:00"
+        },
+        {
+          "title": "ইসলামী ব্যাংকে ৩ টি নতুন বৈদেশিক মুদ্রা হিসাব চালু - bangladaily24.com",
+          "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxOZ21Cc1BQbXpMeFRpck1Cc0VkUXkwaE9LdFRZMEpHNmk4SFg1bU5YYXJhaVZIejNUYmUxWHR2dDk1eFhPY2ZaM3pUbWFHQ3R0RVFXTXNubkk5amQxNWZ4MnYzbldEQ3kxams5di1PNzE3ME1GZ3lLeGtzbmhtTzNtRFowam1HQkprcDd3M0lvY3VYNDJXTGFyc2pYZmVWTGZWdVRYeHdaWWdMb1BjVHBhREpZZlNMN0t3dGIwWHlVNmlncEI5WVFuSUo0WVQyNFdlWElRajIxa3M1cUlFRnhWT1hKbVVaMWNRNkw4MmVTbEVvdlg4V25PeENmN0NXM0lUWFpxalViSTkwQUkyQ3JNdVU4cXZDMjFHQUVYS0pFTXJQV2JycWlDMGpRbzBuc0UwQ0FrRFpRekpCY3hGQWMtSlZNYjdqVnBY?oc=5",
+          "published": "2026-11-04T12:11:15+00:00"
         }
       ]
     },
@@ -1873,16 +1883,16 @@
           "published": "2026-10-26T07:00:00+00:00"
         },
         {
-          "title": "ইরানের পারমাণবিক কর্মসূচির তথ্য দিলেই ২ কোটি ডলার দেবে যুক্তরাষ্ট্র - bbc24news.com",
-          "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5PQ3BrMVlOQlZzN1hVaVh3Rl9wdWpFMHNDT1dyS3l5NzhHbk9rekRobDVZM2VaMzl0MFVFV3NTVzJpVWI4b1VZ?oc=5",
-          "published": "2026-11-07T09:27:49+00:00"
+          "title": "যুক্তরাষ্ট্রের সঙ্গে যুদ্ধ অবসানে নতুন বার্তা মোজতবা খামেনির - bbc24news.com",
+          "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFByMTNWaVMzSVdsVFNlWjdaTUNhS0dlZjZ4QlFFUGhSTm52SmlhdDVlc3pqR29Dblhaak00R1BDMUs5WXNPNjVF?oc=5",
+          "published": "2026-10-27T07:00:00+00:00"
         }
       ]
     },
     {
       "domain": "dhakaprotidin.com",
       "status": "seen_in_rss",
-      "article_count": 36,
+      "article_count": 41,
       "sample_articles": [
         {
           "title": "admin@dhakaprotidin.com, Author at Dhaka Protidin - Page 308 of 308 - Dhaka Protidin",
@@ -1938,7 +1948,7 @@
     {
       "domain": "techzoom.tv",
       "status": "seen_in_rss",
-      "article_count": 84,
+      "article_count": 83,
       "sample_articles": [
         {
           "title": "Tag: বাংলালিংকের ডিজিটাল সেবা - Techzoom.TV",
@@ -1960,7 +1970,7 @@
     {
       "domain": "coxsbazarnews.com",
       "status": "seen_in_rss",
-      "article_count": 55,
+      "article_count": 56,
       "sample_articles": [
         {
           "title": "উখিয়ায় ৮ জন গ্রেফতার, আদালতে সোপর্দ - CoxsbazarNEWS.Com",
@@ -1982,8 +1992,13 @@
     {
       "domain": "ukhiyanews.com",
       "status": "seen_in_rss",
-      "article_count": 76,
+      "article_count": 81,
       "sample_articles": [
+        {
+          "title": "উদ্দেশ্যপ্রণোদিত ও ভিত্তিহীন সংবাদ প্রকাশের পেভেল স্টোনের প্রতিবাদ - UkhiyaNews.Com",
+          "link": "https://news.google.com/rss/articles/CBMizAJBVV95cUxPaDBIY3dZRVc1SFY3akRlZ2ZOMnR1dDZ2ZlRHWEJ3cV91a3FYd1BPbnRQdjMxWGxqVGdWN3lSZ1NVdkNrVlBSN21pQWNDMkNXVHNxSEZNZi1MVGpLdjBQeWlCNUVkX0VxT3hKMjN0OGdyLVJ1aXN1aHNhMmJBbUQzVnF1c2Q2Z3g3WnFzVzc0Q3R0dDFJR2t3V1VXdUZuTFhTUmV5M19TZE5mTlRMazFaNWV1MGpVemQxZERuczlXd2UzNXdrNUMyalJPaEtlbEdodUJOOUxiRl9mcTV3RFREeXc5WFp3V2lwalg4U0xoRUlXb1dZZzdVWm55X3g3UGM5R2xtZlZoZ0dHczY2cURwU0oxWDltbDVWNG44SFNMTWQ0clpkNVI0bmE5eFdCaFVhVWtCLWJ5eERid1Vnd0d2VHotd01sWHMyV0pNNw?oc=5",
+          "published": "2026-11-18T10:51:00+00:00"
+        },
         {
           "title": "20261106_143314-2611060856 - UkhiyaNews.Com",
           "link": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxNRXdodFpCU3BxR1gtY1ZraHFWWjRyOHZEUjVKa2dPbGk3RngwaThIQUJlT3F4ZDNXTlFkT2JoaUh1NHFvc01xT2NwUi1ZSl9JTG1TdGlDQ2FJSmhXdEttT205RGdzSVRoLXNaRTlRb2RFUHVHYTl1SE5YWkdqSEw3bGxETk52YWhxSzJ3ZmZIRUd5S3Z6U3p3V0dBaVRYbHd5dnhRMERaaUcxbGRxMGFCVnVtR3ZINlJxbTJGY24tM3IzMWU1bzhzczd4c1dHNGozQXpPNFIzNDVGLU5VRHBkcHR4aXNvVGxSS1p4eHRQQnZpeVFjY1lJWFE3X1pLS1Q2TlI4MGs0Zk5rWGZVVnFvZUp6LWhLMmo4V3BQdWphamVsUXcwRUxNbkd5YUZKejRURjZZRHNMLUhOSHlDcjMxM3ZMVjgwWEhoa0h5TXlJOHh4R0FrR3BNeFFWenVlNENDWkVGY2xpM2ljVE40ZVRR?oc=5",
@@ -1993,11 +2008,6 @@
           "title": "১৯৭ কোটি টাকার নিরাপত্তা প্রকল্প অকার্যকর, ঝুঁকিতে ৩৩ রোহিঙ্গা ক্যাম্প - UkhiyaNews.Com",
           "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPNW9sRk9DRG1ONHJCM2pyYkFvMmpEdS1GakktVlM2UUJpQjd5ODRSVEpDUXRrZ3dxTndyMHAtak41Sm52WlpYVV9xUFduRHZiUHRFVTBrendHV3pUMnlpWUdrU19DNjIxWTBQU2NjdzFKdjVxUHYtZUp3c0VLSC15Z2JiSkFtNlczMjcwQUJZcHZRUFVXQXJOUnlaSTFOSG15VS1JdkNaSDVOVV9Yc2lDcUFaUUQyYzctY0pXWmhSZWlJV3I1Ti1EMXJpc2xzOVhDZThGNEFaeklPc3ZkNTJ2LXl6YjFhcnZqRzFTUGtCNGZvUG1nc1BQMlY4NnBMTTFGOHRKYzd3clhVZXd0WjRmcW9hZ1FQbU9LME9uV1Q2TkhjWGduc1l2T1pZVEJBTC0wSHVzbFl6YUZQT0hrdlhDei1R?oc=5",
           "published": "2026-11-18T02:05:00+00:00"
-        },
-        {
-          "title": "দেশের ৩১তম গ্যাস ফিল্ড হতে যাচ্ছে কক্সবাজারের ইনানী - UkhiyaNews.Com",
-          "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxOSUJOQXA3WGdXejNkMFJHOHJrclIzSGJJUlgwVnVoUExZUm9McG45cXZjY1lpMHZmTklmYm5XcUFacFRlRWF4SGNyRlBMTHJwYVFROXUzVDJWdXZNNzlYODI3d0JIRG9iNTlCREJzVEVVbGdYU3FUUjY0ZjJWVlFNMG1HZDU3cThWVFY5YUtTbXN4VkhoV0dCUWp4VDkwb005bGdtMnJWaHRuSEROZ1ptVEM1eFBqUkxpX3pKZ0ZrYzdsOFNGN3pzdGdLQ0FQNHJHbndJVWVTdEZZbmY1MkpFTmxjR3puT2hmU1lXWTRBeW0xaTFNaU5QclZhR0ZRUzNwcDN5bllCaXpoM2VXR0dieXB2OE80VFR6dTFHVGJYZ00yaFJ1X1RnRHhrWGFoRklNY2txdDczc3ByMzNnZ05XOVVCQQ?oc=5",
-          "published": "2026-11-11T13:31:00+00:00"
         }
       ]
     },
@@ -2032,29 +2042,29 @@
     {
       "domain": "rajshahinews24.com",
       "status": "seen_in_rss",
-      "article_count": 55,
+      "article_count": 54,
       "sample_articles": [
-        {
-          "title": "১৪৭ তৈরি পোশাক কারখানা বন্ধ ঘোষণা - Rajshahi News 24",
-          "link": "https://news.google.com/rss/articles/CBMiqwNBVV95cUxQTWVNRHJfUXFZVktIc0wxWDBvSC1EQWlUMGQ1REo4d0ZyaUxXZzFTbzFxaXplNXZraEwzcmVtZ1FVeWR4WnIxSnJOVlVFWkg0R1FMZ3VnTThkYUdCb2dHSnhsNnY2dHRfTEFoLXRaSmVqWEJKUE9ac2lzclNrRWFJUWFjUVE3Y1Zickg4TE02akxIWHhJWUxrN2JQekVHLUw5X1JtVmhXdlpJTXhDS0F2X2pNdDEwYW1XQWdJaXpscDNSNU1BYWt6dW1ydXdNM28yYUhfWFpTMFJBN1c2aV9rcW1RNGdtTUc1LUs2c080MUhPUmNpSnFtNENWSlRaTmdzSTJBWHZISjRwTks0aWcxX1ppRW9UdlBEWElaTGc3TFRHMktnRlhmQVhaN1RfeTZOYW1qdkcyWk1vcGpuRjNMMDBFTUtGUGZTWWhlZFJMUlo0VGJhQmZqLVZoVmRSeTBTVHBLVzBsYms2bmJZZDhScS1Ub2hpWXNJWjlIMkw1endZSklUNWw1blp3RXdZVFNoNW1Bb1lGcjJfalZldURuSU9TdnFQWlI4cEgw?oc=5",
-          "published": "2026-11-14T12:48:26+00:00"
-        },
-        {
-          "title": "বড়দিন উপলক্ষে ৩ কোটি টাকার অনুদান দিলেন প্রধানমন্ত্রী - Rajshahi News 24",
-          "link": "https://news.google.com/rss/articles/CBMihgVBVV95cUxQQ3ByMUJ4UzJhc1F3alBubU14SFVVbkU1RWZOX3h2ODFEMzNrZGxSWkhGRmxpRUdjLVVnMXRTeVJIZVI5aEp2aE53RDV5cGNBR0xPM09lS3JRTl9fNWVhbEZZb2RZVUtQQ3FEdzY1X3JnUTlVSW15a0hYR2JUVjZnYnhYUE8yaUFYX1UtakNqQnd6SDVTRVdPMVAxTV8tQTFqLXJDSWgxT0NVYi1YWkI5cjZqTHNkSmFTakY3UlB1OEFuS3hVNUI5QTA4Z2p6UmNqWjFTQVJoTzBjamhLUmF2aVpjUnZ6elljbnRISm9mUHowWHd6R3kxQW5LdDBfVFNobkU5aEItdHhoOXV6VDRIYTVhUERad3pzNzN1QXJzcGJJcGlrZlBCRVZHS1lnNEV2TUVoVGxPYldOMk54QkR1eHBWZDgxZG43ME91VGwxZ051U29wY2dCUWRqSUFFeU5STk5nNmZwUFZ2cG5FMmV4TEM5WXVjRmgxRlF6NFJkcFlQLUt4MGdYQWN5dmdPNHBVbXdVNG5zcWdFdkpNRkItaGdGZm5sbzViWkVVbDdROUJnR1VNR1hqcTl6ZWxXUEVqVnhBVlFJdzQwNU8zV3RQVGl6alJYRG9mWkllb08zdUVKY1ZIOGR3MXlJV1EyVnpvREZfd01xclh6d3pQZWZnM3dXRjlfSzI0UUtOOUtkOXd3X2hSSkJWSURWd3BMb1FPUDZjT3dLWGdtWEdTcVQ4ellUZS1UZmEwSE9QckI5SVhpMzJzQTd1aEtDd3h0OXdvOEVMMklyaHRhd3d6SnVKRUt5bGdOc2RMb2ljaWlGX0xvSHRJOUZJeEc3RGtRc1d0THd0bmJR?oc=5",
-          "published": "2026-11-17T19:07:09+00:00"
-        },
         {
           "title": "গোপালগঞ্জের গুরুত্বপূর্ণ স্থানগুলোতে ২১ প্লা`টু`ন বিজিবি মো`তায়েন - Rajshahi News 24",
           "link": "https://news.google.com/rss/articles/CBMiiAZBVV95cUxOLWhRYVRHQ3hLMFZ2Mm82b0RoWHY5UDkzQ1hYMkRSenhEbDAyUTlHUFZkR1VobGJCLUlBZTRxY2tLX0lWZng1cGtPMzVIdkYzOW9ET0toM0RRTTJ1WHpQWkNhQ0FEc1Y3YlVndTZRU20yUm9GY2JhOW5DZ2xaanlIaGxKT3VncjZjc2ljOXl2SHlEazUxOGtlNTJmbmlnbTVETEVTRi1pTUhqY3h2S05OLWdlLUZYeEQ3dk9IbG5BRGw4NlF5Q1lMYmNRSlBDRVM5Y0JaN3RRWk5UbVpZX1poQlBFeXVDaDZtTGN4VHhXeGVzTXYtbEtZQ3BRMDMwU1VBVk40SUQ5aTJvVFRVWUItcFNQdFJyckx5VmRPNVJhajAybmJOeDJPeFFFaGNlS0hrb3Z5bFIzeFpJZ3ViXzJhT012TFZFTWZteHlJeU1tOEVpaVpiSDRiZEEzRFR3T2d3ZlBhWEJ3UGQ2T2xnNzJVTUlxQ0x5SFVZOGFTR0c5V1l3aWxrY2xlcGpqNGl3UnkxbEtsQm1TN1dzazU5dGk4MFl6UUpvU09IRmxQaW5JRUx2b0YyOGl3aVhPUmdOcTcyY29jbXZwY2dXUHJHTk1VRmdUNlROUXJENjU3Z0ZQRm9jbmh6eHBLUVM5SE45bXdSYUNXcjZneFR5RFE5TkRjdDF2aVctVTM3Ry1IWkRUZks3MjIxNW14ZVpfQTZ5ZXRxMHhEWUhIZmVkY2tJUlNZWEVtTGpZZm1qczN5b2c2WGtLbncxeXNkUnRhLUg5WjFxdTIxTGJyZ3dGeFdWcjBUaFQ4X0c3YV82V1ctc3BDOEtWdW1PZDhQOGtpbldNQnV0WG1DSmVlNDdlcFFjUWhTTWdvTWdqaW84a1dPZ3BjV3dRR0cxTUpKZzgtQlIwaTRKSk54T0NPTmFJX1ZsSVhDN243WVZmY29UQTV2cTRoc0NUcU53OGRZVE91YmMza1YxUGg3WWllMl9pUEVvX3hwLXFnQmJlZ3YyTmRQUTg4NHhTTmNsRGx1aA?oc=5",
           "published": "2026-11-18T05:04:02+00:00"
+        },
+        {
+          "title": "এইচএসসির সাপ্লিমেন্টারি পরীক্ষার ফি নিয়ে মাউশির জরুরি নির্দেশনা - Rajshahi News 24",
+          "link": "https://news.google.com/rss/articles/CBMi_AVBVV95cUxNTE52TFl3R3Jiaks1cUx6VUkwSWhHODM2dGh3Q0dyVFJncTJZdGlWXzdxdjFYcGNkQ0JfWnlsaTNxNlNJVFdvVmRRVmQxSG9WanZiNG9vaV9TRkxyTzNRYTU2djRiWUlZLXdLdGJsb1RWTDU3MFY4bmFDQTN2Sm9tYkdPWXoyeXE0Q0VnZ3lXNmpDZjlFXzhIcC0ycWhncEp3YmNqd2RsRGdzX1lUTDVWZEl2Q3E0VVpncGo1WHpRVUp0cERPOUJJYjh5S3pYNWRYdDFfNDBTdXFYRlk4RXZaMjdpd3RCWnJXdU1kYzhCcVphSHZST0YwNGFidWdub2o4WHNIem9CdXJQanFaa2N2NnQ5eXVMNlNqbVRQZEVXbF9CTjhXLVFnaXN3UVBSRGp3amFSUFBBM2d2emFWVmliWVVDdXdLbVNfSm9IaUNCWkFHLTlqSWZrNjFfN093YzhORkJTZHpUYlVRVlhiV2oxeFlfSmF6NXUyZ2lFX0xoWXNJb291elV2ZHhJRFgwTGZBUXFTbnR4T3JzWXc0aG1aU19NM3JOX0tmR1pBQXV4UlhOSFQtWV83YjJIcy0xeEF4Um5RRGVyLWpmeGlyQldBT1dqZmdnelZJWHQzbGJpV1BvMXpFMnhNUFhZZ0Nja0h6ZGF1YXZ5R0MwNnNNUjNRYU1iaWlRSHd4ZzhnYl9OMlR2S29vOWFMM3ZLdmxvLVkyVkI5Q3JacGZ1eS01dTFiNmxrb2FVaWRONW5FQk4wNUpHVmJmWmplcE53eFpveTJtMkxwc3hRbkRYUEJzT3JTcGJsbGRhX1ZydjVoZFlrNVRtZ2pBdHBvY05WSThKeXgyWWttaUo5RHJtekpsMUo2Y29lY0pZX0pnVk1DVXZERS1uMUhvWW91UWtGQXBVZDFMS0JDTUloUzFIbVJNaUg0ZHpvdVJjQTNNQ0dlU2g4bHhKOFVJSHQ2X3ZnSE1aRDE3LU5RY25aSFJyRDYwb3RvVW11RE1uNG5vcExRRQ?oc=5",
+          "published": "2026-11-07T07:07:31+00:00"
+        },
+        {
+          "title": "রামিসা হ`ত্যা মামলার আপিল শুনানি শুরু আজ - Rajshahi News 24",
+          "link": "https://news.google.com/rss/articles/CBMi7ANBVV95cUxNRWh4SWR2dXpaU1BCbFRUMmxGNkRDeG9XRTQ4ZFBVdVAyNS1CS2JvbThJbkFYMU9WZk92RG53cnZ4U1g5blJKRVdJcnRFWm5tcEN3Q1lyWXRzOXhuWXZKWWdaRlJOODFJMkR6MVpzNEZpQjdoNllwOUI5Mkd4YTNhd3hnMFBTQU5GeTV6TXM2dmZDemx1bGJGRjNJUUhhMXh0MG9TUEVrcUlDQ3dtN1RscmxRWk90V01hdGQzeW1JRFY3SXZRczFwamVucVo3bFVpbW1iQlVVTV90ZVJCTWt6aGlPQVprVFQ0ek05aXlTZFZhOTh1REJTT2RtaXlKdWFhUzhxNnZTSUJPNWFHdmE5Ymh6eE04OThzYnBFZGpfLVJGblNqRGwtcWlEd2VnZjh1VkhMUjJuRk1fWVViUkN3S0o0STRORDR5QXhnNTlsR2dXdXhrZXpaaThnTmdEcjFtbDZVTjIxS1JsYVJtVXlVa1l4c3QyelZ2THlwZ2picWg0a0ZCOGRuZ1hDajBoaGFfaXA0NEw5OFVERTk1cld6TlA1N0t5MllONFRndUlZNk1yT1VxY1l5WEtiU3FxN0J3Yml1RU9OeWJDZkszZG0xcHNzRzFsZG1HSWdGb1BNblBYMDRkUGdKN1daVWg?oc=5",
+          "published": "2026-11-16T05:30:51+00:00"
         }
       ]
     },
     {
       "domain": "chattogramnews.com",
       "status": "seen_in_rss",
-      "article_count": 239,
+      "article_count": 243,
       "sample_articles": [
         {
           "title": "চট্টগ্রাম-নাজিরহাট রুটে কাল থেকে শুরু হচ্ছে দুই জোড়া কমিউটার ট্রেন - Chattogram News",
@@ -2082,7 +2092,7 @@
     {
       "domain": "karatoa.com.bd",
       "status": "seen_in_rss",
-      "article_count": 111,
+      "article_count": 110,
       "sample_articles": [
         {
           "title": "সাবেক সেনা কর্মকর্তা মেজর আব্দুল হাফিজ গ্রেপ্তার - karatoa.com.bd",
@@ -2124,21 +2134,21 @@
           "published": "2026-10-31T16:16:08+00:00"
         },
         {
+          "title": "মারা গেলেন মডেল-অভিনেত্রী তুলনা আল হারুন - ajkerjamalpur.com",
+          "link": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNNHk3c00xbUNwcTk2VjM0Q1FHc083MlNKcHo1akFYa0Q5VG5CTUdkYUZOa3FQYVZvZ0NJS1dWdlQyWk5MTWlfWmRsUk4tTENxSVJXSTMtbl9xaDhzM2xVR0I1aVZKajdUSGJLT0pKOENfdDhNQkFhcTByWkkxV3FmTlpEazF5X3dHQU5nVW9YbGcwcWcxbmRrSFdiazdLNV9mNzMwdnExV1kxWVQwNlRaMHNySmZfVEhIdnBJUEJYSlVwT093VmNXZ3N5d0xKZzZyVUQzRUU0U2ZOMkhlOGx2bWtXUERfRkYwODROTUtTX2RrQ1Yzbm5YNElrTkFzUnhyaG9YVlpnazVSaHZ0MWpnVThncUtlZkxneEZ0cE80YTZVcmYzb1BfQkhxYlQ5UXJFTnFoMS1qei11b25xSURpTA?oc=5",
+          "published": "2026-10-24T07:00:00+00:00"
+        },
+        {
           "title": "অবরোধে স্থবির সাজেক, সংকট নিরসনে অগ্রগতি নেই - ajkerjamalpur.com",
           "link": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNSlUwOFN2MUhnbHhsUXZoSnVUZW81MHhBVnkzb2Y3OWl0NTFqcXpQVkhub0lKbzZ2bzB5d0UxWlpORjRTdGhEM0Fjdy1RUWdIQXNKWlBrQzhSX19ycXplS0lXOU51bUo1WlRBOTltRHlWa0RpOWJiOGFpZW0yNkZVbXY3QXl2dkNid2tZcnczZU1XZjhBV0t1N3lUWW0zUzI2M0NsSXdjVWpHV1p3UTVvVkVvUnk3QjB2b1p2OEszWmVGc29rMDJXaXhYLXBMYk52VV9EbzJxQk9LQ3drNDBZUG9oTlZSTktzUUpJSE5BYkdvdEFvMVdidUZKZTVSUWh1bTB1OHZkOTRJamExZmQ4cWNoN0hsdzhuX2w0bU5zQ0JvNTRCMUJKaVlCZV9rc19PUFAwbHM2Tnk5bmtfTkJxMw?oc=5",
           "published": "2026-10-30T15:25:00+00:00"
-        },
-        {
-          "title": "জামালপুরে জাতীয় বিপ্লব ও সংহতি দিবস উপলক্ষে বর্ণাঢ্য শোভাযাত্রা ও আলোচনা সভা অনুষ্ঠিত - ajkerjamalpur.com",
-          "link": "https://news.google.com/rss/articles/CBMivwJBVV95cUxQcC1pUHEyRGZ0ZU5FVnk3SzMzbjRQdGZxTThJb2JfaGxuNlFaeTFYMklCU19ZYkVoV3I4TzhyWDBVM3FkWm9aTDRFeFlrZ3ZDT2NGLTQ2WjFfbndKNUdIQ2hUYWxZOTVKSU9Iblp2NnBDY3pNbjBVTWJZQUQ1R3JWeDhGOTg2M3AwWkpmQTNuanNrY2pqbF9DRzdQeVpyZnFLQnJsWTFZQjh1TzlzdFl2a3J3QlkwTVJGZVZjaHBwMWZiV091VGprS01vbG81cmZ1QUlzQkdza1Y2RVhpcUJlQU1Oek9iVnQ0TnNMWmZOSVZaWFBXSzJqUU5MeDc3YkZwWEJpNXp4U1B0MkZvOXgzYjJHQ29LdUNfUXVoNDFBWnNJUVc0UHAwVEU4ZFAtOXpNYWktUE9SZDlVOHVGYlRV?oc=5",
-          "published": "2026-11-07T16:11:58+00:00"
         }
       ]
     },
     {
       "domain": "amaderbarisal.com",
       "status": "seen_in_rss",
-      "article_count": 75,
+      "article_count": 73,
       "sample_articles": [
         {
           "title": "মেহেন্দিগঞ্জে ৯ মাসের অন্তঃসত্ত্বা স্ত্রীকে রেখে নতুন বিয়ে, নতুন স্ত্রীর আগের বিয়ে নিয়েও জটিলতা। - Amader Barisal",
@@ -2217,9 +2227,9 @@
           "published": "2026-11-15T10:56:34+00:00"
         },
         {
-          "title": "মতলব দক্ষিণে সমবায় দিবস পালিত - Chandpur Times",
-          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPRDd6eUZScm1zNzBtQ2UzTXJBVmprc1NxeFNIUWpMRTBZRnVGVUJkWWFIYWNmLXlJZWJhVWNEanZTNXpKUERaWTRIdHo4djQyUFBFQmgxNDZsSFBpOGFRbUctOXdYeE9sb1dBVkk4SGlQS2dTYXdjWHpvS3lWTUpQQ0xpWGpSZi1uUzhhQmJEVHJyblM1Zk03ZGtqRXl5amk3cWR0YW9XNjBEV2M2VlVuOFQ3Q1lkT04xekFpWWpNMFZSTGUzUVZHQlRaRmFKelNNcXp2NUFSUzV6ZzRITTU5M0JyZ29KVmRPTVpfOUNoRHFMZUZEY2hDS01yWFFHYjBTbzFJ?oc=5",
-          "published": "2026-11-08T14:36:45+00:00"
+          "title": "কচুয়া উজানী মাদরাসায় অশ্রুসিক্ত নয়নে মুহাদ্দিস মিজানুরের বিদায় - Chandpur Times",
+          "link": "https://news.google.com/rss/articles/CBMimwJBVV95cUxQbUFxZU1fd0lvQ3ZqX3NPOXluTU1IVmtqTzdub0ZNc1RET0FnNzJmdzY1MlFFQTFvY3RRRDk3a1IyMEJxci0xZkl0M1M0Q2E3N3RNNjZFT2xTQ2NNNjBRWWhqYVVVb2R4TUhobEd3MFV2cFU4Tk1pM3d1elg0N0ZzLWl1SEo1c0tFSXNTaDdabzhUdDhISUNhYy03UjFmR2Q0end2blJvZGlmcWZUVTV2UHFyeDNMcFJPUy1YUHhaRUxSeXpaczNNS1ktc0E3T0c4NWtaN054S29XWGoyaGF6Q3NzN2xyaVpEYW5XcUJNVW9nUnB4RXljRDlDR2xvcUI5SFlIRlNpd2YxYnJKblBFTXV4Yngwbjh3MEkw?oc=5",
+          "published": "2026-10-20T07:00:00+00:00"
         }
       ]
     },
@@ -2232,7 +2242,7 @@
     {
       "domain": "bograsangbad.com",
       "status": "seen_in_rss",
-      "article_count": 56,
+      "article_count": 57,
       "sample_articles": [
         {
           "title": "Print | বগুড়ায় নারীদের জন্য বিশেষ ‘মহিলা বাস সার্ভিস’ চালু - Bogra Sangbad",
@@ -2254,7 +2264,7 @@
     {
       "domain": "rajshahirsomoy.com",
       "status": "seen_in_rss",
-      "article_count": 98,
+      "article_count": 99,
       "sample_articles": [
         {
           "title": "হুইপ অপুকে ফুলেল শুভেচ্ছা জানালেন রাসিক প্রশাসক - Rajshahir Somoy",
@@ -2330,21 +2340,21 @@
           "published": "2026-11-17T14:00:28+00:00"
         },
         {
-          "title": "চকরিয়ায় আগুনে বাড়ি পুড়ে ছাই, ঘুমন্ত দুই ভাই অগ্নিদগ্ধ, একজনের মৃত্যু - Chakarianews",
-          "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE4yZ21reXpjWTUxRE5VZVRmQU1Ea2xwaFMxS09ybTE4Nm1VRkNPVlBrQ1MyOXRqYWtscnZianpBaktGU3BSX0NMb3Nn?oc=5",
-          "published": "2026-11-16T16:04:24+00:00"
+          "title": "চকরিয়ার উত্তর হারবাংয়ে বন্য হাতির আক্রমণে প্রাণ গেল ছৈয়দ ফকিরের - Chakarianews",
+          "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9Tb0NqYnNNbFJKd19xaXpYclFWRk4zNFZnbk5DZUtwSk92aEJ3QTk3cWVhS1lONHFRN0k4U2w5SUZsS2tiT1dVV3Zn?oc=5",
+          "published": "2026-11-15T07:39:31+00:00"
         },
         {
-          "title": "চকরিয়ায় আওয়ামী লীগ, যুবলীগ ও ছাত্রলীগের ১৪২ নেতাকর্মীর বিরুদ্ধে সন্ত্রাস বিরোধী আইনে মামলা - Chakarianews",
-          "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1UMWJsNEEwdWNIOHF0YTUzNWdpTmlsMV9lLU1zTjRqU2lOdDE3ZlBQNUlZVWNsOUFJVHRaVEVJQnl3dmlUV2lLYlN3?oc=5",
-          "published": "2026-11-16T12:02:32+00:00"
+          "title": "চকরিয়া-পেকুয়ার ২ হাজার ৮৭৮ শিক্ষার্থী নিয়ে শহীদ জিয়া স্মৃতি মেধা বৃত্তি পরীক্ষা অনুষ্ঠিত - Chakarianews",
+          "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9OZ0x5ZVJnVFFvN085U2FBdUtuQms2TTEtRnVIZUVwU0hFYVZIODZvcVB2T0JmZkxYOXdRWllOVURuOTBqMnQ2ZzJn?oc=5",
+          "published": "2026-11-14T05:38:37+00:00"
         }
       ]
     },
     {
       "domain": "khulnanchal.com",
       "status": "seen_in_rss",
-      "article_count": 56,
+      "article_count": 55,
       "sample_articles": [
         {
           "title": "খুলনাঞ্চল - দৈনিক খুলনাঞ্চল",
@@ -2353,20 +2363,20 @@
         },
         {
           "title": "খুলনাঞ্চল - দৈনিক খুলনাঞ্চল",
-          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9SNlFnNlBNQmpXaThTaEpYOWN1Y0FIY3pDd0Vkbmc1eHFmbmdaX3RGZDYtOXVTaFh4aGZKMmVFNVRfQWFpTnJoWXNwQnRnTGRCbG1obHdxbw?oc=5",
-          "published": "2026-11-17T20:04:43+00:00"
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFAzeTR6MWJDUU50ZlN1VUFkTS1BX2RtbmN6V2QyQ1hnTXRuRDhRQ3I3X1lLZlhQaUFhM05UWF9FNzRsc0RhRHZJQXdEZThKaXZQUGlGbEZ5Yw?oc=5",
+          "published": "2026-11-13T20:06:16+00:00"
         },
         {
           "title": "খুলনাঞ্চল - দৈনিক খুলনাঞ্চল",
-          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFAzeTR6MWJDUU50ZlN1VUFkTS1BX2RtbmN6V2QyQ1hnTXRuRDhRQ3I3X1lLZlhQaUFhM05UWF9FNzRsc0RhRHZJQXdEZThKaXZQUGlGbEZ5Yw?oc=5",
-          "published": "2026-11-13T20:06:16+00:00"
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9SNlFnNlBNQmpXaThTaEpYOWN1Y0FIY3pDd0Vkbmc1eHFmbmdaX3RGZDYtOXVTaFh4aGZKMmVFNVRfQWFpTnJoWXNwQnRnTGRCbG1obHdxbw?oc=5",
+          "published": "2026-11-17T20:04:43+00:00"
         }
       ]
     },
     {
       "domain": "suprobhat.com",
       "status": "seen_in_rss",
-      "article_count": 57,
+      "article_count": 56,
       "sample_articles": [
         {
           "title": "সাবেক মেয়র সাঈদ খোকন গ্রেপ্তার - suprobhat.com",
@@ -2388,12 +2398,12 @@
     {
       "domain": "shyamalsylhet.net",
       "status": "seen_in_rss",
-      "article_count": 90,
+      "article_count": 100,
       "sample_articles": [
         {
           "title": "আজকের পত্রিকা - Shyamal Sylhet",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4zSlNtVVRwT25LYUI1WWllOGZkS2FtU3BJNkIyNFM1TFllWS03eDBsdTJRdEdyVG9EbkpTUGNscUxFQ1htR1ZGMzJaMU96TVhOYmhKUnRKaHJzUXhna2JzZTNBQXZlQkptcHVGM3R3?oc=5",
-          "published": "2026-11-08T18:01:12+00:00"
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE54QXYwakpSS09mM0xtZHZBOGs1M29GNlpUY1BOZ1ZnVkU0RDlDT01UUWh4X3g5c0l3WFZQZXVlOU5hYjRLZEZUakw5R3JGR3czYnBIMFhwQVlFTDVuUHFQZ3ljQ3dyeHRnVTlnSjItSQ?oc=5",
+          "published": "2026-11-17T22:57:45+00:00"
         },
         {
           "title": "জাতীয়করণকৃত কলেজে শূন্যপদের তথ্য চেয়ে মাউশির জরুরি নির্দেশনা - Shyamal Sylhet",
@@ -2401,9 +2411,9 @@
           "published": "2026-11-16T13:06:00+00:00"
         },
         {
-          "title": "হবিগঞ্জের ডিসি সরফরাজকে গোপালগঞ্জে বদলি - Shyamal Sylhet",
-          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5jbHVQRnhtVi1kNWtQOEhqZUYyTkdSMnQ3ZzFpTnN1Q3lVNWlBeElaOHN2MEpVOGpWVkF2MWNuVVU2c0FzS0d6QTVydnNuN2s1clRV?oc=5",
-          "published": "2026-11-15T13:26:00+00:00"
+          "title": "সিলেটে যানবাহনে অগ্নিসংযোগের চেষ্টার অভিযোগে আটক ১ - Shyamal Sylhet",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5JU0plaC1qRFRwMS1Za3cxbU9zVy02QWFLVlRmckZGWlZYMTU3NHhMOUxJdnU4Y0VqbE8zaFVBUF9XZlFJYlhXMEhHR0ZZX2NUQmRF?oc=5",
+          "published": "2026-11-18T10:23:00+00:00"
         }
       ]
     },
@@ -2428,7 +2438,7 @@
     {
       "domain": "probashirdiganta.com",
       "status": "seen_in_rss",
-      "article_count": 104,
+      "article_count": 106,
       "sample_articles": [
         {
           "title": "এআই চিপের চাহিদায় রেকর্ড আয়, নতুন উচ্চতায় এনভিডিয়া - প্রবাসীর দিগন্ত",
@@ -2456,7 +2466,7 @@
     {
       "domain": "dhakaprokash24.com",
       "status": "seen_in_rss",
-      "article_count": 94,
+      "article_count": 92,
       "sample_articles": [
         {
           "title": "গোপালগঞ্জে এমপি এস এম জিলানীর বাড়িতে আগুন - Dhaka Prokash",
@@ -2478,7 +2488,7 @@
     {
       "domain": "ourislam24.com",
       "status": "seen_in_rss",
-      "article_count": 97,
+      "article_count": 96,
       "sample_articles": [
         {
           "title": "বাংলা নিউজ পোর্টাল - Ourislam24.com",
@@ -2500,7 +2510,7 @@
     {
       "domain": "sonalinews.com",
       "status": "seen_in_rss",
-      "article_count": 109,
+      "article_count": 100,
       "sample_articles": [
         {
           "title": "ইসরাইলের নির্বাচনের চূড়ান্ত ফল প্রকাশ, কত আসন পেল নেতানিয়াহুর দল? - Sonali News",
@@ -2513,9 +2523,9 @@
           "published": "2026-10-23T07:00:00+00:00"
         },
         {
-          "title": "আইসিএসবি স্বর্ণপদক অর্জন করল শাহ্জালাল ইসলামী ব্যাংক - Sonali News",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE96a2pVTHM3Tk5IS29iT1lDMEJEajhsNmNNUHFBdEFpd3UtSTM2NV9mcHJ3UVBud0hNeDc0anlmY3ljNzAteThIcXAzcXZuMWJJUXptZ2FwQk5UZw?oc=5",
-          "published": "2026-11-15T10:50:00+00:00"
+          "title": "পুঁজিবাজারে সূচক ও লেনদেনে প্রবৃদ্ধি, ডিএসইএক্স বেড়ে ৫৪৯২ পয়েন্টে - Sonali News",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4zSm0xWWlJVkdwVUJRYzhMQTRkX3NYdS1SaFlhZVBSWFRxRG1sdm5kQVdWbU84VDBEZjBfMnBxU0dDekpISXZmaU5IV0U2RExTZDNoN1R5NjhrQQ?oc=5",
+          "published": "2026-11-17T09:33:00+00:00"
         }
       ]
     },
@@ -2544,7 +2554,7 @@
     {
       "domain": "newsflash71.com",
       "status": "seen_in_rss",
-      "article_count": 52,
+      "article_count": 51,
       "sample_articles": [
         {
           "title": "News - News Flash 71",
@@ -2572,13 +2582,8 @@
     {
       "domain": "businesshour24.com",
       "status": "seen_in_rss",
-      "article_count": 54,
+      "article_count": 52,
       "sample_articles": [
-        {
-          "title": "জাতীয় Archives ~ Page 26 of 26 - Businesshour24.com",
-          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBCM3RDNEEydkQ4ZVFURnBZZzhrTjRVYmpsSDdnM3plYzltcms4Ni1XZWFlMFhmc3RvajZUbm0xRTJWbnF1cFY4T3djWjlUbDhjVWJFTVZ2UnBHbF93cmZiWjNPRQ?oc=5",
-          "published": "2026-11-13T18:51:40+00:00"
-        },
         {
           "title": "চীনা বিনিয়োগ নিয়ে প্রধানমন্ত্রীর সঙ্গে ভাইস প্রেসিডেন্টের আলোচনা - Businesshour24.com",
           "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxQNV9VWkptbHdzd2JjelJJM1dIY2cyTjhYYmpXTkpsRFVORVc3WC1hcDRCYzk0RnRpS2J2bDhyNkZReEJYME9jRXo2NHJkZGRSbTJBWmJFM1BGa3llcFMwRDR5MEo1NWJZVk9QN09YLTZhRUZlMlJSVVQ3WXFLc2huMGhuUVZjNXBSSUZEU1hwXzdWU2otN0dDRGNIT1JNR0lhZExXRWtyWGh1NEplazI2SlB5am9FWERiWlBWMUlNRWF6RnNpdWxuVFFkdlU1RVpEdk5XSWZvZkN4V1Y1MXBSQlBzTHNnbEFSc19EOVJ5eHBuNTlkUHY4QWZSenZDcHppaU9HLW55S19RT1BWMHBBTUkwTlpXQTE4QUVydXlSR1dyQVRJR1JfZ2ZxN0poZWZxN1J0LXZwTzNfYVpZY1RHOENJRHg0b2RG?oc=5",
@@ -2588,13 +2593,18 @@
           "title": "প্রধানমন্ত্রীর সঙ্গে ঢাকা মহানগর উত্তর বিএনপির নতুন নেতৃত্বের সাক্ষাৎ - Businesshour24.com",
           "link": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxNaHVjRUdWR1QxRk16STU2QXdYQ0MtcnVCa21nblhacFZYd1I5aHQxZ0lwODhMTHJtem1vcmwwRHRERnlEb0x2RlpXRDhuVnBOa1F3RHBleC13LXBiSnBmUjkzUkFiSlFPdWZXeVVaaUk0bE1MR1BLQnFmb1BzZFVSdFQtdDNyeFl3ZERqaEdPbUo1MVN0YWxQaEN1ZWpaZmt6dzB0Z0dWanpGWXp1c2IzdS1WSmlnNXBBbG45ay1GV21NN1dIclo0bk9leTU1REw4cFY5ZlFKNVJybHVnYzhERFRCNkVWc19HWjN4Q0Z5aC1PeDNoMVlmWTYwbzVXclRKQWR4RzBaY3J1cEs1Mlcwc2dUeEVVLWhSblFpOUl4ck1uQnF6UG0wcXhZNXJTLUZiXzdyVEQ2QzlYSHJUVmFwd0dwdy1vN24yaGZxM212dkl0czA?oc=5",
           "published": "2026-11-12T04:55:16+00:00"
+        },
+        {
+          "title": "লভ্যাংশ দেবে না ওয়েস্টার্ন মেরিন শিপইয়ার্ড - Businesshour24.com",
+          "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxPUHRUX1g5RExhMHJWZ2RucjNWdGsyV3owb2d0WFU1ekxGaks5MWJEMDhlYlRfNTNGMzkwYzNBa2lDZWN6Mlk4WVhUV1JXbFd4YlJNNS1TeTA3dmFwalFqSzNpNlNrV1NRaExSbmRCdFpOb1p0MG9SUDczMnVLRlNvbFQtaDlhTWRQWFZMak5MSnFlcjVKeWRzSkx2WUFaSTZiWHU3UjRQTXBTcU81WU1Vem1aYmFOTjVqb19DcElFTzNaY1VMQXktS1JGalh3bEctbXVtbFV3dzZEcjVqNnRjMnd3MWctaFc0cVNvdmNoa2NTZE5GQ1NyTVBIeEdiQ2pTeFg3eDZaUTlsMG1vWXROTWtMMEVRSGk5WUYyRHBtdk00U3U5VmVuU2xxSFhFRXRuM3VpMktvRUYwb2dPZVNiSFBya2ZvdTVW?oc=5",
+          "published": "2026-11-13T01:16:22+00:00"
         }
       ]
     },
     {
       "domain": "sharebazarnews.com",
       "status": "seen_in_rss",
-      "article_count": 103,
+      "article_count": 105,
       "sample_articles": [
         {
           "title": "সরকার ও প্রশাসনের একাংশ মিলে আ.লীগকে পুনর্বাসনের চেষ্টা করছে : জামায়াত - শেয়ারবাজারনিউজ.কম",
@@ -2616,7 +2626,7 @@
     {
       "domain": "sharebiz.net",
       "status": "seen_in_rss",
-      "article_count": 69,
+      "article_count": 70,
       "sample_articles": [
         {
           "title": "সূচকের উত্থানে পুঁজিবাজারে লেনদেন ৭৫৭ কোটি টাকা - শেয়ার বিজ",
@@ -2624,21 +2634,21 @@
           "published": "2026-11-11T16:40:00+00:00"
         },
         {
+          "title": "২৭ কার্যদিবসের মধ্যে সর্বোচ্চ লেনদেন - শেয়ার বিজ",
+          "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFB0UDRpN1BIeVd1OFhBYXFaN1ZuUWdTRm1leGQzcU83SUdDSEV5emhyOXNMOVhtSWNZT2RNNXFkQUZoOHhqdVFaWjd1WlE3bVQ1anpkYg?oc=5",
+          "published": "2026-11-10T16:21:00+00:00"
+        },
+        {
           "title": "বীমার ঢালাও দরপতনে কমেছে সূচক, বেড়েছে লেনদেন - শেয়ার বিজ",
           "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFAyS0NYNy0wa1JRa0pJbHpNelNCRXhHYlU4d3FRMWNwZXJlenQydjNLUXFOd3pJakdrdmtPX0xfZVd4MU5XNThCYk05b1VvWkx3Z1hUbw?oc=5",
           "published": "2026-11-09T17:17:00+00:00"
-        },
-        {
-          "title": "পুঁজিবাজারে এক মাসের মধ্যে সর্বোচ্চ লেনদেন - শেয়ার বিজ",
-          "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8zeVNvTmRTd2xvYWVpVnZHRmEyMnVIb2RJbUQ1U1JpZ0FXOGZieXo0VnZhWVRtM2piYnAxZldGZVVvazJoVDZMYlRLYWhoaWJlbFRLeg?oc=5",
-          "published": "2026-11-05T08:00:00+00:00"
         }
       ]
     },
     {
       "domain": "dailysharebazar.com",
       "status": "seen_in_rss",
-      "article_count": 56,
+      "article_count": 53,
       "sample_articles": [
         {
           "title": "ডিএসইতে বিদায়ী সপ্তাহে পিই রেশিও কমেছে - Daily Sharebazar",
@@ -2768,7 +2778,7 @@
     {
       "domain": "shomoyeralo.com",
       "status": "seen_in_rss",
-      "article_count": 211,
+      "article_count": 213,
       "sample_articles": [
         {
           "title": "২০৩০ সালে একই সময়ে মাঠে গড়াবে দুই বিশ্বকাপ - Shomoyer Alo",
@@ -2790,8 +2800,13 @@
     {
       "domain": "dainikbangla.com.bd",
       "status": "seen_in_rss",
-      "article_count": 34,
+      "article_count": 36,
       "sample_articles": [
+        {
+          "title": "সূচক বাড়লেও ডিএসইতে কমেছে লেনদেন - Dainikbangla",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9nYUl5dG5wR04zUW1wdDJWVnFPZHhWTG9Zdmg4ZjB1YW5lYWYzaThCX1VfSFhCWDlpNUFCTF9sQXA0ZFJKamRnczVaRWZqTlJ2bDZqOVpYcHdFUQ?oc=5",
+          "published": "2026-11-18T10:17:00+00:00"
+        },
         {
           "title": "ডিএসইতে প্রায় দুই মাসের মধ্যে সর্বোচ্চ লেনদেন, বেড়েছে প্রধান সূচক - Dainikbangla",
           "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9oTEd6VmVkbENyZ1ZzcFl3YXpDdEtfM2toZ016MzhPRHdIOFBrYkFvbkw0cVRxdkkxN1ZhbHBHSU1FSkZaVWxrRWYxaEg1N2dmbjd0M0xReWZuS2s?oc=5",
@@ -2801,11 +2816,6 @@
           "title": "Dainikbangla - - Dainikbangla",
           "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1Ib3hyOXhEQ2tSQ1NRYlh5NlljdXFDMlk3dWlDWS10bzZJVDBkYzhnM1htVEw4dnVrWVBvQ0ZCZDc2UTd1X0M5TFlMTHExa281ZURMY19GM1g?oc=5",
           "published": "2026-11-02T09:13:52+00:00"
-        },
-        {
-          "title": "Dainikbangla - - Dainikbangla",
-          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE44ME45S2tkVkVYRGZ6SFA5LWtUY2NyVlgzMlJHdzB6SUY1NkFsdmFpZjVyblZMdFgxRVFwUTNDVmRPeER3YmhZQy1jay1ZVGx3RmJ4VnNqaE8?oc=5",
-          "published": "2026-10-21T18:12:39+00:00"
         }
       ]
     },
@@ -2858,7 +2868,7 @@
     {
       "domain": "janobani.com",
       "status": "seen_in_rss",
-      "article_count": 87,
+      "article_count": 89,
       "sample_articles": [
         {
           "title": "সংসদে | সর্বশেষ বাংলা খবর | Latest Bangla News - Janobani",
@@ -2871,9 +2881,9 @@
           "published": "2026-10-25T07:00:00+00:00"
         },
         {
-          "title": "নব্বইয়ের দশকের গল্পে ছোট পর্দায় অভিষেক হচ্ছে কোয়েলের - Janobani",
-          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBwSGI5dUp4RE5uSVZ5WW9qbFFFQjhQTTV5ZnZiQ3FxckQzeXlCM1N0MFlZYzJqd1Q2QzNBVUZ2N2xLV3lZa1BRUjRFNEJ4bllueXc?oc=5",
-          "published": "2026-11-18T07:33:00+00:00"
+          "title": "জামায়াতে থাকলে মন খুলে নাচতেও পারতাম: মেঘনা আলম - Janobani",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1lWnJHa3JXNWRlejFNanQzMXlOQ2ZlbW1vR0Q1dHNaU2VreU1WOHlrY3lSdDh1cWpIU0ZpRVEtVEJQeGRqa1c2MHYxYmpUc3pIWFE?oc=5",
+          "published": "2026-11-18T11:29:00+00:00"
         }
       ]
     },
@@ -2905,6 +2915,11 @@
       "article_count": 56,
       "sample_articles": [
         {
+          "title": "নীলফামারীতে ফ্যামিলি কার্ডের উপকারভোগী নির্বাচনে মাঠপর্যায়ে জরিপ শুরু - dailyeaibangla.com",
+          "link": "https://news.google.com/rss/articles/CBMirgNBVV95cUxNTmtnMVU3TkFjaXZFeE12cnVIYkRJbGtFRC1DUkRacndkR3A0cEpGSWQzUXdMdU1hU3NoTlRvVkV5b1JlYThvbHlzRjBsMlU1VGg4NEJ4all3bWhkd0pJUjNDUHVGUUl0aWd5ZGNTMFBPV0tzMlItTjI4ckhfMUlabXVoWWNqclJ2bzlLdlJQTDFJZmgtUlBxbU9ZeHpuTDBCQllEQ1pMT0pldTVweXg3WURpYU9CZjJZZ0RvQVA3Um5KbC0zTEFFUENkNnloUXFpWXA5MnlOY3RId3Ryd1BlaXRxTnFjNVpIY2lSZkJBekViX3lHQm10NGYzZlphNGJFLWdUcEdPYVFZRUhTazB1SDJCc1RMaVpNbWpwQXhvVGtiSjF4UUgzWFlVTTlJb0JYSnVoZ0ROaTVqRXFVd3JvTjlDdjVNc28tci02OVBnRzQyNHNaSjlMRVRXVDgyZk5kQ0RZNERpajlFeEY0OVRQTnJORjg3eE5oRHNRMHNUQ0ZlUUVJS0M3dXEzZTdQQVhzV2JFRDlmYVFoYkxVM05KeVNmWG16T0VFYnRYNDdB?oc=5",
+          "published": "2026-11-17T11:19:11+00:00"
+        },
+        {
           "title": "মৌলভীবাজারে গুড়ে ক্ষতিকর হাইড্রোজ শনাক্ত, ৪ প্রতিষ্ঠানকে জরিমানা - dailyeaibangla.com",
           "link": "https://news.google.com/rss/articles/CBMivANBVV95cUxNSEx6LWxvZV9ualZ1UWhvcmV2UnAwVy12cVBDQ0xBV0t1VVp4VjhtWHBuTzJUYzc3bkdCLW80T1YzajZ4MzJSZmhpbjVfUjlMS0I2NnVLTkxkRklXN3JpWU1jandzQ3ppOFFJYmlVZkxOTURILXFZSEkzSmwyaVV4ZERZZ2VEM090SkVjeTMwc2FxSnJ0SHRVR1J4amp3UC1fc1lxOXlKYnVoUjdpcnVIWmNJZHdvbDF6cGxqZnBhWklnM3RjTjlmc1ZwckRLME9TSklLVXB6VE5ZeUdVZkpoWmhacFJ3dzMzZlpkbm0xWjEwV3lVZGF5aDFxSVd3MnJYUGlTblAtc1p3OUZTaE15czVraTZ5OXVZbG9pYmhhTzFBUjZDTERqQl9URWcyankxVGNGWmlGMUlIMGlzYVVSU3lMcjYzSUdzQ2RDWHgzYTVKVzZZT1RGRXhFbW9lc2ZyRXh2dmNISVcxZnd4akh6Y19iYXlLZ2hYTFFRU1JvaEp3X2dSZk5KbUtMWTV0VG9BS3EtZzVWVzZKY1VMdmRuMDU4ZUdiV1VpV0xvam03Ujd5WjFwVGhUV2l5Z0Y?oc=5",
           "published": "2026-11-16T03:11:20+00:00"
@@ -2913,11 +2928,6 @@
           "title": "সীতাকুণ্ড শঙ্কর মঠে সপ্তাহব্যাপী অনুষ্ঠানের উদ্বোধন - dailyeaibangla.com",
           "link": "https://news.google.com/rss/articles/CBMi8wJBVV95cUxOSjVXVkkzVmNFTlRqbTR6S1Y4RnpFdVpNNDh4RDl2aGFVc2xFNTRTN1ZmUl94ZFIzdDFpdklIVFQzSFZ1bGF2SG1DLUZNbFhrTlZRN1l4cDhxQ3Bmb1ZPVWlOSXVubTNVLVlNNGtvNHpJTlNZWnNDV0twVXJLNWlDMjVlcDN0NU5TOFZMT3M5RDNGY2lsVVA2ZXpkb3ZLS0Jwa3hYRFRfVDRReGJaU3N0ckx3QWtUa25FZ1lRNTZKV285SlR3eGJ4Qy1vLTYxc2Npei1MbnFmNTdKdVNsbWEyLTEwZUswVkpkUU5oTWs3RUVHend5bGhYR3pKajRvLXlFaWJsYjRjVF9tQ1BoNjhkdkVfaW9Xclk3UnJRQnZ5N25zVnRuUUkxZWNCdDZ3cFBEOFdQVmdCM1hrT2NCNUhzeVN5TUZmUkt3bWstSHctRUk1QVpCU25TbWM1OWJNLVpaODdyeFpjX1V2YUNKNzZOSGVZYw?oc=5",
           "published": "2026-11-16T20:34:46+00:00"
-        },
-        {
-          "title": "রাজশাহীতে বিচারকের ছেলে হত্যা মামলায় একমাত্র আসামির মৃত্যুদণ্ড - dailyeaibangla.com",
-          "link": "https://news.google.com/rss/articles/CBMisANBVV95cUxOOEJ6NS1Oc2VBWWJFWExLYlZmeHAzbW9HMmM0czZtb1BoTEJLbzAwbXZYVFNEek5XczR3V2xmRnBXbGw2ZVJpV241d0N2SXEtV1QwM09vRWF2S2VLUng2N0xfeEprSE9LMlFFOU9GU2FReW43VElyc0J1WlFqUURic013ekM3T3RFZ09lZ0xmblh4YlV5LTVsRVpoN0x2ZTZyQ3gyTlA5N2ZZMVgzVjZPdVpNTzVtNzkxaW9ycTBwUU01bTZwcldoSFM2OUEtRWVDTTZpbDA1bEtLR0dhSkZtMnViOHhkbVkzU2lJdW1uTnFRa0VDYVVCclRibk9sU1hmM1ZRR1kxTm82M0FJYlU2WjNmZzlFZVczSUhWU2NKWDYxQWNxMzJtY2wwNUxSOHd5dWNIVmZMbVpFZml0SVFneGtlTnBkWHJ5MjhMeWtCSDJoazEwdXNkOEVlTHAtNVpsRDZWQllzdW5teENmSkZRdGZlRnp5OUdUNUZsS1VvTmN1d3VRYjVqOUZsUENyWkNPZDd0LTctQXJRdER2QUpKTmlwWTBKemFWRi1sMTdIaFk?oc=5",
-          "published": "2026-11-12T11:19:19+00:00"
         }
       ]
     },
@@ -2954,7 +2964,7 @@
     {
       "domain": "therisingcampus.com",
       "status": "seen_in_rss",
-      "article_count": 4,
+      "article_count": 3,
       "sample_articles": [
         {
           "title": "scholarship - The Rising Campus",
@@ -3010,7 +3020,7 @@
     {
       "domain": "chatganews.com",
       "status": "seen_in_rss",
-      "article_count": 96,
+      "article_count": 100,
       "sample_articles": [
         {
           "title": "রাঙ্গুনিয়ায় পরিবেশ অধিদপ্তরের অভিযান, গুঁড়িয়ে দেওয়া হলো ৩ অবৈধ ইটভাটা - চাটগাঁ নিউজ",
@@ -3032,7 +3042,7 @@
     {
       "domain": "deshsangbad.com",
       "status": "seen_in_rss",
-      "article_count": 57,
+      "article_count": 58,
       "sample_articles": [
         {
           "title": "ফের কমল সোনার দাম, ভরি কত? - deshsangbad.com",
@@ -3040,14 +3050,14 @@
           "published": "2026-11-12T05:07:00+00:00"
         },
         {
+          "title": "প্রথম ধাপে ১ হাজার ২৬ ইউপিতে ভোট - deshsangbad.com",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9NSWF2NEhNWGo0ZGhQWmxyTDVXNmVOZ292ZDJCTWxkQUdYeVo2LTdxVlVHSElXUkhrMTNuMXRPTnFIbDlGbnRPVXNJUldfc3VC?oc=5",
+          "published": "2026-11-16T08:19:00+00:00"
+        },
+        {
           "title": "ডিএমপির অভিযানে ২৪ ঘণ্টায় গ্রেপ্তার ৫৩৪, মামলা ৫৩ - deshsangbad.com",
           "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBQY2tNX25JTjNYWkdJd2FkQm1vbFhTNlFyMloybGZrT2xkdFR2U1prRURfcDJ0WUFFR2hTRDBIM3l6cVpFd2QxREFDU2NqTXhz?oc=5",
           "published": "2026-11-13T06:40:00+00:00"
-        },
-        {
-          "title": "হাসিনাকে ফেরত দেয়া নিয়ে কোনো শর্ত দেয়নি ভারত: শামা ওবায়েদ - deshsangbad.com",
-          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBBRTF2QndxVFZZcE1vUDkxd0dwelB1ZERETUY4UXhKeElQZWxZcURhMDNSSkZWN01rbHVsZHNTNmNoMFloZVZLV1czb2hyOEdU?oc=5",
-          "published": "2026-11-16T11:45:00+00:00"
         }
       ]
     },
@@ -3104,7 +3114,7 @@
     {
       "domain": "thebangladeshtoday.com",
       "status": "seen_in_rss",
-      "article_count": 54,
+      "article_count": 55,
       "sample_articles": [
         {
           "title": "দেশজুড়ে Archives - Page 1339 of 1339 - The Bangladesh Today",
@@ -3112,14 +3122,14 @@
           "published": "2026-11-16T15:55:37+00:00"
         },
         {
-          "title": "দেশজুড়ে Archives - Page 1336 of 1336 - The Bangladesh Today",
-          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5OTVo1ckhDdVo0dTlFdWc4VXRseWdJYUllOWRMZEd1bS1Sd2Vodi0xeERkY1I4UnJ0TFE3cGtjbFBuZFBKTkdkQVBLbVFJeXZFQ3BDT2xybkFWLUdwSUdYejlEWVNrOFFMaWduUFhzb0tLQQ?oc=5",
-          "published": "2026-11-12T19:23:04+00:00"
-        },
-        {
           "title": "যুক্তরাজ্যে পৌঁছেছেন নাহিদ ইসলাম - The Bangladesh Today",
           "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9naDhodi1YMFdwb25hMTZzbWpwajZEakVXeHJwbldadElXZHJBSllXUlM1YTlZWVpya3QwaER4QXZGYTJXVWNmc0NGQUU1anVFZzYwTDV6YTlrb0FJa0htS1Z0ay02TlRXT3Vwc21OUXN4OXI3?oc=5",
           "published": "2026-11-14T06:45:42+00:00"
+        },
+        {
+          "title": "এনআইডি সেবা নিয়ে দুর্নীতি থেকে মুক্তি পেতে চায় কমিশন: সিইসি - The Bangladesh Today",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1SZDhrQ19ZY0FxajgtRmRSaDRYRDZwSWRxSm5HcC1Nb3dIcldEWFliVU5MOHBuMXZneVlPaGpTMGd0ZE1GYlY5dHVyOEdwc1RqbGZLS0dzTEVNdVBFd3BoLUlZU3hLMGh1WWx3cm5zbzE4NTZn?oc=5",
+          "published": "2026-11-18T07:53:09+00:00"
         }
       ]
     },
